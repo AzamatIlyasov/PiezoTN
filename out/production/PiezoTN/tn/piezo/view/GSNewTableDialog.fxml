@@ -68,7 +68,7 @@
             </Button>
          </children>
       </HBox>
-      <TextField fx:id="CountOfTN" layoutX="192.0" layoutY="50.0" prefHeight="25.0" prefWidth="60.0" promptText="30" AnchorPane.topAnchor="50.0" />
+      <TextField fx:id="CountOfTN" layoutX="192.0" layoutY="50.0" onAction="#countChanged" onInputMethodTextChanged="#countChanged" prefHeight="25.0" prefWidth="60.0" promptText="30" AnchorPane.topAnchor="50.0" />
       <Label layoutX="67.0" layoutY="54.0" text="Количество участков" AnchorPane.topAnchor="54.0" />
       <ComboBox fx:id="listBranchingOfTN" layoutX="222.0" layoutY="13.0" onAction="#handleTNPart" prefHeight="25.0" prefWidth="91.0" promptText="3 Ответвления" AnchorPane.topAnchor="10.0" />
       <ComboBox fx:id="listTN" layoutX="125.0" layoutY="13.0" onAction="#handleTermalNet" prefHeight="25.0" prefWidth="91.0" promptText="2 Тепловая сеть" AnchorPane.topAnchor="10.0" />

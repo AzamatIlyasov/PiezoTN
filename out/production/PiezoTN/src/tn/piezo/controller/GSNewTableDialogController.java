@@ -22,17 +22,17 @@ import java.util.ArrayList;
 public class GSNewTableDialogController {
 
     // поля для данных
-    int indexPartTN = 0;
+    private int indexPartTN = 0;
     // переменные - исходные данные для расчета
-    String[] NamePartTN;
-    String[] NamePartTNpred;
-    double[] D;
-    double[] L;
-    double[] G;
-    double[] Kekv;
-    double Hrasp_ist;
-    double[] Geo;
-    double[] ZdanieEtaj;
+    private String[] NamePartTN;
+    private String[] NamePartTNpred;
+    private double[] D;
+    private double[] L;
+    private double[] G;
+    private double[] Kekv;
+    private double Hrasp_ist;
+    private double[] Geo;
+    private double[] ZdanieEtaj;
     // поля для
     @FXML
     private TextField NamePartTNField;
@@ -65,7 +65,7 @@ public class GSNewTableDialogController {
 
     private Stage dialogStage;
     private HydraC hydraC;
-    ArrayList hydraArray = new ArrayList();
+    private ArrayList hydraArray = new ArrayList();
     private boolean okClicked = false;
     // Ссылка на главное приложение.
     private Main main;
@@ -92,8 +92,6 @@ public class GSNewTableDialogController {
 
     /**
      * Returns true, если пользователь кликнул OK, в другом случае false.
-     *
-     * @return
      */
     public boolean isOkClicked() {
         return okClicked;
@@ -110,6 +108,23 @@ public class GSNewTableDialogController {
     }
 
     /**
+     * Количество участков изменилось
+     */
+    @FXML
+    private void countChanged() {
+        //инициализация массивов для исх данных
+        int n = Integer.parseInt(CountOfTN.getText());
+        NamePartTN = new String[n];
+        NamePartTNpred = new String[n];
+        D = new double[n];
+        L = new double[n];
+        G = new double[n];
+        Kekv = new double[n];
+        Geo = new double[n];
+        ZdanieEtaj = new double[n];
+    }
+
+    /**
      * Вызывается, когда пользователь кликнул по кнопке Cancel.
      */
     @FXML
@@ -123,16 +138,7 @@ public class GSNewTableDialogController {
     @FXML
     private void handleNext() {
         if (isInputValid()) {
-            //инициализация массивов для исх данных
-            int n = Integer.parseInt(CountOfTN.getText());
-            NamePartTN = new String[n];
-            NamePartTNpred = new String[n];
-            D = new double[n];
-            L = new double[n];
-            G = new double[n];
-            Kekv = new double[n];
-            Geo = new double[n];
-            ZdanieEtaj = new double[n];
+            //сохраняем данные в массивах
             editDataHydra(indexPartTN);
             // очищаем диалоговое окно
             clearDialogStage();
@@ -163,16 +169,7 @@ public class GSNewTableDialogController {
     @FXML
     private void handlePrevious() {
         if (isInputValid()) {
-            //инициализация массивов для исх данных
-            int n = Integer.parseInt(CountOfTN.getText());
-            NamePartTN = new String[n];
-            NamePartTNpred = new String[n];
-            D = new double[n];
-            L = new double[n];
-            G = new double[n];
-            Kekv = new double[n];
-            Geo = new double[n];
-            ZdanieEtaj = new double[n];
+            //сохраняем тек информацию
             editDataHydra(indexPartTN);
             // очищаем диалоговое окно
             clearDialogStage();
@@ -234,7 +231,7 @@ public class GSNewTableDialogController {
         if (CountOfTN.getText() == null || CountOfTN.getText().length() == 0 || Double.parseDouble(CountOfTN.getText()) <= 0 ) {
             errorMessage += "Неправильный ввод данных - укажите корректное количество участков!\n ";
         }
-        if (IndexPartTN.getText() == null || IndexPartTN.getText().length() == 0 || Double.parseDouble(IndexPartTN.getText()) <= 0 ) {
+        if (IndexPartTN.getText() == null || IndexPartTN.getText().length() == 0 || Double.parseDouble(IndexPartTN.getText()) < 0 ) {
             errorMessage += "Неправильный ввод данных - укажите корректный номер (индекс) редактируемого участка!\n ";
         }
 
