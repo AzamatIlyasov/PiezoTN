@@ -123,20 +123,38 @@ public class GSNewTableDialogController {
     @FXML
     private void handleNext() {
         if (isInputValid()) {
-            hydraC.setNamePartTN(NamePartTNField.getText());
-            hydraC.setNamePartTNpred(NamePartTNpredField.getText());
-            hydraC.setD(Double.parseDouble(DField.getText()));
-            hydraC.setL(Double.parseDouble(LField.getText()));
-            hydraC.setG(Double.parseDouble(GField.getText()));
-            hydraC.setKekv(Double.parseDouble(KekvField.getText()));
-            hydraC.setGeo(Double.parseDouble(GeoField.getText()));
-            hydraC.setZdanieEtaj(Double.parseDouble(ZdanieEtajField.getText()));
-            hydraC.setHrasp_ist(Double.parseDouble(Hrasp_istField.getText()));
+            //инициализация массивов для исх данных
+            int n = Integer.parseInt(CountOfTN.getText());
+            NamePartTN = new String[n];
+            NamePartTNpred = new String[n];
+            D = new double[n];
+            L = new double[n];
+            G = new double[n];
+            Kekv = new double[n];
+            Geo = new double[n];
+            ZdanieEtaj = new double[n];
+            editDataHydra(indexPartTN);
             // очищаем диалоговое окно
             clearDialogStage();
             indexPartTN++;
             IndexPartTN.setText(Integer.toString(indexPartTN));
+            Hrasp_istField.setText(Double.toString(Hrasp_ist));
         }
+    }
+
+    /**
+     * добавления и редактирование новой таблицы
+     */
+    private void editDataHydra(int ind) {
+        NamePartTN[ind] = (NamePartTNField.getText());
+        NamePartTNpred[ind]=(NamePartTNpredField.getText());
+        D[ind]=(Double.parseDouble(DField.getText()));
+        L[ind]=(Double.parseDouble(LField.getText()));
+        G[ind]=(Double.parseDouble(GField.getText()));
+        Kekv[ind]=(Double.parseDouble(KekvField.getText()));
+        Geo[ind]=(Double.parseDouble(GeoField.getText()));
+        ZdanieEtaj[ind]=(Double.parseDouble(ZdanieEtajField.getText()));
+        Hrasp_ist=(Double.parseDouble(Hrasp_istField.getText()));
     }
 
     /**
@@ -145,20 +163,22 @@ public class GSNewTableDialogController {
     @FXML
     private void handlePrevious() {
         if (isInputValid()) {
-            hydraC.setNamePartTN(NamePartTNField.getText());
-            hydraC.setNamePartTNpred(NamePartTNpredField.getText());
-            hydraC.setD(Double.parseDouble(DField.getText()));
-            hydraC.setL(Double.parseDouble(LField.getText()));
-            hydraC.setG(Double.parseDouble(GField.getText()));
-            hydraC.setKekv(Double.parseDouble(KekvField.getText()));
-            hydraC.setGeo(Double.parseDouble(GeoField.getText()));
-            hydraC.setZdanieEtaj(Double.parseDouble(ZdanieEtajField.getText()));
-            hydraC.setHrasp_ist(Double.parseDouble(Hrasp_istField.getText()));
-
+            //инициализация массивов для исх данных
+            int n = Integer.parseInt(CountOfTN.getText());
+            NamePartTN = new String[n];
+            NamePartTNpred = new String[n];
+            D = new double[n];
+            L = new double[n];
+            G = new double[n];
+            Kekv = new double[n];
+            Geo = new double[n];
+            ZdanieEtaj = new double[n];
+            editDataHydra(indexPartTN);
             // очищаем диалоговое окно
             clearDialogStage();
             indexPartTN--;
             IndexPartTN.setText(Integer.toString(indexPartTN));
+            Hrasp_istField.setText(Double.toString(Hrasp_ist));
         }
     }
 
