@@ -191,25 +191,25 @@ public class GSNewTableDialogController {
             errorMessage += "Неправильное название предыдущего участка!\n";
         }
         if (DField.getText() == null || DField.getText().length() == 0 || Double.parseDouble(DField.getText()) <1 ) {
-            errorMessage += "Неправильный диаметр участка!\n Диаметр необходимо ввести в мм";
+            errorMessage += "Неправильный диаметр участка!\n Диаметр необходимо ввести в мм\n";
         }
         if (LField.getText() == null || LField.getText().length() == 0 || Double.parseDouble(LField.getText()) <=0.5 ) {
-            errorMessage += "Неправильная длина участка!\n Длину необходимо ввести в м";
+            errorMessage += "Неправильная длина участка!\n Длину необходимо ввести в м\n";
         }
         if (GField.getText() == null || GField.getText().length() == 0 || Double.parseDouble(GField.getText()) <=0 ) {
-            errorMessage += "Неправильный расход участка!\n Расход необходимо ввести в т/ч";
+            errorMessage += "Неправильный расход участка!\n Расход необходимо ввести в т/ч\n";
         }
         if (KekvField.getText() == null || KekvField.getText().length() == 0 || Double.parseDouble(KekvField.getText()) <=0 ) {
-            errorMessage += "Неправильный коэффициент шероховатости участка!\n К-т шероховатости необходимо ввести в мм";
+            errorMessage += "Неправильный коэффициент шероховатости участка!\n К-т шероховатости необходимо ввести в мм\n";
         }
         if (GeoField.getText() == null || GeoField.getText().length() == 0 || Double.parseDouble(KekvField.getText()) <=0 ) {
-            errorMessage += "Неправильная геодезическая отметка участка!\n Геодезическую отметку необходимо ввести в м";
+            errorMessage += "Неправильная геодезическая отметка участка!\n Геодезическую отметку необходимо ввести в м\n";
         }
         if (ZdanieEtajField.getText() == null || ZdanieEtajField.getText().length() == 0 || Double.parseDouble(ZdanieEtajField.getText()) < 0 ) {
-            errorMessage += "Неправильная этажность здания участка!\n Этажность здания необходимо ввести в штуках ( 1 этаж,2 этажа, 3 этажа и тд";
+            errorMessage += "Неправильная этажность здания участка!\n Этажность здания необходимо ввести в штуках ( 1 этаж, 2 этажа, 3 этажа и тд)\n";
         }
         if (Hrasp_istField.getText() == null || Hrasp_istField.getText().length() == 0 || Double.parseDouble(Hrasp_istField.getText()) <= 0 ) {
-            errorMessage += "Неправильный напор у источника!\n Напор у источника необходимо ввести в м";
+            errorMessage += "Неправильный напор у источника!\n Напор у источника необходимо ввести в м\n";
         }
         if (CountOfTN.getText() == null || CountOfTN.getText().length() == 0 || Double.parseDouble(CountOfTN.getText()) <= 0 ) {
             errorMessage += "Неправильный ввод данных - укажите корректное количество участков!\n ";
