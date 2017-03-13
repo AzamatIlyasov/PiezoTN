@@ -23,6 +23,7 @@ public class GSNewTableDialogController {
 
     // поля для данных
     private int indexPartTN = 0;
+    private String fileName = "";
     // переменные - исходные данные для расчета
     private String[] NamePartTN;
     private String[] NamePartTNpred;
@@ -75,6 +76,20 @@ public class GSNewTableDialogController {
      */
     @FXML
     private void initialize() {
+        // инициализация combobox - выбор источника
+        listSourceTN.getItems().addAll("К.Баскуат",
+                "Кот. №1",
+                "Кот. №3",
+                "New");
+        // инициализация combobox - выбор тепловой сети
+        listTN.getItems().addAll("М700",
+                "М500",
+                "М600",
+                "New");
+        // инициализация combobox - выбор ответвления тепловой сети
+        listBranchingOfTN.getItems().addAll("Сама магистраль",
+                "М11",
+                "New");
 
     }
 
@@ -87,6 +102,13 @@ public class GSNewTableDialogController {
         this.dialogStage = dialogStage;
         // Устанавливаем иконку для диалгового окна
         this.dialogStage.getIcons().add(new Image("file:resources/images/Edit1.png"));
+    }
+
+    /**
+     *
+     */
+    public String getFileName() {
+        return fileName;
     }
 
     /**
@@ -103,6 +125,10 @@ public class GSNewTableDialogController {
     private void handleOk() {
         //сохраняем данные в массивах
         editDataHydra(indexPartTN);
+        String sourceName = listSourceTN.getValue().toString();
+        String tnName = listTN.getValue().toString();
+        String branchTNName = listBranchingOfTN.getValue().toString();
+        fileName = "input" + "-" + sourceName + "-" + tnName + "-" + branchTNName;
         okClicked = true;
         dialogStage.close();
     }

@@ -92,6 +92,7 @@ public class GSOverviewController {
         HydraOverviewTable.setItems(main.getHydraData());
     }
 
+
     /**
      * Заполняет все текстовые поля, отображая подробности об участке
      *
@@ -231,7 +232,8 @@ public class GSOverviewController {
      */
     @FXML
     private void handleCancel() {
-        main.showGSMainOverview();
+        //main.showGSMainOverview();
+        dialogStage.close();
     }
 
     /**
@@ -239,8 +241,9 @@ public class GSOverviewController {
      */
     @FXML
     private void handleDone() {
-            okClicked = true;
-            main.showGSMainOverview();
+        okClicked = true;
+        //main.showGSMainOverview();
+        dialogStage.close();
     }
 
 }

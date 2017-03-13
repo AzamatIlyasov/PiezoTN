@@ -197,12 +197,25 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/GSOverview.fxml"));
             AnchorPane gsOverview = (AnchorPane)loader.load();
+
+            // Создаём диалоговое окно Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("HydraEdit");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(gsOverview);
+            dialogStage.setScene(scene);
+
             // Помещаем сведения об участках в центр корневого макета.
-            rootLayout.setCenter(gsOverview);
+            //rootLayout.setCenter(gsOverview);
             // Передаём участок в контроллер.
             GSOverviewController gsOverviewController = loader.getController();
+            gsOverviewController.setDialogStage(dialogStage);
             //
             gsOverviewController.setMain(this);
+            // Отображаем диалоговое окно и ждём, пока пользователь его не закроет
+            dialogStage.showAndWait();
+
 
             return gsOverviewController.isOkClicked();
         } catch (IOException e) {

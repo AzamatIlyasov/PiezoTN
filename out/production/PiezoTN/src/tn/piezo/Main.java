@@ -1,5 +1,6 @@
 package tn.piezo;
 
+import java.awt.image.AreaAveragingScaleFilter;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,6 +54,13 @@ public class Main extends Application {
     }
 
     /**
+     * сохранения данных в таблицу
+     */
+    public void saveDataTable(ArrayList DataHydra, String fileName) {
+        //тестовая запись в файл Excel
+        ExcelParser.writeExcelHydra(DataHydra, fileName);
+    }
+    /**
      * ГР решатель
      */
     public void runGRSolver() {
@@ -80,8 +88,7 @@ public class Main extends Application {
             piezoData.add(new PiezoC(i, objPiezoDCS.NamePartTN,
                     objPiezoDCS.L, objPiezoDCS.Geo, objPiezoDCS.ZdanieEtaj, objPiezoDCS.HraspPod, objPiezoDCS.HraspObrat));
         }
-        //тестовая запись в файл Excel
-        ExcelParser.writeExcelHydra(hydraDataArrayList);
+
     }
 
     /**
@@ -111,6 +118,7 @@ public class Main extends Application {
         }
 
     }
+
     /**
      * Возвращает данные в виде наблюдаемого списка участков для ПГ.
      * @return
@@ -189,12 +197,25 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/GSOverview.fxml"));
             AnchorPane gsOverview = (AnchorPane)loader.load();
+
+            // Создаём диалоговое окно Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("HydraEdit");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(gsOverview);
+            dialogStage.setScene(scene);
+
             // Помещаем сведения об участках в центр корневого макета.
-            rootLayout.setCenter(gsOverview);
+            //rootLayout.setCenter(gsOverview);
             // Передаём участок в контроллер.
             GSOverviewController gsOverviewController = loader.getController();
+            gsOverviewController.setDialogStage(dialogStage);
             //
             gsOverviewController.setMain(this);
+            // Отображаем диалоговое окно и ждём, пока пользователь его не закроет
+            dialogStage.showAndWait();
+
 
             return gsOverviewController.isOkClicked();
         } catch (IOException e) {
@@ -235,6 +256,7 @@ public class Main extends Application {
             dialogStage.showAndWait();
             hydraDataArrayList = controller.getNewHydraData();
             setHydraData(hydraDataArrayList);
+            saveDataTable(hydraDataArrayList,controller.getFileName());
 
             return controller.isOkClicked();
         } catch (IOException e) {
