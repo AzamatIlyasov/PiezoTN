@@ -247,7 +247,8 @@ public class MainGSUIController {
     // к.Вычислить - запуск гидравлического расчета для выбранного участка
     @FXML
     private void runGidRas() {
-        main.runGRMain(sourceFileName);
+        //main.runGRMain(sourceFileName);
+        main.runGRSolver();
     }
 
 }

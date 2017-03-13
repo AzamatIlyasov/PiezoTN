@@ -65,7 +65,6 @@ public class GSNewTableDialogController {
 
     private Stage dialogStage;
     private HydraC hydraC;
-    private ArrayList hydraArray = new ArrayList();
     private boolean okClicked = false;
     // Ссылка на главное приложение.
     private Main main;
@@ -102,7 +101,8 @@ public class GSNewTableDialogController {
      */
     @FXML
     private void handleOk() {
-        saveHydraData();
+        //сохраняем данные в массивах
+        editDataHydra(indexPartTN);
         okClicked = true;
         dialogStage.close();
     }
@@ -272,11 +272,11 @@ public class GSNewTableDialogController {
     /**
      * Метод для добавления и сохранения введеных данных в ArrayList
      */
-    private void saveHydraData() {
+    public ArrayList getNewHydraData() {
         // ГР
         HydraSolverC hydraPartTN = new HydraSolverC(NamePartTN, NamePartTNpred, D, L, G, Kekv, Geo, ZdanieEtaj, Hrasp_ist);
-        hydraArray = hydraPartTN.HydraPartTN(hydraPartTN);
-        main.setHydraData(hydraArray);
+        ArrayList hydraArray = hydraPartTN.HydraPartTN(hydraPartTN);
+        return hydraArray;
     }
 
 }
