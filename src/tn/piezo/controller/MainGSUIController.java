@@ -70,7 +70,7 @@ public class MainGSUIController {
     private ComboBox listBranchingOfTN;
 
     // для ГР - источник данных
-    String sourceFileName = "";
+    private String sourceFileName = "";
     //defining the axes
     @FXML
     private CategoryAxis xAxis = new CategoryAxis();

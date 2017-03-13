@@ -70,7 +70,7 @@ public class MainGSUIController {
     private ComboBox listBranchingOfTN;
 
     // для ГР - источник данных
-    String sourceFileName = "";
+    private String sourceFileName = "";
     //defining the axes
     @FXML
     private CategoryAxis xAxis = new CategoryAxis();
@@ -247,7 +247,8 @@ public class MainGSUIController {
     // к.Вычислить - запуск гидравлического расчета для выбранного участка
     @FXML
     private void runGidRas() {
-        main.runGRMain(sourceFileName);
+        //main.runGRMain(sourceFileName);
+        main.runGRSolver();
     }
 
 }
