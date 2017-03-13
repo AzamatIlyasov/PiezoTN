@@ -2,38 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/ExcelDataBase/test files/inputAzaTest.xls" afterPath="$PROJECT_DIR$/out/production/PiezoTN/ExcelDataBase/test files/inputAzaTest.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/resources/ExcelDataBase/test files/inputAzaTest.xls" afterPath="$PROJECT_DIR$/out/production/PiezoTN/resources/ExcelDataBase/test files/inputAzaTest.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/Main.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSEditDialogController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSEditDialogController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSNewTableDialogController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSNewTableDialogController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSOverviewController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSOverviewController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/MainGSUIController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/MainGSUIController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/PiezoGraphicController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/PiezoGraphicController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/ExcelParser.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/ExcelParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/HydraC.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/HydraC.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/HydraSolverC.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/HydraSolverC.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/PiezoC.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/PiezoC.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/Main.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/GSEditDialogController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/GSEditDialogController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/GSNewTableDialogController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/GSNewTableDialogController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/GSOverviewController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/GSOverviewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/MainGSUIController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/MainGSUIController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/PiezoGraphicController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/PiezoGraphicController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/ExcelParser.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/ExcelParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/HydraC.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/HydraC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/HydraDataClassStruct.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/HydraDataClassStruct.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/HydraSolverC.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/HydraSolverC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/PiezoC.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/PiezoC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/PiezoDataClassStructure.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/PiezoDataClassStructure.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/PiezoPlotC.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/PiezoPlotC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/view/GSNewTableDialog.fxml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/view/GSNewTableDialog.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/view/GSNewTableDialog.fxml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/view/GSNewTableDialog.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/Main.java" afterPath="$PROJECT_DIR$/src/tn/piezo/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/controller/GSNewTableDialogController.java" afterPath="$PROJECT_DIR$/src/tn/piezo/controller/GSNewTableDialogController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/controller/GSOverviewController.java" afterPath="$PROJECT_DIR$/src/tn/piezo/controller/GSOverviewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/model/HydraSolverC.java" afterPath="$PROJECT_DIR$/src/tn/piezo/model/HydraSolverC.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -198,6 +167,7 @@
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
+    <option name="WARN_ABOUT_CRLF" value="false" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -686,7 +656,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489394858668</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Добавляем функционал - создание таблицы гр для нового участка (1)">
+      <created>1489406456833</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1489406456833</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -703,7 +680,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -747,7 +724,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Кооректировка (прокрастинация) исходного кода." />
-    <option name="LAST_COMMIT_MESSAGE" value="Кооректировка (прокрастинация) исходного кода." />
+    <MESSAGE value="Добавляем функционал - создание таблицы гр для нового участка (1)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавляем функционал - создание таблицы гр для нового участка (1)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
