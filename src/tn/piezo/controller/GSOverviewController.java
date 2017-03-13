@@ -10,9 +10,9 @@ import tn.piezo.model.HydraC;
  * Created by djaza on 16.02.2017.
  */
 public class GSOverviewController {
+
     @FXML
     private TableView<HydraC> HydraOverviewTable;
-
     // переменные - исходные данные для расчета
     @FXML
     private TableColumn<HydraC, Integer> Number_column; //нумерация участков
@@ -24,7 +24,6 @@ public class GSOverviewController {
     private TableColumn<HydraC, Double> D_column;
     @FXML
     private TableColumn<HydraC, Double> L_column;
-
     @FXML
     private Label NamePartTNLabel;
     @FXML
@@ -80,6 +79,7 @@ public class GSOverviewController {
         );
 
     }
+
     /**
      * Вызывается главным приложением, которое даёт на себя ссылку.
      *
@@ -91,6 +91,7 @@ public class GSOverviewController {
         // Добавление в таблицу данных из наблюдаемого списка
         HydraOverviewTable.setItems(main.getHydraData());
     }
+
     /**
      * Заполняет все текстовые поля, отображая подробности об участке
      *
@@ -169,6 +170,7 @@ public class GSOverviewController {
             main.getHydraData().add(tempHydra);
         }
     }
+
     /**
      * Вызывается, когда пользователь кликает по кнопке New... (добавить новую таблицу)
      * Открывает диалоговое окно для создания новой гидравлической таблицы.
@@ -225,6 +227,7 @@ public class GSOverviewController {
     public boolean isOkClicked() {
         return okClicked;
     }
+
     /**
      * Вызывается, когда пользователь кликнул по кнопке Cancel.
      */
@@ -232,6 +235,7 @@ public class GSOverviewController {
     private void handleCancel() {
         main.showGSMainOverview();
     }
+
     /**
      * Вызывается, когда пользователь кликнул по кнопке OK.
      */
@@ -240,4 +244,5 @@ public class GSOverviewController {
             okClicked = true;
             main.showGSMainOverview();
     }
+
 }

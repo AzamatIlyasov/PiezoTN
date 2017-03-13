@@ -3,6 +3,7 @@ package tn.piezo.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -14,7 +15,6 @@ import tn.piezo.model.HydraC;
  * @author Azamat Ilyasov
  */
 public class GSNewTableDialogController {
-    // переменные - исходные данные для расчета
 
     @FXML
     private TextField NamePartTNField;
@@ -34,6 +34,16 @@ public class GSNewTableDialogController {
     private TextField ZdanieEtajField;
     @FXML
     private TextField Hrasp_istField;
+    @FXML
+    private TextField CountOfTN;
+    @FXML
+    private TextField IndexPartTN;
+    @FXML
+    private ComboBox listSourceTN;
+    @FXML
+    private ComboBox listBranchingOfTN;
+    @FXML
+    private ComboBox listTN;
 
     private Stage dialogStage;
     private HydraC hydra;
@@ -46,6 +56,7 @@ public class GSNewTableDialogController {
     @FXML
     private void initialize() {
     }
+
     /**
      * Устанавливает сцену для этого окна.
      *
@@ -53,7 +64,7 @@ public class GSNewTableDialogController {
      */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
-        // Устанавливаем иконку приложения.
+        // Устанавливаем иконку для диалгового окна
         this.dialogStage.getIcons().add(new Image("file:resources/images/Edit1.png"));
     }
 
@@ -76,6 +87,7 @@ public class GSNewTableDialogController {
         Hrasp_istField.setText(hydra.getHrasp_ist().toString());
 
     }
+
     /**
      * Returns true, если пользователь кликнул OK, в другом случае false.
      *
@@ -84,6 +96,7 @@ public class GSNewTableDialogController {
     public boolean isOkClicked() {
         return okClicked;
     }
+
     /**
      * Вызывается, когда пользователь кликнул по кнопке OK.
      */
@@ -104,6 +117,7 @@ public class GSNewTableDialogController {
             dialogStage.close();
         }
     }
+
     /**
      * Вызывается, когда пользователь кликнул по кнопке Cancel.
      */
@@ -111,20 +125,23 @@ public class GSNewTableDialogController {
     private void handleCancel() {
         dialogStage.close();
     }
+
     /**
-     * Добавление следующего участка
+     * Добавление-создание следующего участка
      */
     @FXML
     private void handleNext() {
         dialogStage.close();
     }
+
     /**
-     * Возврат к предыдущему участку
+     * Возврат-редактирование предыдущего участка
      */
     @FXML
     private void handlePrevious() {
         dialogStage.close();
     }
+
     /**
      * Проверяет пользовательский ввод в текстовых полях.
      *
@@ -159,6 +176,12 @@ public class GSNewTableDialogController {
         if (Hrasp_istField.getText() == null || Hrasp_istField.getText().length() == 0 || Double.parseDouble(Hrasp_istField.getText()) <= 0 ) {
             errorMessage += "Неправильный напор у источника!\n Напор у источника необходимо ввести в м";
         }
+        if (CountOfTN.getText() == null || CountOfTN.getText().length() == 0 || Double.parseDouble(CountOfTN.getText()) <= 0 ) {
+            errorMessage += "Неправильный ввод данных - укажите корректное количество участков!\n ";
+        }
+        if (IndexPartTN.getText() == null || IndexPartTN.getText().length() == 0 || Double.parseDouble(IndexPartTN.getText()) <= 0 ) {
+            errorMessage += "Неправильный ввод данных - укажите корректный номер (индекс) редактируемого участка!\n ";
+        }
 
         if (errorMessage.length() == 0) {
             return true;
@@ -175,4 +198,22 @@ public class GSNewTableDialogController {
             return false;
         }
     }
+
+    /**
+     * Выбор/создание источника тепла
+     */
+    @FXML
+    private void handleTNSource() {}
+
+    /**
+     * Выбор/создание тепловой сети
+     */
+    @FXML
+    private void handleTermalNet() {}
+
+    /**
+     * Выбор/создание тепловой сети
+     */
+    @FXML
+    private void handleTNPart() {}
 }

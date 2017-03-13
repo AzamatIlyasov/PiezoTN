@@ -41,6 +41,7 @@ public class Main extends Application {
         runGRMain("resources/ExcelDataBase/test files/input-K3-M2-88.xls");
 
     }
+
     //
     public void runGRMain(String fileName) {
         //очищаем старые данные
@@ -75,6 +76,7 @@ public class Main extends Application {
         //тестовая запись в файл Excel
         ExcelParser.writeExcelHydra(parseHydraData);
     }
+
     /**
      * Возвращает данные в виде наблюдаемого списка участков.
      * @return
@@ -293,43 +295,6 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
-    /**
-     * Возвращает preference файла участка, то есть, последний открытый файл.
-     * Этот preference считывается из реестра, специфичного для конкретной
-     * операционной системы. Если preference не был найден, то возвращается null.
-     *
-     * @return
-     */
-    public File getPersonFilePath() {
-        Preferences prefs = Preferences.userNodeForPackage(Main.class);
-        String filePath = prefs.get("filePath", null);
-        if (filePath != null) {
-            return new File(filePath);
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * Задаёт путь текущему загруженному файлу. Этот путь сохраняется
-     * в реестре, специфичном для конкретной операционной системы.
-     *
-     * @param file - файл или null, чтобы удалить путь
-     */
-    public void setPersonFilePath(File file) {
-        Preferences prefs = Preferences.userNodeForPackage(Main.class);
-        if (file != null) {
-            prefs.put("filePath", file.getPath());
-
-            // Обновление заглавия сцены.
-            primaryStage.setTitle("PiezoApp - " + file.getName());
-        } else {
-            prefs.remove("filePath");
-
-            // Обновление заглавия сцены.
-            primaryStage.setTitle("PiezoApp");
-        }
-    }
 
     /**
      * Возвращает главную сцену.
@@ -346,4 +311,5 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }

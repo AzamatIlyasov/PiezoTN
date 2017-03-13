@@ -226,7 +226,6 @@ public class ExcelParser {
 
     }
 
-
     //расчет для ПГ
     public static ArrayList parsePiezoPlot(ArrayList HydraData)
     {
