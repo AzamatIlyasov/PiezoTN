@@ -182,7 +182,7 @@ public class ExcelParser {
     }
 
     //запись в файл Excel
-    public static void writeExcelHydra(ArrayList HydraData) {
+    public static void writeExcelHydra(ArrayList HydraData , String fileName) {
         //создаем таблицу
         InputStream inputStream = null;
         HSSFWorkbook hssfWorkbook = null;
@@ -217,7 +217,9 @@ public class ExcelParser {
             rows.createCell(7).setCellValue(objHydraDCS.ZdanieEtaj);
         }
         //записываем созданные в памети Excel в файл
-        try (FileOutputStream out = new FileOutputStream(new File("resources/ExcelDataBase/test files/inputAzaTest.xls"))) {
+        String fullFileName = "";
+        fullFileName = "resources/ExcelDataBase/test files/" + fileName + ".xls";
+        try (FileOutputStream out = new FileOutputStream(new File(fullFileName))) {
             hssfWorkbook.write(out);
         }
         catch (IOException e) {
@@ -225,7 +227,6 @@ public class ExcelParser {
         }
 
     }
-
 
     //расчет для ПГ
     public static ArrayList parsePiezoPlot(ArrayList HydraData)

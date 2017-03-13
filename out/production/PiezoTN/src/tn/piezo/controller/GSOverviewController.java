@@ -10,9 +10,9 @@ import tn.piezo.model.HydraC;
  * Created by djaza on 16.02.2017.
  */
 public class GSOverviewController {
+
     @FXML
     private TableView<HydraC> HydraOverviewTable;
-
     // переменные - исходные данные для расчета
     @FXML
     private TableColumn<HydraC, Integer> Number_column; //нумерация участков
@@ -24,7 +24,6 @@ public class GSOverviewController {
     private TableColumn<HydraC, Double> D_column;
     @FXML
     private TableColumn<HydraC, Double> L_column;
-
     @FXML
     private Label NamePartTNLabel;
     @FXML
@@ -80,6 +79,7 @@ public class GSOverviewController {
         );
 
     }
+
     /**
      * Вызывается главным приложением, которое даёт на себя ссылку.
      *
@@ -91,13 +91,14 @@ public class GSOverviewController {
         // Добавление в таблицу данных из наблюдаемого списка
         HydraOverviewTable.setItems(main.getHydraData());
     }
+
+
     /**
      * Заполняет все текстовые поля, отображая подробности об участке
      *
      * @param hydra - участок типа HydraC
      */
-    private void showHydraDetails(HydraC hydra)
-    {
+    private void showHydraDetails(HydraC hydra) {
         if (hydra != null)
         {
             // Заполняем метки информацией из объекта hydra
@@ -130,8 +131,7 @@ public class GSOverviewController {
      * Кнопка delete (удаление выбранного участка)
      */
     @FXML
-    private void handleDeleteHydra()
-    {
+    private void handleDeleteHydra() {
         int selectedIndex = HydraOverviewTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex >=0)
         {
@@ -169,6 +169,7 @@ public class GSOverviewController {
             main.getHydraData().add(tempHydra);
         }
     }
+
     /**
      * Вызывается, когда пользователь кликает по кнопке New... (добавить новую таблицу)
      * Открывает диалоговое окно для создания новой гидравлической таблицы.
@@ -225,19 +226,24 @@ public class GSOverviewController {
     public boolean isOkClicked() {
         return okClicked;
     }
+
     /**
      * Вызывается, когда пользователь кликнул по кнопке Cancel.
      */
     @FXML
     private void handleCancel() {
-        main.showGSMainOverview();
+        //main.showGSMainOverview();
+        dialogStage.close();
     }
+
     /**
      * Вызывается, когда пользователь кликнул по кнопке OK.
      */
     @FXML
     private void handleDone() {
-            okClicked = true;
-            main.showGSMainOverview();
+        okClicked = true;
+        //main.showGSMainOverview();
+        dialogStage.close();
     }
+
 }

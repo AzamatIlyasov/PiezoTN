@@ -4,6 +4,7 @@ package tn.piezo.model;
  * Created by djaza on 18.02.2017.
  */
 public class HydraDataClassStruct {
+
     // структура данных Гидравлического расчета
     public String NamePartTN;
     public String NamePartTNpred;
@@ -40,8 +41,7 @@ public class HydraDataClassStruct {
                                  double H2x,
                                  double dH_fist, //падение напора от источника
                                  double Hrasp_endP // падение напора в конце участка
-                                )
-    {
+                                ) {
         this.NamePartTN = NamePartTN;
         this.NamePartTNpred = NamePartTNpred;
         this.D = D;
@@ -63,4 +63,5 @@ public class HydraDataClassStruct {
         this.Hrasp_endP = Hrasp_endP;
 
     }
+
 }

@@ -6,6 +6,7 @@ import javafx.beans.property.*;
  * Created by djaza on 16.02.2017.
  */
 public class HydraC {
+
     // свойства - исходные данные для расчета
     private final StringProperty NamePartTN;
     private final StringProperty NamePartTNpred;
@@ -17,6 +18,7 @@ public class HydraC {
     private final DoubleProperty ZdanieEtaj;
     private final DoubleProperty Hrasp_ist;
     private final IntegerProperty num; // для нумерации участков
+
     // свойства - результаты расчета
     private final DoubleProperty W;
     private final DoubleProperty Rud;
@@ -28,7 +30,6 @@ public class HydraC {
     private final DoubleProperty H2x;
     private final DoubleProperty dH_fist; //падение напора от источника
     private final DoubleProperty Hrasp_endP; // падение напора в конце участка
-    //private final DoubleProperty dHsum; // суммарные потери напора
 
     /**
      * Конструктор по умолчанию.
@@ -37,6 +38,7 @@ public class HydraC {
         this(null, null, 0, 0, 0,0,0, 0, 0, 0,
                 0, 0, 0, 0, 0, 0, 0, 0,0, 0);
     }
+
     /**
      * Конструктор с некоторыми начальными данными.
      *
@@ -95,7 +97,6 @@ public class HydraC {
         this.Hrasp_endP = new SimpleDoubleProperty(Hrasp_endP);
         this.num = new SimpleIntegerProperty(num);
     }
-
 
     //NamePartTN гетер, сетер, пропер
     public String getNamePartTN() {

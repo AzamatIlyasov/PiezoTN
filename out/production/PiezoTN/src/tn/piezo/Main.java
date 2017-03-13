@@ -1,5 +1,6 @@
 package tn.piezo;
 
+import java.awt.image.AreaAveragingScaleFilter;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,58 +30,93 @@ public class Main extends Application {
 
     /**
      * Данные, в виде наблюдаемого списка ГР и ПГ.
+     * а также в виде arraylist - для сохранения
      */
     private ObservableList<HydraC> hydraData = FXCollections.observableArrayList();
     private ObservableList<PiezoC> piezoData = FXCollections.observableArrayList();
+    private ArrayList hydraDataArrayList;
+    private ArrayList piezoDataArrayList;
 
     /**
      * Конструктор для главного метода приложения
      */
     public Main() {
-        // выполним гидрарасчет
+        // выполним гидрарасчет - участок по умолчанию
         runGRMain("resources/ExcelDataBase/test files/input-K3-M2-88.xls");
-
     }
+
     //
     public void runGRMain(String fileName) {
+        //считывание из БД (из файла excel) + проводим гидрарасчет
+        hydraDataArrayList = ExcelParser.parseHydraT(fileName);//input-M700-M11 input-K3-M2-88 input-M700
+        piezoDataArrayList = ExcelParser.parsePiezoPlot(hydraDataArrayList);
+
+    }
+
+    /**
+     * сохранения данных в таблицу
+     */
+    public void saveDataTable(ArrayList DataHydra, String fileName) {
+        //тестовая запись в файл Excel
+        ExcelParser.writeExcelHydra(DataHydra, fileName);
+    }
+    /**
+     * ГР решатель
+     */
+    public void runGRSolver() {
         //очищаем старые данные
         hydraData.clear();
         piezoData.clear();
-        //считывание из БД (из файла excel) + проводим гидрарасчет
-        ArrayList parseHydraData = ExcelParser.parseHydraT(fileName);//input-M700-M11 input-K3-M2-88 input-M700
-        ArrayList parsePiezoData = ExcelParser.parsePiezoPlot(parseHydraData);
         //создаем объект для считывания ГР
         HydraDataClassStruct objHydraDCS;
         //запоминаем данные
-        for (int i = 0; i < parseHydraData.size(); i++) {
+        for (int i = 0; i < hydraDataArrayList.size(); i++) {
             // каждый участок (строка) сохраняем как новый объект
-            objHydraDCS = (HydraDataClassStruct) parseHydraData.get(i);
+            objHydraDCS = (HydraDataClassStruct) hydraDataArrayList.get(i);
             hydraData.add(new HydraC(objHydraDCS.NamePartTN, objHydraDCS.NamePartTNpred, objHydraDCS.D,
                     objHydraDCS.L, objHydraDCS.G, objHydraDCS.Kekv, objHydraDCS.Geo, objHydraDCS.ZdanieEtaj,
                     objHydraDCS.Hrasp_ist, objHydraDCS.W, objHydraDCS.Rud,
                     objHydraDCS.b, objHydraDCS.Rrash, objHydraDCS.Hl, objHydraDCS.Hm, objHydraDCS.H1x, objHydraDCS.H2x,
                     objHydraDCS.dH_fist, objHydraDCS.Hrasp_endP, i));
-
         }
         //создаем объект для считывания ПГ
         PiezoDataClassStructure objPiezoDCS;
         //запоминаем данные
-        for (int i = 0; i < parsePiezoData.size(); i++) {
+        for (int i = 0; i < piezoDataArrayList.size(); i++) {
             // каждый участок (строка) сохраняем как новый объект
-            objPiezoDCS = (PiezoDataClassStructure) parsePiezoData.get(i);
+            objPiezoDCS = (PiezoDataClassStructure) piezoDataArrayList.get(i);
             piezoData.add(new PiezoC(i, objPiezoDCS.NamePartTN,
                     objPiezoDCS.L, objPiezoDCS.Geo, objPiezoDCS.ZdanieEtaj, objPiezoDCS.HraspPod, objPiezoDCS.HraspObrat));
-
         }
-        //тестовая запись в файл Excel
-        ExcelParser.writeExcelHydra(parseHydraData);
+
     }
+
     /**
      * Возвращает данные в виде наблюдаемого списка участков.
      * @return
      */
     public ObservableList<HydraC> getHydraData() {
         return hydraData;
+    }
+
+    /**
+     * Задаем новые данные для расчета.
+     */
+    public void setHydraData(ArrayList hydra) {
+        hydraData.clear();
+        //создаем объект для считывания ГР
+        HydraDataClassStruct objHydraDCS;
+        //запоминаем данные
+        for (int i = 0; i < hydra.size(); i++) {
+            // каждый участок (строка) сохраняем как новый объект
+            objHydraDCS = (HydraDataClassStruct) hydra.get(i);
+            hydraData.add(new HydraC(objHydraDCS.NamePartTN, objHydraDCS.NamePartTNpred, objHydraDCS.D,
+                    objHydraDCS.L, objHydraDCS.G, objHydraDCS.Kekv, objHydraDCS.Geo, objHydraDCS.ZdanieEtaj,
+                    objHydraDCS.Hrasp_ist, objHydraDCS.W, objHydraDCS.Rud,
+                    objHydraDCS.b, objHydraDCS.Rrash, objHydraDCS.Hl, objHydraDCS.Hm, objHydraDCS.H1x, objHydraDCS.H2x,
+                    objHydraDCS.dH_fist, objHydraDCS.Hrasp_endP, i));
+        }
+
     }
 
     /**
@@ -121,6 +157,7 @@ public class Main extends Application {
             primaryStage.setMinWidth(800);
             primaryStage.setMinHeight(600);
             primaryStage.setScene(scene);
+            //отображение
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -136,7 +173,8 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/MainGSUI.fxml"));
             AnchorPane gsMainOverview = (AnchorPane)loader.load();
-
+            //запуск расчетов
+            runGRSolver();
             // Помещаем сведения об участках в центр корневого макета.
             rootLayout.setCenter(gsMainOverview);
 
@@ -144,6 +182,7 @@ public class Main extends Application {
             MainGSUIController controller = loader.getController();
             controller.setMain(this);
             controller.setPiezoData(piezoData);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -158,12 +197,25 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/GSOverview.fxml"));
             AnchorPane gsOverview = (AnchorPane)loader.load();
+
+            // Создаём диалоговое окно Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("HydraEdit");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(gsOverview);
+            dialogStage.setScene(scene);
+
             // Помещаем сведения об участках в центр корневого макета.
-            rootLayout.setCenter(gsOverview);
+            //rootLayout.setCenter(gsOverview);
             // Передаём участок в контроллер.
             GSOverviewController gsOverviewController = loader.getController();
+            gsOverviewController.setDialogStage(dialogStage);
             //
             gsOverviewController.setMain(this);
+            // Отображаем диалоговое окно и ждём, пока пользователь его не закроет
+            dialogStage.showAndWait();
+
 
             return gsOverviewController.isOkClicked();
         } catch (IOException e) {
@@ -199,10 +251,12 @@ public class Main extends Application {
             // Передаём участок в контроллер.
             GSNewTableDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
-            controller.setHydra(hydra);
 
             // Отображаем диалоговое окно и ждём, пока пользователь его не закроет
             dialogStage.showAndWait();
+            hydraDataArrayList = controller.getNewHydraData();
+            setHydraData(hydraDataArrayList);
+            saveDataTable(hydraDataArrayList,controller.getFileName());
 
             return controller.isOkClicked();
         } catch (IOException e) {
@@ -293,43 +347,6 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
-    /**
-     * Возвращает preference файла участка, то есть, последний открытый файл.
-     * Этот preference считывается из реестра, специфичного для конкретной
-     * операционной системы. Если preference не был найден, то возвращается null.
-     *
-     * @return
-     */
-    public File getPersonFilePath() {
-        Preferences prefs = Preferences.userNodeForPackage(Main.class);
-        String filePath = prefs.get("filePath", null);
-        if (filePath != null) {
-            return new File(filePath);
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * Задаёт путь текущему загруженному файлу. Этот путь сохраняется
-     * в реестре, специфичном для конкретной операционной системы.
-     *
-     * @param file - файл или null, чтобы удалить путь
-     */
-    public void setPersonFilePath(File file) {
-        Preferences prefs = Preferences.userNodeForPackage(Main.class);
-        if (file != null) {
-            prefs.put("filePath", file.getPath());
-
-            // Обновление заглавия сцены.
-            primaryStage.setTitle("PiezoApp - " + file.getName());
-        } else {
-            prefs.remove("filePath");
-
-            // Обновление заглавия сцены.
-            primaryStage.setTitle("PiezoApp");
-        }
-    }
 
     /**
      * Возвращает главную сцену.
@@ -346,4 +363,5 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }

@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * Created by djaza on 09.02.2017.
  */
 public class PiezoPlotC {
+
     // переменные - исходные данные для расчета
     private double HSN; // напор в сетевом насосе
     private double HPN; // напор в подпиточном насосе
@@ -23,8 +24,7 @@ public class PiezoPlotC {
     double[] HraspObrat;
 
     PiezoPlotC(double HSN, double HPN, double Hist, String[] NamePartTN, double[] L, double[] Geo, double[] ZdanieEtaj,
-            double Hrasp_ist, double[] H1x )
-    {
+            double Hrasp_ist, double[] H1x ) {
         this.HSN = HSN;
         this.HPN = HPN;
         this.Hist = Hist;
@@ -39,8 +39,8 @@ public class PiezoPlotC {
         HraspObrat = new double[L.length+1];
 
     }
-    public ArrayList PiezoSolver(PiezoPlotC piezoPart)
-    {
+
+    public ArrayList PiezoSolver(PiezoPlotC piezoPart) {
         // выходная переменная
         ArrayList<PiezoDataClassStructure> piezoData = new ArrayList<>();
         // для расчета подачи и обратки
