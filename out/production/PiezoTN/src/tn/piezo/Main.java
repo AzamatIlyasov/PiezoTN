@@ -41,6 +41,7 @@ public class Main extends Application {
         runGRMain("resources/ExcelDataBase/test files/input-K3-M2-88.xls");
 
     }
+
     //
     public void runGRMain(String fileName) {
         //очищаем старые данные
@@ -75,6 +76,7 @@ public class Main extends Application {
         //тестовая запись в файл Excel
         ExcelParser.writeExcelHydra(parseHydraData);
     }
+
     /**
      * Возвращает данные в виде наблюдаемого списка участков.
      * @return
@@ -83,6 +85,25 @@ public class Main extends Application {
         return hydraData;
     }
 
+    /**
+     * Задаем новые данные для расчета.
+     */
+    public void setHydraData(ArrayList hydra) {
+        hydraData.clear();
+        //создаем объект для считывания ГР
+        HydraDataClassStruct objHydraDCS;
+        //запоминаем данные
+        for (int i = 0; i < hydra.size(); i++) {
+            // каждый участок (строка) сохраняем как новый объект
+            objHydraDCS = (HydraDataClassStruct) hydra.get(i);
+            hydraData.add(new HydraC(objHydraDCS.NamePartTN, objHydraDCS.NamePartTNpred, objHydraDCS.D,
+                    objHydraDCS.L, objHydraDCS.G, objHydraDCS.Kekv, objHydraDCS.Geo, objHydraDCS.ZdanieEtaj,
+                    objHydraDCS.Hrasp_ist, objHydraDCS.W, objHydraDCS.Rud,
+                    objHydraDCS.b, objHydraDCS.Rrash, objHydraDCS.Hl, objHydraDCS.Hm, objHydraDCS.H1x, objHydraDCS.H2x,
+                    objHydraDCS.dH_fist, objHydraDCS.Hrasp_endP, i));
+        }
+
+    }
     /**
      * Возвращает данные в виде наблюдаемого списка участков для ПГ.
      * @return
@@ -199,7 +220,6 @@ public class Main extends Application {
             // Передаём участок в контроллер.
             GSNewTableDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
-            controller.setHydra(hydra);
 
             // Отображаем диалоговое окно и ждём, пока пользователь его не закроет
             dialogStage.showAndWait();
@@ -293,43 +313,6 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
-    /**
-     * Возвращает preference файла участка, то есть, последний открытый файл.
-     * Этот preference считывается из реестра, специфичного для конкретной
-     * операционной системы. Если preference не был найден, то возвращается null.
-     *
-     * @return
-     */
-    public File getPersonFilePath() {
-        Preferences prefs = Preferences.userNodeForPackage(Main.class);
-        String filePath = prefs.get("filePath", null);
-        if (filePath != null) {
-            return new File(filePath);
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * Задаёт путь текущему загруженному файлу. Этот путь сохраняется
-     * в реестре, специфичном для конкретной операционной системы.
-     *
-     * @param file - файл или null, чтобы удалить путь
-     */
-    public void setPersonFilePath(File file) {
-        Preferences prefs = Preferences.userNodeForPackage(Main.class);
-        if (file != null) {
-            prefs.put("filePath", file.getPath());
-
-            // Обновление заглавия сцены.
-            primaryStage.setTitle("PiezoApp - " + file.getName());
-        } else {
-            prefs.remove("filePath");
-
-            // Обновление заглавия сцены.
-            primaryStage.setTitle("PiezoApp");
-        }
-    }
 
     /**
      * Возвращает главную сцену.
@@ -346,4 +329,5 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }

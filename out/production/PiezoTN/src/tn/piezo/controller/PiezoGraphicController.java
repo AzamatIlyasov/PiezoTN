@@ -56,8 +56,7 @@ public class PiezoGraphicController {
      *
      */
     @FXML
-    private void initialize()
-    {
+    private void initialize() {
         numberLineChart.setTitle("Пример пьезометрического графика");
         xAxis.setLabel("Участки");
         yAxis.setLabel("Напор (с учетом геодезии), м");
@@ -69,8 +68,7 @@ public class PiezoGraphicController {
      *
      * @param piezoData
      */
-    public void setPiezoData(List piezoData)
-    {
+    public void setPiezoData(List piezoData) {
         double[] Hpodacha = new double[piezoData.size()];
         double[] Hobratka = new double[piezoData.size()];
         double[] Geodezia = new double[piezoData.size()];

@@ -97,8 +97,7 @@ public class GSOverviewController {
      *
      * @param hydra - участок типа HydraC
      */
-    private void showHydraDetails(HydraC hydra)
-    {
+    private void showHydraDetails(HydraC hydra) {
         if (hydra != null)
         {
             // Заполняем метки информацией из объекта hydra
@@ -131,8 +130,7 @@ public class GSOverviewController {
      * Кнопка delete (удаление выбранного участка)
      */
     @FXML
-    private void handleDeleteHydra()
-    {
+    private void handleDeleteHydra() {
         int selectedIndex = HydraOverviewTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex >=0)
         {

@@ -40,7 +40,7 @@ public class HydraSolverC {
     double ro = 97.6554;
     double gamma = 958; //gamma = ro*g
 
-    HydraSolverC(String[] NamePartTN, String[] NamePartTNpred, double[] D, double[] L, double[] G, double[] Kekv,
+    public HydraSolverC(String[] NamePartTN, String[] NamePartTNpred, double[] D, double[] L, double[] G, double[] Kekv,
                  double[] Geo, double[] ZdanieEtaj,
                  double Hrasp_ist) {
         this.NamePartTN = NamePartTN;

@@ -21,6 +21,7 @@ import java.util.List;
  * Created by djaza on 16.02.2017.
  */
 public class MainGSUIController {
+
     @FXML
     private TableView<HydraC> HydraTable;
     @FXML
@@ -73,12 +74,10 @@ public class MainGSUIController {
     //defining the axes
     @FXML
     private CategoryAxis xAxis = new CategoryAxis();
-    //final NumberAxis xAxis = new NumberAxis();
     @FXML
     private NumberAxis yAxis = new NumberAxis();
     @FXML
     private LineChart<String,Number> numberLineChart = new LineChart<String,Number>(xAxis,yAxis);
-
     // список данных для построения графика
     ObservableList<XYChart.Data> dataPodacha = FXCollections.observableArrayList();
     ObservableList<XYChart.Data> dataObratka = FXCollections.observableArrayList();
@@ -89,7 +88,6 @@ public class MainGSUIController {
     private XYChart.Series seriesStroenie = new XYChart.Series();
     private XYChart.Series seriesPodacha = new XYChart.Series();
     private XYChart.Series seriesObratka = new XYChart.Series();
-
 
     // Ссылка на главное приложение.
     private Main main;
@@ -149,8 +147,7 @@ public class MainGSUIController {
      *
      * @param piezoData
      */
-    public void setPiezoData(List piezoData)
-    {
+    public void setPiezoData(List piezoData) {
         double[] Hpodacha = new double[piezoData.size()];
         double[] Hobratka = new double[piezoData.size()];
         double[] Geodezia = new double[piezoData.size()];
@@ -225,22 +222,32 @@ public class MainGSUIController {
         //изменение данных
         main.showGSOverview();
     }
+
+    /**
+     * Вызывается, когда пользователь кликает по кнопке Пьезометрический график
+     * Открывает отображения ПГ.
+     */
     @FXML
     private void handlePiezoGraphic() {
         //изменение данных
         main.showPiezoGraphic();
     }
+
+    /**
+     * Вызывается, когда пользователь выбирает определенный участок в тепловой сети для определенной котельной
+     * открывает соответствующую таблицу с исходными данными.
+     */
     @FXML
     private void handleTermalNet() {
         sourceFileName = "resources/ExcelDataBase/test files/input-M700.xls";
         //sourceFileName = "resources/ExcelDataBase/test files/input-M700-M11.xls";
         //sourceFileName = "resources/ExcelDataBase/test files/input-K3-M2-88.xls";
     }
-    // к.Вычислить - запуск гидравлического расчета
+
+    // к.Вычислить - запуск гидравлического расчета для выбранного участка
     @FXML
     private void runGidRas() {
         main.runGRMain(sourceFileName);
-
     }
 
 }

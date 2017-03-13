@@ -16,8 +16,8 @@ import java.util.DoubleSummaryStatistics;
  * @author Azamat Ilyasov
  */
 public class GSEditDialogController {
-    // переменные - исходные данные для расчета
 
+    // переменные - исходные данные для расчета
     @FXML
     private TextField NamePartTNField;
     @FXML
@@ -48,6 +48,7 @@ public class GSEditDialogController {
     @FXML
     private void initialize() {
     }
+
     /**
      * Устанавливает сцену для этого окна.
      *
@@ -78,6 +79,7 @@ public class GSEditDialogController {
         Hrasp_istField.setText(hydra.getHrasp_ist().toString());
 
     }
+
     /**
      * Returns true, если пользователь кликнул OK, в другом случае false.
      *
@@ -86,6 +88,7 @@ public class GSEditDialogController {
     public boolean isOkClicked() {
         return okClicked;
     }
+
     /**
      * Вызывается, когда пользователь кликнул по кнопке OK.
      */
@@ -106,6 +109,7 @@ public class GSEditDialogController {
             dialogStage.close();
         }
     }
+
     /**
      * Вызывается, когда пользователь кликнул по кнопке Cancel.
      */
@@ -113,6 +117,7 @@ public class GSEditDialogController {
     private void handleCancel() {
         dialogStage.close();
     }
+
     /**
      * Проверяет пользовательский ввод в текстовых полях.
      *
@@ -163,4 +168,5 @@ public class GSEditDialogController {
             return false;
         }
     }
+
 }

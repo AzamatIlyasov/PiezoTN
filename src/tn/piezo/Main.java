@@ -86,6 +86,25 @@ public class Main extends Application {
     }
 
     /**
+     * Задаем новые данные для расчета.
+     */
+    public void setHydraData(ArrayList hydra) {
+        hydraData.clear();
+        //создаем объект для считывания ГР
+        HydraDataClassStruct objHydraDCS;
+        //запоминаем данные
+        for (int i = 0; i < hydra.size(); i++) {
+            // каждый участок (строка) сохраняем как новый объект
+            objHydraDCS = (HydraDataClassStruct) hydra.get(i);
+            hydraData.add(new HydraC(objHydraDCS.NamePartTN, objHydraDCS.NamePartTNpred, objHydraDCS.D,
+                    objHydraDCS.L, objHydraDCS.G, objHydraDCS.Kekv, objHydraDCS.Geo, objHydraDCS.ZdanieEtaj,
+                    objHydraDCS.Hrasp_ist, objHydraDCS.W, objHydraDCS.Rud,
+                    objHydraDCS.b, objHydraDCS.Rrash, objHydraDCS.Hl, objHydraDCS.Hm, objHydraDCS.H1x, objHydraDCS.H2x,
+                    objHydraDCS.dH_fist, objHydraDCS.Hrasp_endP, i));
+        }
+
+    }
+    /**
      * Возвращает данные в виде наблюдаемого списка участков для ПГ.
      * @return
      */
@@ -201,7 +220,6 @@ public class Main extends Application {
             // Передаём участок в контроллер.
             GSNewTableDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
-            controller.setHydra(hydra);
 
             // Отображаем диалоговое окно и ждём, пока пользователь его не закроет
             dialogStage.showAndWait();

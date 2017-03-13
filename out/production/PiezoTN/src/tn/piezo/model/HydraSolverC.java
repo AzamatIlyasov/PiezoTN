@@ -8,6 +8,7 @@ import java.util.ArrayList;
  * Created by Azamat Ilyasov on 05.02.2017.
  */
 public class HydraSolverC {
+
     // переменные - исходные данные для расчета
     String[] NamePartTN;
     String[] NamePartTNpred;
@@ -39,10 +40,9 @@ public class HydraSolverC {
     double ro = 97.6554;
     double gamma = 958; //gamma = ro*g
 
-    HydraSolverC(String[] NamePartTN, String[] NamePartTNpred, double[] D, double[] L, double[] G, double[] Kekv,
+    public HydraSolverC(String[] NamePartTN, String[] NamePartTNpred, double[] D, double[] L, double[] G, double[] Kekv,
                  double[] Geo, double[] ZdanieEtaj,
-                 double Hrasp_ist)
-    {
+                 double Hrasp_ist) {
         this.NamePartTN = NamePartTN;
         this.NamePartTNpred = NamePartTNpred;
         this.D = D;
@@ -68,8 +68,7 @@ public class HydraSolverC {
 
     }
 
-    public ArrayList HydraPartTN (HydraSolverC partTN)//String NamePratTN, double D, double L, double G, double Kekv, double Hrasp_ist)
-    {
+    public ArrayList HydraPartTN (HydraSolverC partTN) {
         ArrayList<HydraDataClassStruct> hydraD = new ArrayList<>();
 
         //гидравлический расчет участка

@@ -3,10 +3,16 @@ package tn.piezo.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import tn.piezo.Main;
 import tn.piezo.model.HydraC;
+import tn.piezo.model.HydraDataClassStruct;
+import tn.piezo.model.HydraSolverC;
+
+import java.util.ArrayList;
 
 /**
  * Окно для изменения информации об адресате.
@@ -14,8 +20,20 @@ import tn.piezo.model.HydraC;
  * @author Azamat Ilyasov
  */
 public class GSNewTableDialogController {
-    // переменные - исходные данные для расчета
 
+    // поля для данных
+    int indexPartTN = 0;
+    // переменные - исходные данные для расчета
+    String[] NamePartTN;
+    String[] NamePartTNpred;
+    double[] D;
+    double[] L;
+    double[] G;
+    double[] Kekv;
+    double Hrasp_ist;
+    double[] Geo;
+    double[] ZdanieEtaj;
+    // поля для
     @FXML
     private TextField NamePartTNField;
     @FXML
@@ -34,10 +52,23 @@ public class GSNewTableDialogController {
     private TextField ZdanieEtajField;
     @FXML
     private TextField Hrasp_istField;
+    @FXML
+    private TextField CountOfTN;
+    @FXML
+    private TextField IndexPartTN;
+    @FXML
+    private ComboBox listSourceTN;
+    @FXML
+    private ComboBox listBranchingOfTN;
+    @FXML
+    private ComboBox listTN;
 
     private Stage dialogStage;
-    private HydraC hydra;
+    private HydraC hydraC;
+    ArrayList hydraArray = new ArrayList();
     private boolean okClicked = false;
+    // Ссылка на главное приложение.
+    private Main main;
 
     /**
      * Инициализирует класс-контроллер. Этот метод вызывается автоматически
@@ -45,7 +76,9 @@ public class GSNewTableDialogController {
      */
     @FXML
     private void initialize() {
+
     }
+
     /**
      * Устанавливает сцену для этого окна.
      *
@@ -53,29 +86,10 @@ public class GSNewTableDialogController {
      */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
-        // Устанавливаем иконку приложения.
+        // Устанавливаем иконку для диалгового окна
         this.dialogStage.getIcons().add(new Image("file:resources/images/Edit1.png"));
     }
 
-    /**
-     * Задаёт участка, информацию о котором будем менять
-     *
-     * @param hydra
-     */
-    public void setHydra(HydraC hydra) {
-        this.hydra = hydra;
-
-        NamePartTNField.setText(hydra.getNamePartTN());
-        NamePartTNpredField.setText(hydra.getNamePartTNpred());
-        DField.setText(hydra.getD().toString());
-        LField.setText(hydra.getL().toString());
-        GField.setText(hydra.getG().toString());
-        KekvField.setText(hydra.getKekv().toString());
-        GeoField.setText(hydra.getGeo().toString());
-        ZdanieEtajField.setText(hydra.getZdanieEtaj().toString());
-        Hrasp_istField.setText(hydra.getHrasp_ist().toString());
-
-    }
     /**
      * Returns true, если пользователь кликнул OK, в другом случае false.
      *
@@ -84,26 +98,17 @@ public class GSNewTableDialogController {
     public boolean isOkClicked() {
         return okClicked;
     }
+
     /**
      * Вызывается, когда пользователь кликнул по кнопке OK.
      */
     @FXML
     private void handleOk() {
-        if (isInputValid()) {
-            hydra.setNamePartTN(NamePartTNField.getText());
-            hydra.setNamePartTNpred(NamePartTNpredField.getText());
-            hydra.setD(Double.parseDouble(DField.getText()));
-            hydra.setL(Double.parseDouble(LField.getText()));
-            hydra.setG(Double.parseDouble(GField.getText()));
-            hydra.setKekv(Double.parseDouble(KekvField.getText()));
-            hydra.setGeo(Double.parseDouble(GeoField.getText()));
-            hydra.setZdanieEtaj(Double.parseDouble(ZdanieEtajField.getText()));
-            hydra.setHrasp_ist(Double.parseDouble(Hrasp_istField.getText()));
-
-            okClicked = true;
-            dialogStage.close();
-        }
+        saveHydraData();
+        okClicked = true;
+        dialogStage.close();
     }
+
     /**
      * Вызывается, когда пользователь кликнул по кнопке Cancel.
      */
@@ -111,20 +116,67 @@ public class GSNewTableDialogController {
     private void handleCancel() {
         dialogStage.close();
     }
+
     /**
-     * Добавление следующего участка
+     * Добавление-создание следующего участка
      */
     @FXML
     private void handleNext() {
-        dialogStage.close();
+        if (isInputValid()) {
+            hydraC.setNamePartTN(NamePartTNField.getText());
+            hydraC.setNamePartTNpred(NamePartTNpredField.getText());
+            hydraC.setD(Double.parseDouble(DField.getText()));
+            hydraC.setL(Double.parseDouble(LField.getText()));
+            hydraC.setG(Double.parseDouble(GField.getText()));
+            hydraC.setKekv(Double.parseDouble(KekvField.getText()));
+            hydraC.setGeo(Double.parseDouble(GeoField.getText()));
+            hydraC.setZdanieEtaj(Double.parseDouble(ZdanieEtajField.getText()));
+            hydraC.setHrasp_ist(Double.parseDouble(Hrasp_istField.getText()));
+            // очищаем диалоговое окно
+            clearDialogStage();
+            indexPartTN++;
+            IndexPartTN.setText(Integer.toString(indexPartTN));
+        }
     }
+
     /**
-     * Возврат к предыдущему участку
+     * Возврат-редактирование предыдущего участка
      */
     @FXML
     private void handlePrevious() {
-        dialogStage.close();
+        if (isInputValid()) {
+            hydraC.setNamePartTN(NamePartTNField.getText());
+            hydraC.setNamePartTNpred(NamePartTNpredField.getText());
+            hydraC.setD(Double.parseDouble(DField.getText()));
+            hydraC.setL(Double.parseDouble(LField.getText()));
+            hydraC.setG(Double.parseDouble(GField.getText()));
+            hydraC.setKekv(Double.parseDouble(KekvField.getText()));
+            hydraC.setGeo(Double.parseDouble(GeoField.getText()));
+            hydraC.setZdanieEtaj(Double.parseDouble(ZdanieEtajField.getText()));
+            hydraC.setHrasp_ist(Double.parseDouble(Hrasp_istField.getText()));
+
+            // очищаем диалоговое окно
+            clearDialogStage();
+            indexPartTN--;
+            IndexPartTN.setText(Integer.toString(indexPartTN));
+        }
     }
+
+    /**
+     * Очистка полей в окне
+     */
+    private void clearDialogStage() {
+        NamePartTNField.clear();
+        NamePartTNpredField.clear();
+        DField.clear();
+        LField.clear();
+        GField.clear();
+        KekvField.clear();
+        GeoField.clear();
+        ZdanieEtajField.clear();
+        Hrasp_istField.clear();
+    }
+
     /**
      * Проверяет пользовательский ввод в текстовых полях.
      *
@@ -159,6 +211,12 @@ public class GSNewTableDialogController {
         if (Hrasp_istField.getText() == null || Hrasp_istField.getText().length() == 0 || Double.parseDouble(Hrasp_istField.getText()) <= 0 ) {
             errorMessage += "Неправильный напор у источника!\n Напор у источника необходимо ввести в м";
         }
+        if (CountOfTN.getText() == null || CountOfTN.getText().length() == 0 || Double.parseDouble(CountOfTN.getText()) <= 0 ) {
+            errorMessage += "Неправильный ввод данных - укажите корректное количество участков!\n ";
+        }
+        if (IndexPartTN.getText() == null || IndexPartTN.getText().length() == 0 || Double.parseDouble(IndexPartTN.getText()) <= 0 ) {
+            errorMessage += "Неправильный ввод данных - укажите корректный номер (индекс) редактируемого участка!\n ";
+        }
 
         if (errorMessage.length() == 0) {
             return true;
@@ -175,4 +233,33 @@ public class GSNewTableDialogController {
             return false;
         }
     }
+
+    /**
+     * Выбор/создание источника тепла
+     */
+    @FXML
+    private void handleTNSource() {}
+
+    /**
+     * Выбор/создание тепловой сети
+     */
+    @FXML
+    private void handleTermalNet() {}
+
+    /**
+     * Выбор/создание тепловой сети
+     */
+    @FXML
+    private void handleTNPart() {}
+
+    /**
+     * Метод для добавления и сохранения введеных данных в ArrayList
+     */
+    private void saveHydraData() {
+        // ГР
+        HydraSolverC hydraPartTN = new HydraSolverC(NamePartTN, NamePartTNpred, D, L, G, Kekv, Geo, ZdanieEtaj, Hrasp_ist);
+        hydraArray = hydraPartTN.HydraPartTN(hydraPartTN);
+        main.setHydraData(hydraArray);
+    }
+
 }

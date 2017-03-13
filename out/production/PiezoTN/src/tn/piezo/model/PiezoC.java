@@ -6,6 +6,7 @@ import javafx.beans.property.*;
  * Created by djaza on 16.02.2017.
  */
 public class PiezoC {
+
     // переменные - исходные данные для расчета
     private final DoubleProperty HSN; // напор в сетевом насосе
     private final DoubleProperty HPN; // напор в подпиточном насосе
@@ -28,6 +29,7 @@ public class PiezoC {
     public PiezoC() {
         this(0, 0, 0, null, 0, 0, 0, 0,0);
     }
+
     /**
      * Конструктор с некоторыми начальными данными.
      *
@@ -42,8 +44,7 @@ public class PiezoC {
      * @param H1x
      */
     public PiezoC(double HSN, double HPN, double Hist, String NamePartTN, double L, double Geo, double ZdanieEtaj,
-                  double Hrasp_ist, double H1x )
-    {
+                  double Hrasp_ist, double H1x ) {
         this.HSN = new SimpleDoubleProperty(HSN);
         this.HPN = new SimpleDoubleProperty(HPN);
         this.Hist = new SimpleDoubleProperty(Hist);
@@ -59,8 +60,7 @@ public class PiezoC {
     }
 
     public PiezoC(int numTN, String NamePartTN,
-                  double L, double Geo, double ZdanieEtaj, double HraspPod, double HraspObrat )
-    {
+                  double L, double Geo, double ZdanieEtaj, double HraspPod, double HraspObrat ) {
         this.HSN = new SimpleDoubleProperty(0);
         this.HPN = new SimpleDoubleProperty(0);
         this.Hist = new SimpleDoubleProperty(0);
