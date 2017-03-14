@@ -135,11 +135,11 @@ public class MainGSUIController {
         // инициализация combobox - выбор тепловой сети
         listTN.getItems().addAll("М700",
                 "М500",
-                "М600");
+                "М600",
+                "Пользовательский");
         // инициализация combobox - выбор ответвления тепловой сети
-        listBranchingOfTN.getItems().addAll("___",
-                "М11",
-                "");
+        listBranchingOfTN.getItems().addAll("Сама магистраль",
+                "М11");
     }
 
     /**
@@ -239,15 +239,23 @@ public class MainGSUIController {
      */
     @FXML
     private void handleTermalNet() {
-        sourceFileName = "resources/ExcelDataBase/test files/input-M700.xls";
-        //sourceFileName = "resources/ExcelDataBase/test files/input-M700-M11.xls";
-        //sourceFileName = "resources/ExcelDataBase/test files/input-K3-M2-88.xls";
+
     }
 
     // к.Вычислить - запуск гидравлического расчета для выбранного участка
     @FXML
     private void runGidRas() {
-        //main.runGRMain(sourceFileName);
+        //выбор источника
+        if (listTN.getValue().toString().equals("М700"))
+            sourceFileName = "resources/ExcelDataBase/test files/input-M700.xls";
+        if (listTN.getValue().toString().equals("М500"))
+            sourceFileName = "resources/ExcelDataBase/test files/input-M700-M11.xls";
+        if (listTN.getValue().toString().equals("М600"))
+            sourceFileName = "resources/ExcelDataBase/test files/input-K3-M2-88.xls";
+        if (listTN.getValue().toString().equals("Пользовательский"))
+            sourceFileName = "resources/ExcelDataBase/test files/input-Кот. №1-М500-М11.xls";
+        // запуск расчета для выбранного участка
+        main.runGRMain(sourceFileName);
         main.runGRSolver();
     }
 

@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/ExcelDataBase/test files/inputAzaTest.xls" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/ExcelDataBase/test files/inputAzaTest.xls" afterPath="$PROJECT_DIR$/out/production/PiezoTN/ExcelDataBase/test files/inputAzaTest.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/resources/ExcelDataBase/test files/inputAzaTest.xls" afterPath="$PROJECT_DIR$/out/production/PiezoTN/resources/ExcelDataBase/test files/inputAzaTest.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/MainGSUIController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/MainGSUIController.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/ExcelDataBase/test files/input-Котельная-М1-М19.xls" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSNewTableDialogController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSNewTableDialogController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ExcelDataBase/test files/input-Кот. №1-М500-М11.xls" afterPath="$PROJECT_DIR$/resources/ExcelDataBase/test files/input-Кот. №1-М500-М11.xls" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/MainGSUIController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/MainGSUIController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/GSNewTableDialogController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/GSNewTableDialogController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/Main.java" afterPath="$PROJECT_DIR$/src/tn/piezo/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/controller/GSNewTableDialogController.java" afterPath="$PROJECT_DIR$/src/tn/piezo/controller/GSNewTableDialogController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/controller/MainGSUIController.java" afterPath="$PROJECT_DIR$/src/tn/piezo/controller/MainGSUIController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/model/ExcelParser.java" afterPath="$PROJECT_DIR$/src/tn/piezo/model/ExcelParser.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -140,11 +138,11 @@
         <option value="$PROJECT_DIR$/src/tn/piezo/model/PiezoC.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/model/PiezoDataClassStructure.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/model/PiezoPlotC.java" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/controller/GSOverviewController.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/model/HydraSolverC.java" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/controller/MainGSUIController.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/model/ExcelParser.java" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/controller/GSOverviewController.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/controller/GSNewTableDialogController.java" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/controller/MainGSUIController.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/Main.java" />
       </list>
     </option>
@@ -175,7 +173,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -202,8 +200,26 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="piezo" />
+              <option name="myItemId" value="PezoTN" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PezoTN" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="production" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PiezoTN" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -217,37 +233,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="out" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="piezo" />
+              <option name="myItemId" value="production" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PezoTN" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PezoTN" />
+              <option name="myItemId" value="PiezoTN" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="piezo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
+              <option name="myItemId" value="ExcelDataBase" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -261,21 +259,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="out" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="piezo" />
+              <option name="myItemId" value="production" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
+              <option name="myItemId" value="PiezoTN" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExcelDataBase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test files" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -630,7 +636,28 @@
       <option name="project" value="LOCAL" />
       <updated>1489420853995</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Добавляем функционал - создание таблицы гр для нового участка (5)">
+      <created>1489425419254</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1489425419254</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Добавляем функционал - создание таблицы гр для нового участка (5)">
+      <created>1489427184519</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1489427184519</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Добавляем функционал - создание таблицы гр для нового участка (5)">
+      <created>1489472993309</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1489472993309</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -652,19 +679,19 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1568323" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32763976" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2795031" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2468944" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23279649" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32763976" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -679,11 +706,11 @@
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1568323" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32763976" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -695,11 +722,12 @@
     <MESSAGE value="Добавляем функционал - создание таблицы гр для нового участка (2)" />
     <MESSAGE value="Добавляем функционал - создание таблицы гр для нового участка (3)" />
     <MESSAGE value="Добавляем функционал - создание таблицы гр для нового участка (4)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавляем функционал - создание таблицы гр для нового участка (4)" />
+    <MESSAGE value="Добавляем функционал - создание таблицы гр для нового участка (5)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавляем функционал - создание таблицы гр для нового участка (5)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="164" />
+      <option name="time" value="166" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -732,8 +760,6 @@
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Main#0;class#Main#0" expanded="false" />
-            <element signature="method#runGRMain#0;class#Main#0" expanded="false" />
             <element signature="method#saveDataTable#0;class#Main#0" expanded="false" />
             <element signature="method#runGRSolver#0;class#Main#0" expanded="false" />
             <element signature="method#setHydraData#0;class#Main#0" expanded="false" />
@@ -741,6 +767,7 @@
             <element signature="method#initRootLayout#0;class#Main#0" expanded="false" />
             <element signature="method#showGSMainOverview#0;class#Main#0" expanded="false" />
             <element signature="method#showGSOverview#0;class#Main#0" expanded="false" />
+            <element signature="method#showGSNewTableDialog#0;class#Main#0" expanded="false" />
             <element signature="method#showTPartEditDialog#0;class#Main#0" expanded="false" />
             <element signature="method#showPiezoGraphic#0;class#Main#0" expanded="false" />
           </folding>
@@ -940,17 +967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tn/piezo/view/GSNewTableDialog.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1011,10 +1027,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-          <folding>
-            <element signature="method#PiezoPlotC#0;class#PiezoPlotC#0" expanded="false" />
-            <element signature="method#PiezoSolver#0;class#PiezoPlotC#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1070,23 +1082,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/GSOverviewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-109">
-          <caret line="50" column="20" lean-forward="false" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
-          <folding>
-            <element signature="method#initialize#0;class#GSOverviewController#0" expanded="false" />
-            <element signature="method#setMain#0;class#GSOverviewController#0" expanded="false" />
-            <element signature="method#showHydraDetails#0;class#GSOverviewController#0" expanded="false" />
-            <element signature="method#handleDeleteHydra#0;class#GSOverviewController#0" expanded="false" />
-            <element signature="method#handleNewHydraPart#0;class#GSOverviewController#0" expanded="false" />
-            <element signature="method#handleNewTermalNetwork#0;class#GSOverviewController#0" expanded="false" />
-            <element signature="method#handleEditHydraPart#0;class#GSOverviewController#0" expanded="false" />
-            <element signature="method#handleDone#0;class#GSOverviewController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -1101,12 +1096,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/ExcelParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="226" column="9" lean-forward="true" selection-start-line="226" selection-start-column="9" selection-end-line="226" selection-end-column="9" />
+          <folding>
+            <element signature="method#parseHydraT#0;class#ExcelParser#0" expanded="false" />
+            <element signature="method#parsePiezoPlot#0;class#ExcelParser#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/GSOverviewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2176">
+          <caret line="242" column="30" lean-forward="false" selection-start-line="242" selection-start-column="30" selection-end-line="242" selection-end-column="30" />
+          <folding>
+            <element signature="method#initialize#0;class#GSOverviewController#0" expanded="false" />
+            <element signature="method#setMain#0;class#GSOverviewController#0" expanded="false" />
+            <element signature="method#showHydraDetails#0;class#GSOverviewController#0" expanded="false" />
+            <element signature="method#handleDeleteHydra#0;class#GSOverviewController#0" expanded="false" />
+            <element signature="method#handleNewHydraPart#0;class#GSOverviewController#0" expanded="false" />
+            <element signature="method#handleNewTermalNetwork#0;class#GSOverviewController#0" expanded="false" />
+            <element signature="method#handleEditHydraPart#0;class#GSOverviewController#0" expanded="false" />
+            <element signature="method#handleCancel#0;class#GSOverviewController#0" expanded="false" />
+            <element signature="method#handleDone#0;class#GSOverviewController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/view/GSNewTableDialog.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-823">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/GSNewTableDialogController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-32">
+          <caret line="95" column="21" lean-forward="true" selection-start-line="94" selection-start-column="16" selection-end-line="95" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setDialogStage#0;class#GSNewTableDialogController#0" expanded="false" />
+            <element signature="method#handleOk#0;class#GSNewTableDialogController#0" expanded="false" />
+            <element signature="method#countChanged#0;class#GSNewTableDialogController#0" expanded="false" />
+            <element signature="method#handleNext#0;class#GSNewTableDialogController#0" expanded="false" />
+            <element signature="method#editDataHydra#0;class#GSNewTableDialogController#0" expanded="false" />
+            <element signature="method#handlePrevious#0;class#GSNewTableDialogController#0" expanded="false" />
+            <element signature="method#clearDialogStage#0;class#GSNewTableDialogController#0" expanded="false" />
+            <element signature="method#isInputValid#0;class#GSNewTableDialogController#0" expanded="false" />
+            <element signature="method#getNewHydraData#0;class#GSNewTableDialogController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/MainGSUIController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="141" column="20" lean-forward="true" selection-start-line="141" selection-start-column="20" selection-end-line="141" selection-end-column="20" />
+        <state relative-caret-position="134">
+          <caret line="244" column="82" lean-forward="true" selection-start-line="244" selection-start-column="82" selection-end-line="244" selection-end-column="82" />
           <folding>
             <element signature="docComment;class#MainGSUIController#0" expanded="false" />
+            <element signature="method#initialize#0;class#MainGSUIController#0" expanded="false" />
             <element signature="method#setPiezoData#0;class#MainGSUIController#0" expanded="false" />
             <element signature="method#setMain#0;class#MainGSUIController#0" expanded="false" />
             <element signature="method#handleEditDataBase#0;class#MainGSUIController#0" expanded="false" />
@@ -1117,12 +1172,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tn/piezo/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="58" column="68" lean-forward="false" selection-start-line="58" selection-start-column="68" selection-end-line="58" selection-end-column="68" />
+        <state relative-caret-position="330">
+          <caret line="51" column="8" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Main#0;class#Main#0" expanded="false" />
-            <element signature="method#runGRMain#0;class#Main#0" expanded="false" />
             <element signature="method#saveDataTable#0;class#Main#0" expanded="false" />
             <element signature="method#runGRSolver#0;class#Main#0" expanded="false" />
             <element signature="method#setHydraData#0;class#Main#0" expanded="false" />
@@ -1130,40 +1183,9 @@
             <element signature="method#initRootLayout#0;class#Main#0" expanded="false" />
             <element signature="method#showGSMainOverview#0;class#Main#0" expanded="false" />
             <element signature="method#showGSOverview#0;class#Main#0" expanded="false" />
+            <element signature="method#showGSNewTableDialog#0;class#Main#0" expanded="false" />
             <element signature="method#showTPartEditDialog#0;class#Main#0" expanded="false" />
             <element signature="method#showPiezoGraphic#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/ExcelParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="222" column="85" lean-forward="true" selection-start-line="222" selection-start-column="85" selection-end-line="222" selection-end-column="85" />
-          <folding>
-            <element signature="method#parseHydraT#0;class#ExcelParser#0" expanded="false" />
-            <element signature="method#parsePiezoPlot#0;class#ExcelParser#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/GSNewTableDialogController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="130" column="82" lean-forward="true" selection-start-line="130" selection-start-column="82" selection-end-line="130" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#initialize#0;class#GSNewTableDialogController#0" expanded="false" />
-            <element signature="method#setDialogStage#0;class#GSNewTableDialogController#0" expanded="false" />
-            <element signature="e#2862#2863#0" expanded="true" />
-            <element signature="e#2893#2894#0" expanded="true" />
-            <element signature="method#countChanged#0;class#GSNewTableDialogController#0" expanded="false" />
-            <element signature="method#handleNext#0;class#GSNewTableDialogController#0" expanded="false" />
-            <element signature="method#editDataHydra#0;class#GSNewTableDialogController#0" expanded="false" />
-            <element signature="method#handlePrevious#0;class#GSNewTableDialogController#0" expanded="false" />
-            <element signature="method#clearDialogStage#0;class#GSNewTableDialogController#0" expanded="false" />
-            <element signature="method#isInputValid#0;class#GSNewTableDialogController#0" expanded="false" />
-            <element signature="method#getNewHydraData#0;class#GSNewTableDialogController#0" expanded="false" />
           </folding>
         </state>
       </provider>
