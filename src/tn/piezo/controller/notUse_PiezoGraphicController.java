@@ -7,10 +7,9 @@ package tn.piezo.controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
+import javafx.scene.Scene;
+import javafx.scene.chart.*;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import tn.piezo.Main;
 import tn.piezo.model.HydraDataClassStruct;
@@ -24,7 +23,7 @@ import java.util.List;
 /**
  * Контроллер для представления пьезометрического графика сети
  */
-public class PiezoGraphicController {
+public class notUse_PiezoGraphicController {
 
     private Stage dialogStage;
     private PiezoC piezoC;
@@ -34,23 +33,19 @@ public class PiezoGraphicController {
     //defining the axes
     @FXML
     private CategoryAxis xAxis = new CategoryAxis();
-    //final NumberAxis xAxis = new NumberAxis();
     @FXML
     private NumberAxis yAxis = new NumberAxis();
     @FXML
-    private LineChart<String,Number> numberLineChart = new LineChart<String,Number>(xAxis,yAxis);
+    public LineChart<String,Number> numberLineChart = new LineChart<String,Number>(xAxis,yAxis);
+    @FXML
+    public BarChart<String,Number> barChart = new BarChart<String, Number>(xAxis,yAxis);
 
-    // список данных для построения графика
-    ObservableList<XYChart.Data> dataPodacha = FXCollections.observableArrayList();
-    ObservableList<XYChart.Data> dataObratka = FXCollections.observableArrayList();
-    ObservableList<XYChart.Data> dataGeodezia = FXCollections.observableArrayList();
-    ObservableList<XYChart.Data> dataStroenie = FXCollections.observableArrayList();
     // определяем графики
     private XYChart.Series seriesGeodezia = new XYChart.Series();
-    private XYChart.Series seriesStroenie = new XYChart.Series();
+    private XYChart.Series seriesStatic = new XYChart.Series();
     private XYChart.Series seriesPodacha = new XYChart.Series();
     private XYChart.Series seriesObratka = new XYChart.Series();
-    private XYChart.Series seriesStatic = new XYChart.Series();
+    private XYChart.Series seriesStroenie = new XYChart.Series();
 
     /**
      * Инициализирует класс-контроллер.
@@ -58,6 +53,10 @@ public class PiezoGraphicController {
      */
     @FXML
     private void initialize() {
+        setDefaultChartProperties(barChart);
+        setDefaultChartProperties(numberLineChart);
+        configureOverlayChart(barChart);
+        configureOverlayChart(numberLineChart);
         numberLineChart.setTitle("Пример пьезометрического графика");
         xAxis.setLabel("Участки");
         yAxis.setLabel("Напор (с учетом геодезии), м");
@@ -83,9 +82,7 @@ public class PiezoGraphicController {
         seriesObratka.setName("Обратка");
         seriesStatic.setName("Статический напор");
 
-
         PiezoC tempObjPiezoDCS;
-
         // считаем необходимы данные для графиков и сохраняем в массивах
         ObservableList<XYChart.Data> datasGeodezia = FXCollections.observableArrayList();
         ObservableList<XYChart.Data> datasStroinie = FXCollections.observableArrayList();
@@ -132,10 +129,11 @@ public class PiezoGraphicController {
         seriesStatic.setData(datasStaticH);
 
         numberLineChart.getData().add(seriesGeodezia);
-        numberLineChart.getData().add(seriesStroenie);
+        barChart.getData().add(seriesStroenie);
         numberLineChart.getData().add(seriesPodacha);
         numberLineChart.getData().add(seriesObratka);
         numberLineChart.getData().add(seriesStatic);
+
         yAxis.setAutoRanging(false);
         yAxis.setLowerBound(min-10);
         yAxis.setUpperBound(max+10);
@@ -162,6 +160,22 @@ public class PiezoGraphicController {
      */
     public void setMain(Main main) {
         this.main = main;
+    }
+
+    private void setDefaultChartProperties(final XYChart<String, Number> chart) {
+        chart.setLegendVisible(false);
+        chart.setAnimated(false);
+    }
+
+    private void configureOverlayChart(final XYChart<String, Number> chart) {
+        chart.setAlternativeRowFillVisible(false);
+        chart.setAlternativeColumnFillVisible(false);
+        chart.setHorizontalGridLinesVisible(false);
+        chart.setVerticalGridLinesVisible(false);
+        chart.getXAxis().setVisible(false);
+        chart.getYAxis().setVisible(false);
+
+        chart.getStylesheets().addAll(getClass().getResource("resources/overlay-chart.css").toExternalForm());
     }
 
 }

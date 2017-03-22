@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import tn.piezo.controller.*;
@@ -317,40 +318,18 @@ public class Main extends Application {
      */
     public void showPiezoGraphic() {
         try {
-         /*   // Загружает fxml-файл и создаёт новую сцену для всплывающего окна.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/PiezoUI.fxml.fxml"));
-            AnchorPane pgView = (AnchorPane) loader.load();
-            // Помещаем сведения об участках в центр корневого макета.
-            rootLayout.setCenter(pgView);
-            // Передаём участок в контроллер.
-            PiezoGraphicController pgController = loader.getController();
-            pgController.setPiezoData(piezoData);
-            //
-            pgController.setPiezoData(piezoData);
-            pgController.setMain(this);
-         */
-
-            // Загружает fxml-файл и создаёт новую сцену для всплывающего окна.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/PiezoUI.fxml"));
-            AnchorPane page = (AnchorPane) loader.load();
             Stage dialogStage = new Stage();
+            LayeredXyChartsSample LPchart = new LayeredXyChartsSample();
+            LPchart.startLayeredXyChart(dialogStage, piezoData);
             dialogStage.setTitle("PiezoGraphic");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(primaryStage);
-            Scene scene = new Scene(page);
-            dialogStage.setScene(scene);
 
-            // Передаёт адресатов в контроллер.
-            PiezoGraphicController controller = loader.getController();
-            controller.setDialogStage(dialogStage);
-            controller.setPiezoData(piezoData);
-            dialogStage.show();
-
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
+
     }
 
     /**
