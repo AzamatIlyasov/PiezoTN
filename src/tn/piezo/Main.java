@@ -37,6 +37,7 @@ public class Main extends Application {
     private ArrayList hydraDataArrayList = new ArrayList();
     private ArrayList piezoDataArrayList = new ArrayList();
 
+
     /**
      * Конструктор для главного метода приложения
      */
@@ -170,6 +171,9 @@ public class Main extends Application {
      */
     public void showGSMainOverview() {
         try {
+            // Загружаем данные для combobox-сов (ист,тс,ответвление)
+            FileParser fileParser = new FileParser();
+            fileParser.readTxtToCombobox();
             // Загружаем сведения об участках.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/MainGSUI.fxml"));

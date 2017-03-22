@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import tn.piezo.Main;
+import tn.piezo.model.FileParser;
 import tn.piezo.model.HydraC;
 import tn.piezo.model.PiezoC;
 
@@ -129,17 +130,11 @@ public class MainGSUIController {
         xAxis.setLabel("Участки, м");
         yAxis.setLabel("Напор (с учетом геодезии), м");
         // инициализация combobox - выбор источника
-        listSourceTN.getItems().addAll("К.Баскуат",
-                "Кот. №1",
-                "Кот. №3");
+        listSourceTN.getItems().addAll(FileParser.fileSourse);
         // инициализация combobox - выбор тепловой сети
-        listTN.getItems().addAll("М700",
-                "М500",
-                "М600",
-                "Пользовательский");
+        listTN.getItems().addAll(FileParser.fileTN);
         // инициализация combobox - выбор ответвления тепловой сети
-        listBranchingOfTN.getItems().addAll("Сама магистраль",
-                "М11");
+        listBranchingOfTN.getItems().addAll(FileParser.fileBranchTN);
     }
 
     /**

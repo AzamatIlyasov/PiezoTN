@@ -9,6 +9,7 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import tn.piezo.Main;
+import tn.piezo.model.FileParser;
 import tn.piezo.model.HydraC;
 import tn.piezo.model.HydraDataClassStruct;
 import tn.piezo.model.HydraSolverC;
@@ -81,19 +82,11 @@ public class GSNewTableDialogController {
     @FXML
     private void initialize() {
         // инициализация combobox - выбор источника
-        listSourceTN.getItems().addAll("New",
-                "К.Баскуат",
-                "Кот. №1",
-                "Кот. №3");
+        listSourceTN.getItems().addAll("New", FileParser.fileSourse);
         // инициализация combobox - выбор тепловой сети
-        listTN.getItems().addAll("New",
-                "М700",
-                "М500",
-                "М600");
+        listTN.getItems().addAll("New", FileParser.fileTN);
         // инициализация combobox - выбор ответвления тепловой сети
-        listBranchingOfTN.getItems().addAll("New",
-                "Сама магистраль",
-                "М11");
+        listBranchingOfTN.getItems().addAll("New", FileParser.fileBranchTN);
 
     }
 

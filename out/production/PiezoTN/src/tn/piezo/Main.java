@@ -34,20 +34,22 @@ public class Main extends Application {
      */
     private ObservableList<HydraC> hydraData = FXCollections.observableArrayList();
     private ObservableList<PiezoC> piezoData = FXCollections.observableArrayList();
-    private ArrayList hydraDataArrayList;
-    private ArrayList piezoDataArrayList;
+    private ArrayList hydraDataArrayList = new ArrayList();
+    private ArrayList piezoDataArrayList = new ArrayList();
+
 
     /**
      * Конструктор для главного метода приложения
      */
     public Main() {
-        // выполним гидрарасчет - участок по умолчанию
-        runGRMain("resources/ExcelDataBase/test files/input-K3-M2-88.xls");
+
     }
 
     //
     public void runGRMain(String fileName) {
         //считывание из БД (из файла excel) + проводим гидрарасчет
+        hydraDataArrayList.clear();
+        piezoDataArrayList.clear();
         hydraDataArrayList = ExcelParser.parseHydraT(fileName);//input-M700-M11 input-K3-M2-88 input-M700
         piezoDataArrayList = ExcelParser.parsePiezoPlot(hydraDataArrayList);
 
@@ -169,15 +171,19 @@ public class Main extends Application {
      */
     public void showGSMainOverview() {
         try {
+            // Загружаем данные для combobox-сов (ист,тс,ответвление)
+            FileParser fileParser = new FileParser();
+            fileParser.readTxtToCombobox();
             // Загружаем сведения об участках.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/MainGSUI.fxml"));
             AnchorPane gsMainOverview = (AnchorPane)loader.load();
-            //запуск расчетов
-            runGRSolver();
             // Помещаем сведения об участках в центр корневого макета.
             rootLayout.setCenter(gsMainOverview);
-
+            // выполним гидрарасчет - участок по умолчанию
+            runGRMain("resources/ExcelDataBase/test files/input-M700.xls");
+            //запуск расчетов
+            runGRSolver();
             // Даём контроллеру доступ к главному приложению.
             MainGSUIController controller = loader.getController();
             controller.setMain(this);

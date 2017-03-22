@@ -4,7 +4,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import tn.piezo.Main;
+import tn.piezo.model.FileParser;
 import tn.piezo.model.HydraC;
+
+import java.util.ArrayList;
 
 /**
  * Created by djaza on 16.02.2017.
@@ -42,6 +45,12 @@ public class GSOverviewController {
     private Label ZdanieEtajLabel;
     @FXML
     private Label Hrasp_istLabel;
+    @FXML
+    private ComboBox listSourceTN;
+    @FXML
+    private ComboBox listBranchingOfTN;
+    @FXML
+    private ComboBox listTN;
 
     private Stage dialogStage;
     private HydraC hydra;
@@ -70,6 +79,13 @@ public class GSOverviewController {
         D_column.setCellValueFactory(cellData -> cellData.getValue().DProperty().asObject());
         L_column.setCellValueFactory(cellData -> cellData.getValue().LProperty().asObject());
 
+        // инициализация combobox - выбор источника
+        listSourceTN.getItems().addAll(FileParser.fileSourse);
+        // инициализация combobox - выбор тепловой сети
+        listTN.getItems().addAll(FileParser.fileTN);
+        // инициализация combobox - выбор ответвления тепловой сети
+        listBranchingOfTN.getItems().addAll(FileParser.fileBranchTN);
+        //Заполняем все текстовые поля пустотой
         showHydraDetails(null);
 
         // слушаем изменения выбора, и при изменении отображаем
