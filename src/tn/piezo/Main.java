@@ -154,6 +154,7 @@ public class Main extends Application {
             loader.setLocation(Main.class.getResource("view/RootLayout.fxml"));
             rootLayout = (BorderPane)loader.load();
 
+
             // Отображаем сцену, содержащую корневой макет.
             Scene scene = new Scene(rootLayout, 800, 600);
             primaryStage.setMinWidth(800);
@@ -161,6 +162,7 @@ public class Main extends Application {
             primaryStage.setScene(scene);
             //отображение
             primaryStage.show();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -181,7 +183,7 @@ public class Main extends Application {
             // Помещаем сведения об участках в центр корневого макета.
             rootLayout.setCenter(gsMainOverview);
             // выполним гидрарасчет - участок по умолчанию
-            runGRMain("resources/ExcelDataBase/test files/input-M700.xls");
+            runGRMain("resources/ExcelDataBase/test files/input-main.xls");
             //запуск расчетов
             runGRSolver();
             // Даём контроллеру доступ к главному приложению.
@@ -327,7 +329,7 @@ public class Main extends Application {
             //
             pgController.setPiezoData(piezoData);
             pgController.setMain(this);
-*/
+         */
 
             // Загружает fxml-файл и создаёт новую сцену для всплывающего окна.
             FXMLLoader loader = new FXMLLoader();
@@ -344,10 +346,7 @@ public class Main extends Application {
             PiezoGraphicController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             controller.setPiezoData(piezoData);
-
             dialogStage.show();
-
-
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -368,6 +367,13 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    }
+
+    //закрытие программы
+    @Override
+    public void stop(){
+        FileParser fileParser = new FileParser();
+        fileParser.writeTxtFromCombobox();
     }
 
 }

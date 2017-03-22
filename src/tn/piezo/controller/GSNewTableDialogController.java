@@ -11,7 +11,6 @@ import javafx.stage.Stage;
 import tn.piezo.Main;
 import tn.piezo.model.FileParser;
 import tn.piezo.model.HydraC;
-import tn.piezo.model.HydraDataClassStruct;
 import tn.piezo.model.HydraSolverC;
 
 import java.util.ArrayList;
@@ -82,11 +81,14 @@ public class GSNewTableDialogController {
     @FXML
     private void initialize() {
         // инициализация combobox - выбор источника
-        listSourceTN.getItems().addAll("New", FileParser.fileSourse);
+        listSourceTN.getItems().add("New");
+        listSourceTN.getItems().addAll(FileParser.listSourse);
         // инициализация combobox - выбор тепловой сети
-        listTN.getItems().addAll("New", FileParser.fileTN);
+        listTN.getItems().add("New");
+        listTN.getItems().addAll(FileParser.listTN);
         // инициализация combobox - выбор ответвления тепловой сети
-        listBranchingOfTN.getItems().addAll("New", FileParser.fileBranchTN);
+        listBranchingOfTN.getItems().add("New");
+        listBranchingOfTN.getItems().addAll(FileParser.listBranchTN);
 
     }
 
@@ -281,9 +283,12 @@ public class GSNewTableDialogController {
             inputDialog.setHeaderText("Введите название источника тепла");
             inputDialog.setTitle("Название источника");
             inputDialog.showAndWait();
-            sourceName = inputDialog.getResult();
-            listSourceTN.getItems().add(sourceName);
-            listSourceTN.setValue(sourceName);
+            //if (inputDialog.getOnCloseRequest()) {
+                sourceName = inputDialog.getResult();
+                listSourceTN.getItems().add(sourceName);
+                listSourceTN.setValue(sourceName);
+                FileParser.listSourse.add(sourceName);
+            //}
         }
         else {
             sourceName = listSourceTN.getValue().toString();
@@ -303,6 +308,7 @@ public class GSNewTableDialogController {
             tnName = inputDialog.getResult();
             listTN.getItems().add(tnName);
             listTN.setValue(tnName);
+            FileParser.listTN.add(tnName);
         }
         else {
             tnName = listTN.getValue().toString();
@@ -322,6 +328,7 @@ public class GSNewTableDialogController {
             branchTNName = inputDialog.getResult();
             listBranchingOfTN.getItems().add(branchTNName);
             listBranchingOfTN.setValue(branchTNName);
+            FileParser.listBranchTN.add(branchTNName);
         }
         else {
             branchTNName = listBranchingOfTN.getValue().toString();

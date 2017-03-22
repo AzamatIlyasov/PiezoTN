@@ -7,8 +7,6 @@ import tn.piezo.Main;
 import tn.piezo.model.FileParser;
 import tn.piezo.model.HydraC;
 
-import java.util.ArrayList;
-
 /**
  * Created by djaza on 16.02.2017.
  */
@@ -80,11 +78,11 @@ public class GSOverviewController {
         L_column.setCellValueFactory(cellData -> cellData.getValue().LProperty().asObject());
 
         // инициализация combobox - выбор источника
-        listSourceTN.getItems().addAll(FileParser.fileSourse);
+        listSourceTN.getItems().addAll(FileParser.listSourse);
         // инициализация combobox - выбор тепловой сети
-        listTN.getItems().addAll(FileParser.fileTN);
+        listTN.getItems().addAll(FileParser.listTN);
         // инициализация combobox - выбор ответвления тепловой сети
-        listBranchingOfTN.getItems().addAll(FileParser.fileBranchTN);
+        listBranchingOfTN.getItems().addAll(FileParser.listBranchTN);
         //Заполняем все текстовые поля пустотой
         showHydraDetails(null);
 

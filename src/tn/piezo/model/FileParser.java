@@ -8,9 +8,9 @@ import java.util.ArrayList;
  */
 public class FileParser {
     // списки для combobox -источник, тс, ответвление
-    public static ArrayList<String> fileSourse = new ArrayList<>();
-    public static ArrayList<String> fileTN = new ArrayList<>();
-    public static ArrayList<String> fileBranchTN = new ArrayList<>();
+    public static ArrayList<String> listSourse = new ArrayList<>();
+    public static ArrayList<String> listTN = new ArrayList<>();
+    public static ArrayList<String> listBranchTN = new ArrayList<>();
 
     /**
      * считвание списков с файлов для combobox
@@ -18,15 +18,40 @@ public class FileParser {
     public void readTxtToCombobox() {
         //считывание списков источников, тс и ответвлений для всех combobox
         FileParser fileParser = new FileParser();
-        fileSourse = fileParser.fileParser("resources/ExcelDataBase/1_Source/CollectionSource.txt");
-        fileTN = fileParser.fileParser("resources/ExcelDataBase/2_TN/CollectionTN.txt");
-        fileBranchTN = fileParser.fileParser("resources/ExcelDataBase/3_PartTN/CollectionBranch.txt");
+        listSourse = fileParser.fileParser("resources/ExcelDataBase/1_Source/CollectionSource.txt");
+        listTN = fileParser.fileParser("resources/ExcelDataBase/2_TN/CollectionTN.txt");
+        listBranchTN = fileParser.fileParser("resources/ExcelDataBase/3_PartTN/CollectionBranch.txt");
     }
 
     /**
      * запись созданных источников и др
      */
     public void writeTxtFromCombobox() {
+        File fileSrc = new File("resources/ExcelDataBase/1_Source/CollectionSource.txt");
+        File fileTN = new File("resources/ExcelDataBase/2_TN/CollectionTN.txt");
+        File fileBranchTN = new File("resources/ExcelDataBase/3_PartTN/CollectionBranch.txt");
+        try {
+            fileSrc.createNewFile();
+            fileTN.createNewFile();
+            fileBranchTN.createNewFile();
+            PrintWriter printWriterSrc = new PrintWriter(fileSrc.getAbsoluteFile());
+            PrintWriter printWriterTN = new PrintWriter(fileTN.getAbsoluteFile());
+            PrintWriter printWriterBranchTN = new PrintWriter(fileBranchTN.getAbsoluteFile());
+            for (String str: listSourse) {
+                printWriterSrc.println(str);
+            }
+            printWriterSrc.close();
+            for (String str: listTN) {
+                printWriterTN.println(str);
+            }
+            printWriterTN.close();
+            for (String str: listBranchTN) {
+                printWriterBranchTN.println(str);
+            }
+            printWriterBranchTN.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
