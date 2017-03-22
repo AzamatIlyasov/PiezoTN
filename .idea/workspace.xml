@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="доработал функционалы (1)">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/Main.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSOverviewController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSOverviewController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/MainGSUIController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/MainGSUIController.class" />
@@ -674,7 +674,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490188548949</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Обновленный">
+      <created>1490189056219</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1490189056219</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -742,7 +749,8 @@
     <MESSAGE value="Добавляем функционал - создание таблицы гр для нового участка (5)" />
     <MESSAGE value="Добавляем функционал - cчитывание данных для combobox-сов" />
     <MESSAGE value="доработал функционалы (1)" />
-    <option name="LAST_COMMIT_MESSAGE" value="доработал функционалы (1)" />
+    <MESSAGE value="Обновленный" />
+    <option name="LAST_COMMIT_MESSAGE" value="Обновленный" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
