@@ -5,11 +5,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import tn.piezo.Main;
+import tn.piezo.model.FileParser;
 import tn.piezo.model.HydraC;
-import tn.piezo.model.HydraDataClassStruct;
 import tn.piezo.model.HydraSolverC;
 
 import java.util.ArrayList;
@@ -24,6 +25,9 @@ public class GSNewTableDialogController {
     // поля для данных
     private int indexPartTN = 0;
     private String fileName = "";
+    private String sourceName = "";
+    private String tnName = "";
+    private String branchTNName = "";
     // переменные - исходные данные для расчета
     private String[] NamePartTN;
     private String[] NamePartTNpred;
@@ -77,19 +81,14 @@ public class GSNewTableDialogController {
     @FXML
     private void initialize() {
         // инициализация combobox - выбор источника
-        listSourceTN.getItems().addAll("К.Баскуат",
-                "Кот. №1",
-                "Кот. №3",
-                "New");
+        listSourceTN.getItems().add("New");
+        listSourceTN.getItems().addAll(FileParser.listSourse);
         // инициализация combobox - выбор тепловой сети
-        listTN.getItems().addAll("М700",
-                "М500",
-                "М600",
-                "New");
+        listTN.getItems().add("New");
+        listTN.getItems().addAll(FileParser.listTN);
         // инициализация combobox - выбор ответвления тепловой сети
-        listBranchingOfTN.getItems().addAll("Сама магистраль",
-                "М11",
-                "New");
+        listBranchingOfTN.getItems().add("New");
+        listBranchingOfTN.getItems().addAll(FileParser.listBranchTN);
 
     }
 
@@ -105,7 +104,7 @@ public class GSNewTableDialogController {
     }
 
     /**
-     *
+     * имя файла для сохранения
      */
     public String getFileName() {
         return fileName;
@@ -125,12 +124,9 @@ public class GSNewTableDialogController {
     private void handleOk() {
         //сохраняем данные в массивах
         editDataHydra(indexPartTN);
-        String sourceName = listSourceTN.getValue().toString();
-        String tnName = listTN.getValue().toString();
-        String branchTNName = listBranchingOfTN.getValue().toString();
-        fileName = "input" + "-" + sourceName + "-" + tnName + "-" + branchTNName;
         okClicked = true;
         dialogStage.close();
+        fileName = "input" + "-" + sourceName + "-" + tnName + "-" + branchTNName;
     }
 
     /**
@@ -281,19 +277,63 @@ public class GSNewTableDialogController {
      * Выбор/создание источника тепла
      */
     @FXML
-    private void handleTNSource() {}
+    private void handleTNSource() {
+        if (listSourceTN.getValue().toString().equals("New")) {
+            TextInputDialog inputDialog = new TextInputDialog();
+            inputDialog.setHeaderText("Введите название источника тепла");
+            inputDialog.setTitle("Название источника");
+            inputDialog.showAndWait();
+            //if (inputDialog.getOnCloseRequest()) {
+                sourceName = inputDialog.getResult();
+                listSourceTN.getItems().add(sourceName);
+                listSourceTN.setValue(sourceName);
+                FileParser.listSourse.add(sourceName);
+            //}
+        }
+        else {
+            sourceName = listSourceTN.getValue().toString();
+        }
+    }
 
     /**
      * Выбор/создание тепловой сети
      */
     @FXML
-    private void handleTermalNet() {}
+    private void handleTermalNet() {
+        if (listTN.getValue().toString().equals("New")) {
+            TextInputDialog inputDialog = new TextInputDialog();
+            inputDialog.setHeaderText("Введите название тепловой сети");
+            inputDialog.setTitle("Название тепловой сети");
+            inputDialog.showAndWait();
+            tnName = inputDialog.getResult();
+            listTN.getItems().add(tnName);
+            listTN.setValue(tnName);
+            FileParser.listTN.add(tnName);
+        }
+        else {
+            tnName = listTN.getValue().toString();
+        }
+    }
 
     /**
      * Выбор/создание тепловой сети
      */
     @FXML
-    private void handleTNPart() {}
+    private void handleTNPart() {
+        if (listBranchingOfTN.getValue().toString().equals("New")) {
+            TextInputDialog inputDialog = new TextInputDialog();
+            inputDialog.setHeaderText("Введите название ответвления");
+            inputDialog.setTitle("Название ответвления");
+            inputDialog.showAndWait();
+            branchTNName = inputDialog.getResult();
+            listBranchingOfTN.getItems().add(branchTNName);
+            listBranchingOfTN.setValue(branchTNName);
+            FileParser.listBranchTN.add(branchTNName);
+        }
+        else {
+            branchTNName = listBranchingOfTN.getValue().toString();
+        }
+    }
 
     /**
      * Метод для добавления и сохранения введеных данных в ArrayList

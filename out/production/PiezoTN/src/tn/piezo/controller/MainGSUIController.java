@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import tn.piezo.Main;
+import tn.piezo.model.FileParser;
 import tn.piezo.model.HydraC;
 import tn.piezo.model.PiezoC;
 
@@ -129,17 +130,11 @@ public class MainGSUIController {
         xAxis.setLabel("Участки, м");
         yAxis.setLabel("Напор (с учетом геодезии), м");
         // инициализация combobox - выбор источника
-        listSourceTN.getItems().addAll("К.Баскуат",
-                "Кот. №1",
-                "Кот. №3");
+        listSourceTN.getItems().addAll(FileParser.fileSourse);
         // инициализация combobox - выбор тепловой сети
-        listTN.getItems().addAll("М700",
-                "М500",
-                "М600");
+        listTN.getItems().addAll(FileParser.fileTN);
         // инициализация combobox - выбор ответвления тепловой сети
-        listBranchingOfTN.getItems().addAll("___",
-                "М11",
-                "");
+        listBranchingOfTN.getItems().addAll(FileParser.fileBranchTN);
     }
 
     /**
@@ -239,15 +234,23 @@ public class MainGSUIController {
      */
     @FXML
     private void handleTermalNet() {
-        sourceFileName = "resources/ExcelDataBase/test files/input-M700.xls";
-        //sourceFileName = "resources/ExcelDataBase/test files/input-M700-M11.xls";
-        //sourceFileName = "resources/ExcelDataBase/test files/input-K3-M2-88.xls";
+
     }
 
     // к.Вычислить - запуск гидравлического расчета для выбранного участка
     @FXML
     private void runGidRas() {
-        //main.runGRMain(sourceFileName);
+        //выбор источника
+        if (listTN.getValue().toString().equals("М700"))
+            sourceFileName = "resources/ExcelDataBase/test files/input-M700.xls";
+        if (listTN.getValue().toString().equals("М500"))
+            sourceFileName = "resources/ExcelDataBase/test files/input-M700-M11.xls";
+        if (listTN.getValue().toString().equals("М600"))
+            sourceFileName = "resources/ExcelDataBase/test files/input-K3-M2-88.xls";
+        if (listTN.getValue().toString().equals("Пользовательский"))
+            sourceFileName = "resources/ExcelDataBase/test files/input-Кот. №1-М500-М11.xls";
+        // запуск расчета для выбранного участка
+        main.runGRMain(sourceFileName);
         main.runGRSolver();
     }
 

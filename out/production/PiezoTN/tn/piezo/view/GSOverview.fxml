@@ -88,13 +88,13 @@
                   </GridPane>
                   <HBox layoutX="10.0" layoutY="10.0">
                      <children>
-                        <ComboBox layoutX="10.0" layoutY="15.0" prefHeight="25.0" prefWidth="111.0" promptText="1 Источник" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                        <ComboBox layoutX="121.0" layoutY="15.0" prefHeight="25.0" prefWidth="133.0" promptText="2 Тепловая сеть" AnchorPane.topAnchor="10.0">
+                        <ComboBox fx:id="listSourceTN" layoutX="10.0" layoutY="15.0" prefHeight="25.0" prefWidth="111.0" promptText="1 Источник" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                        <ComboBox fx:id="listTN" layoutX="121.0" layoutY="15.0" prefHeight="25.0" prefWidth="133.0" promptText="2 Тепловая сеть" AnchorPane.topAnchor="10.0">
                            <HBox.margin>
                               <Insets left="5.0" />
                            </HBox.margin>
                         </ComboBox>
-                        <ComboBox layoutX="241.0" layoutY="15.0" prefHeight="25.0" prefWidth="96.0" promptText="3 Ответвления" AnchorPane.topAnchor="10.0">
+                        <ComboBox fx:id="listBranchingOfTN" layoutX="241.0" layoutY="15.0" prefHeight="25.0" prefWidth="96.0" promptText="3 Ответвления" AnchorPane.topAnchor="10.0">
                            <HBox.margin>
                               <Insets left="5.0" />
                            </HBox.margin>
