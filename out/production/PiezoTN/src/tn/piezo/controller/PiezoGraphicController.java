@@ -50,6 +50,7 @@ public class PiezoGraphicController {
     private XYChart.Series seriesStroenie = new XYChart.Series();
     private XYChart.Series seriesPodacha = new XYChart.Series();
     private XYChart.Series seriesObratka = new XYChart.Series();
+    private XYChart.Series seriesStatic = new XYChart.Series();
 
     /**
      * Инициализирует класс-контроллер.
@@ -74,11 +75,14 @@ public class PiezoGraphicController {
         double[] Geodezia = new double[piezoData.size()];
         double[] Stroinie = new double[piezoData.size()];
         double[] LengthPart = new double[piezoData.size()];
+        double[] HStatic = new double[piezoData.size()];
 
         seriesGeodezia.setName("Местность");
         seriesStroenie.setName("Строения");
         seriesPodacha.setName("Подача");
         seriesObratka.setName("Обратка");
+        seriesStatic.setName("Статический напор");
+
 
         PiezoC tempObjPiezoDCS;
 
@@ -87,15 +91,16 @@ public class PiezoGraphicController {
         ObservableList<XYChart.Data> datasStroinie = FXCollections.observableArrayList();
         ObservableList<XYChart.Data> datasPodacha = FXCollections.observableArrayList();
         ObservableList<XYChart.Data> datasObratka = FXCollections.observableArrayList();
+        ObservableList<XYChart.Data> datasStaticH = FXCollections.observableArrayList();
         // для ранжирования оси ОY
-        double min = Geodezia[0];
-        double max = Geodezia[0];
-        for (int i = 0; i < piezoData.size(); i++)
-        {
+        double min =  100000;
+        double max = -100000;
+        for (int i = 0; i < piezoData.size(); i++) {
             // сохраняем с учетом геодезических отметок
             tempObjPiezoDCS = (PiezoC)piezoData.get(i);
             Geodezia[i] = tempObjPiezoDCS.getGeo();
             Stroinie[i] = tempObjPiezoDCS.getZdanieEtaj() * 3 + Geodezia[i];
+            HStatic[i] = Stroinie[i]+5;
             Hpodacha[i] = tempObjPiezoDCS.getHraspPod() + Geodezia[i];
             Hobratka[i] = tempObjPiezoDCS.getHraspObrat() + Geodezia[i];
             if (i==0) LengthPart[i] = tempObjPiezoDCS.getL();
@@ -106,19 +111,34 @@ public class PiezoGraphicController {
             datasStroinie.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), Stroinie[i]));
             datasPodacha.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), Hpodacha[i]));
             datasObratka.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), Hobratka[i]));
+            //ищем минимум и максимум точки
+            if (min > Geodezia[i]) min = Geodezia[i];
+            if (max < Hpodacha[i]) max = Hpodacha[i];
         }
+        //определям статическое давления
+        double maxHstatic = HStatic[0];
+        for (double var: HStatic) {
+            if (maxHstatic < var) maxHstatic = var;
+        }
+        for (int i = 0; i < piezoData.size(); i++) {
+            HStatic[i] = maxHstatic;
+            datasStaticH.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), HStatic[i]));
+        }
+
         seriesGeodezia.setData(datasGeodezia);
         seriesStroenie.setData(datasStroinie);
         seriesPodacha.setData(datasPodacha);
         seriesObratka.setData(datasObratka);
+        seriesStatic.setData(datasStaticH);
 
         numberLineChart.getData().add(seriesGeodezia);
         numberLineChart.getData().add(seriesStroenie);
         numberLineChart.getData().add(seriesPodacha);
         numberLineChart.getData().add(seriesObratka);
+        numberLineChart.getData().add(seriesStatic);
         yAxis.setAutoRanging(false);
-        yAxis.setLowerBound(590);
-        yAxis.setUpperBound(750);
+        yAxis.setLowerBound(min-10);
+        yAxis.setUpperBound(max+10);
     }
 
     /**

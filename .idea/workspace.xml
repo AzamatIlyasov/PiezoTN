@@ -1,27 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PiezoTN/ExcelDataBase/test files/input-M700-M11.xls" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PiezoTN/ExcelDataBase/test files/input-M700.xls" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PiezoTN/resources/ExcelDataBase/test files/input-M700-M11.xls" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PiezoTN/resources/ExcelDataBase/test files/input-M700.xls" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/ExcelDataBase/test files/input-M700-M11.xls" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/ExcelDataBase/test files/input-M700.xls" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/ExcelDataBase/test files/input-Кот. №1-М500-М11.xls" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSNewTableDialogController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSNewTableDialogController.class" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="доработал функционалы (1)">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/Main.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSOverviewController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSOverviewController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/MainGSUIController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/MainGSUIController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/PiezoGraphicController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/PiezoGraphicController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/GSNewTableDialogController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/GSNewTableDialogController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ExcelDataBase/1_Source/CollectionSource.txt" afterPath="$PROJECT_DIR$/resources/ExcelDataBase/1_Source/CollectionSource.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ExcelDataBase/2_TN/CollectionTN.txt" afterPath="$PROJECT_DIR$/resources/ExcelDataBase/2_TN/CollectionTN.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ExcelDataBase/3_PartTN/CollectionBranch.txt" afterPath="$PROJECT_DIR$/resources/ExcelDataBase/3_PartTN/CollectionBranch.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/Main.java" afterPath="$PROJECT_DIR$/src/tn/piezo/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/controller/GSNewTableDialogController.java" afterPath="$PROJECT_DIR$/src/tn/piezo/controller/GSNewTableDialogController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/controller/GSOverviewController.java" afterPath="$PROJECT_DIR$/src/tn/piezo/controller/GSOverviewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/controller/MainGSUIController.java" afterPath="$PROJECT_DIR$/src/tn/piezo/controller/MainGSUIController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/controller/PiezoGraphicController.java" afterPath="$PROJECT_DIR$/src/tn/piezo/controller/PiezoGraphicController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/model/FileParser.java" afterPath="$PROJECT_DIR$/src/tn/piezo/model/FileParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/view/MainGSUI.fxml" afterPath="$PROJECT_DIR$/src/tn/piezo/view/MainGSUI.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/Main.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/GSOverviewController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/GSOverviewController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/MainGSUIController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/MainGSUIController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/PiezoGraphicController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/PiezoGraphicController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/view/MainGSUI.fxml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/view/MainGSUI.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/view/MainGSUI.fxml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/view/MainGSUI.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,132 +75,7 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GSNewTableDialogController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/GSNewTableDialogController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2335">
-              <caret line="310" column="26" lean-forward="false" selection-start-line="310" selection-start-column="26" selection-end-line="310" selection-end-column="26" />
-              <folding>
-                <element signature="method#setDialogStage#0;class#GSNewTableDialogController#0" expanded="false" />
-                <element signature="method#countChanged#0;class#GSNewTableDialogController#0" expanded="false" />
-                <element signature="method#handleNext#0;class#GSNewTableDialogController#0" expanded="false" />
-                <element signature="method#editDataHydra#0;class#GSNewTableDialogController#0" expanded="false" />
-                <element signature="method#handlePrevious#0;class#GSNewTableDialogController#0" expanded="false" />
-                <element signature="method#clearDialogStage#0;class#GSNewTableDialogController#0" expanded="false" />
-                <element signature="method#isInputValid#0;class#GSNewTableDialogController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GSEditDialogController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/GSEditDialogController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="47" column="9" lean-forward="false" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GSOverviewController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/GSOverviewController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#setMain#0;class#GSOverviewController#0" expanded="false" />
-                <element signature="method#handleDeleteHydra#0;class#GSOverviewController#0" expanded="false" />
-                <element signature="method#handleNewHydraPart#0;class#GSOverviewController#0" expanded="false" />
-                <element signature="method#handleNewTermalNetwork#0;class#GSOverviewController#0" expanded="false" />
-                <element signature="method#handleCancel#0;class#GSOverviewController#0" expanded="false" />
-                <element signature="method#handleDone#0;class#GSOverviewController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainGSUIController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/MainGSUIController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="200" column="89" lean-forward="false" selection-start-line="200" selection-start-column="89" selection-end-line="200" selection-end-column="89" />
-              <folding>
-                <element signature="method#setMain#0;class#MainGSUIController#0" expanded="false" />
-                <element signature="method#handleEditDataBase#0;class#MainGSUIController#0" expanded="false" />
-                <element signature="method#handlePiezoGraphic#0;class#MainGSUIController#0" expanded="false" />
-                <element signature="method#handleTermalNet#0;class#MainGSUIController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FXMLLoader.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="1772" column="0" lean-forward="false" selection-start-line="1772" selection-start-column="0" selection-end-line="1772" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tn/piezo/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2941">
-              <caret line="347" column="32" lean-forward="true" selection-start-line="347" selection-start-column="32" selection-end-line="347" selection-end-column="32" />
-              <folding>
-                <element signature="e#13397#13398#0" expanded="true" />
-                <element signature="e#13432#13433#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExcelParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/ExcelParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PiezoGraphicController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/PiezoGraphicController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="121" column="9" lean-forward="true" selection-start-line="121" selection-start-column="9" selection-end-line="121" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HydraSolverC.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/HydraSolverC.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-170">
-              <caret line="70" column="55" lean-forward="false" selection-start-line="70" selection-start-column="55" selection-end-line="70" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HydraC.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/HydraC.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1054">
-              <caret line="15" column="38" lean-forward="false" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -801,7 +667,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490178911852</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="доработал функционалы (1)">
+      <created>1490188548949</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1490188548949</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -818,7 +691,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -830,7 +703,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32763976" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2462908" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2462908" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -868,7 +741,8 @@
     <MESSAGE value="Добавляем функционал - создание таблицы гр для нового участка (4)" />
     <MESSAGE value="Добавляем функционал - создание таблицы гр для нового участка (5)" />
     <MESSAGE value="Добавляем функционал - cчитывание данных для combobox-сов" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавляем функционал - cчитывание данных для combobox-сов" />
+    <MESSAGE value="доработал функционалы (1)" />
+    <option name="LAST_COMMIT_MESSAGE" value="доработал функционалы (1)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1289,8 +1163,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/PiezoGraphicController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="121" column="9" lean-forward="true" selection-start-line="121" selection-start-column="9" selection-end-line="121" selection-end-column="9" />
+        <state relative-caret-position="63">
+          <caret line="89" column="77" lean-forward="true" selection-start-line="89" selection-start-column="77" selection-end-line="89" selection-end-column="77" />
           <folding />
         </state>
       </provider>
