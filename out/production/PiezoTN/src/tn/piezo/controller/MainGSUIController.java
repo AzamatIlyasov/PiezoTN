@@ -11,11 +11,15 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import tn.piezo.Main;
 import tn.piezo.model.FileParser;
 import tn.piezo.model.HydraC;
 import tn.piezo.model.PiezoC;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 /**
@@ -69,9 +73,12 @@ public class MainGSUIController {
     private ComboBox listTN;
     @FXML
     private ComboBox listBranchingOfTN;
+    @FXML
+    private StackPane stackPaneGraph;
 
     // для ГР - источник данных
     private String sourceFileName = "";
+    /*
     //defining the axes
     @FXML
     private CategoryAxis xAxis = new CategoryAxis();
@@ -89,7 +96,8 @@ public class MainGSUIController {
     private XYChart.Series seriesStroenie = new XYChart.Series();
     private XYChart.Series seriesPodacha = new XYChart.Series();
     private XYChart.Series seriesObratka = new XYChart.Series();
-
+    private XYChart.Series seriesStatic = new XYChart.Series();
+*/
     // Ссылка на главное приложение.
     private Main main;
 
@@ -125,16 +133,11 @@ public class MainGSUIController {
         H2x_column.setCellValueFactory(cellData -> cellData.getValue().H2xProperty().asObject());
         dH_fist_column.setCellValueFactory(cellData -> cellData.getValue().dH_fistProperty().asObject());
         Hrasp_endP_column.setCellValueFactory(cellData -> cellData.getValue().Hrasp_endPProperty().asObject());
-        //инициализация графика
-        numberLineChart.setTitle("Пример пьезометрического графика");
-        xAxis.setLabel("Участки, м");
-        yAxis.setLabel("Напор (с учетом геодезии), м");
-        // инициализация combobox - выбор источника
-        listSourceTN.getItems().addAll(FileParser.fileSourse);
-        // инициализация combobox - выбор тепловой сети
-        listTN.getItems().addAll(FileParser.fileTN);
-        // инициализация combobox - выбор ответвления тепловой сети
-        listBranchingOfTN.getItems().addAll(FileParser.fileBranchTN);
+        // инициализация combobox
+        listSourceTN.getItems().addAll(FileParser.listSourse);
+        listTN.getItems().addAll(FileParser.listTN);
+        listBranchingOfTN.getItems().addAll(FileParser.listBranchTN);
+
     }
 
     /**
@@ -143,16 +146,26 @@ public class MainGSUIController {
      * @param piezoData
      */
     public void setPiezoData(List piezoData) {
+        LayeredXyChartsSample LPchart = new LayeredXyChartsSample();
+        stackPaneGraph.getChildren().addAll(LPchart.startLayerCharts(piezoData));
+        /*
+        //инициализация графика
+        numberLineChart.setTitle("Пример пьезометрического графика");
+        xAxis.setLabel("Участки, м");
+        yAxis.setLabel("Напор (с учетом геодезии), м");
+
         double[] Hpodacha = new double[piezoData.size()];
         double[] Hobratka = new double[piezoData.size()];
         double[] Geodezia = new double[piezoData.size()];
         double[] Stroinie = new double[piezoData.size()];
         double[] LengthPart = new double[piezoData.size()];
+        double[] HStatic = new double[piezoData.size()];
 
         seriesGeodezia.setName("Местность");
         seriesStroenie.setName("Строения");
         seriesPodacha.setName("Подача");
         seriesObratka.setName("Обратка");
+        seriesStatic.setName("Статический напор");
 
         PiezoC tempObjPiezoDCS;
 
@@ -161,15 +174,17 @@ public class MainGSUIController {
         ObservableList<XYChart.Data> datasStroinie = FXCollections.observableArrayList();
         ObservableList<XYChart.Data> datasPodacha = FXCollections.observableArrayList();
         ObservableList<XYChart.Data> datasObratka = FXCollections.observableArrayList();
+        ObservableList<XYChart.Data> datasStaticH = FXCollections.observableArrayList();
         // для ранжирования оси ОY
-        double min = Geodezia[0];
-        double max = Geodezia[0];
+        double min =  100000;
+        double max = -100000;
         for (int i = 0; i < piezoData.size(); i++)
         {
             // сохраняем с учетом геодезических отметок
             tempObjPiezoDCS = (PiezoC)piezoData.get(i);
             Geodezia[i] = tempObjPiezoDCS.getGeo();
             Stroinie[i] = tempObjPiezoDCS.getZdanieEtaj() * 3 + Geodezia[i];
+            HStatic[i] = Stroinie[i]+5.0;
             Hpodacha[i] = tempObjPiezoDCS.getHraspPod() + Geodezia[i];
             Hobratka[i] = tempObjPiezoDCS.getHraspObrat() + Geodezia[i];
             if (i==0) LengthPart[i] = tempObjPiezoDCS.getL();
@@ -180,20 +195,35 @@ public class MainGSUIController {
             datasStroinie.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), Stroinie[i]));
             datasPodacha.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), Hpodacha[i]));
             datasObratka.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), Hobratka[i]));
+
+            //ищем минимум и максимум точки
+            if (min > Geodezia[i]) min = Geodezia[i];
+            if (max < Hpodacha[i]) max = Hpodacha[i];
+        }
+        //определям статическое давления
+        double maxHstatic = HStatic[0];
+        for (double var: HStatic) {
+            if (maxHstatic < var) maxHstatic = var;
+        }
+        for (int i = 0; i < piezoData.size(); i++) {
+            HStatic[i] = maxHstatic;
+            datasStaticH.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), HStatic[i]));
         }
         seriesGeodezia.setData(datasGeodezia);
         seriesStroenie.setData(datasStroinie);
         seriesPodacha.setData(datasPodacha);
         seriesObratka.setData(datasObratka);
+        seriesStatic.setData(datasStaticH);
 
         numberLineChart.getData().add(seriesGeodezia);
         numberLineChart.getData().add(seriesStroenie);
         numberLineChart.getData().add(seriesPodacha);
         numberLineChart.getData().add(seriesObratka);
+        numberLineChart.getData().add(seriesStatic);
         yAxis.setAutoRanging(false);
-        yAxis.setLowerBound(590);
-        yAxis.setUpperBound(750);
-
+        yAxis.setLowerBound(min - 10);
+        yAxis.setUpperBound(max + 10);
+*/
     }
 
     /**
@@ -237,21 +267,90 @@ public class MainGSUIController {
 
     }
 
+    /**
+     * вызывается при нажатии на combobox
+     */
+    @FXML
+    private void mouseClickComboBox() {
+        //очистка от старых данных
+        if (listSourceTN.isFocused()) {
+            listSourceTN.getItems().clear();
+            // Заносим новые данные
+            // инициализация combobox - выбор источника
+            listSourceTN.getItems().addAll(FileParser.listSourse);
+        }
+        if (listTN.isFocused()) {
+            listTN.getItems().clear();
+            // Заносим новые данные
+            // инициализация combobox - выбор тепловой сети
+            listTN.getItems().addAll(FileParser.listTN);
+        }
+        if (listBranchingOfTN.isFocused()) {
+            listBranchingOfTN.getItems().clear();
+            // Заносим новые данные
+            // инициализация combobox - выбор ответвления тепловой сети
+            listBranchingOfTN.getItems().addAll(FileParser.listBranchTN);
+        }
+    }
+
     // к.Вычислить - запуск гидравлического расчета для выбранного участка
     @FXML
     private void runGidRas() {
-        //выбор источника
-        if (listTN.getValue().toString().equals("М700"))
-            sourceFileName = "resources/ExcelDataBase/test files/input-M700.xls";
-        if (listTN.getValue().toString().equals("М500"))
-            sourceFileName = "resources/ExcelDataBase/test files/input-M700-M11.xls";
-        if (listTN.getValue().toString().equals("М600"))
-            sourceFileName = "resources/ExcelDataBase/test files/input-K3-M2-88.xls";
-        if (listTN.getValue().toString().equals("Пользовательский"))
-            sourceFileName = "resources/ExcelDataBase/test files/input-Кот. №1-М500-М11.xls";
+        //выбор данных для расчета
+        sourceFileName = "resources/ExcelDataBase/test files/";
+        sourceFileName += "input";
+        sourceFileName += "-";
+
+        try {
+            // источник
+            if (listSourceTN.getValue().toString().equals("Кот. №1"))
+                sourceFileName += "K1";
+            else if (listSourceTN.getValue().toString().equals("Кот. №3"))
+                sourceFileName += "K3";
+            else if (listSourceTN.getValue().toString().equals("Кот. №5"))
+                sourceFileName += "K5";
+            else
+                sourceFileName += listSourceTN.getValue().toString();
+            sourceFileName += "-";
+
+            //тепловая сеть
+            if (listTN.getValue().toString().equals("M1"))
+                sourceFileName += "M1";
+            else if (listTN.getValue().toString().equals("M2"))
+                sourceFileName += "M2";
+            else if (listTN.getValue().toString().equals("M3"))
+                sourceFileName += "M3";
+            else if (listTN.getValue().toString().equals("M4"))
+                sourceFileName += "M4";
+            else if (listTN.getValue().toString().equals("M700"))
+                sourceFileName += "M700";
+            else if (listTN.getValue().toString().equals("M500"))
+                sourceFileName += "M500";
+            else if (listTN.getValue().toString().equals("M600"))
+                sourceFileName += "M600";
+            else
+                sourceFileName += listTN.getValue().toString();
+
+            //ответвление
+            if (listBranchingOfTN.getValue().toString().equals("Без ответления"))
+                sourceFileName += "";
+            else if (listBranchingOfTN.getValue().toString().equals("M88"))
+                sourceFileName += "-M88";
+            else if (listBranchingOfTN.getValue().toString().equals("M11"))
+                sourceFileName += "-M11";
+
+        } catch (Exception exception) {
+            sourceFileName = exception.getLocalizedMessage();
+        }
+
+        sourceFileName += ".xls";
         // запуск расчета для выбранного участка
         main.runGRMain(sourceFileName);
         main.runGRSolver();
+        stackPaneGraph.getChildren().clear();
+        LayeredXyChartsSample LPchart = new LayeredXyChartsSample();
+        stackPaneGraph.requestLayout();
+        stackPaneGraph.getChildren().addAll(LPchart.startLayerCharts(main.getPiezoData()));
     }
 
 }

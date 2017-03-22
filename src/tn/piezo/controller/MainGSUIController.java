@@ -11,6 +11,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import tn.piezo.Main;
 import tn.piezo.model.FileParser;
@@ -71,9 +73,12 @@ public class MainGSUIController {
     private ComboBox listTN;
     @FXML
     private ComboBox listBranchingOfTN;
+    @FXML
+    private StackPane stackPaneGraph;
 
     // для ГР - источник данных
     private String sourceFileName = "";
+    /*
     //defining the axes
     @FXML
     private CategoryAxis xAxis = new CategoryAxis();
@@ -92,7 +97,7 @@ public class MainGSUIController {
     private XYChart.Series seriesPodacha = new XYChart.Series();
     private XYChart.Series seriesObratka = new XYChart.Series();
     private XYChart.Series seriesStatic = new XYChart.Series();
-
+*/
     // Ссылка на главное приложение.
     private Main main;
 
@@ -128,10 +133,6 @@ public class MainGSUIController {
         H2x_column.setCellValueFactory(cellData -> cellData.getValue().H2xProperty().asObject());
         dH_fist_column.setCellValueFactory(cellData -> cellData.getValue().dH_fistProperty().asObject());
         Hrasp_endP_column.setCellValueFactory(cellData -> cellData.getValue().Hrasp_endPProperty().asObject());
-        //инициализация графика
-        numberLineChart.setTitle("Пример пьезометрического графика");
-        xAxis.setLabel("Участки, м");
-        yAxis.setLabel("Напор (с учетом геодезии), м");
         // инициализация combobox
         listSourceTN.getItems().addAll(FileParser.listSourse);
         listTN.getItems().addAll(FileParser.listTN);
@@ -145,6 +146,14 @@ public class MainGSUIController {
      * @param piezoData
      */
     public void setPiezoData(List piezoData) {
+        LayeredXyChartsSample LPchart = new LayeredXyChartsSample();
+        stackPaneGraph.getChildren().addAll(LPchart.startLayerCharts(piezoData));
+        /*
+        //инициализация графика
+        numberLineChart.setTitle("Пример пьезометрического графика");
+        xAxis.setLabel("Участки, м");
+        yAxis.setLabel("Напор (с учетом геодезии), м");
+
         double[] Hpodacha = new double[piezoData.size()];
         double[] Hobratka = new double[piezoData.size()];
         double[] Geodezia = new double[piezoData.size()];
@@ -214,7 +223,7 @@ public class MainGSUIController {
         yAxis.setAutoRanging(false);
         yAxis.setLowerBound(min - 10);
         yAxis.setUpperBound(max + 10);
-
+*/
     }
 
     /**
@@ -338,6 +347,10 @@ public class MainGSUIController {
         // запуск расчета для выбранного участка
         main.runGRMain(sourceFileName);
         main.runGRSolver();
+        stackPaneGraph.getChildren().clear();
+        LayeredXyChartsSample LPchart = new LayeredXyChartsSample();
+        stackPaneGraph.requestLayout();
+        stackPaneGraph.getChildren().addAll(LPchart.startLayerCharts(main.getPiezoData()));
     }
 
 }

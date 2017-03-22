@@ -19,35 +19,12 @@
                <children>
                   <SplitPane dividerPositions="0.8178391959798995" minHeight="300.0" minWidth="500.0" prefHeight="406.0" prefWidth="798.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                           <children>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="620.0" text="Пьезометрический график тепловой сети" textAlignment="CENTER" underline="true" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font></Label>
-                              <LineChart fx:id="numberLineChart" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
-                                <xAxis>
-                                  <CategoryAxis label="Участки" side="BOTTOM" tickLabelGap="5.0" tickLength="10.0" fx:id="xAxis">
-                                       <tickLabelFont>
-                                          <Font size="12.0" />
-                                       </tickLabelFont>
-                                    </CategoryAxis>
-                                </xAxis>
-                                <yAxis>
-                                  <NumberAxis fx:id="yAxis" label="H, м" side="LEFT" tickLabelGap="2.0" tickLength="10.0">
-                                       <tickLabelFont>
-                                          <Font size="12.0" />
-                                       </tickLabelFont>
-                                    </NumberAxis>
-                                </yAxis>
-                              </LineChart>
-                           </children>
-                        </AnchorPane>
+                        <StackPane fx:id="stackPaneGraph" prefHeight="150.0" prefWidth="200.0" />
                       <AnchorPane maxWidth="250.0" minWidth="150.0" prefHeight="404.0" prefWidth="409.0">
                            <children>
-                              <ComboBox fx:id="listSourceTN" layoutX="9.0" layoutY="14.0" prefHeight="25.0" prefWidth="107.0" promptText="1 Источник" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0" />
-                              <ComboBox fx:id="listTN" layoutX="5.0" layoutY="52.0" onAction="#handleTermalNet" prefHeight="25.0" prefWidth="114.0" promptText="2 Тепловая сеть" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="60.0" />
-                              <ComboBox fx:id="listBranchingOfTN" layoutX="5.0" layoutY="85.0" prefHeight="25.0" prefWidth="114.0" promptText="3 Ответвления" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="100.0" />
+                              <ComboBox fx:id="listSourceTN" layoutX="9.0" layoutY="14.0" onMouseClicked="#mouseClickComboBox" prefHeight="25.0" prefWidth="107.0" promptText="1 Источник" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0" />
+                              <ComboBox fx:id="listTN" layoutX="5.0" layoutY="52.0" onAction="#handleTermalNet" onMouseClicked="#mouseClickComboBox" prefHeight="25.0" prefWidth="114.0" promptText="2 Тепловая сеть" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="60.0" />
+                              <ComboBox fx:id="listBranchingOfTN" layoutX="5.0" layoutY="85.0" onMouseClicked="#mouseClickComboBox" prefHeight="25.0" prefWidth="114.0" promptText="3 Ответвления" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="100.0" />
                               <Button layoutX="5.0" layoutY="137.0" mnemonicParsing="false" onAction="#handleEditDataBase" prefHeight="40.0" prefWidth="140.0" text="Внести изменения в базу данных" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="190.0" />
                               <Button layoutX="5.0" layoutY="365.0" mnemonicParsing="false" onAction="#runGidRas" prefHeight="40.0" prefWidth="140.0" text="Вычислить" textAlignment="CENTER" textFill="#007c3e" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="250.0" />
                               <Button layoutX="5.0" layoutY="189.0" mnemonicParsing="false" onAction="#handlePiezoGraphic" prefHeight="40.0" prefWidth="140.0" text="Пьезометрический график" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="140.0" />

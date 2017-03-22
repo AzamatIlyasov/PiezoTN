@@ -7,10 +7,9 @@ package tn.piezo.controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
+import javafx.scene.Scene;
+import javafx.scene.chart.*;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import tn.piezo.Main;
 import tn.piezo.model.HydraDataClassStruct;
@@ -34,22 +33,19 @@ public class PiezoGraphicController {
     //defining the axes
     @FXML
     private CategoryAxis xAxis = new CategoryAxis();
-    //final NumberAxis xAxis = new NumberAxis();
     @FXML
     private NumberAxis yAxis = new NumberAxis();
     @FXML
-    private LineChart<String,Number> numberLineChart = new LineChart<String,Number>(xAxis,yAxis);
+    public LineChart<String,Number> numberLineChart = new LineChart<String,Number>(xAxis,yAxis);
+    @FXML
+    public BarChart<String,Number> barChart = new BarChart<String, Number>(xAxis,yAxis);
 
-    // список данных для построения графика
-    ObservableList<XYChart.Data> dataPodacha = FXCollections.observableArrayList();
-    ObservableList<XYChart.Data> dataObratka = FXCollections.observableArrayList();
-    ObservableList<XYChart.Data> dataGeodezia = FXCollections.observableArrayList();
-    ObservableList<XYChart.Data> dataStroenie = FXCollections.observableArrayList();
     // определяем графики
     private XYChart.Series seriesGeodezia = new XYChart.Series();
-    private XYChart.Series seriesStroenie = new XYChart.Series();
+    private XYChart.Series seriesStatic = new XYChart.Series();
     private XYChart.Series seriesPodacha = new XYChart.Series();
     private XYChart.Series seriesObratka = new XYChart.Series();
+    private XYChart.Series seriesStroenie = new XYChart.Series();
 
     /**
      * Инициализирует класс-контроллер.
@@ -57,6 +53,10 @@ public class PiezoGraphicController {
      */
     @FXML
     private void initialize() {
+        setDefaultChartProperties(barChart);
+        setDefaultChartProperties(numberLineChart);
+        configureOverlayChart(barChart);
+        configureOverlayChart(numberLineChart);
         numberLineChart.setTitle("Пример пьезометрического графика");
         xAxis.setLabel("Участки");
         yAxis.setLabel("Напор (с учетом геодезии), м");
@@ -74,28 +74,30 @@ public class PiezoGraphicController {
         double[] Geodezia = new double[piezoData.size()];
         double[] Stroinie = new double[piezoData.size()];
         double[] LengthPart = new double[piezoData.size()];
+        double[] HStatic = new double[piezoData.size()];
 
         seriesGeodezia.setName("Местность");
         seriesStroenie.setName("Строения");
         seriesPodacha.setName("Подача");
         seriesObratka.setName("Обратка");
+        seriesStatic.setName("Статический напор");
 
         PiezoC tempObjPiezoDCS;
-
         // считаем необходимы данные для графиков и сохраняем в массивах
         ObservableList<XYChart.Data> datasGeodezia = FXCollections.observableArrayList();
         ObservableList<XYChart.Data> datasStroinie = FXCollections.observableArrayList();
         ObservableList<XYChart.Data> datasPodacha = FXCollections.observableArrayList();
         ObservableList<XYChart.Data> datasObratka = FXCollections.observableArrayList();
+        ObservableList<XYChart.Data> datasStaticH = FXCollections.observableArrayList();
         // для ранжирования оси ОY
-        double min = Geodezia[0];
-        double max = Geodezia[0];
-        for (int i = 0; i < piezoData.size(); i++)
-        {
+        double min =  100000;
+        double max = -100000;
+        for (int i = 0; i < piezoData.size(); i++) {
             // сохраняем с учетом геодезических отметок
             tempObjPiezoDCS = (PiezoC)piezoData.get(i);
             Geodezia[i] = tempObjPiezoDCS.getGeo();
             Stroinie[i] = tempObjPiezoDCS.getZdanieEtaj() * 3 + Geodezia[i];
+            HStatic[i] = Stroinie[i]+5;
             Hpodacha[i] = tempObjPiezoDCS.getHraspPod() + Geodezia[i];
             Hobratka[i] = tempObjPiezoDCS.getHraspObrat() + Geodezia[i];
             if (i==0) LengthPart[i] = tempObjPiezoDCS.getL();
@@ -106,19 +108,35 @@ public class PiezoGraphicController {
             datasStroinie.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), Stroinie[i]));
             datasPodacha.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), Hpodacha[i]));
             datasObratka.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), Hobratka[i]));
+            //ищем минимум и максимум точки
+            if (min > Geodezia[i]) min = Geodezia[i];
+            if (max < Hpodacha[i]) max = Hpodacha[i];
         }
+        //определям статическое давления
+        double maxHstatic = HStatic[0];
+        for (double var: HStatic) {
+            if (maxHstatic < var) maxHstatic = var;
+        }
+        for (int i = 0; i < piezoData.size(); i++) {
+            HStatic[i] = maxHstatic;
+            datasStaticH.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), HStatic[i]));
+        }
+
         seriesGeodezia.setData(datasGeodezia);
         seriesStroenie.setData(datasStroinie);
         seriesPodacha.setData(datasPodacha);
         seriesObratka.setData(datasObratka);
+        seriesStatic.setData(datasStaticH);
 
         numberLineChart.getData().add(seriesGeodezia);
-        numberLineChart.getData().add(seriesStroenie);
+        barChart.getData().add(seriesStroenie);
         numberLineChart.getData().add(seriesPodacha);
         numberLineChart.getData().add(seriesObratka);
+        numberLineChart.getData().add(seriesStatic);
+
         yAxis.setAutoRanging(false);
-        yAxis.setLowerBound(590);
-        yAxis.setUpperBound(750);
+        yAxis.setLowerBound(min-10);
+        yAxis.setUpperBound(max+10);
     }
 
     /**
@@ -142,6 +160,22 @@ public class PiezoGraphicController {
      */
     public void setMain(Main main) {
         this.main = main;
+    }
+
+    private void setDefaultChartProperties(final XYChart<String, Number> chart) {
+        chart.setLegendVisible(false);
+        chart.setAnimated(false);
+    }
+
+    private void configureOverlayChart(final XYChart<String, Number> chart) {
+        chart.setAlternativeRowFillVisible(false);
+        chart.setAlternativeColumnFillVisible(false);
+        chart.setHorizontalGridLinesVisible(false);
+        chart.setVerticalGridLinesVisible(false);
+        chart.getXAxis().setVisible(false);
+        chart.getYAxis().setVisible(false);
+
+        chart.getStylesheets().addAll(getClass().getResource("resources/overlay-chart.css").toExternalForm());
     }
 
 }
