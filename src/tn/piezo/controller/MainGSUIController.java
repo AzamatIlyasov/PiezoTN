@@ -82,26 +82,7 @@ public class MainGSUIController {
 
     // для ГР - источник данных
     private String sourceFileName = "";
-    /*
-    //defining the axes
-    @FXML
-    private CategoryAxis xAxis = new CategoryAxis();
-    @FXML
-    private NumberAxis yAxis = new NumberAxis();
-    @FXML
-    private LineChart<String,Number> numberLineChart = new LineChart<String,Number>(xAxis,yAxis);
-    // список данных для построения графика
-    ObservableList<XYChart.Data> dataPodacha = FXCollections.observableArrayList();
-    ObservableList<XYChart.Data> dataObratka = FXCollections.observableArrayList();
-    ObservableList<XYChart.Data> dataGeodezia = FXCollections.observableArrayList();
-    ObservableList<XYChart.Data> dataStroenie = FXCollections.observableArrayList();
-    // определяем графики
-    private XYChart.Series seriesGeodezia = new XYChart.Series();
-    private XYChart.Series seriesStroenie = new XYChart.Series();
-    private XYChart.Series seriesPodacha = new XYChart.Series();
-    private XYChart.Series seriesObratka = new XYChart.Series();
-    private XYChart.Series seriesStatic = new XYChart.Series();
-*/
+
     // Ссылка на главное приложение.
     private Main main;
 
@@ -288,7 +269,8 @@ public class MainGSUIController {
     @FXML private void savePiezoPlot() throws IOException {
         WritableImage snapShot = stackPaneGraph.snapshot(null,null);
 
-        ImageIO.write(javafx.embed.swing.SwingFXUtils.fromFXImage(snapShot, null), "png", new File("resources/test.png"));
+        ImageIO.write(javafx.embed.swing.SwingFXUtils.fromFXImage(snapShot, null), "png",
+                new File("resources/test.png"));
     }
 
 }
