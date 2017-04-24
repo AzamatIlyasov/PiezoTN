@@ -64,5 +64,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="poi-3" level="project" />
   </component>
 </module>
