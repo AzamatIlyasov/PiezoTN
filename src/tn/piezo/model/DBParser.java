@@ -32,7 +32,7 @@ public class DBParser {
 
     //считывание с базы данных DBPiezo (MSSql server - AZAPCSQLEXPRESS)
 
-    public static ArrayList parseHydraT(String fileName)
+    public static ArrayList parseHydraT(String conditionBoiler, String conditionTNMain, String conditionTNBranch)
     {
         //данные для подключения к БД
         String serverName = "AZAMATPC\\AZAPCSQLEXPRESS";
@@ -59,8 +59,11 @@ public class DBParser {
             int n = 0;
             while (rsQuery0.next()) n++;
 
-            ResultSet MyQuery = stmt.executeQuery("SELECT num_rasch_Uch, num_pred_Uch, Diametr_Uch, " +
-                    "Length_Uch, G_Uch, Kekv_Uch, Geo_Uch, ZdanEtaj_Uch FROM DBPiezo.dbo.inputSampleTable");
+            ResultSet MyQuery = stmt.executeQuery( "SELECT num_rasch_Uch, num_pred_Uch, Diametr_Uch, Length_Uch, G_Uch, Kekv_Uch, Geo_Uch, ZdanEtaj_Uch " +
+                    "FROM DBPiezo.dbo.inputTable " +
+                    "WHERE name_Boiler='" + conditionBoiler + "' " +
+                    "AND name_TNMain='" + conditionTNMain + "' " +
+                    "AND name_TNBranch='" + conditionTNBranch + "'" );
 
             //инициализация массивов для исх данных
             NamePartTNras = new String[n];
@@ -103,7 +106,7 @@ public class DBParser {
     }
 
     //запись в данных в БД
-    public static void writeTableHydra(ArrayList HydraData , String fileName) {
+    public static void writeTableHydra(ArrayList HydraData) {
         /*
         //создаем таблицу
         InputStream inputStream = null;

@@ -34,7 +34,6 @@ public class Main extends Application {
     private ArrayList hydraDataArrayList = new ArrayList();
     private ArrayList piezoDataArrayList = new ArrayList();
 
-
     /**
      * Конструктор для главного метода приложения
      */
@@ -42,30 +41,40 @@ public class Main extends Application {
 
     }
 
-    //
-    public void runGRMain(String fileName) {
+    //БД SQL DBPiezo
+    public void runGRMain(String conditionBoiler, String conditionTNMain, String conditionTNBranch) {
         //считывание из БД + проводим гидрарасчет
         hydraDataArrayList.clear();
         piezoDataArrayList.clear();
         //из SQL DBPiezo
-        hydraDataArrayList = DBParser.parseHydraT(fileName);
+        hydraDataArrayList = DBParser.parseHydraT(conditionBoiler, conditionTNMain, conditionTNBranch);
         piezoDataArrayList = DBParser.parsePiezoPlot(hydraDataArrayList);
-        /*excel
-        hydraDataArrayList = ExcelParser.parseHydraT(fileName);
-        piezoDataArrayList = ExcelParser.parsePiezoPlot(hydraDataArrayList);
-        */
-
     }
 
+    // БД Excel
+    public void runGRMain(String fileName) {
+        //считывание из БД + проводим гидрарасчет
+        hydraDataArrayList.clear();
+        piezoDataArrayList.clear();
+        //excel
+        hydraDataArrayList = ExcelParser.parseHydraT(fileName);
+        piezoDataArrayList = ExcelParser.parsePiezoPlot(hydraDataArrayList);
+    }
+
+    // сохранения данных в базу DBPiezo
+    public void saveDataTable(ArrayList DataHydra) {
+        //тестовая запись в бд
+        //sql DBPiezo
+        DBParser.writeTableHydra(DataHydra);
+
+    }
     /**
      * сохранения данных в таблицу
      */
     public void saveDataTable(ArrayList DataHydra, String fileName) {
         //тестовая запись в бд
-        //sql DBPiezo
-        DBParser.writeTableHydra(DataHydra, fileName);
         //excel
-        //ExcelParser.writeTableHydra(DataHydra, fileName);
+        ExcelParser.writeTableHydra(DataHydra, fileName);
     }
     /**
      * ГР решатель
@@ -188,7 +197,10 @@ public class Main extends Application {
             // Помещаем сведения об участках в центр корневого макета.
             rootLayout.setCenter(gsMainOverview);
             // выполним гидрарасчет - участок по умолчанию
-            runGRMain("resources/ExcelDataBase/test files/input-main.xls");
+            // sql DBPiezo
+            runGRMain("К.Баскуат","М700","");
+            // excel
+            //runGRMain("resources/ExcelDataBase/test files/input-main.xls");
             //запуск расчетов
             runGRSolver();
             // Даём контроллеру доступ к главному приложению.
