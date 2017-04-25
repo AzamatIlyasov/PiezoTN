@@ -11,6 +11,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -19,6 +20,9 @@ import tn.piezo.model.FileParser;
 import tn.piezo.model.HydraC;
 import tn.piezo.model.PiezoC;
 
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
@@ -78,26 +82,7 @@ public class MainGSUIController {
 
     // для ГР - источник данных
     private String sourceFileName = "";
-    /*
-    //defining the axes
-    @FXML
-    private CategoryAxis xAxis = new CategoryAxis();
-    @FXML
-    private NumberAxis yAxis = new NumberAxis();
-    @FXML
-    private LineChart<String,Number> numberLineChart = new LineChart<String,Number>(xAxis,yAxis);
-    // список данных для построения графика
-    ObservableList<XYChart.Data> dataPodacha = FXCollections.observableArrayList();
-    ObservableList<XYChart.Data> dataObratka = FXCollections.observableArrayList();
-    ObservableList<XYChart.Data> dataGeodezia = FXCollections.observableArrayList();
-    ObservableList<XYChart.Data> dataStroenie = FXCollections.observableArrayList();
-    // определяем графики
-    private XYChart.Series seriesGeodezia = new XYChart.Series();
-    private XYChart.Series seriesStroenie = new XYChart.Series();
-    private XYChart.Series seriesPodacha = new XYChart.Series();
-    private XYChart.Series seriesObratka = new XYChart.Series();
-    private XYChart.Series seriesStatic = new XYChart.Series();
-*/
+
     // Ссылка на главное приложение.
     private Main main;
 
@@ -136,94 +121,20 @@ public class MainGSUIController {
         // инициализация combobox
         listSourceTN.getItems().addAll(FileParser.listSourse);
         listTN.getItems().addAll(FileParser.listTN);
+        listBranchingOfTN.getItems().add("Без ответвления");
         listBranchingOfTN.getItems().addAll(FileParser.listBranchTN);
 
     }
 
     /**
-     * Задаёт участки для построения ПГ.
+     * строим ПГ.
      *
      * @param piezoData
      */
     public void setPiezoData(List piezoData) {
         LayeredXyChartsSample LPchart = new LayeredXyChartsSample();
         stackPaneGraph.getChildren().addAll(LPchart.startLayerCharts(piezoData));
-        /*
-        //инициализация графика
-        numberLineChart.setTitle("Пример пьезометрического графика");
-        xAxis.setLabel("Участки, м");
-        yAxis.setLabel("Напор (с учетом геодезии), м");
 
-        double[] Hpodacha = new double[piezoData.size()];
-        double[] Hobratka = new double[piezoData.size()];
-        double[] Geodezia = new double[piezoData.size()];
-        double[] Stroinie = new double[piezoData.size()];
-        double[] LengthPart = new double[piezoData.size()];
-        double[] HStatic = new double[piezoData.size()];
-
-        seriesGeodezia.setName("Местность");
-        seriesStroenie.setName("Строения");
-        seriesPodacha.setName("Подача");
-        seriesObratka.setName("Обратка");
-        seriesStatic.setName("Статический напор");
-
-        PiezoC tempObjPiezoDCS;
-
-        // считаем необходимы данные для графиков и сохраняем в массивах
-        ObservableList<XYChart.Data> datasGeodezia = FXCollections.observableArrayList();
-        ObservableList<XYChart.Data> datasStroinie = FXCollections.observableArrayList();
-        ObservableList<XYChart.Data> datasPodacha = FXCollections.observableArrayList();
-        ObservableList<XYChart.Data> datasObratka = FXCollections.observableArrayList();
-        ObservableList<XYChart.Data> datasStaticH = FXCollections.observableArrayList();
-        // для ранжирования оси ОY
-        double min =  100000;
-        double max = -100000;
-        for (int i = 0; i < piezoData.size(); i++)
-        {
-            // сохраняем с учетом геодезических отметок
-            tempObjPiezoDCS = (PiezoC)piezoData.get(i);
-            Geodezia[i] = tempObjPiezoDCS.getGeo();
-            Stroinie[i] = tempObjPiezoDCS.getZdanieEtaj() * 3 + Geodezia[i];
-            HStatic[i] = Stroinie[i]+5.0;
-            Hpodacha[i] = tempObjPiezoDCS.getHraspPod() + Geodezia[i];
-            Hobratka[i] = tempObjPiezoDCS.getHraspObrat() + Geodezia[i];
-            if (i==0) LengthPart[i] = tempObjPiezoDCS.getL();
-            else LengthPart[i] = LengthPart[i-1] + tempObjPiezoDCS.getL();
-            //// Создаём объект XYChart.Data для каждого участка.
-            // Добавляем его в серии.
-            datasGeodezia.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), Geodezia[i]));
-            datasStroinie.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), Stroinie[i]));
-            datasPodacha.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), Hpodacha[i]));
-            datasObratka.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), Hobratka[i]));
-
-            //ищем минимум и максимум точки
-            if (min > Geodezia[i]) min = Geodezia[i];
-            if (max < Hpodacha[i]) max = Hpodacha[i];
-        }
-        //определям статическое давления
-        double maxHstatic = HStatic[0];
-        for (double var: HStatic) {
-            if (maxHstatic < var) maxHstatic = var;
-        }
-        for (int i = 0; i < piezoData.size(); i++) {
-            HStatic[i] = maxHstatic;
-            datasStaticH.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), HStatic[i]));
-        }
-        seriesGeodezia.setData(datasGeodezia);
-        seriesStroenie.setData(datasStroinie);
-        seriesPodacha.setData(datasPodacha);
-        seriesObratka.setData(datasObratka);
-        seriesStatic.setData(datasStaticH);
-
-        numberLineChart.getData().add(seriesGeodezia);
-        numberLineChart.getData().add(seriesStroenie);
-        numberLineChart.getData().add(seriesPodacha);
-        numberLineChart.getData().add(seriesObratka);
-        numberLineChart.getData().add(seriesStatic);
-        yAxis.setAutoRanging(false);
-        yAxis.setLowerBound(min - 10);
-        yAxis.setUpperBound(max + 10);
-*/
     }
 
     /**
@@ -273,6 +184,7 @@ public class MainGSUIController {
     @FXML
     private void mouseClickComboBox() {
         //очистка от старых данных
+        /*
         if (listSourceTN.isFocused()) {
             listSourceTN.getItems().clear();
             // Заносим новые данные
@@ -291,6 +203,7 @@ public class MainGSUIController {
             // инициализация combobox - выбор ответвления тепловой сети
             listBranchingOfTN.getItems().addAll(FileParser.listBranchTN);
         }
+        */
     }
 
     // к.Вычислить - запуск гидравлического расчета для выбранного участка
@@ -345,12 +258,26 @@ public class MainGSUIController {
 
         sourceFileName += ".xls";
         // запуск расчета для выбранного участка
-        main.runGRMain(sourceFileName);
+        main.runGRMain(listSourceTN.getValue().toString(),listTN.getValue().toString(),listBranchingOfTN.getValue().toString());
+        //excel
+        //main.runGRMain(sourceFileName);
+        //SQL DBPiezo
+
         main.runGRSolver();
         stackPaneGraph.getChildren().clear();
         LayeredXyChartsSample LPchart = new LayeredXyChartsSample();
         stackPaneGraph.requestLayout();
         stackPaneGraph.getChildren().addAll(LPchart.startLayerCharts(main.getPiezoData()));
+    }
+
+    /**
+     * сохранить график в файл-изображения
+     */
+    @FXML private void savePiezoPlot() throws IOException {
+        WritableImage snapShot = stackPaneGraph.snapshot(null,null);
+
+        ImageIO.write(javafx.embed.swing.SwingFXUtils.fromFXImage(snapShot, null), "png",
+                new File("resources/test.png"));
     }
 
 }

@@ -29,11 +29,10 @@ public class DBParser {
 
     private static ArrayList<ArrayList> hydraData = new ArrayList<ArrayList>();
     private static ArrayList<ArrayList> piezoData = new ArrayList<ArrayList>();
+    public static Connection con = null;
 
-    //считывание с базы данных DBPiezo (MSSql server - AZAPCSQLEXPRESS)
-
-    public static ArrayList parseHydraT(String conditionBoiler, String conditionTNMain, String conditionTNBranch)
-    {
+    //подключаем базу
+    public static void connectDataBase() {
         //данные для подключения к БД
         String serverName = "AZAMATPC\\AZAPCSQLEXPRESS";
         String dbName = "DBPiezo";
@@ -41,25 +40,44 @@ public class DBParser {
         String userPassword = "Server510";
         String connectionUrl = "jdbc:sqlserver://%1$s;databaseName=%2$s;user=%3$s;password=%4$s;";
         String connectionString = String.format(connectionUrl, serverName, dbName, userName, userPassword);
-        //Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         //подключаемся к БД
         try {
-            Connection con = DriverManager.getConnection(connectionString);
+            con = DriverManager.getConnection(connectionString);
             //соединяемся
-            if(con!=null){
+            if (con != null) {
                 System.out.println("Соединение успешно выполнено");
-            }else{
+            } else {
                 System.out.println("Соединение не установлено");
                 System.exit(0);
             }
+
+        }
+        catch (SQLException sqlE) {
+            //логируем исключения
+            Logger.getLogger(DBParser.class.getName()).log(Level.SEVERE, null, sqlE);
+        }
+    }
+
+    //считывание с базы данных DBPiezo (MSSql server - AZAPCSQLEXPRESS)
+    public static ArrayList parseHydraT(String conditionBoiler, String conditionTNMain, String conditionTNBranch)
+    {
+        if ( conditionTNBranch.equals("Без ответвления") )
+            conditionTNBranch = "";
+        try {
             Statement stmt = con.createStatement();
             //выборка всех данных для подсчета кол-ва участков
-            ResultSet rsQuery0 = stmt.executeQuery("SELECT * FROM DBPiezo.dbo.inputSampleTable");
+            ResultSet rsQuery0 = stmt.executeQuery(
+                    "SELECT num_rasch_Uch, num_pred_Uch, Diametr_Uch, Length_Uch, G_Uch, Kekv_Uch, Geo_Uch, ZdanEtaj_Uch " +
+                    "FROM DBPiezo.dbo.inputTable " +
+                    "WHERE name_Boiler='" + conditionBoiler + "' " +
+                    "AND name_TNMain='" + conditionTNMain + "' " +
+                    "AND name_TNBranch='" + conditionTNBranch + "'" );
             //кол-во строк-участков
             int n = 0;
             while (rsQuery0.next()) n++;
 
-            ResultSet MyQuery = stmt.executeQuery( "SELECT num_rasch_Uch, num_pred_Uch, Diametr_Uch, Length_Uch, G_Uch, Kekv_Uch, Geo_Uch, ZdanEtaj_Uch " +
+            ResultSet rsMyQuery = stmt.executeQuery(
+                    "SELECT num_rasch_Uch, num_pred_Uch, Diametr_Uch, Length_Uch, G_Uch, Kekv_Uch, Geo_Uch, ZdanEtaj_Uch " +
                     "FROM DBPiezo.dbo.inputTable " +
                     "WHERE name_Boiler='" + conditionBoiler + "' " +
                     "AND name_TNMain='" + conditionTNMain + "' " +
@@ -76,18 +94,19 @@ public class DBParser {
             ZdanieEtaj = new double[n];
             int i = 0;
             //проходимся по всем строкам запроса
-            while (MyQuery.next()) {
-                NamePartTNras[i] = MyQuery.getString("num_rasch_Uch");
-                NamePartTNpred[i] = MyQuery.getString("num_pred_Uch");
-                D[i] = MyQuery.getDouble("Diametr_Uch");
-                L[i] = MyQuery.getDouble("Length_Uch");
-                G[i] = MyQuery.getDouble("G_Uch");
-                Kekv[i] = MyQuery.getDouble("Kekv_Uch");
-                Geo[i] = MyQuery.getDouble("Geo_Uch");
-                ZdanieEtaj[i] = MyQuery.getDouble("ZdanEtaj_Uch");
+            while (rsMyQuery.next()) {
+                NamePartTNras[i] = rsMyQuery.getString("num_rasch_Uch");
+                NamePartTNpred[i] = rsMyQuery.getString("num_pred_Uch");
+                D[i] = rsMyQuery.getDouble("Diametr_Uch");
+                L[i] = rsMyQuery.getDouble("Length_Uch");
+                G[i] = rsMyQuery.getDouble("G_Uch");
+                Kekv[i] = rsMyQuery.getDouble("Kekv_Uch");
+                Geo[i] = rsMyQuery.getDouble("Geo_Uch");
+                ZdanieEtaj[i] = rsMyQuery.getDouble("ZdanEtaj_Uch");
                 //следующая строка - участок
                 i++;
             }
+            stmt.close();
 
         }
         catch (SQLException sqlE) {

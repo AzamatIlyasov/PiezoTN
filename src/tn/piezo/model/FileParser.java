@@ -1,7 +1,12 @@
 package tn.piezo.model;
 
 import java.io.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by djaza on 15.03.2017.
@@ -16,15 +21,43 @@ public class FileParser {
      * считвание списков с файлов для combobox
      */
     public void readTxtToCombobox() {
+        // очистка от старых данных
+        listSourse.clear();
+        listTN.clear();
+        listBranchTN.clear();
         //считывание списков источников, тс и ответвлений для всех combobox
         FileParser fileParser = new FileParser();
+        // из базы данных
+        try {
+            Statement stmt = DBParser.con.createStatement();
+            ResultSet rsQueryCBox = stmt.executeQuery("select name_Boilers from DBPiezo.dbo.Boilers");
+            while (rsQueryCBox.next()) {
+                listSourse.add(rsQueryCBox.getString("name_Boilers"));
+            }
+            rsQueryCBox = stmt.executeQuery("select name_TNMain from DBPiezo.dbo.TNMains");
+            while (rsQueryCBox.next()) {
+                listTN.add(rsQueryCBox.getString("name_TNMain"));
+            }
+            rsQueryCBox = stmt.executeQuery("select name_TNBranches from DBPiezo.dbo.TNBranches");
+            while (rsQueryCBox.next()) {
+                listBranchTN.add(rsQueryCBox.getString("name_TNBranches"));
+            }
+        }
+        catch (SQLException sqlE) {
+            //логируем исключения
+            Logger.getLogger(DBParser.class.getName()).log(Level.SEVERE, null, sqlE);
+        }
+
+        /*
+        //с текстового файла
         listSourse = fileParser.fileParser("resources/ExcelDataBase/1_Source/CollectionSource.txt");
         listTN = fileParser.fileParser("resources/ExcelDataBase/2_TN/CollectionTN.txt");
         listBranchTN = fileParser.fileParser("resources/ExcelDataBase/3_PartTN/CollectionBranch.txt");
+        */
     }
 
     /**
-     * запись созданных источников и др
+     * запись созданных источников и др в текстовый файл
      */
     public void writeTxtFromCombobox() {
         File fileSrc = new File("resources/ExcelDataBase/1_Source/CollectionSource.txt");
@@ -55,6 +88,7 @@ public class FileParser {
 
     }
 
+    // считывание с текстового файла
     public ArrayList fileParser(String filePath) {
         ArrayList<String> strFile = new ArrayList<>();
         try {

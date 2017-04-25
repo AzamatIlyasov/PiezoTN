@@ -121,6 +121,7 @@ public class MainGSUIController {
         // инициализация combobox
         listSourceTN.getItems().addAll(FileParser.listSourse);
         listTN.getItems().addAll(FileParser.listTN);
+        listBranchingOfTN.getItems().add("Без ответвления");
         listBranchingOfTN.getItems().addAll(FileParser.listBranchTN);
 
     }
@@ -183,6 +184,7 @@ public class MainGSUIController {
     @FXML
     private void mouseClickComboBox() {
         //очистка от старых данных
+        /*
         if (listSourceTN.isFocused()) {
             listSourceTN.getItems().clear();
             // Заносим новые данные
@@ -201,6 +203,7 @@ public class MainGSUIController {
             // инициализация combobox - выбор ответвления тепловой сети
             listBranchingOfTN.getItems().addAll(FileParser.listBranchTN);
         }
+        */
     }
 
     // к.Вычислить - запуск гидравлического расчета для выбранного участка
@@ -255,7 +258,11 @@ public class MainGSUIController {
 
         sourceFileName += ".xls";
         // запуск расчета для выбранного участка
-        main.runGRMain(sourceFileName);
+        main.runGRMain(listSourceTN.getValue().toString(),listTN.getValue().toString(),listBranchingOfTN.getValue().toString());
+        //excel
+        //main.runGRMain(sourceFileName);
+        //SQL DBPiezo
+
         main.runGRSolver();
         stackPaneGraph.getChildren().clear();
         LayeredXyChartsSample LPchart = new LayeredXyChartsSample();

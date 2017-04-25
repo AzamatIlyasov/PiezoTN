@@ -153,6 +153,8 @@ public class Main extends Application {
         // Устанавливаем иконку приложения.
         this.primaryStage.getIcons().add(new Image("file:resources/images/TNSource1.jpg"));
         initRootLayout();
+        //подключаем базу данных
+        DBParser.connectDataBase();
         //гидравлическая таблица и график
         showGSMainOverview();
 

@@ -66,8 +66,7 @@ public class Main extends Application {
         //тестовая запись в бд
         //sql DBPiezo
         DBParser.writeTableHydra(DataHydra);
-        //excel
-        //ExcelParser.writeTableHydra(DataHydra, fileName);
+
     }
     /**
      * сохранения данных в таблицу
@@ -154,6 +153,8 @@ public class Main extends Application {
         // Устанавливаем иконку приложения.
         this.primaryStage.getIcons().add(new Image("file:resources/images/TNSource1.jpg"));
         initRootLayout();
+        //подключаем базу данных
+        DBParser.connectDataBase();
         //гидравлическая таблица и график
         showGSMainOverview();
 
