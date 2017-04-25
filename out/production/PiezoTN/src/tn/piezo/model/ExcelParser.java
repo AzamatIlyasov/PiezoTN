@@ -182,7 +182,7 @@ public class ExcelParser {
     }
 
     //запись в файл Excel
-    public static void writeExcelHydra(ArrayList HydraData , String fileName) {
+    public static void writeTableHydra(ArrayList HydraData , String fileName) {
         //создаем таблицу
         InputStream inputStream = null;
         HSSFWorkbook hssfWorkbook = null;

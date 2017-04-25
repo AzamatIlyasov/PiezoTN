@@ -45,12 +45,23 @@ public class DBParser {
         //подключаемся к БД
         try {
             Connection con = DriverManager.getConnection(connectionString);
+            //соединяемся
+            if(con!=null){
+                System.out.println("Соединение успешно выполнено");
+            }else{
+                System.out.println("Соединение не установлено");
+                System.exit(0);
+            }
             Statement stmt = con.createStatement();
-            //выборка необходимых данных
-            ResultSet executeQuery = stmt.executeQuery("SELECT num_rasch_Uch, num_pred_Uch, Diametr_Uch, " +
-                    "Length_Uch, G_Uch, Kekv_Uch, Geo_Uch, ZdanEtaj_Uch FROM [dbo].[inputSampleTable]");
+            //выборка всех данных для подсчета кол-ва участков
+            ResultSet rsQuery0 = stmt.executeQuery("SELECT * FROM DBPiezo.dbo.inputSampleTable");
             //кол-во строк-участков
-            int n = executeQuery.getRow();
+            int n = 0;
+            while (rsQuery0.next()) n++;
+
+            ResultSet MyQuery = stmt.executeQuery("SELECT num_rasch_Uch, num_pred_Uch, Diametr_Uch, " +
+                    "Length_Uch, G_Uch, Kekv_Uch, Geo_Uch, ZdanEtaj_Uch FROM DBPiezo.dbo.inputSampleTable");
+
             //инициализация массивов для исх данных
             NamePartTNras = new String[n];
             NamePartTNpred = new String[n];
@@ -62,15 +73,15 @@ public class DBParser {
             ZdanieEtaj = new double[n];
             int i = 0;
             //проходимся по всем строкам запроса
-            while (executeQuery.next()) {
-                NamePartTNras[i] = executeQuery.getString("num_rasch_Uch");
-                NamePartTNpred[i] = executeQuery.getString("num_pred_Uch");
-                D[i] = executeQuery.getDouble("Diametr_Uch");
-                L[i] = executeQuery.getDouble("Length_Uch");
-                G[i] = executeQuery.getDouble("G_Uch");
-                Kekv[i] = executeQuery.getDouble("Kekv_Uch");
-                Geo[i] = executeQuery.getDouble("Geo_Uch");
-                ZdanieEtaj[i] = executeQuery.getDouble("ZdanEtaj_Uch");
+            while (MyQuery.next()) {
+                NamePartTNras[i] = MyQuery.getString("num_rasch_Uch");
+                NamePartTNpred[i] = MyQuery.getString("num_pred_Uch");
+                D[i] = MyQuery.getDouble("Diametr_Uch");
+                L[i] = MyQuery.getDouble("Length_Uch");
+                G[i] = MyQuery.getDouble("G_Uch");
+                Kekv[i] = MyQuery.getDouble("Kekv_Uch");
+                Geo[i] = MyQuery.getDouble("Geo_Uch");
+                ZdanieEtaj[i] = MyQuery.getDouble("ZdanEtaj_Uch");
                 //следующая строка - участок
                 i++;
             }
