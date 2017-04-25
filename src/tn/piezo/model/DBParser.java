@@ -90,9 +90,10 @@ public class DBParser {
         //выход их функции
         return hydraData;
     }
-/*
-    //запись в файл Excel
-    public static void writeExcelHydra(ArrayList HydraData , String fileName) {
+
+    //запись в данных в БД
+    public static void writeTableHydra(ArrayList HydraData , String fileName) {
+        /*
         //создаем таблицу
         InputStream inputStream = null;
         HSSFWorkbook hssfWorkbook = null;
@@ -135,9 +136,10 @@ public class DBParser {
         catch (IOException e) {
             e.printStackTrace();
         }
+        */
 
     }
-*/
+
 
     //расчет для ПГ
     public static ArrayList parsePiezoPlot(ArrayList HydraData)

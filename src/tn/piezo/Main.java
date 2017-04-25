@@ -1,10 +1,7 @@
 package tn.piezo;
 
-import java.awt.image.AreaAveragingScaleFilter;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.prefs.Preferences;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import tn.piezo.controller.*;
@@ -48,11 +44,16 @@ public class Main extends Application {
 
     //
     public void runGRMain(String fileName) {
-        //считывание из БД (из файла excel) + проводим гидрарасчет
+        //считывание из БД + проводим гидрарасчет
         hydraDataArrayList.clear();
         piezoDataArrayList.clear();
-        hydraDataArrayList = ExcelParser.parseHydraT(fileName);//input-M700-M11 input-K3-M2-88 input-M700
+        //из SQL DBPiezo
+        hydraDataArrayList = DBParser.parseHydraT(fileName);
+        piezoDataArrayList = DBParser.parsePiezoPlot(hydraDataArrayList);
+        /*excel
+        hydraDataArrayList = ExcelParser.parseHydraT(fileName);
         piezoDataArrayList = ExcelParser.parsePiezoPlot(hydraDataArrayList);
+        */
 
     }
 
@@ -60,8 +61,11 @@ public class Main extends Application {
      * сохранения данных в таблицу
      */
     public void saveDataTable(ArrayList DataHydra, String fileName) {
-        //тестовая запись в файл Excel
-        ExcelParser.writeExcelHydra(DataHydra, fileName);
+        //тестовая запись в бд
+        //sql DBPiezo
+        DBParser.writeTableHydra(DataHydra, fileName);
+        //excel
+        //ExcelParser.writeTableHydra(DataHydra, fileName);
     }
     /**
      * ГР решатель
