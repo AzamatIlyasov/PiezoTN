@@ -16,6 +16,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import tn.piezo.Main;
+import tn.piezo.model.DBParser;
 import tn.piezo.model.FileParser;
 import tn.piezo.model.HydraC;
 import tn.piezo.model.PiezoC;
@@ -24,7 +25,10 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by djaza on 16.02.2017.
@@ -273,11 +277,36 @@ public class MainGSUIController {
     /**
      * сохранить график в файл-изображения
      */
-    @FXML private void savePiezoPlot() throws IOException {
+    @FXML
+    private void savePiezoPlot() throws IOException {
         WritableImage snapShot = stackPaneGraph.snapshot(null,null);
 
         ImageIO.write(javafx.embed.swing.SwingFXUtils.fromFXImage(snapShot, null), "png",
                 new File("resources/test.png"));
     }
 
+    /**
+     * сохранить график в файл-изображения
+     */
+    @FXML
+    private void connectDB_btn() {
+        try {
+            if (DBParser.con.isClosed())
+                DBParser.connectDataBase();
+        }
+        catch (SQLException sqlE) {
+            //логируем исключения
+            Logger.getLogger(DBParser.class.getName()).log(Level.SEVERE, null, sqlE);
+        }
+
+    }
+
+    /**
+     * сохранить график в файл-изображения
+     */
+    @FXML
+    private void closeConDB_btn() {
+        DBParser.closeConnectDB();
+
+    }
 }

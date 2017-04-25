@@ -58,6 +58,22 @@ public class DBParser {
         }
     }
 
+    //отключаем соединение с БД
+    public static void closeConnectDB() {
+        try {
+            con.close();
+            //соединяемся
+            if (con.isClosed()) {
+                System.out.println("Соединение разорвано");
+            }
+        }
+        catch (SQLException sqlE) {
+            //логируем исключения
+            Logger.getLogger(DBParser.class.getName()).log(Level.SEVERE, null, sqlE);
+        }
+    }
+
+
     //считывание с базы данных DBPiezo (MSSql server - AZAPCSQLEXPRESS)
     public static ArrayList parseHydraT(String conditionBoiler, String conditionTNMain, String conditionTNBranch)
     {

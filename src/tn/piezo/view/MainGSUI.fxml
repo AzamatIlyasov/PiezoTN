@@ -22,16 +22,26 @@
                         <StackPane fx:id="stackPaneGraph" prefHeight="150.0" prefWidth="200.0" />
                       <AnchorPane maxWidth="250.0" minWidth="150.0" prefHeight="404.0" prefWidth="409.0">
                            <children>
-                              <ComboBox fx:id="listSourceTN" layoutX="9.0" layoutY="14.0" onMouseClicked="#mouseClickComboBox" prefHeight="25.0" prefWidth="107.0" promptText="1 Источник" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="20.0" />
-                              <ComboBox fx:id="listTN" layoutX="5.0" layoutY="52.0" onAction="#handleTermalNet" onMouseClicked="#mouseClickComboBox" prefHeight="25.0" prefWidth="114.0" promptText="2 Тепловая сеть" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="60.0" />
-                              <ComboBox fx:id="listBranchingOfTN" layoutX="5.0" layoutY="85.0" onMouseClicked="#mouseClickComboBox" prefHeight="25.0" prefWidth="114.0" promptText="3 Ответвления" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="100.0" />
-                              <Button layoutX="5.0" layoutY="137.0" mnemonicParsing="false" onAction="#handleEditDataBase" prefHeight="40.0" prefWidth="140.0" text="Внести изменения в базу данных" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="190.0" />
-                              <Button layoutX="5.0" layoutY="365.0" mnemonicParsing="false" onAction="#runGidRas" prefHeight="40.0" prefWidth="140.0" text="Вычислить" textAlignment="CENTER" textFill="#007c3e" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="250.0">
+                              <ComboBox fx:id="listSourceTN" layoutX="5.0" layoutY="53.0" onMouseClicked="#mouseClickComboBox" prefHeight="25.0" prefWidth="107.0" promptText="1 Источник" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="55.0" />
+                              <ComboBox fx:id="listTN" layoutX="5.0" layoutY="89.0" onAction="#handleTermalNet" onMouseClicked="#mouseClickComboBox" prefHeight="25.0" prefWidth="114.0" promptText="2 Тепловая сеть" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="90.0" />
+                              <ComboBox fx:id="listBranchingOfTN" layoutX="5.0" layoutY="125.0" onMouseClicked="#mouseClickComboBox" prefHeight="25.0" prefWidth="114.0" promptText="3 Ответвления" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="125.0" />
+                              <Button layoutX="5.0" layoutY="210.0" mnemonicParsing="false" onAction="#handleEditDataBase" prefHeight="33.0" prefWidth="140.0" text="Внести изменения в базу данных" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="200.0" />
+                              <Button layoutX="5.0" layoutY="250.0" mnemonicParsing="false" onAction="#runGidRas" prefHeight="40.0" prefWidth="140.0" text="Вычислить" textAlignment="CENTER" textFill="#007c3e" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font></Button>
-                              <Button layoutX="5.0" layoutY="189.0" mnemonicParsing="false" onAction="#handlePiezoGraphic" prefHeight="40.0" prefWidth="140.0" text="Пьезометрический график" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="140.0" />
+                              <Button layoutX="5.0" layoutY="170.0" mnemonicParsing="false" onAction="#handlePiezoGraphic" prefHeight="25.0" prefWidth="140.0" text="Пьезометрический график" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="160.0" />
                               <Button layoutX="5.0" layoutY="298.0" mnemonicParsing="false" onAction="#savePiezoPlot" prefHeight="33.0" prefWidth="140.0" text="Сохранить график в файл" textAlignment="CENTER" />
+                              <Button layoutX="5.0" layoutY="14.0" mnemonicParsing="false" onAction="#connectDB_btn" prefHeight="25.0" prefWidth="106.0" text="CONNECT SQL DB" textAlignment="CENTER" textFill="#00f20c" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="15.0">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="117.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeConDB_btn" prefHeight="25.0" prefWidth="28.0" text="X" textAlignment="CENTER" textFill="RED" AnchorPane.topAnchor="15.0">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </AnchorPane>
                     </items>
