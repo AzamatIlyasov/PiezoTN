@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Created by djaza on 09.02.2017.
+ * класс для подготовки данных для отрисовки ПГ
  */
 public class PiezoPlotC {
 
@@ -17,11 +18,11 @@ public class PiezoPlotC {
     public double[] Geo;
     public double[] ZdanieEtaj;
     public double Hrasp_ist;
-    public double[] H1x;
+    private double[] H1x;
     // переменные для расчета
-    double Hpoln;
-    double[] HraspPod;
-    double[] HraspObrat;
+    private double Hpoln;
+    private double[] HraspPod;
+    private double[] HraspObrat;
 
     PiezoPlotC(double HSN, double HPN, double Hist, String[] NamePartTN, double[] L, double[] Geo, double[] ZdanieEtaj,
             double Hrasp_ist, double[] H1x ) {

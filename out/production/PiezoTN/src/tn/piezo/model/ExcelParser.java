@@ -1,6 +1,5 @@
 package tn.piezo.model;
 
-import javafx.scene.chart.LineChart;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -14,23 +13,23 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 /**
  * Created by djaza on 08.02.2017.
+ * парсер для работы с Excel
  */
 public class ExcelParser {
 
     //переменные для сохр исх данных
-    static String[] NamePartTNras = null;
-    static String[] NamePartTNpred = null;
-    static double[] D = null;
-    static double[] L = null;
-    static double[] G = null;
-    static double[] Kekv = null;
-    static double[] Geo = null;
-    static double[] ZdanieEtaj = null;
-    static double Hrasp_ist;
+    private static String[] NamePartTNras = null;
+    private static String[] NamePartTNpred = null;
+    private static double[] D = null;
+    private static double[] L = null;
+    private static double[] G = null;
+    private static double[] Kekv = null;
+    private static double[] Geo = null;
+    private static double[] ZdanieEtaj = null;
+    private static double Hrasp_ist;
 
     private static ArrayList<ArrayList> hydraData = new ArrayList<ArrayList>();
     private static ArrayList<ArrayList> piezoData = new ArrayList<ArrayList>();
@@ -39,7 +38,6 @@ public class ExcelParser {
     public static ArrayList parseHydraT(String fileName)
     {
         // инициализируем потоки
-        String result = "";
         InputStream inputStream = null;
         HSSFWorkbook workbook = null;
         try {

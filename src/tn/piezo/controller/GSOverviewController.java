@@ -9,6 +9,7 @@ import tn.piezo.model.HydraC;
 
 /**
  * Created by djaza on 16.02.2017.
+ * контроллер для работы с окном просмотра таблицы
  */
 public class GSOverviewController {
 
@@ -51,7 +52,7 @@ public class GSOverviewController {
     private ComboBox listTN;
 
     private Stage dialogStage;
-    private HydraC hydra;
+    //private HydraC hydra;
     private boolean okClicked = false;
 
     // Ссылка на главное приложение.
@@ -96,8 +97,7 @@ public class GSOverviewController {
 
     /**
      * Вызывается главным приложением, которое даёт на себя ссылку.
-     *
-     * @param main
+     * @param main - главное приложение
      */
     public void setMain(Main main) {
         this.main = main;
@@ -191,7 +191,7 @@ public class GSOverviewController {
     @FXML
     private void handleNewTermalNetwork() {
         HydraC tempHydra = new HydraC();
-        boolean okClicked = main.showGSNewTableDialog(tempHydra);
+        boolean okClicked = main.showGSNewTableDialog();
         if (okClicked) {
             main.getHydraData().add(tempHydra);
         }
@@ -225,8 +225,7 @@ public class GSOverviewController {
 
     /**
      * Устанавливает сцену для этого окна.
-     *
-     * @param dialogStage
+     * @param dialogStage - диалоговое окно
      */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
@@ -234,8 +233,7 @@ public class GSOverviewController {
 
     /**
      * Returns true, если пользователь кликнул OK, в другом случае false.
-     *
-     * @return
+     * @return okClicked - нажал ОК
      */
     public boolean isOkClicked() {
         return okClicked;

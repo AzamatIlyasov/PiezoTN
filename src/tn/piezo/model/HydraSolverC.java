@@ -1,44 +1,43 @@
 package tn.piezo.model;
 
-import javafx.beans.property.StringProperty;
-
 import java.util.ArrayList;
 
 /**
  * Created by Azamat Ilyasov on 05.02.2017.
+ * класс - решатель для гидравлической таблицы
  */
 public class HydraSolverC {
 
     // переменные - исходные данные для расчета
-    String[] NamePartTN;
-    String[] NamePartTNpred;
-    double[] D;
-    double[] L;
-    double[] G;
-    double[] Kekv;
-    double Hrasp_ist;
-    double[] Geo;
-    double[] ZdanieEtaj;
-    int n; // нумерация участков
+    private String[] NamePartTN;
+    private String[] NamePartTNpred;
+    private double[] D;
+    private double[] L;
+    private double[] G;
+    private double[] Kekv;
+    private double Hrasp_ist;
+    private double[] Geo;
+    private double[] ZdanieEtaj;
+    private int n; // нумерация участков
 
     // переменные - результаты расчета
-    double[] W;
-    double[] Rud;
-    double[] b;
-    double[] Rrash;
-    double[] Hl;
-    double[] Hm;
-    double[] H1x;
-    double[] H2x;
-    double[] dH_fist; //падение напора от источника
-    double[] Hrasp_endP; // падение напора в конце участка
-    double dHsum; // суммарные потери напора
+    private double[] W;
+    private double[] Rud;
+    private double[] b;
+    private double[] Rrash;
+    private double[] Hl;
+    private double[] Hm;
+    private double[] H1x;
+    private double[] H2x;
+    private double[] dH_fist; //падение напора от источника
+    private double[] Hrasp_endP; // падение напора в конце участка
+    private double dHsum; // суммарные потери напора
 
     // постоянные величины
     private final double g = 9.81;
     private final double pi = 3.1416;
-    double ro = 97.6554;
-    double gamma = 958; //gamma = ro*g
+    private double ro = 97.6554;
+    private double gamma = 958; //gamma = ro*g
 
     public HydraSolverC(String[] NamePartTN, String[] NamePartTNpred, double[] D, double[] L, double[] G, double[] Kekv,
                  double[] Geo, double[] ZdanieEtaj,

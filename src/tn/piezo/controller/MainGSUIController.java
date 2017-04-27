@@ -1,30 +1,19 @@
 package tn.piezo.controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import tn.piezo.Main;
 import tn.piezo.model.DBParser;
 import tn.piezo.model.FileParser;
 import tn.piezo.model.HydraC;
-import tn.piezo.model.PiezoC;
-
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -32,6 +21,7 @@ import java.util.logging.Logger;
 
 /**
  * Created by djaza on 16.02.2017.
+ * контроллер для работы с главные окном
  */
 public class MainGSUIController {
 
@@ -52,8 +42,6 @@ public class MainGSUIController {
     private TableColumn<HydraC, Double> Kekv_column;
     @FXML
     private TableColumn<HydraC, Double> Hrasp_ist_column;
-    @FXML
-    private Label n; // нумерация участков
     // переменные - результаты расчета
     @FXML
     private TableColumn<HydraC, Double> W_column;
@@ -83,9 +71,6 @@ public class MainGSUIController {
     private ComboBox listBranchingOfTN;
     @FXML
     private StackPane stackPaneGraph;
-
-    // для ГР - источник данных
-    private String sourceFileName = "";
 
     // Ссылка на главное приложение.
     private Main main;
@@ -144,7 +129,7 @@ public class MainGSUIController {
     /**
      * Вызывается главным приложением, которое даёт на себя ссылку.
      *
-     * @param main
+     * @param main - главное приложение
      */
     public void setMain(Main main) {
         this.main = main;
@@ -213,6 +198,8 @@ public class MainGSUIController {
     // к.Вычислить - запуск гидравлического расчета для выбранного участка
     @FXML
     private void runGidRas() {
+        // для ГР - источник данных
+        String sourceFileName = "";
         //выбор данных для расчета
         sourceFileName = "resources/ExcelDataBase/test files/";
         sourceFileName += "input";

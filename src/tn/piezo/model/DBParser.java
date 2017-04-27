@@ -1,31 +1,29 @@
 package tn.piezo.model;
 
-import javax.sql.RowSet;
-import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  * Created by djaza on 08.02.2017.
+ * парсер для работы с БД mssql DBPiezo
  */
 public class DBParser {
 
     //переменные для сохр исх данных
-    static String[] NamePartTNras = null;
-    static String[] NamePartTNpred = null;
-    static double[] D = null;
-    static double[] L = null;
-    static double[] G = null;
-    static double[] Kekv = null;
-    static double[] Geo = null;
-    static double[] ZdanieEtaj = null;
-    static double Hrasp_ist;
+    private static String[] NamePartTNras = null;
+    private static String[] NamePartTNpred = null;
+    private static double[] D = null;
+    private static double[] L = null;
+    private static double[] G = null;
+    private static double[] Kekv = null;
+    private static double[] Geo = null;
+    private static double[] ZdanieEtaj = null;
+    private static double Hrasp_ist;
 
     private static ArrayList<ArrayList> hydraData = new ArrayList<ArrayList>();
     private static ArrayList<ArrayList> piezoData = new ArrayList<ArrayList>();

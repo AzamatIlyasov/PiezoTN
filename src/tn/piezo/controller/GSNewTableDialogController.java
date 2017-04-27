@@ -8,9 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import tn.piezo.Main;
 import tn.piezo.model.FileParser;
-import tn.piezo.model.HydraC;
 import tn.piezo.model.HydraSolverC;
 
 import java.util.ArrayList;
@@ -69,10 +67,7 @@ public class GSNewTableDialogController {
     private ComboBox listTN;
 
     private Stage dialogStage;
-    private HydraC hydraC;
     private boolean okClicked = false;
-    // Ссылка на главное приложение.
-    private Main main;
 
     /**
      * Инициализирует класс-контроллер. Этот метод вызывается автоматически
@@ -95,7 +90,7 @@ public class GSNewTableDialogController {
     /**
      * Устанавливает сцену для этого окна.
      *
-     * @param dialogStage
+     * @param dialogStage - диалоговое окно
      */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
@@ -337,12 +332,12 @@ public class GSNewTableDialogController {
 
     /**
      * Метод для добавления и сохранения введеных данных в ArrayList
+     * @return ArrayList - hydraArray
      */
     public ArrayList getNewHydraData() {
         // ГР
         HydraSolverC hydraPartTN = new HydraSolverC(NamePartTN, NamePartTNpred, D, L, G, Kekv, Geo, ZdanieEtaj, Hrasp_ist);
-        ArrayList hydraArray = hydraPartTN.HydraPartTN(hydraPartTN);
-        return hydraArray;
+        return hydraPartTN.HydraPartTN(hydraPartTN);
     }
 
 }

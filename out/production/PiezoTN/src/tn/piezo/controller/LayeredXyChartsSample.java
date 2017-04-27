@@ -1,6 +1,5 @@
 package tn.piezo.controller;
 
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
@@ -17,23 +16,22 @@ import java.util.List;
  */
 public class LayeredXyChartsSample {
 
-    private PiezoC piezoC;
     // для ранжирования оси ОY
-    double min =  100000;
-    double max = -100000;
+    private double min =  100000;
+    private double max = -100000;
     // определяем графики
     private XYChart.Series seriesGeodezia = new XYChart.Series();
     private XYChart.Series seriesStatic = new XYChart.Series();
     private XYChart.Series seriesPodacha = new XYChart.Series();
     private XYChart.Series seriesObratka = new XYChart.Series();
     private XYChart.Series seriesStroenie = new XYChart.Series();
-    PiezoC tempObjPiezoDCS;
+    private PiezoC tempObjPiezoDCS;
     // считаем необходимы данные для графиков и сохраняем в массивах
-    ObservableList<XYChart.Data> datasGeodezia = FXCollections.observableArrayList();
-    ObservableList<XYChart.Data> datasStroinie = FXCollections.observableArrayList();
-    ObservableList<XYChart.Data> datasPodacha = FXCollections.observableArrayList();
-    ObservableList<XYChart.Data> datasObratka = FXCollections.observableArrayList();
-    ObservableList<XYChart.Data> datasStaticH = FXCollections.observableArrayList();
+    private ObservableList<XYChart.Data> datasGeodezia = FXCollections.observableArrayList();
+    private ObservableList<XYChart.Data> datasStroinie = FXCollections.observableArrayList();
+    private ObservableList<XYChart.Data> datasPodacha = FXCollections.observableArrayList();
+    private ObservableList<XYChart.Data> datasObratka = FXCollections.observableArrayList();
+    private ObservableList<XYChart.Data> datasStaticH = FXCollections.observableArrayList();
 
     public void startLayeredXyChart(Stage stage, List piezoData) {
         stage.setScene( new Scene( startLayerCharts(piezoData) ) );
@@ -120,7 +118,7 @@ public class LayeredXyChartsSample {
     /**
      * Задаёт участки для построения ПГ.
      *
-     * @param piezoData
+     * @param piezoData - данные для построения графика
      */
     public void setPiezoData(List piezoData) {
         double[] Hpodacha = new double[piezoData.size()];

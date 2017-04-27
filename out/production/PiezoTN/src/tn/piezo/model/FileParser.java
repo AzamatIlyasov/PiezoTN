@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 
 /**
  * Created by djaza on 15.03.2017.
+ * парсер для работы с текстовым файлом - для считывание в комбобоксы
  */
 public class FileParser {
     // списки для combobox -источник, тс, ответвление
@@ -26,7 +27,7 @@ public class FileParser {
         listTN.clear();
         listBranchTN.clear();
         //считывание списков источников, тс и ответвлений для всех combobox
-        FileParser fileParser = new FileParser();
+        //FileParser fileParser = new FileParser();
         // из базы данных
         try {
             Statement stmt = DBParser.con.createStatement();

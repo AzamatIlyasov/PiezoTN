@@ -4,6 +4,7 @@ import javafx.beans.property.*;
 
 /**
  * Created by djaza on 16.02.2017.
+ * класс обертка
  */
 public class HydraC {
 
@@ -41,24 +42,24 @@ public class HydraC {
 
     /**
      * Конструктор с некоторыми начальными данными.
-     *
-     * @param NamePartTN
-     * @param D
-     * @param L
-     * @param G
-     * @param Kekv
-     * @param Hrasp_ist
-     * @param W,
-     * @param Rud,
-     * @param b,
-     * @param Rrash,
-     * @param Hl,
-     * @param Hm,
-     * @param H1x,
-     * @param H2x,
-     * @param dH_fist, //падение напора от источника
-     * @param Hrasp_endP
-     * @param num
+     * - параметры участков
+     * @param NamePartTN - название участка
+     * @param D - диаметр
+     * @param L - длина
+     * @param G - расход
+     * @param Kekv - кэкв
+     * @param Hrasp_ist - распологаемы напор у источника
+     * @param W - скорость
+     * @param Rud - Rуд
+     * @param b - коэф-т б
+     * @param Rrash - Rрасчетный
+     * @param Hl - линейное падение напора
+     * @param Hm - местное падение напора
+     * @param H1x - падение напора в одной трубе
+     * @param H2x - в двух трубах
+     * @param dH_fist - падение напора от источника
+     * @param Hrasp_endP - распологаемы напор в конце учатска
+     * @param num - номер
      */
     public HydraC(String NamePartTN, String NamePartTNpred, double D, double L, double G, double Kekv, double Geo,
                   double ZdanieEtaj,

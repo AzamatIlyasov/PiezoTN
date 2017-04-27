@@ -49,6 +49,7 @@ public class Main extends Application {
         //из SQL DBPiezo
         hydraDataArrayList = DBParser.parseHydraT(conditionBoiler, conditionTNMain, conditionTNBranch);
         piezoDataArrayList = DBParser.parsePiezoPlot(hydraDataArrayList);
+
     }
 
     // БД Excel
@@ -68,14 +69,16 @@ public class Main extends Application {
         DBParser.writeTableHydra(DataHydra);
 
     }
+
     /**
      * сохранения данных в таблицу
      */
-    public void saveDataTable(ArrayList DataHydra, String fileName) {
+    private void saveDataTable(ArrayList DataHydra, String fileName) {
         //тестовая запись в бд
         //excel
         ExcelParser.writeTableHydra(DataHydra, fileName);
     }
+
     /**
      * ГР решатель
      */
@@ -109,7 +112,7 @@ public class Main extends Application {
 
     /**
      * Возвращает данные в виде наблюдаемого списка участков.
-     * @return
+     * @return hydraData
      */
     public ObservableList<HydraC> getHydraData() {
         return hydraData;
@@ -118,7 +121,7 @@ public class Main extends Application {
     /**
      * Задаем новые данные для расчета.
      */
-    public void setHydraData(ArrayList hydra) {
+    private void setHydraData(ArrayList hydra) {
         hydraData.clear();
         //создаем объект для считывания ГР
         HydraDataClassStruct objHydraDCS;
@@ -137,7 +140,7 @@ public class Main extends Application {
 
     /**
      * Возвращает данные в виде наблюдаемого списка участков для ПГ.
-     * @return
+     * @return piezoData
      */
     public ObservableList<PiezoC> getPiezoData() {
         return piezoData;
@@ -163,12 +166,12 @@ public class Main extends Application {
     /**
      * Инициализирует корневой макет.
      */
-    public void initRootLayout() {
+    private void initRootLayout() {
         try {
             // Загружаем корневой макет из fxml файла.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/RootLayout.fxml"));
-            rootLayout = (BorderPane)loader.load();
+            rootLayout = loader.load();
 
 
             // Отображаем сцену, содержащую корневой макет.
@@ -187,7 +190,7 @@ public class Main extends Application {
     /**
      * Показывает в корневом макете гидравлическую таблицу и график.
      */
-    public void showGSMainOverview() {
+    private void showGSMainOverview() {
         try {
             // Загружаем данные для combobox-сов (ист,тс,ответвление)
             FileParser fileParser = new FileParser();
@@ -195,7 +198,7 @@ public class Main extends Application {
             // Загружаем сведения об участках.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/MainGSUI.fxml"));
-            AnchorPane gsMainOverview = (AnchorPane)loader.load();
+            AnchorPane gsMainOverview = loader.load();
             // Помещаем сведения об участках в центр корневого макета.
             rootLayout.setCenter(gsMainOverview);
             // выполним гидрарасчет - участок по умолчанию
@@ -218,12 +221,12 @@ public class Main extends Application {
     /**
      * Показывает в корневом макете интрефейс для изменения данных.
      */
-    public boolean showGSOverview() {
+    public void showGSOverview() {
         try {
             // Загружаем сведения об участках.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/GSOverview.fxml"));
-            AnchorPane gsOverview = (AnchorPane)loader.load();
+            AnchorPane gsOverview = loader.load();
 
             // Создаём диалоговое окно Stage.
             Stage dialogStage = new Stage();
@@ -242,12 +245,10 @@ public class Main extends Application {
             gsOverviewController.setMain(this);
             // Отображаем диалоговое окно и ждём, пока пользователь его не закроет
             dialogStage.showAndWait();
-
-
-            return gsOverviewController.isOkClicked();
+            //return gsOverviewController.isOkClicked();
         } catch (IOException e) {
             e.printStackTrace();
-            return false;
+            //return false;
         }
     }
 
@@ -255,17 +256,15 @@ public class Main extends Application {
      * Открывает диалоговое окно для добавления нового участка.
      * Если пользователь кликнул OK, то изменения сохраняются в предоставленном
      * объекте адресата и возвращается значение true.
-     *
-     * @param hydra - объект участка, который надо изменить
      * @return true, если пользователь кликнул OK, в противном случае false.
      */
-    public boolean showGSNewTableDialog(HydraC hydra) {
+    public boolean showGSNewTableDialog() {
         try {
             // Загружаем fxml-файл и создаём новую сцену
             // для всплывающего диалогового окна.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/GSNewTableDialog.fxml"));
-            AnchorPane page = (AnchorPane) loader.load();
+            AnchorPane page = loader.load();
 
             // Создаём диалоговое окно Stage.
             Stage dialogStage = new Stage();
@@ -306,7 +305,7 @@ public class Main extends Application {
             // для всплывающего диалогового окна.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/GSEditDialog.fxml"));
-            AnchorPane page = (AnchorPane) loader.load();
+            AnchorPane page = loader.load();
 
             // Создаём диалоговое окно Stage.
             Stage dialogStage = new Stage();
@@ -340,8 +339,9 @@ public class Main extends Application {
             LayeredXyChartsSample LPchart = new LayeredXyChartsSample();
             LPchart.startLayeredXyChart(dialogStage, piezoData);
             dialogStage.setTitle("PiezoGraphic");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(primaryStage);
+            //закоментировало - избавился от ошибок и предупреждений
+            //dialogStage.initModality(Modality.WINDOW_MODAL);
+            //dialogStage.initOwner(primaryStage);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -352,7 +352,6 @@ public class Main extends Application {
 
     /**
      * Возвращает главную сцену.
-     * @return
      */
     public Stage getPrimaryStage() {
         return primaryStage;
@@ -360,7 +359,6 @@ public class Main extends Application {
 
     /**
      * Запуск программы
-     * @param args
      */
     public static void main(String[] args) {
         launch(args);

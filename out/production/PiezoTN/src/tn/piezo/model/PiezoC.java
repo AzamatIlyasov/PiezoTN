@@ -4,6 +4,7 @@ import javafx.beans.property.*;
 
 /**
  * Created by djaza on 16.02.2017.
+ * класс для расчетов ПГ
  */
 public class PiezoC {
 
@@ -33,15 +34,15 @@ public class PiezoC {
     /**
      * Конструктор с некоторыми начальными данными.
      *
-     * @param HSN
-     * @param HPN
-     * @param Hist
-     * @param NamePartTN
-     * @param L
-     * @param Geo
-     * @param ZdanieEtaj
-     * @param Hrasp_ist
-     * @param H1x
+     * @param HSN - напор в СН
+     * @param HPN - напор в ПН
+     * @param Hist - напор у источника
+     * @param NamePartTN - название участка
+     * @param L - длина
+     * @param Geo - геодезическая отметка участка
+     * @param ZdanieEtaj - этажность здания
+     * @param Hrasp_ist - распологаемы напор
+     * @param H1x - потеря напора в одной трубе на данном участке
      */
     public PiezoC(double HSN, double HPN, double Hist, String NamePartTN, double L, double Geo, double ZdanieEtaj,
                   double Hrasp_ist, double H1x ) {

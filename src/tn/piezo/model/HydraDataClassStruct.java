@@ -2,6 +2,7 @@ package tn.piezo.model;
 
 /**
  * Created by djaza on 18.02.2017.
+ * класс - структура данных
  */
 public class HydraDataClassStruct {
 

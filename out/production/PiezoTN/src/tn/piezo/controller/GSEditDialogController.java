@@ -8,8 +8,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import tn.piezo.model.HydraC;
 
-import java.util.DoubleSummaryStatistics;
-
 /**
  * Окно для изменения информации об адресате.
  *
@@ -51,8 +49,7 @@ public class GSEditDialogController {
 
     /**
      * Устанавливает сцену для этого окна.
-     *
-     * @param dialogStage
+     * @param dialogStage - диалоговое окно
      */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
@@ -62,8 +59,7 @@ public class GSEditDialogController {
 
     /**
      * Задаёт участка, информацию о котором будем менять
-     *
-     * @param hydra
+     * @param hydra - данные участка
      */
     public void setHydra(HydraC hydra) {
         this.hydra = hydra;
@@ -83,7 +79,7 @@ public class GSEditDialogController {
     /**
      * Returns true, если пользователь кликнул OK, в другом случае false.
      *
-     * @return
+     * @return okClicked - нажал кнопку ОК
      */
     public boolean isOkClicked() {
         return okClicked;
