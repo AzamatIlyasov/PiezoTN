@@ -1,62 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="sql -&gt; сделал считывание с базы данных для комбо боксов, исходные данные&#10; из БД тоже считываются и.. &#10; короче работа с базой продолжается">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/Controller.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/Controller.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/tn/piezo/controller/Controller.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/resources/test.png" afterPath="$PROJECT_DIR$/out/production/PiezoTN/resources/test.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/test.png" afterPath="$PROJECT_DIR$/out/production/PiezoTN/test.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/Main.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSEditDialogController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSEditDialogController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSNewTableDialogController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSNewTableDialogController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSOverviewController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSOverviewController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/LayeredXyChartsSample$1.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/LayeredXyChartsSample$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/LayeredXyChartsSample.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/LayeredXyChartsSample.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/MainGSUIController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/MainGSUIController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/ExcelParser.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/ExcelParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/FileParser.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/FileParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/HydraC.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/HydraC.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/HydraDataClassStruct.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/HydraDataClassStruct.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/HydraSolverC.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/HydraSolverC.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/PiezoC.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/PiezoC.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/PiezoDataClassStructure.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/PiezoDataClassStructure.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/PiezoPlotC.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/PiezoPlotC.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/test.png" afterPath="$PROJECT_DIR$/resources/test.png" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PiezoTN/resources/данные/Thumbs.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PiezoTN/данные/Thumbs.db" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/Main.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/GSEditDialogController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/GSEditDialogController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/GSNewTableDialogController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/GSNewTableDialogController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/GSOverviewController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/GSOverviewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/LayeredXyChartsSample.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/LayeredXyChartsSample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/MainGSUIController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/MainGSUIController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/ExcelParser.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/ExcelParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/FileParser.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/FileParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/HydraC.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/HydraC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/HydraDataClassStruct.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/HydraDataClassStruct.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/HydraSolverC.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/HydraSolverC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/PiezoC.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/PiezoC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/PiezoDataClassStructure.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/PiezoDataClassStructure.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/PiezoPlotC.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/PiezoPlotC.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ExcelDataBase/1_Source/CollectionSource.txt" afterPath="$PROJECT_DIR$/resources/ExcelDataBase/1_Source/CollectionSource.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ExcelDataBase/2_TN/CollectionTN.txt" afterPath="$PROJECT_DIR$/resources/ExcelDataBase/2_TN/CollectionTN.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ExcelDataBase/3_PartTN/CollectionBranch.txt" afterPath="$PROJECT_DIR$/resources/ExcelDataBase/3_PartTN/CollectionBranch.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/Main.java" afterPath="$PROJECT_DIR$/src/tn/piezo/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/controller/GSEditDialogController.java" afterPath="$PROJECT_DIR$/src/tn/piezo/controller/GSEditDialogController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/controller/GSNewTableDialogController.java" afterPath="$PROJECT_DIR$/src/tn/piezo/controller/GSNewTableDialogController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/controller/GSOverviewController.java" afterPath="$PROJECT_DIR$/src/tn/piezo/controller/GSOverviewController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/controller/LayeredXyChartsSample.java" afterPath="$PROJECT_DIR$/src/tn/piezo/controller/LayeredXyChartsSample.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/controller/MainGSUIController.java" afterPath="$PROJECT_DIR$/src/tn/piezo/controller/MainGSUIController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/model/DBParser.java" afterPath="$PROJECT_DIR$/src/tn/piezo/model/DBParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/model/ExcelParser.java" afterPath="$PROJECT_DIR$/src/tn/piezo/model/ExcelParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/model/FileParser.java" afterPath="$PROJECT_DIR$/src/tn/piezo/model/FileParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/model/HydraC.java" afterPath="$PROJECT_DIR$/src/tn/piezo/model/HydraC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/model/HydraDataClassStruct.java" afterPath="$PROJECT_DIR$/src/tn/piezo/model/HydraDataClassStruct.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/model/HydraSolverC.java" afterPath="$PROJECT_DIR$/src/tn/piezo/model/HydraSolverC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/model/PiezoC.java" afterPath="$PROJECT_DIR$/src/tn/piezo/model/PiezoC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/model/PiezoDataClassStructure.java" afterPath="$PROJECT_DIR$/src/tn/piezo/model/PiezoDataClassStructure.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/model/PiezoPlotC.java" afterPath="$PROJECT_DIR$/src/tn/piezo/model/PiezoPlotC.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/view/MainGSUI.fxml" afterPath="$PROJECT_DIR$/src/tn/piezo/view/MainGSUI.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -128,7 +84,65 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tn/piezo/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="207" column="77" lean-forward="true" selection-start-line="207" selection-start-column="77" selection-end-line="207" selection-end-column="77" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainGSUIController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/MainGSUIController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="335">
+              <caret line="177" column="7" lean-forward="true" selection-start-line="177" selection-start-column="7" selection-end-line="177" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/DBParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="226">
+              <caret line="44" column="12" lean-forward="false" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#818#829#0" expanded="true" />
+                <element signature="e#898#909#0" expanded="true" />
+                <marker date="1493302747147" expanded="true" signature="3655:5314" ph="select name_... TNParts" />
+                <marker date="1493302747147" expanded="true" signature="3655:5340" ph="select name_... TNParts" />
+                <marker date="1493302747147" expanded="true" signature="3727:3914" ph="select name_... TNParts" />
+                <marker date="1493302747147" expanded="true" signature="5272:5314" ph="select name_... TNParts" />
+                <marker date="1493302747147" expanded="true" signature="5688:5690" ph="SELECT num_r... inputTable" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/FileParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="37" column="88" lean-forward="false" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="88" />
+              <folding>
+                <marker date="1493269566248" expanded="true" signature="1120:1164" ph="select name_... Boilers" />
+                <marker date="1493269566248" expanded="true" signature="1339:1382" ph="select name_... TNMains" />
+                <marker date="1493269566248" expanded="true" signature="1552:1602" ph="select name_... TNBranches" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -220,18 +234,18 @@
         <option value="$PROJECT_DIR$/src/tn/piezo/controller/GSOverviewController.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/controller/GSEditDialogController.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/controller/LayeredXyChartsSample.java" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/controller/MainGSUIController.java" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/model/DBParser.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/model/ExcelParser.java" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/model/FileParser.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/model/HydraC.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/model/HydraDataClassStruct.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/model/HydraSolverC.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/model/PiezoC.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/model/PiezoDataClassStructure.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/model/PiezoPlotC.java" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/Main.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/controller/GSNewTableDialogController.java" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/Main.java" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/model/DBParser.java" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/model/FileParser.java" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/controller/MainGSUIController.java" />
       </list>
     </option>
   </component>
@@ -243,10 +257,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="754" />
+    <option name="x" value="-1928" />
+    <option name="y" value="-478" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -270,16 +284,6 @@
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PiezoTN" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="PiezoTN" />
@@ -888,7 +892,7 @@
       <workItem from="1493112795053" duration="15360000" />
       <workItem from="1493182054819" duration="2046000" />
       <workItem from="1493194495768" duration="25000" />
-      <workItem from="1493194563315" duration="6789000" />
+      <workItem from="1493194563315" duration="16398000" />
     </task>
     <task id="LOCAL-00001" summary="Кооректировка (прокрастинация) исходного кода.">
       <created>1489394858668</created>
@@ -1079,11 +1083,18 @@
       <option name="project" value="LOCAL" />
       <updated>1493134675572</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="убрал кусочки кода - убрал warnings">
+      <created>1493271072807</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1493271072807</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29980000" />
+    <option name="totallyTimeSpent" value="39589000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1095,7 +1106,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-1928" y="-478" width="1936" height="1066" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1104,23 +1115,23 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26552796" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26552796" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32142857" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26863354" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18096234" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25549048" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18177083" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32608697" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3253138" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2872671" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41945606" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1158,11 +1169,12 @@
     <MESSAGE value="sql -&gt; работающая программа с первой таблицей из БД" />
     <MESSAGE value="sql -&gt; работающая программа1" />
     <MESSAGE value="sql -&gt; сделал считывание с базы данных для комбо боксов, исходные данные&#10; из БД тоже считываются и.. &#10; короче работа с базой продолжается" />
-    <option name="LAST_COMMIT_MESSAGE" value="sql -&gt; сделал считывание с базы данных для комбо боксов, исходные данные&#10; из БД тоже считываются и.. &#10; короче работа с базой продолжается" />
+    <MESSAGE value="убрал кусочки кода - убрал warnings" />
+    <option name="LAST_COMMIT_MESSAGE" value="убрал кусочки кода - убрал warnings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="219" />
+      <option name="time" value="221" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1313,7 +1325,7 @@
         <state relative-caret-position="190">
           <caret line="160" column="0" lean-forward="true" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1323,55 +1335,6 @@
         <state relative-caret-position="153">
           <caret line="22" column="3" lean-forward="true" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/DBParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-773">
-          <caret line="141" column="49" lean-forward="false" selection-start-line="141" selection-start-column="49" selection-end-line="141" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#818#829#0" expanded="true" />
-            <element signature="e#898#909#0" expanded="true" />
-            <marker date="1493269132365" expanded="true" signature="2900:3259" ph="SELECT num_r... inputTable" />
-            <marker date="1493269132365" expanded="true" signature="3439:3487" ph="SELECT num_r... " />
-            <marker date="1493269132365" expanded="true" signature="3439:3591" ph="SELECT [num_... " />
-            <marker date="1493269132365" expanded="true" signature="3439:3635" ph="SELECT num_r... inputTable" />
-            <marker date="1493269132365" expanded="true" signature="3439:3636" ph="SELECT num_r... inputTable" />
-            <marker date="1493269132365" expanded="true" signature="3439:3660" ph="SELECT num_r... inputTable" />
-            <marker date="1493269132365" expanded="true" signature="3439:3661" ph="SELECT num_r... inputTable" />
-            <marker date="1493269132365" expanded="true" signature="3439:3702" ph="SELECT num_r... inputTable" />
-            <marker date="1493269132365" expanded="true" signature="3439:3725" ph="SELECT num_r... inputTable" />
-            <marker date="1493269132365" expanded="true" signature="3439:3726" ph="SELECT num_r... inputTable" />
-            <marker date="1493269132365" expanded="true" signature="3439:3727" ph="SELECT num_r... inputTable" />
-            <marker date="1493269132365" expanded="true" signature="3439:3728" ph="SELECT num_r... inputTable" />
-            <marker date="1493269132365" expanded="true" signature="3439:3729" ph="SELECT num_r... inputTable" />
-            <marker date="1493269132365" expanded="true" signature="3439:3798" ph="SELECT num_r... inputTable" />
-            <marker date="1493269132365" expanded="true" signature="3439:3802" ph="SELECT num_r... inputTable" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/ExcelParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="39" column="32" lean-forward="true" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/FileParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="92" column="21" lean-forward="false" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
-          <folding>
-            <marker date="1493269566248" expanded="true" signature="1120:1164" ph="select name_... Boilers" />
-            <marker date="1493269566248" expanded="true" signature="1339:1382" ph="select name_... TNMains" />
-            <marker date="1493269566248" expanded="true" signature="1552:1602" ph="select name_... TNBranches" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1460,7 +1423,7 @@
         <state relative-caret-position="139">
           <caret line="1761" column="0" lean-forward="false" selection-start-line="1761" selection-start-column="0" selection-end-line="1761" selection-end-column="0" />
           <folding>
-            <element signature="e#66663#66664#0" expanded="true" />
+            <element signature="e#66663#66664#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1470,16 +1433,6 @@
         <state relative-caret-position="139">
           <caret line="560" column="0" lean-forward="false" selection-start-line="560" selection-start-column="0" selection-end-line="560" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/LayeredXyChartsSample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="171" column="0" lean-forward="true" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1507,26 +1460,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tn/piezo/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="246" column="0" lean-forward="false" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/MainGSUIController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="147" column="0" lean-forward="false" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/GSNewTableDialogController.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1344">
@@ -1542,12 +1475,81 @@
         <state relative-caret-position="391">
           <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#setDialogStage#0;class#GSNewTableDialogController#0" expanded="false" />
             <element signature="method#countChanged#0;class#GSNewTableDialogController#0" expanded="false" />
             <element signature="method#handleNext#0;class#GSNewTableDialogController#0" expanded="false" />
             <element signature="method#handlePrevious#0;class#GSNewTableDialogController#0" expanded="false" />
             <element signature="method#clearDialogStage#0;class#GSNewTableDialogController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/ExcelParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="147" column="25" lean-forward="false" selection-start-line="147" selection-start-column="25" selection-end-line="147" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/LayeredXyChartsSample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/FileParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="37" column="88" lean-forward="false" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="88" />
+          <folding>
+            <marker date="1493269566248" expanded="true" signature="1120:1164" ph="select name_... Boilers" />
+            <marker date="1493269566248" expanded="true" signature="1339:1382" ph="select name_... TNMains" />
+            <marker date="1493269566248" expanded="true" signature="1552:1602" ph="select name_... TNBranches" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="207" column="77" lean-forward="true" selection-start-line="207" selection-start-column="77" selection-end-line="207" selection-end-column="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/DBParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="44" column="12" lean-forward="false" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#818#829#0" expanded="true" />
+            <element signature="e#898#909#0" expanded="true" />
+            <marker date="1493302747147" expanded="true" signature="3655:5314" ph="select name_... TNParts" />
+            <marker date="1493302747147" expanded="true" signature="3655:5340" ph="select name_... TNParts" />
+            <marker date="1493302747147" expanded="true" signature="3727:3914" ph="select name_... TNParts" />
+            <marker date="1493302747147" expanded="true" signature="5272:5314" ph="select name_... TNParts" />
+            <marker date="1493302747147" expanded="true" signature="5688:5690" ph="SELECT num_r... inputTable" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/MainGSUIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="177" column="7" lean-forward="true" selection-start-line="177" selection-start-column="7" selection-end-line="177" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

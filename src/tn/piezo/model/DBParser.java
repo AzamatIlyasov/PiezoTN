@@ -75,27 +75,60 @@ public class DBParser {
     //считывание с базы данных DBPiezo (MSSql server - AZAPCSQLEXPRESS)
     public static ArrayList parseHydraT(String conditionBoiler, String conditionTNMain, String conditionTNBranch)
     {
-        if ( conditionTNBranch.equals("Без ответвления") )
-            conditionTNBranch = "";
+        String myQuery, myQueryPartBranch;
+        if ( conditionTNBranch.equals("Без ответвления") || conditionTNBranch.equals("") ) {
+            myQueryPartBranch = "is null ";
+        }
+        else {
+            myQueryPartBranch = "= ( "+
+                    "select [id_TNBranches] "+
+                    "from [DBPiezo].[dbo].[TNBranches] "+
+                    "where [name_TNBranches] = '" + conditionTNBranch + "') ";
+        }
         try {
             Statement stmt = con.createStatement();
-            //выборка всех данных для подсчета кол-ва участков
-            ResultSet rsQuery0 = stmt.executeQuery(
-                    "SELECT num_rasch_Uch, num_pred_Uch, Diametr_Uch, Length_Uch, G_Uch, Kekv_Uch, Geo_Uch, ZdanEtaj_Uch " +
+
+            // старый запрос
+            /*
+             "SELECT num_rasch_Uch, num_pred_Uch, Diametr_Uch, Length_Uch, G_Uch, Kekv_Uch, Geo_Uch, ZdanEtaj_Uch " +
                     "FROM DBPiezo.dbo.inputTable " +
                     "WHERE name_Boiler='" + conditionBoiler + "' " +
                     "AND name_TNMain='" + conditionTNMain + "' " +
-                    "AND name_TNBranch='" + conditionTNBranch + "'" );
+                    "AND name_TNBranch='" + conditionTNBranch + "'";
+              */
+            //пишем запрос и сохраняем его в строковой переменной
+            myQuery =
+                    "select name_TNParts as num_rasch_Uch, (	"+
+                            "select name_TNParts "+
+                            "from DBPiezo.dbo.TNParts "+
+                            "where DBPiezo.dbo.mainTable.id_TNParts_previous=DBPiezo.dbo.TNParts.id_TNParts	"+
+                            ") as num_pred_Uch, "+
+                            "Diametr_Uch, Length_Uch, G_Uch, Kekv_Uch, Geo_Uch, ZdanEtaj_Uch "+
+                    "from DBPiezo.dbo.TNParts, DBPiezo.dbo.mainTable "+
+                    "where DBPiezo.dbo.mainTable.id_TNParts_current = DBPiezo.dbo.TNParts.id_TNParts "+
+                    "and DBPiezo.dbo.mainTable.id_Boilers = ( "+
+                            "select [DBPiezo].[dbo].[Boilers].[id_Boilers] "+
+                            "from [DBPiezo].[dbo].[Boilers] "+
+                            "where [DBPiezo].[dbo].[Boilers].[name_Boilers] = '" + conditionBoiler + "' "+
+                            ")"+
+                    "and DBPiezo.dbo.mainTable.id_TNMains = ( "+
+                            "select [DBPiezo].[dbo].[TNMains].[id_TNMains] "+
+                            "from [DBPiezo].[dbo].[TNMains] "+
+                            "where [DBPiezo].[dbo].[TNMains].[name_TNMain] = '" + conditionTNMain + "' "+
+                    "and [DBPiezo].[dbo].[TNMains].[id_Boilers]=( "+
+                            "select [DBPiezo].[dbo].[Boilers].[id_Boilers] "+
+                            "from [DBPiezo].[dbo].[Boilers] "+
+                            "where [DBPiezo].[dbo].[Boilers].[name_Boilers] = '" + conditionBoiler + "' ) "+
+                            ") "+
+                    "and (DBPiezo.dbo.mainTable.id_TNBranches " + myQueryPartBranch + ") ";
+
+            //выборка всех данных для подсчета кол-ва участков
+            ResultSet rsQueryForN = stmt.executeQuery(myQuery);
             //кол-во строк-участков
             int n = 0;
-            while (rsQuery0.next()) n++;
-
-            ResultSet rsMyQuery = stmt.executeQuery(
-                    "SELECT num_rasch_Uch, num_pred_Uch, Diametr_Uch, Length_Uch, G_Uch, Kekv_Uch, Geo_Uch, ZdanEtaj_Uch " +
-                    "FROM DBPiezo.dbo.inputTable " +
-                    "WHERE name_Boiler='" + conditionBoiler + "' " +
-                    "AND name_TNMain='" + conditionTNMain + "' " +
-                    "AND name_TNBranch='" + conditionTNBranch + "'" );
+            while (rsQueryForN.next()) n++;
+            //выборка данных для выполнения программы
+            ResultSet rsMyQuery = stmt.executeQuery(myQuery);
 
             //инициализация массивов для исх данных
             NamePartTNras = new String[n];

@@ -112,7 +112,8 @@ public class MainGSUIController {
         listTN.getItems().addAll(FileParser.listTN);
         listBranchingOfTN.getItems().add("Без ответвления");
         listBranchingOfTN.getItems().addAll(FileParser.listBranchTN);
-
+        listTN.setDisable(true);
+        listBranchingOfTN.setDisable(true);
     }
 
     /**
@@ -159,12 +160,19 @@ public class MainGSUIController {
     }
 
     /**
-     * Вызывается, когда пользователь выбирает определенный участок в тепловой сети для определенной котельной
-     * открывает соответствующую таблицу с исходными данными.
+     * вызывается при нажатии на combobox
      */
     @FXML
-    private void handleTermalNet() {
+    private void comboAction() {
+        if (listSourceTN.getValue().toString().equals("1 Источник"))
+            listTN.setDisable(false);
+        else
+            listTN.setDisable(true);
 
+        if (listTN.getValue().toString().equals("2 Тепловая сеть"))
+            listBranchingOfTN.setDisable(false);
+        else
+            listBranchingOfTN.setDisable(true);
     }
 
     /**
@@ -172,7 +180,7 @@ public class MainGSUIController {
      */
     @FXML
     private void mouseClickComboBox() {
-        //очистка от старых данных
+
         /*
         if (listSourceTN.isFocused()) {
             listSourceTN.getItems().clear();
