@@ -27,34 +27,12 @@ public class FileParser {
         listTN.clear();
         listBranchTN.clear();
         //считывание списков источников, тс и ответвлений для всех combobox
-        //FileParser fileParser = new FileParser();
-        // из базы данных
-        try {
-            Statement stmt = DBParser.con.createStatement();
-            ResultSet rsQueryCBox = stmt.executeQuery("select name_Boilers from DBPiezo.dbo.Boilers");
-            while (rsQueryCBox.next()) {
-                listSourse.add(rsQueryCBox.getString("name_Boilers"));
-            }
-            rsQueryCBox = stmt.executeQuery("select name_TNMain from DBPiezo.dbo.TNMains");
-            while (rsQueryCBox.next()) {
-                listTN.add(rsQueryCBox.getString("name_TNMain"));
-            }
-            rsQueryCBox = stmt.executeQuery("select name_TNBranches from DBPiezo.dbo.TNBranches");
-            while (rsQueryCBox.next()) {
-                listBranchTN.add(rsQueryCBox.getString("name_TNBranches"));
-            }
-        }
-        catch (SQLException sqlE) {
-            //логируем исключения
-            Logger.getLogger(DBParser.class.getName()).log(Level.SEVERE, null, sqlE);
-        }
-
-        /*
+        FileParser fileParser = new FileParser();
         //с текстового файла
         listSourse = fileParser.fileParser("resources/ExcelDataBase/1_Source/CollectionSource.txt");
         listTN = fileParser.fileParser("resources/ExcelDataBase/2_TN/CollectionTN.txt");
         listBranchTN = fileParser.fileParser("resources/ExcelDataBase/3_PartTN/CollectionBranch.txt");
-        */
+
     }
 
     /**

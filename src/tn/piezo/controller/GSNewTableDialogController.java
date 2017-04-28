@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import tn.piezo.model.DBParser;
 import tn.piezo.model.FileParser;
 import tn.piezo.model.HydraSolverC;
 
@@ -77,13 +78,16 @@ public class GSNewTableDialogController {
     private void initialize() {
         // инициализация combobox - выбор источника
         listSourceTN.getItems().add("New");
-        listSourceTN.getItems().addAll(FileParser.listSourse);
+        listSourceTN.getItems().addAll(DBParser.listSourse);
         // инициализация combobox - выбор тепловой сети
+        DBParser.dbReadForComboboxTNMain(listSourceTN.getValue().toString());
         listTN.getItems().add("New");
-        listTN.getItems().addAll(FileParser.listTN);
+        listTN.getItems().addAll(DBParser.listTN);
         // инициализация combobox - выбор ответвления тепловой сети
+        DBParser.dbReadForComboboxTNBranch(listSourceTN.getValue().toString(), listTN.getValue().toString());
         listBranchingOfTN.getItems().add("New");
-        listBranchingOfTN.getItems().addAll(FileParser.listBranchTN);
+        listBranchingOfTN.getItems().add("Без ответвления");
+        listBranchingOfTN.getItems().addAll(DBParser.listBranchTN);
 
     }
 
@@ -278,12 +282,13 @@ public class GSNewTableDialogController {
             inputDialog.setHeaderText("Введите название источника тепла");
             inputDialog.setTitle("Название источника");
             inputDialog.showAndWait();
-            //if (inputDialog.getOnCloseRequest()) {
-                sourceName = inputDialog.getResult();
-                listSourceTN.getItems().add(sourceName);
-                listSourceTN.setValue(sourceName);
-                FileParser.listSourse.add(sourceName);
-            //}
+            sourceName = inputDialog.getResult();
+            listSourceTN.getItems().add(sourceName);
+            listSourceTN.setValue(sourceName);
+            //через БД
+            DBParser.listSourse.add(sourceName);
+            //через текстовый файл парсер
+            //FileParser.listSourse.add(sourceName);
         }
         else {
             sourceName = listSourceTN.getValue().toString();
@@ -303,7 +308,10 @@ public class GSNewTableDialogController {
             tnName = inputDialog.getResult();
             listTN.getItems().add(tnName);
             listTN.setValue(tnName);
-            FileParser.listTN.add(tnName);
+            //через БД
+            DBParser.listTN.add(tnName);
+            //через текстовый файл парсер
+            //FileParser.listTN.add(tnName);
         }
         else {
             tnName = listTN.getValue().toString();
@@ -339,5 +347,7 @@ public class GSNewTableDialogController {
         HydraSolverC hydraPartTN = new HydraSolverC(NamePartTN, NamePartTNpred, D, L, G, Kekv, Geo, ZdanieEtaj, Hrasp_ist);
         return hydraPartTN.HydraPartTN(hydraPartTN);
     }
+
+
 
 }

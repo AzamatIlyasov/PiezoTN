@@ -1,20 +1,20 @@
 package tn.piezo.controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.image.WritableImage;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import tn.piezo.Main;
 import tn.piezo.model.DBParser;
-import tn.piezo.model.FileParser;
 import tn.piezo.model.HydraC;
 import javax.imageio.ImageIO;
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -70,7 +70,13 @@ public class MainGSUIController {
     @FXML
     private ComboBox listBranchingOfTN;
     @FXML
-    private StackPane stackPaneGraph;
+    public StackPane stackPaneGraph;
+    @FXML
+    private ToggleButton toggleBtnDBconnect;
+    @FXML
+    private ToggleButton toggleBtnDBdisconnect;
+    @FXML
+    private Button btnSolver;
 
     // Ссылка на главное приложение.
     private Main main;
@@ -108,18 +114,23 @@ public class MainGSUIController {
         dH_fist_column.setCellValueFactory(cellData -> cellData.getValue().dH_fistProperty().asObject());
         Hrasp_endP_column.setCellValueFactory(cellData -> cellData.getValue().Hrasp_endPProperty().asObject());
         // инициализация combobox
-        listSourceTN.getItems().addAll(FileParser.listSourse);
-        listTN.getItems().addAll(FileParser.listTN);
         listBranchingOfTN.getItems().add("Без ответвления");
-        listBranchingOfTN.getItems().addAll(FileParser.listBranchTN);
+        // с помощью текстовых файлов
+        //listSourceTN.getItems().addAll(FileParser.listSourse);
+        //listTN.getItems().addAll(FileParser.listTN);
+        //listBranchingOfTN.getItems().addAll(FileParser.listBranchTN);
+        //через БД
+        listSourceTN.getItems().addAll(DBParser.listSourse);
+        //отключаем комбобоксы магистрали и ответвления
         listTN.setDisable(true);
         listBranchingOfTN.setDisable(true);
+        connectDB_btn();
+        btnSolver.setDisable(true);
     }
 
     /**
      * строим ПГ.
-     *
-     * @param piezoData
+     * @param piezoData - данные для построения
      */
     public void setPiezoData(List piezoData) {
         LayeredXyChartsSample LPchart = new LayeredXyChartsSample();
@@ -164,15 +175,6 @@ public class MainGSUIController {
      */
     @FXML
     private void comboAction() {
-        if (listSourceTN.getValue().toString().equals("1 Источник"))
-            listTN.setDisable(false);
-        else
-            listTN.setDisable(true);
-
-        if (listTN.getValue().toString().equals("2 Тепловая сеть"))
-            listBranchingOfTN.setDisable(false);
-        else
-            listBranchingOfTN.setDisable(true);
     }
 
     /**
@@ -180,27 +182,26 @@ public class MainGSUIController {
      */
     @FXML
     private void mouseClickComboBox() {
-
-        /*
+        // очистка от старых данных и заносим новые данные
         if (listSourceTN.isFocused()) {
             listSourceTN.getItems().clear();
-            // Заносим новые данные
-            // инициализация combobox - выбор источника
-            listSourceTN.getItems().addAll(FileParser.listSourse);
+            listSourceTN.getItems().addAll(DBParser.listSourse);
+            listTN.setDisable(false);
         }
         if (listTN.isFocused()) {
             listTN.getItems().clear();
-            // Заносим новые данные
-            // инициализация combobox - выбор тепловой сети
-            listTN.getItems().addAll(FileParser.listTN);
+            DBParser.dbReadForComboboxTNMain(listSourceTN.getValue().toString());
+            listTN.getItems().addAll(DBParser.listTN);
+            listBranchingOfTN.setDisable(false);
         }
         if (listBranchingOfTN.isFocused()) {
             listBranchingOfTN.getItems().clear();
-            // Заносим новые данные
-            // инициализация combobox - выбор ответвления тепловой сети
-            listBranchingOfTN.getItems().addAll(FileParser.listBranchTN);
+            DBParser.dbReadForComboboxTNBranch(listSourceTN.getValue().toString(),listTN.getValue().toString());
+            listBranchingOfTN.getItems().add("Без ответвления");
+            listBranchingOfTN.getItems().addAll(DBParser.listBranchTN);
+            btnSolver.setDisable(false);
         }
-        */
+
     }
 
     // к.Вычислить - запуск гидравлического расчета для выбранного участка
@@ -281,27 +282,78 @@ public class MainGSUIController {
     }
 
     /**
-     * сохранить график в файл-изображения
+     * подключиться к БД
      */
     @FXML
     private void connectDB_btn() {
         try {
-            if (DBParser.con.isClosed())
+            if (DBParser.con.isClosed()) {
                 DBParser.connectDataBase();
+            }
+            //подключен
+            toggleBtnDBconnect.setSelected(true);
+            Paint paint = Color.GREEN;
+            toggleBtnDBconnect.setTextFill(paint);
+            //отключить
+            toggleBtnDBdisconnect.setSelected(false);
+            paint = Color.BLACK;
+            toggleBtnDBdisconnect.setTextFill(paint);
+
         }
-        catch (SQLException sqlE) {
+        catch (Exception e) {
             //логируем исключения
-            Logger.getLogger(DBParser.class.getName()).log(Level.SEVERE, null, sqlE);
+            Logger.getLogger(DBParser.class.getName()).log(Level.SEVERE, null, e);
         }
 
     }
 
     /**
-     * сохранить график в файл-изображения
+     * закрыть подключение к БД
      */
     @FXML
     private void closeConDB_btn() {
-        DBParser.closeConnectDB();
+        try {
+            if (!DBParser.con.isClosed()) {
+                DBParser.closeConnectDB();
+                toggleBtnDBconnect.setSelected(false);
+                Paint paint = Color.BLACK;
+                toggleBtnDBconnect.setTextFill(paint);
+                toggleBtnDBdisconnect.setSelected(true);
+                paint = Color.RED;
+                toggleBtnDBdisconnect.setTextFill(paint);
+            }
+        }
+        catch (Exception e) {
+            //логируем исключения
+            Logger.getLogger(DBParser.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+    }
+
+    /**
+     * Вызывается, когда пользователь кликает по кнопке добаить участок
+     * Открывает отображения ПГ.
+     */
+    @FXML
+    private void handleAddTNPart() {
+
+    }
+
+    /**
+     * Вызывается, когда пользователь кликает по кнопке удалить участок
+     * Открывает отображения ПГ.
+     */
+    @FXML
+    private void handleDeleteTNPart() {
+
+    }
+
+    /**
+     * Вызывается, когда пользователь кликает по кнопке добавить таблицу
+     * Открывает отображения ПГ.
+     */
+    @FXML
+    private void handleAddtoDataBase() {
 
     }
 }

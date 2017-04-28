@@ -203,7 +203,7 @@ public class Main extends Application {
             rootLayout.setCenter(gsMainOverview);
             // выполним гидрарасчет - участок по умолчанию
             // sql DBPiezo
-            runGRMain("К.Баскуат","М700","");
+            runGRMain("К.Баскуат","М700","Без ответвления");
             // excel
             //runGRMain("resources/ExcelDataBase/test files/input-main.xls");
             //запуск расчетов

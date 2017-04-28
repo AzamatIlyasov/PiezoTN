@@ -25,9 +25,13 @@ public class DBParser {
     private static double[] ZdanieEtaj = null;
     private static double Hrasp_ist;
 
+    public static Connection con = null;
     private static ArrayList<ArrayList> hydraData = new ArrayList<ArrayList>();
     private static ArrayList<ArrayList> piezoData = new ArrayList<ArrayList>();
-    public static Connection con = null;
+    // списки для combobox -источник, тс, ответвление
+    public static ArrayList<String> listSourse = new ArrayList<>();
+    public static ArrayList<String> listTN = new ArrayList<>();
+    public static ArrayList<String> listBranchTN = new ArrayList<>();
 
     //подключаем базу
     public static void connectDataBase() {
@@ -88,14 +92,6 @@ public class DBParser {
         try {
             Statement stmt = con.createStatement();
 
-            // старый запрос
-            /*
-             "SELECT num_rasch_Uch, num_pred_Uch, Diametr_Uch, Length_Uch, G_Uch, Kekv_Uch, Geo_Uch, ZdanEtaj_Uch " +
-                    "FROM DBPiezo.dbo.inputTable " +
-                    "WHERE name_Boiler='" + conditionBoiler + "' " +
-                    "AND name_TNMain='" + conditionTNMain + "' " +
-                    "AND name_TNBranch='" + conditionTNBranch + "'";
-              */
             //пишем запрос и сохраняем его в строковой переменной
             myQuery =
                     "select name_TNParts as num_rasch_Uch, (	"+
@@ -153,6 +149,12 @@ public class DBParser {
                 //следующая строка - участок
                 i++;
             }
+            // очищаем список источников и заполняем новыми данными в комбобокс
+            listSourse.clear();
+            ResultSet rsQuerySourceBox = stmt.executeQuery("select name_Boilers from DBPiezo.dbo.Boilers");
+            while (rsQuerySourceBox.next()) {
+                listSourse.add(rsQuerySourceBox.getString("name_Boilers"));
+            }
             stmt.close();
 
         }
@@ -173,53 +175,8 @@ public class DBParser {
 
     //запись в данных в БД
     public static void writeTableHydra(ArrayList HydraData) {
-        /*
-        //создаем таблицу
-        InputStream inputStream = null;
-        HSSFWorkbook hssfWorkbook = null;
-        hssfWorkbook = new HSSFWorkbook();
-        HSSFSheet sheet = hssfWorkbook.createSheet("Исходные данные");
-        // счетчик для строк
-        int rowNum = 0;
-        // создаем подписи к столбам
-        Row row = sheet.createRow(rowNum);
-        row.createCell(0).setCellValue("№рас");
-        row.createCell(1).setCellValue("№пред");
-        row.createCell(2).setCellValue("Ф, мм");
-        row.createCell(3).setCellValue("L, м");
-        row.createCell(4).setCellValue("G, т/ч");
-        row.createCell(5).setCellValue("К экв., мм");
-        row.createCell(6).setCellValue("Гео, м");
-        row.createCell(7).setCellValue("Здания, этажность");
-        // заполняем лист данными
-        HydraDataClassStruct objHydraDCS;
-        for (int i = 0; i < HydraData.size(); i++)
-        {
-            rowNum++;
-            Row rows = sheet.createRow(rowNum);
-            objHydraDCS = (HydraDataClassStruct)HydraData.get(i);
-            rows.createCell(0).setCellValue(objHydraDCS.NamePartTN);
-            rows.createCell(1).setCellValue(objHydraDCS.NamePartTNpred);
-            rows.createCell(2).setCellValue(objHydraDCS.D);
-            rows.createCell(3).setCellValue(objHydraDCS.L);
-            rows.createCell(4).setCellValue(objHydraDCS.G);
-            rows.createCell(5).setCellValue(objHydraDCS.Kekv);
-            rows.createCell(6).setCellValue(objHydraDCS.Geo);
-            rows.createCell(7).setCellValue(objHydraDCS.ZdanieEtaj);
-        }
-        //записываем созданные в памети Excel в файл
-        String fullFileName = "";
-        fullFileName = "resources/ExcelDataBase/test files/" + fileName + ".xls";
-        try (FileOutputStream out = new FileOutputStream(new File(fullFileName))) {
-            hssfWorkbook.write(out);
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-        */
 
     }
-
 
     //расчет для ПГ
     public static ArrayList parsePiezoPlot(ArrayList HydraData)
@@ -249,6 +206,62 @@ public class DBParser {
         piezoData = piezoPlotPartTN.PiezoSolver(piezoPlotPartTN);
 
         return piezoData;
+    }
+
+    /**
+     * считвание списков с файлов для combobox TNBranching
+     */
+    public static void dbReadForComboboxTNMain(String conditionBoiler) {
+        // очистка от старых данных
+        listTN.clear();
+        //считывание списков магистральных тс
+        // из базы данных
+        try {
+            Statement stmt = DBParser.con.createStatement();
+            String myQueryTNMains = "select name_TNMain " +
+                    "from DBPiezo.dbo.TNMains " +
+                    "where [id_Boilers] = (select [DBPiezo].[dbo].[Boilers].[id_Boilers] " +
+                    "from [DBPiezo].[dbo].[Boilers] " +
+                    "where [DBPiezo].[dbo].[Boilers].[name_Boilers] = '" + conditionBoiler + "' )";
+            ResultSet rsQueryCBox = stmt.executeQuery(myQueryTNMains);
+            while (rsQueryCBox.next()) {
+                listTN.add(rsQueryCBox.getString("name_TNMain"));
+            }
+        }
+        catch (SQLException sqlE) {
+            //логируем исключения
+            Logger.getLogger(DBParser.class.getName()).log(Level.SEVERE, null, sqlE);
+        }
+
+    }
+    /**
+     * считвание списков с файлов для combobox TNBranching
+     */
+    public static void dbReadForComboboxTNBranch(String conditionBoiler, String conditionTNMain) {
+        // очистка от старых данных
+        listBranchTN.clear();
+        //считывание списков ответвлений для всех combobox
+        // из базы данных
+        try {
+            Statement stmt = DBParser.con.createStatement();
+            String myQueryTNBranches = "select DBPiezo.[dbo].[TNBranches].[name_TNBranches] " +
+                    "from DBPiezo.[dbo].[TNBranches] " +
+                    "where DBPiezo.[dbo].[TNBranches].[id_TNMains] = (select DBPiezo.dbo.TNMains.id_TNMains " +
+                    "from DBPiezo.dbo.TNMains " +
+                    "where DBPiezo.dbo.TNMains.name_TNMain = '" + conditionTNMain + "' "+
+                    "and DBPiezo.dbo.TNMains.[id_Boilers] = (select [DBPiezo].[dbo].[Boilers].[id_Boilers] " +
+                    "from [DBPiezo].[dbo].[Boilers] " +
+                    "where [DBPiezo].[dbo].[Boilers].[name_Boilers] = '" + conditionBoiler + "') )";
+            ResultSet rsQueryCBox = stmt.executeQuery(myQueryTNBranches);
+            while (rsQueryCBox.next()) {
+                listBranchTN.add(rsQueryCBox.getString("name_TNBranches"));
+            }
+        }
+        catch (SQLException sqlE) {
+            //логируем исключения
+            Logger.getLogger(DBParser.class.getName()).log(Level.SEVERE, null, sqlE);
+        }
+
     }
 
 }

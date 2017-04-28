@@ -111,7 +111,6 @@ public class LayeredXyChartsSample {
         chart.setVerticalGridLinesVisible(false);
         chart.getXAxis().setVisible(false);
         chart.getYAxis().setVisible(false);
-        
         chart.getStylesheets().addAll(getClass().getResource("overlay-chart.css").toExternalForm());
     }
 
