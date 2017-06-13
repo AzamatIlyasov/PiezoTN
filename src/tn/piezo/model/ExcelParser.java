@@ -30,6 +30,10 @@ public class ExcelParser {
     private static double[] Geo = null;
     private static double[] ZdanieEtaj = null;
     private static double Hrasp_ist;
+    //доп сведения
+    private static String BoilerName = null;
+    private static String MainName = null;
+    private static String BranchName = null;
 
     private static ArrayList<ArrayList> hydraData = new ArrayList<ArrayList>();
     private static ArrayList<ArrayList> piezoData = new ArrayList<ArrayList>();
@@ -172,7 +176,8 @@ public class ExcelParser {
         Hrasp_ist = 90.0; // пока пост величина. в дальнейшем считывать интерфейса
 
         // ГР
-        HydraSolverC hydraPartTN = new HydraSolverC(NamePartTNras, NamePartTNpred, D, L, G, Kekv, Geo, ZdanieEtaj, Hrasp_ist);
+        HydraSolverC hydraPartTN = new HydraSolverC(NamePartTNras, NamePartTNpred, D, L, G, Kekv, Geo, ZdanieEtaj, Hrasp_ist,
+                BoilerName, MainName, BranchName);
         hydraData = hydraPartTN.HydraPartTN(hydraPartTN);
 
         //выход их функции

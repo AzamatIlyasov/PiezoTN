@@ -3,10 +3,14 @@ package tn.piezo.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import tn.piezo.model.DerbyDBParser;
 import tn.piezo.model.HydraC;
+
+import java.util.ArrayList;
 
 /**
  * Окно для изменения информации об адресате.
@@ -75,6 +79,8 @@ public class GSEditDialogController {
         Hrasp_istField.setText(hydra.getHrasp_ist().toString());
 
     }
+
+    public HydraC getHydra() {return hydra;}
 
     /**
      * Returns true, если пользователь кликнул OK, в другом случае false.

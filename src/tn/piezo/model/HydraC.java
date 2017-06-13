@@ -9,59 +9,71 @@ import javafx.beans.property.*;
 public class HydraC {
 
     // свойства - исходные данные для расчета
-    private final StringProperty NamePartTN;
-    private final StringProperty NamePartTNpred;
-    private final DoubleProperty D;
-    private final DoubleProperty L;
-    private final DoubleProperty G;
-    private final DoubleProperty Kekv;
-    private final DoubleProperty Geo;
-    private final DoubleProperty ZdanieEtaj;
-    private final DoubleProperty Hrasp_ist;
-    private final IntegerProperty num; // для нумерации участков
+    private StringProperty NamePartTN;
+    private StringProperty NamePartTNpred;
+    private DoubleProperty D;
+    private DoubleProperty L;
+    private DoubleProperty G;
+    private DoubleProperty Kekv;
+    private DoubleProperty Geo;
+    private DoubleProperty ZdanieEtaj;
+    private DoubleProperty Hrasp_ist;
+    private IntegerProperty num; // для нумерации участков
 
     // свойства - результаты расчета
-    private final DoubleProperty W;
-    private final DoubleProperty Rud;
-    private final DoubleProperty b;
-    private final DoubleProperty Rrash;
-    private final DoubleProperty Hl;
-    private final DoubleProperty Hm;
-    private final DoubleProperty H1x;
-    private final DoubleProperty H2x;
-    private final DoubleProperty dH_fist; //падение напора от источника
-    private final DoubleProperty Hrasp_endP; // падение напора в конце участка
+    private DoubleProperty W;
+    private DoubleProperty Rud;
+    private DoubleProperty b;
+    private DoubleProperty Rrash;
+    private DoubleProperty Hl;
+    private DoubleProperty Hm;
+    private DoubleProperty H1x;
+    private DoubleProperty H2x;
+    private DoubleProperty dH_fist; //падение напора от источника
+    private DoubleProperty Hrasp_endP; // падение напора в конце участка
+
+    //дополнительные сведения
+    private StringProperty BoilerName;
+    private StringProperty MainName;
+    private StringProperty BranchName;
 
     /**
      * Конструктор по умолчанию.
      */
     public HydraC() {
         this(null, null, 0, 0, 0,0,0, 0, 0, 0,
-                0, 0, 0, 0, 0, 0, 0, 0,0, 0);
+                0, 0, 0, 0, 0, 0, 0, 0,0, 0,
+                null, null, null);
     }
 
     /**
      * Конструктор с некоторыми начальными данными.
      * - параметры участков
-     * @param NamePartTN - название участка
-     * @param D - диаметр
-     * @param L - длина
-     * @param G - расход
-     * @param Kekv - кэкв
-     * @param Hrasp_ist - распологаемы напор у источника
-     * @param W - скорость
+     * @param NamePartTN - название текущего (расчетного) участка
+     * @param NamePartTNpred - название предыдущего участка
+     * @param D - диаметр, мм
+     * @param L - длина, м
+     * @param G - расход, т/ч
+     * @param Kekv - кэкв, мм
+     * @param Geo - геодезическая отметка, м
+     * @param Hrasp_ist - распологаемы напор у источника, м
+     * @param W - скорость, м/с
      * @param Rud - Rуд
      * @param b - коэф-т б
      * @param Rrash - Rрасчетный
-     * @param Hl - линейное падение напора
-     * @param Hm - местное падение напора
-     * @param H1x - падение напора в одной трубе
-     * @param H2x - в двух трубах
-     * @param dH_fist - падение напора от источника
-     * @param Hrasp_endP - распологаемы напор в конце учатска
+     * @param Hl - линейное падение напора, м
+     * @param Hm - местное падение напора, м
+     * @param H1x - падение напора в одной трубе, м
+     * @param H2x - в двух трубах, м
+     * @param dH_fist - падение напора от источника, м
+     * @param Hrasp_endP - распологаемы напор в конце учатска, м
      * @param num - номер
+     * @param BoilerName - название котельной (источника)
+     * @param MainName - название магистрали
+     * @param BranchName - название ответвления
      */
-    public HydraC(String NamePartTN, String NamePartTNpred, double D, double L, double G, double Kekv, double Geo,
+    public HydraC(String NamePartTN, String NamePartTNpred, double D, double L, double G, double Kekv,
+                  double Geo,
                   double ZdanieEtaj,
                   double Hrasp_ist,
                   double W,
@@ -74,8 +86,12 @@ public class HydraC {
                   double H2x,
                   double dH_fist, //падение напора от источника
                   double Hrasp_endP, // падение напора в конце участка
-                  int num
+                  int num,
+                  String BoilerName,
+                  String MainName,
+                  String BranchName
                     ) {
+        //исходные данные
         this.NamePartTN = new SimpleStringProperty(NamePartTN);
         this.NamePartTNpred = new SimpleStringProperty(NamePartTNpred);
         this.D = new SimpleDoubleProperty(D);
@@ -97,6 +113,40 @@ public class HydraC {
         this.dH_fist = new SimpleDoubleProperty(dH_fist);
         this.Hrasp_endP = new SimpleDoubleProperty(Hrasp_endP);
         this.num = new SimpleIntegerProperty(num);
+        //дополнительные сведения
+        this.BoilerName  = new SimpleStringProperty(BoilerName);
+        this.MainName  = new SimpleStringProperty(MainName);
+        this.BranchName  = new SimpleStringProperty(BranchName);
+    }
+
+    // конструктор не полноценный
+    public HydraC(String NamePartTN,
+                  String NamePartTNpred,
+                  double D,
+                  double L,
+                  double G,
+                  double Kekv,
+                  double Geo,
+                  double ZdanieEtaj,
+                  int num,
+                  String BoilerName,
+                  String MainName,
+                  String BranchName
+                    ) {
+        //исходные данные
+        this.NamePartTN = new SimpleStringProperty(NamePartTN);
+        this.NamePartTNpred = new SimpleStringProperty(NamePartTNpred);
+        this.D = new SimpleDoubleProperty(D);
+        this.L = new SimpleDoubleProperty(L);
+        this.G = new SimpleDoubleProperty(G);
+        this.Kekv = new SimpleDoubleProperty(Kekv);
+        this.Geo = new SimpleDoubleProperty(Geo);
+        this.ZdanieEtaj = new SimpleDoubleProperty(ZdanieEtaj);
+        this.num = new SimpleIntegerProperty(num);
+        //дополнительные сведения
+        this.BoilerName  = new SimpleStringProperty(BoilerName);
+        this.MainName  = new SimpleStringProperty(MainName);
+        this.BranchName  = new SimpleStringProperty(BranchName);
     }
 
     //NamePartTN гетер, сетер, пропер
@@ -357,6 +407,33 @@ public class HydraC {
 
     public IntegerProperty NumProperty() {
         return num;
+    }
+
+    //BoilerName гетер, сетер
+    public StringProperty getBoilerName() {
+        return BoilerName;
+    }
+
+    public void setBoilerName(StringProperty boilerName) {
+        BoilerName = boilerName;
+    }
+
+    //MainName гетер, сетер
+    public StringProperty getMainName() {
+        return MainName;
+    }
+
+    public void setMainName(StringProperty mainName) {
+        MainName = mainName;
+    }
+
+    //BranchName гетер, сетер
+    public StringProperty getBranchName() {
+        return BranchName;
+    }
+
+    public void setBranchName(StringProperty branchName) {
+        BranchName = branchName;
     }
 
 }

@@ -51,7 +51,7 @@
       <HBox layoutX="88.0" layoutY="436.0" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="440.0">
          <children>
             <Button layoutX="180.0" layoutY="281.0" minWidth="80.0" mnemonicParsing="false" onAction="#handleOk" prefHeight="25.0" prefWidth="80.0" text="OK" />
-            <Button layoutX="258.0" layoutY="281.0" minWidth="80.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="17.0" prefWidth="80.0" text="Cancel">
+            <Button layoutX="258.0" layoutY="281.0" minWidth="80.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="17.0" prefWidth="80.0" text="Отмена">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin>

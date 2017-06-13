@@ -2,18 +2,17 @@
 .chart-plot-background { 
 	-fx-background-color: transparent; 
 }
-.default-color0.chart-series-area-fill { 
-	-fx-fill: #8B7E66;
+
+.CategoryAxis {
+	-fx-color: black;
 }
+
+/* здания */
 .chart-bar {
-	-fx-background-color: #8B7E66;
+	-fx-background-color: black;
 }
-.default-color0.chart-series-line { 
-	-fx-stroke: forestgreen; 
-}
-.default-color1.chart-series-line { 
-	-fx-stroke: #8B7E66; 
-}
-.default-color2.chart-series-line { 
-	-fx-stroke: #FFFF00; 
+/* земля */
+.default-color0.chart-series-area-fill {
+	-fx-fill: sienna;
+	-fx-stroke: sienna;
 }

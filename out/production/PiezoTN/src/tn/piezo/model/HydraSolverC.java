@@ -9,15 +9,16 @@ import java.util.ArrayList;
 public class HydraSolverC {
 
     // переменные - исходные данные для расчета
-    private String[] NamePartTN;
-    private String[] NamePartTNpred;
-    private double[] D;
-    private double[] L;
-    private double[] G;
-    private double[] Kekv;
+    public String[] NamePartTN;
+    public String[] NamePartTNpred;
+    public double[] D;
+    public double[] L;
+    public double[] G;
+    public double[] Kekv;
+    public double[] Geo;
+    public double[] ZdanieEtaj;
+
     private double Hrasp_ist;
-    private double[] Geo;
-    private double[] ZdanieEtaj;
     private int n; // нумерация участков
 
     // переменные - результаты расчета
@@ -32,6 +33,10 @@ public class HydraSolverC {
     private double[] dH_fist; //падение напора от источника
     private double[] Hrasp_endP; // падение напора в конце участка
     private double dHsum; // суммарные потери напора
+    //дополнительные сведения
+    public String BoilerName;
+    public String MainName;
+    public String BranchName;
 
     // постоянные величины
     private final double g = 9.81;
@@ -39,9 +44,27 @@ public class HydraSolverC {
     private double ro = 97.6554;
     private double gamma = 958; //gamma = ro*g
 
+    //1 конструктор
     public HydraSolverC(String[] NamePartTN, String[] NamePartTNpred, double[] D, double[] L, double[] G, double[] Kekv,
-                 double[] Geo, double[] ZdanieEtaj,
-                 double Hrasp_ist) {
+                 double[] Geo, double[] ZdanieEtaj, String BoilerName, String MainName, String BranchName) {
+        this.NamePartTN = NamePartTN;
+        this.NamePartTNpred = NamePartTNpred;
+        this.D = D;
+        this.L = L;
+        this.G = G;
+        this.Kekv = Kekv;
+        this.Hrasp_ist = Hrasp_ist;
+        this.Geo = Geo;
+        this.ZdanieEtaj = ZdanieEtaj;
+
+        this.BoilerName = BoilerName;
+        this.MainName = MainName;
+        this.BranchName = BranchName;
+    }
+    //2 конструктор полный с учетом Hrasp_ist
+    public HydraSolverC(String[] NamePartTN, String[] NamePartTNpred, double[] D, double[] L, double[] G, double[] Kekv,
+                        double[] Geo, double[] ZdanieEtaj,
+                        double Hrasp_ist, String BoilerName, String MainName, String BranchName) {
         this.NamePartTN = NamePartTN;
         this.NamePartTNpred = NamePartTNpred;
         this.D = D;
@@ -64,7 +87,9 @@ public class HydraSolverC {
         this.dH_fist = new double[n];
         this.Hrasp_endP = new double[n];
         this.dHsum = 0;
-
+        this.BoilerName = BoilerName;
+        this.MainName = MainName;
+        this.BranchName = BranchName;
     }
 
     public ArrayList HydraPartTN (HydraSolverC partTN) {
@@ -101,7 +126,10 @@ public class HydraSolverC {
                                                  H1x[i],
                                                  H2x[i],
                                                  dH_fist[i], //падение напора от источника
-                                                 Hrasp_endP[i]
+                                                 Hrasp_endP[i],
+                                                 BoilerName,
+                                                 MainName,
+                                                 BranchName
                                                 ) );
 
         }

@@ -2,19 +2,21 @@ package tn.piezo.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.*;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import tn.piezo.model.PiezoC;
-
 import java.util.List;
 
-/** 
+/** original class name is: PiezoChartDrawer
+ * This class copy from stackoveflow
  * Demonstrates how to draw layers of XYCharts.  
  * https://forums.oracle.com/forums/thread.jspa?threadID=2435995 "Using StackPane to layer more different type charts"
  */
-public class LayeredXyChartsSample {
+public class PiezoChartDrawer {
 
     // для ранжирования оси ОY
     private double min =  100000;
@@ -41,9 +43,9 @@ public class LayeredXyChartsSample {
     public StackPane startLayerCharts(List piezoData) {
         setPiezoData(piezoData);
         return layerCharts(
-                createLineChart(),
+                createBarChart(),
                 createStackedAreaChart(),
-                createBarChart()
+                createLineChart()
         );
     }
 
@@ -63,10 +65,34 @@ public class LayeredXyChartsSample {
     }
     
     private BarChart<String, Number> createBarChart() {
-        final BarChart<String, Number> chart = new BarChart<>(new CategoryAxis(), createYaxis());
-        setDefaultChartProperties(chart);
-        chart.getData().addAll( seriesStroenie );
-        return chart;
+        CategoryAxis xAxis = new CategoryAxis();
+        final BarChart<String, Number> bc = new BarChart<>(xAxis, createYaxis());
+        setDefaultChartProperties(bc);
+        bc.getData().addAll( seriesStroenie );
+        //меняем ширину зданий-столбов
+        double maxBarWidth=10;
+        double minCategoryGap=100;
+        double barWidth=1;
+        do{
+            double catSpace = xAxis.getCategorySpacing();
+            double avilableBarSpace = catSpace - (bc.getCategoryGap() + bc.getBarGap());
+            barWidth = (avilableBarSpace / bc.getData().size()) - bc.getBarGap();
+            if (barWidth >maxBarWidth) {
+                avilableBarSpace=(maxBarWidth + bc.getBarGap())* bc.getData().size();
+                bc.setCategoryGap(catSpace-avilableBarSpace-bc.getBarGap());
+            }
+        } while(barWidth>maxBarWidth);
+
+        do{
+            double catSpace = xAxis.getCategorySpacing();
+            double avilableBarSpace = catSpace - (minCategoryGap + bc.getBarGap());
+            barWidth = Math.min(maxBarWidth, (avilableBarSpace / bc.getData().size()) - bc.getBarGap());
+            avilableBarSpace=(barWidth + bc.getBarGap())* bc.getData().size();
+            bc.setCategoryGap(catSpace-avilableBarSpace-bc.getBarGap());
+        } while(barWidth < maxBarWidth && bc.getCategoryGap()>minCategoryGap);
+
+        return bc;
+
     }
     
     private LineChart<String, Number> createLineChart() {
@@ -77,6 +103,27 @@ public class LayeredXyChartsSample {
                                 seriesStatic,
                                 seriesPodacha,
                                 seriesObratka );
+        Node lineStatic = seriesStatic.getNode().lookup(".chart-series-line");
+        Node linePodacha = seriesPodacha.getNode().lookup(".chart-series-line");
+        Node lineObratka = seriesObratka.getNode().lookup(".chart-series-line");
+        Color color = Color.BLACK;
+        String rgb = String.format("%d, %d, %d",
+                (int) (color.getRed() * 255),
+                (int) (color.getGreen() * 255),
+                (int) (color.getBlue() * 255));
+        lineStatic.setStyle("-fx-stroke: rgba(" + rgb + ", 1.0); -fx-stroke-width: 2px;");
+        color=Color.RED;
+        rgb = String.format("%d, %d, %d",
+                (int) (color.getRed() * 255),
+                (int) (color.getGreen() * 255),
+                (int) (color.getBlue() * 255));
+        linePodacha.setStyle("-fx-stroke: rgba(" + rgb + ", 1.0); -fx-stroke-width: 4px;");
+        color=Color.BLUE;
+        rgb = String.format("%d, %d, %d",
+                (int) (color.getRed() * 255),
+                (int) (color.getGreen() * 255),
+                (int) (color.getBlue() * 255));
+        lineObratka.setStyle("-fx-stroke: rgba(" + rgb + ", 1.0); -fx-stroke-width: 4px;");
         return chart;
     }
 
@@ -85,6 +132,7 @@ public class LayeredXyChartsSample {
         setDefaultChartProperties(chart);
         chart.setCreateSymbols(false);
         chart.getData().addAll( seriesGeodezia );
+
         return chart;
     }
 
@@ -127,11 +175,11 @@ public class LayeredXyChartsSample {
         double[] LengthPart = new double[piezoData.size()];
         double[] HStatic = new double[piezoData.size()];
 
-        seriesGeodezia.setName("Местность");
         seriesStroenie.setName("Строения");
         seriesPodacha.setName("Подача");
         seriesObratka.setName("Обратка");
         seriesStatic.setName("Статический напор");
+        seriesGeodezia.setName("Местность");
 
         for (int i = 0; i < piezoData.size(); i++) {
             // сохраняем с учетом геодезических отметок
@@ -145,10 +193,10 @@ public class LayeredXyChartsSample {
             else LengthPart[i] = LengthPart[i-1] + tempObjPiezoDCS.getL();
             //// Создаём объект XYChart.Data для каждого участка.
             // Добавляем его в серии.
-            datasGeodezia.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), Geodezia[i]));
-            datasStroinie.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), Stroinie[i]));
             datasPodacha.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), Hpodacha[i]));
             datasObratka.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), Hobratka[i]));
+            datasStroinie.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), Stroinie[i]));
+            datasGeodezia.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), Geodezia[i]));
             //ищем минимум и максимум точки
             if (min > Geodezia[i]) min = Geodezia[i];
             if (max < Hpodacha[i]) max = Hpodacha[i];
@@ -163,11 +211,11 @@ public class LayeredXyChartsSample {
             datasStaticH.add(new XYChart.Data<>(String.valueOf(LengthPart[i]), HStatic[i]));
         }
 
-        seriesGeodezia.setData(datasGeodezia);
         seriesStroenie.setData(datasStroinie);
         seriesPodacha.setData(datasPodacha);
         seriesObratka.setData(datasObratka);
         seriesStatic.setData(datasStaticH);
+        seriesGeodezia.setData(datasGeodezia);
 
     }
 }

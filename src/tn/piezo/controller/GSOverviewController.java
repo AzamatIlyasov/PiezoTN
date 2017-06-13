@@ -52,7 +52,6 @@ public class GSOverviewController {
     private ComboBox listTN;
 
     private Stage dialogStage;
-    //private HydraC hydra;
     private boolean okClicked = false;
 
     // Ссылка на главное приложение.
@@ -90,8 +89,7 @@ public class GSOverviewController {
         // слушаем изменения выбора, и при изменении отображаем
         // дополнительную информацию об участке
         HydraOverviewTable.getSelectionModel().selectedItemProperty().addListener(
-                ((observable, oldValue, newValue) -> showHydraDetails(newValue))
-        );
+                ((observable, oldValue, newValue) -> showHydraDetails(newValue))  );
 
     }
 
@@ -178,7 +176,7 @@ public class GSOverviewController {
     @FXML
     private void handleNewHydraPart() {
         HydraC tempHydra = new HydraC();
-        boolean okClicked = main.showTPartEditDialog(tempHydra);
+        //boolean okClicked = main.showTPartEditDialog(tempHydra);
         if (okClicked) {
             main.getHydraData().add(tempHydra);
         }
@@ -206,10 +204,11 @@ public class GSOverviewController {
     private void handleEditHydraPart() {
         HydraC selectedHydra = HydraOverviewTable.getSelectionModel().getSelectedItem();
         if (selectedHydra != null) {
+            /*
             boolean okClicked = main.showTPartEditDialog(selectedHydra);
             if (okClicked) {
                 showHydraDetails(selectedHydra);
-            }
+            }*/
 
         } else {
             // Ничего не выбрано.
@@ -254,7 +253,6 @@ public class GSOverviewController {
     @FXML
     private void handleDone() {
         okClicked = true;
-        //main.showGSMainOverview();
         dialogStage.close();
     }
 

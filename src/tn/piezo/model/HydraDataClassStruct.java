@@ -27,7 +27,38 @@ public class HydraDataClassStruct {
     public double H2x;
     public double dH_fist; //падение напора от источника
     public double Hrasp_endP; // падение напора в конце участка
+    //дополнительные сведения
+    public String BoilerName;
+    public String MainName;
+    public String BranchName;
 
+    //1 конструктор частичный, для одного участка и только исходные данные
+    public HydraDataClassStruct( String NamePartTN,
+                                 String NamePartTNpred,
+                                 double D,
+                                 double L,
+                                 double G,
+                                 double Kekv,
+                                 double Geo,
+                                 double ZdanieEtaj,
+                                 String BoilerName,
+                                 String MainName,
+                                 String BranchName
+                                ) {
+        this.NamePartTN = NamePartTN;
+        this.NamePartTNpred = NamePartTNpred;
+        this.D = D;
+        this.L = L;
+        this.G = G;
+        this.Kekv = Kekv;
+        this.Geo = Geo;
+        this.ZdanieEtaj = ZdanieEtaj;
+        this.BoilerName = BoilerName;
+        this.MainName = MainName;
+        this.BranchName = BranchName;
+    }
+
+    //2 конструктор полный
     public HydraDataClassStruct( String NamePartTN, String NamePartTNpred, double D, double L, double G, double Kekv,
                                  double Geo,
                                  double ZdanieEtaj,
@@ -41,7 +72,10 @@ public class HydraDataClassStruct {
                                  double H1x,
                                  double H2x,
                                  double dH_fist, //падение напора от источника
-                                 double Hrasp_endP // падение напора в конце участка
+                                 double Hrasp_endP, // падение напора в конце участка
+                                 String BoilerName,
+                                 String MainName,
+                                 String BranchName
                                 ) {
         this.NamePartTN = NamePartTN;
         this.NamePartTNpred = NamePartTNpred;
@@ -62,6 +96,9 @@ public class HydraDataClassStruct {
         this.H2x = H2x;
         this.dH_fist = dH_fist;
         this.Hrasp_endP = Hrasp_endP;
+        this.BoilerName = BoilerName;
+        this.MainName = MainName;
+        this.BranchName = BranchName;
 
     }
 

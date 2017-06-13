@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import tn.piezo.model.DBParser;
+import tn.piezo.model.DerbyDBParser;
 import tn.piezo.model.FileParser;
 import tn.piezo.model.HydraSolverC;
 
@@ -24,9 +24,9 @@ public class GSNewTableDialogController {
     // поля для данных
     private int indexPartTN = 0;
     private String fileName = "";
-    private String sourceName = "";
-    private String tnName = "";
-    private String branchTNName = "";
+    private String BoilerName = "";
+    private String MainName = "";
+    private String BranchName = "";
     // переменные - исходные данные для расчета
     private String[] NamePartTN;
     private String[] NamePartTNpred;
@@ -37,6 +37,7 @@ public class GSNewTableDialogController {
     private double Hrasp_ist;
     private double[] Geo;
     private double[] ZdanieEtaj;
+
     // поля для
     @FXML
     private TextField NamePartTNField;
@@ -78,16 +79,25 @@ public class GSNewTableDialogController {
     private void initialize() {
         // инициализация combobox - выбор источника
         listSourceTN.getItems().add("New");
-        listSourceTN.getItems().addAll(DBParser.listSourse);
+        // 1 DBParser
+        //listSourceTN.getItems().addAll(DBParser.listBoiler);
+        // 2 DerbyDBParser
+        listSourceTN.getItems().addAll(DerbyDBParser.listBoiler);
         // инициализация combobox - выбор тепловой сети
-        DBParser.dbReadForComboboxTNMain(listSourceTN.getValue().toString());
+        // 1 DBParser
+        //DBParser.dbReadForComboboxTNMain(listSourceTN.getValue().toString());
+        // 2 DerbyDBParser
+        DerbyDBParser.dbReadForComboboxTNMain(listSourceTN.getValue().toString());
         listTN.getItems().add("New");
-        listTN.getItems().addAll(DBParser.listTN);
+        // 1 DBParser
+        //listMain.getItems().addAll(DBParser.listMain);
+        // 2 DerbyDBParser
+        listTN.getItems().addAll(DerbyDBParser.listMain);
         // инициализация combobox - выбор ответвления тепловой сети
-        DBParser.dbReadForComboboxTNBranch(listSourceTN.getValue().toString(), listTN.getValue().toString());
+        DerbyDBParser.dbReadForComboboxTNBranch(listSourceTN.getValue().toString(), listTN.getValue().toString());
         listBranchingOfTN.getItems().add("New");
         listBranchingOfTN.getItems().add("Без ответвления");
-        listBranchingOfTN.getItems().addAll(DBParser.listBranchTN);
+        listBranchingOfTN.getItems().addAll(DerbyDBParser.listBranch);
 
     }
 
@@ -125,7 +135,7 @@ public class GSNewTableDialogController {
         editDataHydra(indexPartTN);
         okClicked = true;
         dialogStage.close();
-        fileName = "input" + "-" + sourceName + "-" + tnName + "-" + branchTNName;
+        fileName = "input" + "-" + BoilerName + "-" + MainName + "-" + BranchName;
     }
 
     /**
@@ -282,16 +292,14 @@ public class GSNewTableDialogController {
             inputDialog.setHeaderText("Введите название источника тепла");
             inputDialog.setTitle("Название источника");
             inputDialog.showAndWait();
-            sourceName = inputDialog.getResult();
-            listSourceTN.getItems().add(sourceName);
-            listSourceTN.setValue(sourceName);
+            BoilerName = inputDialog.getResult();
+            listSourceTN.getItems().add(BoilerName);
+            listSourceTN.setValue(BoilerName);
             //через БД
-            DBParser.listSourse.add(sourceName);
-            //через текстовый файл парсер
-            //FileParser.listSourse.add(sourceName);
+            DerbyDBParser.listBoiler.add(BoilerName);
         }
         else {
-            sourceName = listSourceTN.getValue().toString();
+            BoilerName = listSourceTN.getValue().toString();
         }
     }
 
@@ -305,16 +313,15 @@ public class GSNewTableDialogController {
             inputDialog.setHeaderText("Введите название тепловой сети");
             inputDialog.setTitle("Название тепловой сети");
             inputDialog.showAndWait();
-            tnName = inputDialog.getResult();
-            listTN.getItems().add(tnName);
-            listTN.setValue(tnName);
+            MainName = inputDialog.getResult();
+            listTN.getItems().add(MainName);
+            listTN.setValue(MainName);
             //через БД
-            DBParser.listTN.add(tnName);
-            //через текстовый файл парсер
-            //FileParser.listTN.add(tnName);
+            DerbyDBParser.listMain.add(MainName);
+
         }
         else {
-            tnName = listTN.getValue().toString();
+            MainName = listTN.getValue().toString();
         }
     }
 
@@ -328,13 +335,13 @@ public class GSNewTableDialogController {
             inputDialog.setHeaderText("Введите название ответвления");
             inputDialog.setTitle("Название ответвления");
             inputDialog.showAndWait();
-            branchTNName = inputDialog.getResult();
-            listBranchingOfTN.getItems().add(branchTNName);
-            listBranchingOfTN.setValue(branchTNName);
-            FileParser.listBranchTN.add(branchTNName);
+            BranchName = inputDialog.getResult();
+            listBranchingOfTN.getItems().add(BranchName);
+            listBranchingOfTN.setValue(BranchName);
+            FileParser.listBranchTN.add(BranchName);
         }
         else {
-            branchTNName = listBranchingOfTN.getValue().toString();
+            BranchName = listBranchingOfTN.getValue().toString();
         }
     }
 
@@ -344,7 +351,8 @@ public class GSNewTableDialogController {
      */
     public ArrayList getNewHydraData() {
         // ГР
-        HydraSolverC hydraPartTN = new HydraSolverC(NamePartTN, NamePartTNpred, D, L, G, Kekv, Geo, ZdanieEtaj, Hrasp_ist);
+        HydraSolverC hydraPartTN = new HydraSolverC(NamePartTN, NamePartTNpred, D, L, G, Kekv, Geo, ZdanieEtaj, Hrasp_ist,
+                BoilerName, MainName, BranchName);
         return hydraPartTN.HydraPartTN(hydraPartTN);
     }
 

@@ -2,7 +2,6 @@ package tn.piezo.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.WritableImage;
-import javafx.scene.layout.StackPane;
 import tn.piezo.Main;
 import javax.imageio.ImageIO;
 import java.io.File;
@@ -16,7 +15,7 @@ public class RootLayoutController {
 
     // Ссылка на главное приложение.
     private Main main;
-    private MainGSUIController mainGSUIController;
+    private UIMainGSController UIMainGSController;
 
     /**
      * Конструктор.
@@ -47,7 +46,7 @@ public class RootLayoutController {
      */
     @FXML
     private void savePiezoPlot() throws IOException {
-        WritableImage snapShot = mainGSUIController.stackPaneGraph.snapshot(null,null);
+        WritableImage snapShot = UIMainGSController.stackPaneGraph.snapshot(null,null);
         ImageIO.write(javafx.embed.swing.SwingFXUtils.fromFXImage(snapShot, null), "png",
                 new File("resources/test.png"));
     }

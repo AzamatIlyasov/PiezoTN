@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane maxHeight="100.0" maxWidth="347.0" minHeight="100.0" minWidth="347.0" prefHeight="100.0" prefWidth="347.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.piezo.controller.UIAddEditWindowController">
+   <children>
+      <HBox layoutX="16.0" layoutY="14.0" spacing="5.0" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#BoilerBtn" text="Котельная" />
+            <Button mnemonicParsing="false" onAction="#MainBtn" text="Магистраль" />
+            <Button mnemonicParsing="false" onAction="#BranchBtn" text="Ответвление" />
+            <Button mnemonicParsing="false" onAction="#TNPartBtn" text="Участок" />
+         </children>
+      </HBox>
+      <Button disable="true" layoutX="16.0" layoutY="50.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="316.0" text="Таблица гидравлического расчета" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="50.0" />
+   </children>
+</AnchorPane>
