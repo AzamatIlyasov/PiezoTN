@@ -1,11 +1,13 @@
-package tn.piezo.controller;
+package tn.piezo.controller.TNBoiler;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import tn.piezo.model.DerbyDBParser;
 import tn.piezo.model.HydraC;
 
 /**
@@ -13,10 +15,12 @@ import tn.piezo.model.HydraC;
  *
  * @author Azamat Ilyasov
  */
-public class UIDataSensorController {
+public class UIDeleteTNBoilerController {
 
     @FXML
     private TextField NameTNBoiler;
+    @FXML
+    private Button btnOK;
 
     private Stage dialogStage;
     private HydraC hydra;
@@ -64,7 +68,7 @@ public class UIDataSensorController {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            hydra.setNameTNPartRas(NameTNBoiler.getText());
+            DerbyDBParser.writeAddBoilerData(NameTNBoiler.getText());
 
             okClicked = true;
             dialogStage.close();
@@ -105,5 +109,12 @@ public class UIDataSensorController {
             return false;
         }
     }
+
+    //вводя названия, разрешаем нажатие кнопки ОК
+    @FXML
+    private void txtBoilerChange() {
+        btnOK.setDisable(false);
+    }
+
 
 }

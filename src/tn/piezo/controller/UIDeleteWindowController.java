@@ -7,11 +7,11 @@ import tn.piezo.Main;
 import tn.piezo.model.HydraC;
 
 /**
- * Окно для добавления-редактирования данных в БД.
+ * Окно для удаления данных в БД.
  *
  * @author Azamat Ilyasov
  */
-public class UIAddEditWindowController {
+public class UIDeleteWindowController {
 
     // Ссылка на главное приложение.
     private Main main;

@@ -5,7 +5,6 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.File;
@@ -21,8 +20,8 @@ import java.util.Iterator;
 public class ExcelParser {
 
     //переменные для сохр исх данных
-    private static String[] NamePartTNras = null;
-    private static String[] NamePartTNpred = null;
+    private static String[] NameTNPartRas = null;
+    private static String[] NameTNPartPred = null;
     private static double[] D = null;
     private static double[] L = null;
     private static double[] G = null;
@@ -31,9 +30,9 @@ public class ExcelParser {
     private static double[] ZdanieEtaj = null;
     private static double Hrasp_ist;
     //доп сведения
-    private static String BoilerName = null;
-    private static String MainName = null;
-    private static String BranchName = null;
+    private static String NameTNBoiler = null;
+    private static String NameTNMain = null;
+    private static String NameTNBranch = null;
 
     private static ArrayList<ArrayList> hydraData = new ArrayList<ArrayList>();
     private static ArrayList<ArrayList> piezoData = new ArrayList<ArrayList>();
@@ -112,8 +111,8 @@ public class ExcelParser {
 
         }
         //инициализация массивов для исх данных
-        NamePartTNras = new String[n];
-        NamePartTNpred = new String[n];
+        NameTNPartRas = new String[n];
+        NameTNPartPred = new String[n];
         D = new double[n];
         L = new double[n];
         G = new double[n];
@@ -133,13 +132,13 @@ public class ExcelParser {
             //перебираем возможные типы ячеек
             switch (cell.getCellType()) {
                 case Cell.CELL_TYPE_STRING:
-                    NamePartTNras[i] = cell.getStringCellValue();
+                    NameTNPartRas[i] = cell.getStringCellValue();
                     break;
                 case Cell.CELL_TYPE_NUMERIC:
-                    NamePartTNras[i] = Double.toString(cell.getNumericCellValue());
+                    NameTNPartRas[i] = Double.toString(cell.getNumericCellValue());
                     break;
                 default:
-                    NamePartTNras[i] = "error";
+                    NameTNPartRas[i] = "error";
                     break;
             }
             //сохраняем наз пред участка
@@ -147,13 +146,13 @@ public class ExcelParser {
             // еще раз перебираем возможные типы ячеек
             switch (cell2.getCellType()) {
                 case Cell.CELL_TYPE_STRING:
-                    NamePartTNpred[i] = cell2.getStringCellValue();
+                    NameTNPartPred[i] = cell2.getStringCellValue();
                     break;
                 case Cell.CELL_TYPE_NUMERIC:
-                    NamePartTNpred[i] = Double.toString(cell2.getNumericCellValue());
+                    NameTNPartPred[i] = Double.toString(cell2.getNumericCellValue());
                     break;
                 default:
-                    NamePartTNpred[i] = "error";
+                    NameTNPartPred[i] = "error";
                     break;
             }
             //сохр D,L,G,Kekv,Geo,ZdanieEtaj
@@ -176,8 +175,8 @@ public class ExcelParser {
         Hrasp_ist = 90.0; // пока пост величина. в дальнейшем считывать интерфейса
 
         // ГР
-        HydraSolverC hydraPartTN = new HydraSolverC(NamePartTNras, NamePartTNpred, D, L, G, Kekv, Geo, ZdanieEtaj, Hrasp_ist,
-                BoilerName, MainName, BranchName);
+        HydraSolverC hydraPartTN = new HydraSolverC(NameTNPartRas, NameTNPartPred, D, L, G, Kekv, Geo, ZdanieEtaj, Hrasp_ist,
+                NameTNBoiler, NameTNMain, NameTNBranch);
         hydraData = hydraPartTN.HydraPartTN(hydraPartTN);
 
         //выход их функции

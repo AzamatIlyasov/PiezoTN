@@ -1,22 +1,29 @@
-package tn.piezo.controller;
+package tn.piezo.controller.TNMain;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import tn.piezo.model.DerbyDBParser;
 import tn.piezo.model.HydraC;
 
 /**
- * Окно для добавления новой котельной .
+ * Окно для добавления новой магистральной .
  *
  * @author Azamat Ilyasov
  */
-public class UIDataSensorController {
+public class UIDeleteTNMainController {
 
     @FXML
-    private TextField NameTNBoiler;
+    private ComboBox comboTNBoiler;
+    @FXML
+    private TextField NameTNMain;
+    @FXML
+    private Button btnOK;
 
     private Stage dialogStage;
     private HydraC hydra;
@@ -64,7 +71,7 @@ public class UIDataSensorController {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            hydra.setNameTNPartRas(NameTNBoiler.getText());
+            DerbyDBParser.writeAddMainData(comboTNBoiler.getValue().toString(), NameTNMain.getText());
 
             okClicked = true;
             dialogStage.close();
@@ -86,8 +93,8 @@ public class UIDataSensorController {
      */
     private boolean isInputValid() {
         String errorMessage = "";
-        if (NameTNBoiler.getText() == null || NameTNBoiler.getText().length() == 0) {
-            errorMessage += "Неправильное название Котельной!\n";
+        if (NameTNMain.getText() == null || NameTNMain.getText().length() == 0) {
+            errorMessage += "Неправильное название магистрали!\n";
         }
 
         if (errorMessage.length() == 0) {
@@ -106,4 +113,21 @@ public class UIDataSensorController {
         }
     }
 
+    @FXML
+    private void comboSourceMClick() {
+        // очистка от старых данных и заносим новые данные
+        if (comboTNBoiler.isFocused()) {
+            comboTNBoiler.getItems().clear();
+            DerbyDBParser.dbReadForComboboxBoiler();
+            comboTNBoiler.getItems().addAll(DerbyDBParser.listTNBoiler);
+            NameTNMain.setDisable(false);
+        }
+
+    }
+
+    //вводя названия, разрешаем нажатие кнопки ОК
+    @FXML
+    private void txtTNMainChange() {
+        btnOK.setDisable(false);
+    }
 }

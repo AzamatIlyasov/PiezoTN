@@ -1,25 +1,30 @@
-package tn.piezo.controller;
+package tn.piezo.controller.TNBoiler;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import tn.piezo.model.HydraC;
+import tn.piezo.model.DerbyDBParser;
 
 /**
  * Окно для добавления новой котельной .
  *
  * @author Azamat Ilyasov
  */
-public class UIDataSensorController {
+public class UIEditTNBoilerController {
 
     @FXML
-    private TextField NameTNBoiler;
+    private ComboBox comboOldNameTNBoiler;
+    @FXML
+    private TextField NewNameTNBoiler;
+    @FXML
+    private Button btnOK;
 
     private Stage dialogStage;
-    private HydraC hydra;
     private boolean okClicked = false;
 
     /**
@@ -28,6 +33,9 @@ public class UIDataSensorController {
      */
     @FXML
     private void initialize() {
+        comboOldNameTNBoiler.getItems().clear();
+        DerbyDBParser.dbReadForComboboxBoiler();
+        comboOldNameTNBoiler.getItems().addAll(DerbyDBParser.listTNBoiler);
     }
 
     /**
@@ -40,15 +48,10 @@ public class UIDataSensorController {
         this.dialogStage.getIcons().add(new Image("file:resources/images/Edit1.png"));
     }
 
-    /**
-     * Задаёт участка, информацию о котором будем менять
-     * @param hydra - данные участка
-     */
-    public void setHydra(HydraC hydra) {
-        this.hydra = hydra;
-
+    @FXML
+    private void comboAction() {
+        btnOK.setDisable(false);
     }
-
     /**
      * Returns true, если пользователь кликнул OK, в другом случае false.
      *
@@ -64,8 +67,7 @@ public class UIDataSensorController {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            hydra.setNameTNPartRas(NameTNBoiler.getText());
-
+            DerbyDBParser.writeBoilerData(comboOldNameTNBoiler.getValue().toString(), NewNameTNBoiler.getText());
             okClicked = true;
             dialogStage.close();
         }
@@ -86,7 +88,7 @@ public class UIDataSensorController {
      */
     private boolean isInputValid() {
         String errorMessage = "";
-        if (NameTNBoiler.getText() == null || NameTNBoiler.getText().length() == 0) {
+        if (NewNameTNBoiler.getText() == null || NewNameTNBoiler.getText().length() == 0) {
             errorMessage += "Неправильное название Котельной!\n";
         }
 

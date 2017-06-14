@@ -2,7 +2,6 @@ package tn.piezo;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,6 +11,18 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import tn.piezo.controller.*;
+import tn.piezo.controller.TNBoiler.UIAddTNBoilerController;
+import tn.piezo.controller.TNBoiler.UIDeleteTNBoilerController;
+import tn.piezo.controller.TNBoiler.UIEditTNBoilerController;
+import tn.piezo.controller.TNBranch.UIAddTNBranchController;
+import tn.piezo.controller.TNBranch.UIDeleteTNBranchController;
+import tn.piezo.controller.TNBranch.UIEditTNBranchController;
+import tn.piezo.controller.TNMain.UIAddTNMainController;
+import tn.piezo.controller.TNMain.UIDeleteTNMainController;
+import tn.piezo.controller.TNMain.UIEditTNMainController;
+import tn.piezo.controller.TNPart.UIAddTNPartController;
+import tn.piezo.controller.TNPart.UIDeleteTNPartController;
+import tn.piezo.controller.TNPart.UIEditTNPartController;
 import tn.piezo.model.*;
 import javafx.collections.*;
 import tn.piezo.controller.UIMainGSController;
@@ -228,6 +239,7 @@ public class Main extends Application {
         }
     }
 
+    //окна для редактирования
     /**
      * Диалоговое окно для выбора источника редактирования
      */
@@ -258,7 +270,7 @@ public class Main extends Application {
     public void showEditBoilerDialog() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/UIEditBoiler.fxml"));
+            loader.setLocation(Main.class.getResource("view/UIEditTNBoiler.fxml"));
             AnchorPane editBtnDialog = loader.load();
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Редактирование источника (котельной)");
@@ -266,7 +278,7 @@ public class Main extends Application {
             dialogStage.initOwner(primaryStage);
             Scene scene = new Scene(editBtnDialog);
             dialogStage.setScene(scene);
-            UIEditBoilerController controller = loader.getController();
+            UIEditTNBoilerController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             dialogStage.showAndWait();
         } catch (IOException e) {
@@ -280,7 +292,7 @@ public class Main extends Application {
     public void showEditMainDialog() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/UIEditMain.fxml"));
+            loader.setLocation(Main.class.getResource("view/UIEditTNMain.fxml"));
             AnchorPane editBtnDialog = loader.load();
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Редактирование магистральной");
@@ -288,7 +300,7 @@ public class Main extends Application {
             dialogStage.initOwner(primaryStage);
             Scene scene = new Scene(editBtnDialog);
             dialogStage.setScene(scene);
-            UIEditMainController controller = loader.getController();
+            UIEditTNMainController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             dialogStage.showAndWait();
         } catch (IOException e) {
@@ -302,7 +314,7 @@ public class Main extends Application {
     public void showEditBranchDialog() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/UIEditBranch.fxml"));
+            loader.setLocation(Main.class.getResource("view/UIEditTNBranch.fxml"));
             AnchorPane editBtnDialog = loader.load();
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Редактирование ответвления");
@@ -310,7 +322,7 @@ public class Main extends Application {
             dialogStage.initOwner(primaryStage);
             Scene scene = new Scene(editBtnDialog);
             dialogStage.setScene(scene);
-            UIEditBranchController controller = loader.getController();
+            UIEditTNBranchController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             dialogStage.showAndWait();
         } catch (IOException e) {
@@ -325,10 +337,9 @@ public class Main extends Application {
      * @return true, если пользователь кликнул OK, в противном случае false.
      */
     public void showEditPartDialog() {
-        HydraC hydraEditData = new HydraC();
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/UIEditPart.fxml"));
+            loader.setLocation(Main.class.getResource("view/UIEditTNPart.fxml"));
             AnchorPane editBtnDialog = loader.load();
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Редактирование участка");
@@ -336,7 +347,54 @@ public class Main extends Application {
             dialogStage.initOwner(primaryStage);
             Scene scene = new Scene(editBtnDialog);
             dialogStage.setScene(scene);
-            UIEditPartController controller = loader.getController();
+            UIEditTNPartController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //окна для добавления
+    /**
+     * Диалоговое окно для выбора источника добавления информации
+     */
+    public void showAddBtnDialog() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/UIAddEditWindow.fxml"));
+            AnchorPane editBtnDialog = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Выберите элемент для добавления");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(editBtnDialog);
+            dialogStage.setScene(scene);
+            UIAddEditWindowController controller = loader.getController();
+            controller.setSelectedMode(true); //режим добавления данных
+            controller.setDialogStage(dialogStage);
+            controller.setMain(this);
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Диалоговое окно редактирование источника (Котельной)
+     */
+    public void showAddBoilerDialog() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/UIAddTNBoiler.fxml"));
+            AnchorPane editBtnDialog = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Добавить источник тепла (котельная)");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(editBtnDialog);
+            dialogStage.setScene(scene);
+            UIAddTNBoilerController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             dialogStage.showAndWait();
         } catch (IOException e) {
@@ -345,8 +403,211 @@ public class Main extends Application {
     }
 
     /**
-     * Показывает в корневом макете интрефейс для изменения данных.
+     * Диалоговое окно добавления магистральной сети
      */
+    public void showAddMainDialog() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/UIAddTNMain.fxml"));
+            AnchorPane editBtnDialog = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Добавить магистральную сеть");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(editBtnDialog);
+            dialogStage.setScene(scene);
+            UIAddTNMainController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Диалоговое окно добавления ответвления
+     */
+    public void showAddBranchDialog() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/UIAddTNBranch.fxml"));
+            AnchorPane editBtnDialog = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Добавить ответвления");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(editBtnDialog);
+            dialogStage.setScene(scene);
+            UIAddTNBranchController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Диалоговое окно для добавления участка
+     */
+    public void showAddPartDialog() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/UIAddTNPart.fxml"));
+            AnchorPane editBtnDialog = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Добавить участок");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(editBtnDialog);
+            dialogStage.setScene(scene);
+            UIAddTNPartController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //окна для удаления
+    /**
+     * Диалоговое окно для удаления источника тепла (котельная)
+     */
+    public void showDeleteBtnDialog() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/UIDeleteWindow.fxml"));
+            AnchorPane editBtnDialog = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Выберите элемент для УДАЛЕНИЯ");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(editBtnDialog);
+            dialogStage.setScene(scene);
+            UIDeleteWindowController controller = loader.getController();
+            controller.setSelectedMode(true); //режим добавления данных
+            controller.setDialogStage(dialogStage);
+            controller.setMain(this);
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Диалоговое окно удаления источника (Котельной)
+     */
+    public void showDeleteBoilerDialog() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/UIDeleteTNBoiler.fxml"));
+            AnchorPane editBtnDialog = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Удалить источник тепла (котельная)");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(editBtnDialog);
+            dialogStage.setScene(scene);
+            UIDeleteTNBoilerController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Диалоговое окно удаления магистральной сети
+     */
+    public void showDeleteMainDialog() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/UIDeleteTNMain.fxml"));
+            AnchorPane editBtnDialog = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Удалить магистральную сеть");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(editBtnDialog);
+            dialogStage.setScene(scene);
+            UIDeleteTNMainController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Диалоговое окно удаления ответвления
+     */
+    public void showDeleteBranchDialog() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/UIDeleteTNBranch.fxml"));
+            AnchorPane editBtnDialog = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Удалить ответвления");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(editBtnDialog);
+            dialogStage.setScene(scene);
+            UIDeleteTNBranchController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Диалоговое окно для удаления участка
+     */
+    public void showDeletePartDialog() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/UIDeleteTNPart.fxml"));
+            AnchorPane editBtnDialog = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Удалить участок");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(editBtnDialog);
+            dialogStage.setScene(scene);
+            UIDeleteTNPartController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Диалоговое окно для просмотра данных из датчиков (терминалов тесла2)
+     */
+    public void showDataSensorDialog() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/UIDataSensor.fxml"));
+            AnchorPane editBtnDialog = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Данные из датчиков");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(editBtnDialog);
+            dialogStage.setScene(scene);
+            UIDataSensorController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /*
+    устраевший код (для перемещенных-удаленных) файлов
+
+     //Показывает в корневом макете интрефейс для изменения данных.
     public void showGSOverview() {
         try {
             // Загружаем сведения об участках.
@@ -373,10 +634,7 @@ public class Main extends Application {
         }
     }
 
-    /**
-     * Открывает диалоговое окно для добавления нового участка.
-     * @return true, если пользователь кликнул OK, в противном случае false.
-     */
+     //Открывает диалоговое окно для добавления нового участка.
     public boolean showGSNewTableDialog() {
         try {
             // Загружаем fxml-файл и создаём новую сцену
@@ -410,14 +668,7 @@ public class Main extends Application {
         }
     }
 
-    /**
-     * Открывает диалоговое окно для изменения деталей указанного участка.
-     * Если пользователь кликнул OK, то изменения сохраняются в предоставленном
-     * объекте адресата и возвращается значение true.
-     *
-     * @param hydra - объект участка, который надо изменить
-     * @return true, если пользователь кликнул OK, в противном случае false.
-     */
+    // Открывает диалоговое окно для изменения деталей указанного участка.
     public HydraC showTPartEditDialog(HydraC hydra) {
         HydraC hydraEditData = new HydraC();
         try {
@@ -452,117 +703,6 @@ public class Main extends Application {
         }
     }
 
-    /**
-     * Диалоговое окно для выбора источника добавления информации
-     */
-    public void showAddBtnDialog() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/UIAddEditWindow.fxml"));
-            AnchorPane editBtnDialog = loader.load();
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Выберите элемент для добавления");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(primaryStage);
-            Scene scene = new Scene(editBtnDialog);
-            dialogStage.setScene(scene);
-            UIAddEditWindowController controller = loader.getController();
-            controller.setSelectedMode(true); //режим добавления данных
-            controller.setDialogStage(dialogStage);
-            controller.setMain(this);
-            dialogStage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Диалоговое окно редактирование источника (Котельной)
-     */
-    public void showAddBoilerDialog() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/UIAddBoiler.fxml"));
-            AnchorPane editBtnDialog = loader.load();
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Добавить источник тепла (котельная)");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(primaryStage);
-            Scene scene = new Scene(editBtnDialog);
-            dialogStage.setScene(scene);
-            UIAddBoilerController controller = loader.getController();
-            controller.setDialogStage(dialogStage);
-            dialogStage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Диалоговое окно добавления магистральной сети
-     */
-    public void showAddMainDialog() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/UIAddMain.fxml"));
-            AnchorPane editBtnDialog = loader.load();
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Добавить магистральную сеть");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(primaryStage);
-            Scene scene = new Scene(editBtnDialog);
-            dialogStage.setScene(scene);
-            UIAddMainController controller = loader.getController();
-            controller.setDialogStage(dialogStage);
-            dialogStage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Диалоговое окно добавления ответвления
-     */
-    public void showAddBranchDialog() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/UIAddBranch.fxml"));
-            AnchorPane editBtnDialog = loader.load();
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Добавить ответвления");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(primaryStage);
-            Scene scene = new Scene(editBtnDialog);
-            dialogStage.setScene(scene);
-            UIAddBranchController controller = loader.getController();
-            controller.setDialogStage(dialogStage);
-            dialogStage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Диалоговое окно для добавления участка
-     */
-    public void showAddPartDialog() {
-        HydraC hydraEditData = new HydraC();
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/UIAddPart.fxml"));
-            AnchorPane editBtnDialog = loader.load();
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Добавить участок");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(primaryStage);
-            Scene scene = new Scene(editBtnDialog);
-            dialogStage.setScene(scene);
-            UIAddPartController controller = loader.getController();
-            controller.setDialogStage(dialogStage);
-            dialogStage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    */
 
 }

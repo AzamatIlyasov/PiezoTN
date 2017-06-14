@@ -9,8 +9,8 @@ import javafx.beans.property.*;
 public class HydraC {
 
     // свойства - исходные данные для расчета
-    private StringProperty NamePartTN;
-    private StringProperty NamePartTNpred;
+    private StringProperty NameTNPartRas;
+    private StringProperty NameTNPartPred;
     private DoubleProperty D;
     private DoubleProperty L;
     private DoubleProperty G;
@@ -33,9 +33,9 @@ public class HydraC {
     private DoubleProperty Hrasp_endP; // падение напора в конце участка
 
     //дополнительные сведения
-    private StringProperty BoilerName;
-    private StringProperty MainName;
-    private StringProperty BranchName;
+    private StringProperty NameTNBoiler;
+    private StringProperty NameTNMain;
+    private StringProperty NameTNBranch;
 
     /**
      * Конструктор по умолчанию.
@@ -49,8 +49,8 @@ public class HydraC {
     /**
      * Конструктор с некоторыми начальными данными.
      * - параметры участков
-     * @param NamePartTN - название текущего (расчетного) участка
-     * @param NamePartTNpred - название предыдущего участка
+     * @param NameTNPartRas - название текущего (расчетного) участка
+     * @param NameTNPartPred - название предыдущего участка
      * @param D - диаметр, мм
      * @param L - длина, м
      * @param G - расход, т/ч
@@ -68,11 +68,11 @@ public class HydraC {
      * @param dH_fist - падение напора от источника, м
      * @param Hrasp_endP - распологаемы напор в конце учатска, м
      * @param num - номер
-     * @param BoilerName - название котельной (источника)
-     * @param MainName - название магистрали
-     * @param BranchName - название ответвления
+     * @param NameTNBoiler - название котельной (источника)
+     * @param NameTNMain - название магистрали
+     * @param NameTNBranch - название ответвления
      */
-    public HydraC(String NamePartTN, String NamePartTNpred, double D, double L, double G, double Kekv,
+    public HydraC(String NameTNPartRas, String NameTNPartPred, double D, double L, double G, double Kekv,
                   double Geo,
                   double ZdanieEtaj,
                   double Hrasp_ist,
@@ -87,13 +87,13 @@ public class HydraC {
                   double dH_fist, //падение напора от источника
                   double Hrasp_endP, // падение напора в конце участка
                   int num,
-                  String BoilerName,
-                  String MainName,
-                  String BranchName
+                  String NameTNBoiler,
+                  String NameTNMain,
+                  String NameTNBranch
                     ) {
         //исходные данные
-        this.NamePartTN = new SimpleStringProperty(NamePartTN);
-        this.NamePartTNpred = new SimpleStringProperty(NamePartTNpred);
+        this.NameTNPartRas = new SimpleStringProperty(NameTNPartRas);
+        this.NameTNPartPred = new SimpleStringProperty(NameTNPartPred);
         this.D = new SimpleDoubleProperty(D);
         this.L = new SimpleDoubleProperty(L);
         this.G = new SimpleDoubleProperty(G);
@@ -114,14 +114,14 @@ public class HydraC {
         this.Hrasp_endP = new SimpleDoubleProperty(Hrasp_endP);
         this.num = new SimpleIntegerProperty(num);
         //дополнительные сведения
-        this.BoilerName  = new SimpleStringProperty(BoilerName);
-        this.MainName  = new SimpleStringProperty(MainName);
-        this.BranchName  = new SimpleStringProperty(BranchName);
+        this.NameTNBoiler = new SimpleStringProperty(NameTNBoiler);
+        this.NameTNMain = new SimpleStringProperty(NameTNMain);
+        this.NameTNBranch = new SimpleStringProperty(NameTNBranch);
     }
 
     // конструктор не полноценный
-    public HydraC(String NamePartTN,
-                  String NamePartTNpred,
+    public HydraC(String NameTNPartRas,
+                  String NameTNPartPred,
                   double D,
                   double L,
                   double G,
@@ -129,13 +129,13 @@ public class HydraC {
                   double Geo,
                   double ZdanieEtaj,
                   int num,
-                  String BoilerName,
-                  String MainName,
-                  String BranchName
+                  String NameTNBoiler,
+                  String NameTNMain,
+                  String NameTNBranch
                     ) {
         //исходные данные
-        this.NamePartTN = new SimpleStringProperty(NamePartTN);
-        this.NamePartTNpred = new SimpleStringProperty(NamePartTNpred);
+        this.NameTNPartRas = new SimpleStringProperty(NameTNPartRas);
+        this.NameTNPartPred = new SimpleStringProperty(NameTNPartPred);
         this.D = new SimpleDoubleProperty(D);
         this.L = new SimpleDoubleProperty(L);
         this.G = new SimpleDoubleProperty(G);
@@ -144,35 +144,35 @@ public class HydraC {
         this.ZdanieEtaj = new SimpleDoubleProperty(ZdanieEtaj);
         this.num = new SimpleIntegerProperty(num);
         //дополнительные сведения
-        this.BoilerName  = new SimpleStringProperty(BoilerName);
-        this.MainName  = new SimpleStringProperty(MainName);
-        this.BranchName  = new SimpleStringProperty(BranchName);
+        this.NameTNBoiler = new SimpleStringProperty(NameTNBoiler);
+        this.NameTNMain = new SimpleStringProperty(NameTNMain);
+        this.NameTNBranch = new SimpleStringProperty(NameTNBranch);
     }
 
-    //NamePartTN гетер, сетер, пропер
-    public String getNamePartTN() {
-        return NamePartTN.get();
+    //NameTNPartRas гетер, сетер, пропер
+    public String getNameTNPartRas() {
+        return NameTNPartRas.get();
     }
 
-    public void setNamePartTN(String NamePartTN) {
-        this.NamePartTN.set(NamePartTN);
+    public void setNameTNPartRas(String NamePartTN) {
+        this.NameTNPartRas.set(NamePartTN);
     }
 
-    public StringProperty NamePartTNProperty() {
-        return NamePartTN;
+    public StringProperty NameTNPartProperty() {
+        return NameTNPartRas;
     }
 
-    //NamePartTNpred гетер, сетер, пропер
-    public String getNamePartTNpred() {
-        return NamePartTNpred.get();
+    //NameTNPartPred гетер, сетер, пропер
+    public String getNameTNPartPred() {
+        return NameTNPartPred.get();
     }
 
-    public void setNamePartTNpred(String NamePartTNpred) {
-        this.NamePartTNpred.set(NamePartTNpred);
+    public void setNameTNPartPred(String NamePartTNpred) {
+        this.NameTNPartPred.set(NamePartTNpred);
     }
 
-    public StringProperty NamePartTNpredProperty() {
-        return NamePartTNpred;
+    public StringProperty NameTNPartPredProperty() {
+        return NameTNPartPred;
     }
 
     //D гетер, сетер, пропер
@@ -409,31 +409,31 @@ public class HydraC {
         return num;
     }
 
-    //BoilerName гетер, сетер
-    public StringProperty getBoilerName() {
-        return BoilerName;
+    //NameTNBoiler гетер, сетер
+    public StringProperty getNameTNBoiler() {
+        return NameTNBoiler;
     }
 
-    public void setBoilerName(StringProperty boilerName) {
-        BoilerName = boilerName;
+    public void setNameTNBoiler(StringProperty nameTNBoiler) {
+        NameTNBoiler = nameTNBoiler;
     }
 
-    //MainName гетер, сетер
-    public StringProperty getMainName() {
-        return MainName;
+    //NameTNMain гетер, сетер
+    public StringProperty getNameTNMain() {
+        return NameTNMain;
     }
 
-    public void setMainName(StringProperty mainName) {
-        MainName = mainName;
+    public void setNameTNMain(StringProperty nameTNMain) {
+        NameTNMain = nameTNMain;
     }
 
-    //BranchName гетер, сетер
-    public StringProperty getBranchName() {
-        return BranchName;
+    //NameTNBranch гетер, сетер
+    public StringProperty getNameTNBranch() {
+        return NameTNBranch;
     }
 
-    public void setBranchName(StringProperty branchName) {
-        BranchName = branchName;
+    public void setNameTNBranch(StringProperty nameTNBranch) {
+        NameTNBranch = nameTNBranch;
     }
 
 }

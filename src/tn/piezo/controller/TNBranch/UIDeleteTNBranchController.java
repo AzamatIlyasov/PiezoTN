@@ -1,11 +1,14 @@
-package tn.piezo.controller;
+package tn.piezo.controller.TNBranch;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import tn.piezo.model.DerbyDBParser;
 import tn.piezo.model.HydraC;
 
 /**
@@ -13,10 +16,18 @@ import tn.piezo.model.HydraC;
  *
  * @author Azamat Ilyasov
  */
-public class UIDataSensorController {
+public class UIDeleteTNBranchController {
 
     @FXML
-    private TextField NameTNBoiler;
+    private ComboBox comboTNBoiler;
+    @FXML
+    private ComboBox comboTNMain;
+    @FXML
+    private TextField NameTNBranch;
+    @FXML
+    private TextField Hrasp_ist;
+    @FXML
+    private Button btnOK;
 
     private Stage dialogStage;
     private HydraC hydra;
@@ -64,7 +75,8 @@ public class UIDataSensorController {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            hydra.setNameTNPartRas(NameTNBoiler.getText());
+            DerbyDBParser.writeAddBranchData(comboTNBoiler.getValue().toString(),comboTNMain.getValue().toString(),
+                    NameTNBranch.getText(),Double.parseDouble(Hrasp_ist.getText()) );
 
             okClicked = true;
             dialogStage.close();
@@ -86,8 +98,8 @@ public class UIDataSensorController {
      */
     private boolean isInputValid() {
         String errorMessage = "";
-        if (NameTNBoiler.getText() == null || NameTNBoiler.getText().length() == 0) {
-            errorMessage += "Неправильное название Котельной!\n";
+        if (NameTNBranch.getText() == null || NameTNBranch.getText().length() == 0) {
+            errorMessage += "Неправильное название ответвления!\n";
         }
 
         if (errorMessage.length() == 0) {
@@ -104,6 +116,32 @@ public class UIDataSensorController {
 
             return false;
         }
+    }
+
+    @FXML
+    private void comboMainMClick() {
+        // очистка от старых данных и заносим новые данные
+        if (comboTNBoiler.isFocused()) {
+            //котельная
+            comboTNBoiler.getItems().clear();
+            DerbyDBParser.dbReadForComboboxBoiler();
+            comboTNBoiler.getItems().addAll(DerbyDBParser.listTNBoiler);
+            comboTNMain.setDisable(false);
+        }
+        if (comboTNMain.isFocused()) {
+            //магистраль
+            comboTNMain.getItems().clear();
+            DerbyDBParser.dbReadForComboboxTNMain(comboTNBoiler.getValue().toString());
+            comboTNMain.getItems().addAll(DerbyDBParser.listTNMain);
+            NameTNBranch.setDisable(false);
+            Hrasp_ist.setDisable(false);
+        }
+
+    }
+
+    @FXML
+    private void txtTNBranchChange() {
+        btnOK.setDisable(false);
     }
 
 }

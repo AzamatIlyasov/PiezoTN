@@ -27,9 +27,9 @@ public class UIMainGSController {
     @FXML
     private TableColumn<HydraC, Integer> Number_column;
     @FXML
-    private TableColumn<HydraC, String> NamePartTN_column;
+    private TableColumn<HydraC, String> NameTNPart_column;
     @FXML
-    private TableColumn<HydraC, String> NamePredPartTN_column;
+    private TableColumn<HydraC, String> NameTNPartPred_column;
     // переменные - исходные данные для расчета
     @FXML
     private TableColumn<HydraC, Double> D_column;
@@ -63,11 +63,11 @@ public class UIMainGSController {
     @FXML
     private TableColumn<HydraC, Double> Hrasp_endP_column; // падение напора в конце участка
     @FXML
-    private ComboBox listSourceTN;
+    private ComboBox listTNBoiler;
     @FXML
-    private ComboBox listTN;
+    private ComboBox listTNMain;
     @FXML
-    private ComboBox listBranchingOfTN;
+    private ComboBox listTNBranch;
     @FXML
     public StackPane stackPaneGraph;
     @FXML
@@ -97,8 +97,8 @@ public class UIMainGSController {
     private void initialize() {
         // Инициализация таблицы
         Number_column.setCellValueFactory(cellData -> cellData.getValue().NumProperty().asObject());
-        NamePartTN_column.setCellValueFactory(cellData -> cellData.getValue().NamePartTNProperty());
-        NamePredPartTN_column.setCellValueFactory(cellData -> cellData.getValue().NamePartTNpredProperty());
+        NameTNPart_column.setCellValueFactory(cellData -> cellData.getValue().NameTNPartProperty());
+        NameTNPartPred_column.setCellValueFactory(cellData -> cellData.getValue().NameTNPartPredProperty());
         D_column.setCellValueFactory(cellData -> cellData.getValue().DProperty().asObject());
         L_column.setCellValueFactory(cellData -> cellData.getValue().LProperty().asObject());
         G_column.setCellValueFactory(cellData -> cellData.getValue().GProperty().asObject());
@@ -114,10 +114,10 @@ public class UIMainGSController {
         H2x_column.setCellValueFactory(cellData -> cellData.getValue().H2xProperty().asObject());
         dH_fist_column.setCellValueFactory(cellData -> cellData.getValue().dH_fistProperty().asObject());
         Hrasp_endP_column.setCellValueFactory(cellData -> cellData.getValue().Hrasp_endPProperty().asObject());
-        listSourceTN.getItems().addAll(DerbyDBParser.listBoiler);
+        listTNBoiler.getItems().addAll(DerbyDBParser.listTNBoiler);
         //отключаем комбобоксы магистрали и ответвления
-        listTN.setDisable(true);
-        listBranchingOfTN.setDisable(true);
+        listTNMain.setDisable(true);
+        listTNBranch.setDisable(true);
         connectDB_btn();
         btnSolver.setDisable(true);
         txtHist.getText();
@@ -175,12 +175,13 @@ public class UIMainGSController {
     }
 
     /**
-     * Вызывается, когда пользователь кликает по кнопке удалить участок
+     * Вызывается, когда пользователь кликает по кнопке удалить
      * Открывает отображения ПГ.
      */
     @FXML
     private void handleDeleteBtn() {
-
+        //удаление данных
+        main.showDeleteBtnDialog();
     }
 
     /**
@@ -189,7 +190,8 @@ public class UIMainGSController {
      */
     @FXML
     private void GetDataSensorBtn() {
-
+        //просмотр данных из датчиков
+        main.showDataSensorDialog();
     }
 
     /**
@@ -208,22 +210,22 @@ public class UIMainGSController {
     private void mouseClickComboBox() {
         // очистка от старых данных и заносим новые данные
 
-        if (listSourceTN.isFocused()) {
-            listSourceTN.getItems().clear();
+        if (listTNBoiler.isFocused()) {
+            listTNBoiler.getItems().clear();
             DerbyDBParser.dbReadForComboboxBoiler();
-            listSourceTN.getItems().addAll(DerbyDBParser.listBoiler);
-            listTN.setDisable(false);
+            listTNBoiler.getItems().addAll(DerbyDBParser.listTNBoiler);
+            listTNMain.setDisable(false);
         }
-        if (listTN.isFocused()) {
-            listTN.getItems().clear();
-            DerbyDBParser.dbReadForComboboxTNMain(listSourceTN.getValue().toString());
-            listTN.getItems().addAll(DerbyDBParser.listMain);
-            listBranchingOfTN.setDisable(false);
+        if (listTNMain.isFocused()) {
+            listTNMain.getItems().clear();
+            DerbyDBParser.dbReadForComboboxTNMain(listTNBoiler.getValue().toString());
+            listTNMain.getItems().addAll(DerbyDBParser.listTNMain);
+            listTNBranch.setDisable(false);
         }
-        if (listBranchingOfTN.isFocused()) {
-            listBranchingOfTN.getItems().clear();
-            DerbyDBParser.dbReadForComboboxTNBranch(listSourceTN.getValue().toString(),listTN.getValue().toString());
-            listBranchingOfTN.getItems().addAll(DerbyDBParser.listBranch);
+        if (listTNBranch.isFocused()) {
+            listTNBranch.getItems().clear();
+            DerbyDBParser.dbReadForComboboxTNBranch(listTNBoiler.getValue().toString(), listTNMain.getValue().toString());
+            listTNBranch.getItems().addAll(DerbyDBParser.listTNBranch);
             btnSolver.setDisable(false);
         }
     }
@@ -233,8 +235,8 @@ public class UIMainGSController {
     private void runGidRas() {
         // запуск расчета для выбранного участка
 
-        main.runGRMain(listSourceTN.getValue().toString(),listTN.getValue().toString(),
-                listBranchingOfTN.getValue().toString(),Double.parseDouble(txtHist.getText()));
+        main.runGRMain(listTNBoiler.getValue().toString(), listTNMain.getValue().toString(),
+                listTNBranch.getValue().toString(),Double.parseDouble(txtHist.getText()));
 
         main.runGRSolver();
         stackPaneGraph.getChildren().clear();

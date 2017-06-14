@@ -28,9 +28,9 @@
                                           <Font name="Arial Black" size="12.0" />
                                        </font></ToggleButton>
                                     <ToggleButton fx:id="toggleBtnDBdisconnect" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#closeConDB_btn" prefHeight="25.0" prefWidth="25.0" text="-" />
-                                    <ComboBox fx:id="listSourceTN" onMouseClicked="#mouseClickComboBox" prefHeight="25.0" prefWidth="140.0" promptText="1 Источник" />
-                                    <ComboBox fx:id="listTN" onMouseClicked="#mouseClickComboBox" prefHeight="25.0" prefWidth="140.0" promptText="2 Тепловая сеть" />
-                                    <ComboBox fx:id="listBranchingOfTN" onMouseClicked="#mouseClickComboBox" prefHeight="25.0" prefWidth="140.0" promptText="3 Ответвления" />
+                                    <ComboBox fx:id="listTNBoiler" onMouseClicked="#mouseClickComboBox" prefHeight="25.0" prefWidth="140.0" promptText="1 Источник" />
+                                    <ComboBox fx:id="listTNMain" onMouseClicked="#mouseClickComboBox" prefHeight="25.0" prefWidth="140.0" promptText="2 Тепловая сеть" />
+                                    <ComboBox fx:id="listTNBranch" onMouseClicked="#mouseClickComboBox" prefHeight="25.0" prefWidth="140.0" promptText="3 Ответвления" />
                                     <Button fx:id="btnSolver" mnemonicParsing="false" onAction="#runGidRas" prefHeight="25.0" prefWidth="140.0" text="ВЫЧИСЛИТЬ" textAlignment="CENTER">
                                        <font>
                                           <Font name="System Bold Italic" size="12.0" />
@@ -87,12 +87,12 @@
                                     <Label alignment="CENTER" text="№" textAlignment="CENTER" wrapText="true" />
                                  </graphic>
                               </TableColumn>
-                            <TableColumn fx:id="NamePartTN_column" prefWidth="70.0">
+                            <TableColumn fx:id="NameTNPart_column" prefWidth="70.0">
                                 <graphic>
                                     <Label alignment="CENTER" text="Название расчетного участка" textAlignment="CENTER" wrapText="true" />
                                 </graphic>
                             </TableColumn>
-                              <TableColumn fx:id="NamePredPartTN_column" prefWidth="70.0">
+                              <TableColumn fx:id="NameTNPartPred_column" prefWidth="70.0">
                                   <graphic>
                                       <Label alignment="CENTER" text="Название предыдущего участка" textAlignment="CENTER" wrapText="true" />
                                   </graphic>
