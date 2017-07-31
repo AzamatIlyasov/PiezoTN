@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -15,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="536.0" maxWidth="385.0" minHeight="100.0" minWidth="339.0" prefHeight="396.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.piezo.controller.TNPart.UIDeleteTNPartController">
+<AnchorPane maxHeight="536.0" maxWidth="385.0" minHeight="100.0" minWidth="339.0" prefHeight="396.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.piezo.controller.TNPart.UIDeleteTNPartController">
    <children>
       <GridPane AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
         <columnConstraints>
@@ -39,11 +35,10 @@
             <Label text="Магистраль" GridPane.rowIndex="1" />
             <Label text="Котельная (источник)" />
             <Label text="Ответвление" GridPane.rowIndex="2" />
-            <Label text="Название участка" GridPane.rowIndex="3" />
+            <Label text="Участок" GridPane.rowIndex="3" />
             <ComboBox fx:id="comboTNBoiler" onMouseClicked="#mouseClickComboBox" prefHeight="25.0" prefWidth="216.0" promptText="Источник" GridPane.columnIndex="1" />
             <ComboBox fx:id="comboTNMain" disable="true" onMouseClicked="#mouseClickComboBox" prefHeight="25.0" prefWidth="216.0" promptText="Магистраль" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ComboBox fx:id="comboTNBranch" disable="true" onMouseClicked="#mouseClickComboBox" prefHeight="25.0" prefWidth="216.0" promptText="Ответвление" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="NameTNPartRas" disable="true" onKeyPressed="#NamePartTxtChange" prefHeight="25.0" prefWidth="125.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label text="№ предыдущего участка" GridPane.rowIndex="4" />
             <Label text="Диаметр участка [мм]" GridPane.rowIndex="5" />
             <Label text="Длина участка [м]" GridPane.rowIndex="6" />
@@ -58,6 +53,7 @@
             <TextField fx:id="KekvField" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="8" />
             <TextField fx:id="GeoField" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="9" />
             <TextField fx:id="ZdanieEtajField" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <ComboBox fx:id="comboTNPart" disable="true" prefHeight="25.0" prefWidth="213.0" promptText="Участок" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
          </children>
       </GridPane>

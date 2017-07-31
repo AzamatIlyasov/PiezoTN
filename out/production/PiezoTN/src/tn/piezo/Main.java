@@ -17,6 +17,12 @@ import tn.piezo.controller.TNBoiler.UIEditTNBoilerController;
 import tn.piezo.controller.TNBranch.UIAddTNBranchController;
 import tn.piezo.controller.TNBranch.UIDeleteTNBranchController;
 import tn.piezo.controller.TNBranch.UIEditTNBranchController;
+import tn.piezo.controller.TNConsumer.UIAddTNConsumerController;
+import tn.piezo.controller.TNConsumer.UIDeleteTNConsumerController;
+import tn.piezo.controller.TNConsumer.UIEditTNConsumerController;
+import tn.piezo.controller.TNKolodets.UIAddTNKolodetsController;
+import tn.piezo.controller.TNKolodets.UIDeleteTNKolodetsController;
+import tn.piezo.controller.TNKolodets.UIEditTNKolodetsController;
 import tn.piezo.controller.TNMain.UIAddTNMainController;
 import tn.piezo.controller.TNMain.UIDeleteTNMainController;
 import tn.piezo.controller.TNMain.UIEditTNMainController;
@@ -26,6 +32,8 @@ import tn.piezo.controller.TNPart.UIEditTNPartController;
 import tn.piezo.model.*;
 import javafx.collections.*;
 import tn.piezo.controller.UIMainGSController;
+//для отчетов
+
 
 
 public class Main extends Application {
@@ -64,6 +72,7 @@ public class Main extends Application {
     @Override
     public void stop(){
         DerbyDBParser.closeConnectDB();
+        System.exit(0);
     }
 
     /**
@@ -78,6 +87,11 @@ public class Main extends Application {
      */
     private ObservableList<HydraC> hydraData = FXCollections.observableArrayList();
     private ObservableList<PiezoC> piezoData = FXCollections.observableArrayList();
+
+    public ArrayList getHydraDataArrayList() {
+        return hydraDataArrayList;
+    }
+
     private ArrayList hydraDataArrayList = new ArrayList();
     private ArrayList piezoDataArrayList = new ArrayList();
 
@@ -355,6 +369,56 @@ public class Main extends Application {
         }
     }
 
+    /**
+     * Открывает диалоговое окно для изменения деталей указанного колодца.
+     * Если пользователь кликнул OK, то изменения сохраняются и возвращается значение true.
+     *
+     * @return true, если пользователь кликнул OK, в противном случае false.
+     */
+    public void showEditKolodetsDialog() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/UIEditTNKolodets.fxml"));
+            AnchorPane editBtnDialog = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Редактирование колодцы");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(editBtnDialog);
+            dialogStage.setScene(scene);
+            UIEditTNKolodetsController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Открывает диалоговое окно для изменения деталей указанного колодца.
+     * Если пользователь кликнул OK, то изменения сохраняются и возвращается значение true.
+     *
+     * @return true, если пользователь кликнул OK, в противном случае false.
+     */
+    public void showEditConsumerDialog() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/UIEditTNConsumer.fxml"));
+            AnchorPane editBtnDialog = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Редактирование потребителя");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(editBtnDialog);
+            dialogStage.setScene(scene);
+            UIEditTNConsumerController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     //окна для добавления
     /**
      * Диалоговое окно для выбора источника добавления информации
@@ -468,6 +532,50 @@ public class Main extends Application {
         }
     }
 
+    /**
+     * Диалоговое окно для добавления колодцы
+     */
+    public void showAddKolodetsDialog() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/UIAddTNKolodets.fxml"));
+            AnchorPane editBtnDialog = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Добавить колодец");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(editBtnDialog);
+            dialogStage.setScene(scene);
+            UIAddTNKolodetsController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Диалоговое окно для добавления
+     */
+    public void showAddConsumerDialog() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/UIAddTNConsumer.fxml"));
+            AnchorPane editBtnDialog = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Добавить потребителя");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(editBtnDialog);
+            dialogStage.setScene(scene);
+            UIAddTNConsumerController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     //окна для удаления
     /**
      * Диалоговое окно для удаления источника тепла (котельная)
@@ -484,7 +592,6 @@ public class Main extends Application {
             Scene scene = new Scene(editBtnDialog);
             dialogStage.setScene(scene);
             UIDeleteWindowController controller = loader.getController();
-            controller.setSelectedMode(true); //режим добавления данных
             controller.setDialogStage(dialogStage);
             controller.setMain(this);
             dialogStage.showAndWait();
@@ -582,6 +689,51 @@ public class Main extends Application {
     }
 
     /**
+     * Диалоговое окно для удаления колодца
+     */
+    public void showDeleteKolodetsDialog() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/UIDeleteTNKolodets.fxml"));
+            AnchorPane editBtnDialog = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Удалить колодец");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(editBtnDialog);
+            dialogStage.setScene(scene);
+            UIDeleteTNKolodetsController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Диалоговое окно для удаления потребителя
+     */
+    public void showDeleteConsumerDialog() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/UIDeleteTNConsumer.fxml"));
+            AnchorPane editBtnDialog = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Удалить потребителя");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(editBtnDialog);
+            dialogStage.setScene(scene);
+            UIDeleteTNConsumerController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //дополнительно
+    /**
      * Диалоговое окно для просмотра данных из датчиков (терминалов тесла2)
      */
     public void showDataSensorDialog() {
@@ -603,6 +755,49 @@ public class Main extends Application {
         }
     }
 
+    //Диалоговое окно для просмотра данных из датчиков (терминалов тесла2)
+    public void showSchemeGraph() {
+        try {
+            // Загружаем сведения об участках.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/UITNSchemeGraph.fxml"));
+            BorderPane schemeGraph = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Граф тепловой сети");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            //Scene scene = new Scene(schemeGraph);
+            UITNSchemeGraphController controller = loader.getController();
+            controller.setData(hydraDataArrayList, schemeGraph);
+            controller.setDialogStage(dialogStage);
+            dialogStage.setScene(controller.getScene());
+            dialogStage.showAndWait();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+/*
+    //Диалоговое окно для просмотра данных из датчиков (терминалов тесла2)
+    public void showSchemeGraph() {
+        try {
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Граф тепловой сети");
+            Graph graph = new Graph(hydraDataArrayList);
+            dialogStage.setScene(graph.getScene());
+            dialogStage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+*/
+
+    //отчеты
+    public void showReportDesign() {
+
+    }
 
     /*
     устраевший код (для перемещенных-удаленных) файлов
@@ -658,7 +853,7 @@ public class Main extends Application {
             // Отображаем диалоговое окно и ждём, пока пользователь его не закроет
             dialogStage.showAndWait();
             hydraDataArrayList = controller.getNewHydraData();
-            setHydraData(hydraDataArrayList);
+            setHydraDataClassStruct(hydraDataArrayList);
             saveDataTable(hydraDataArrayList,controller.getFileName());
 
             return controller.isOkClicked();

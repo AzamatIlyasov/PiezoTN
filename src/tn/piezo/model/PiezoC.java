@@ -9,20 +9,20 @@ import javafx.beans.property.*;
 public class PiezoC {
 
     // переменные - исходные данные для расчета
-    private final DoubleProperty HSN; // напор в сетевом насосе
-    private final DoubleProperty HPN; // напор в подпиточном насосе
-    private final DoubleProperty Hist; // падение напора в источнике (на выходе)
+    private DoubleProperty HSN; // напор в сетевом насосе
+    private DoubleProperty HPN; // напор в подпиточном насосе
+    private DoubleProperty Hist; // падение напора в источнике (на выходе)
     // переменные - исходные данные для расчета
-    private final StringProperty NamePartTN;
-    private final DoubleProperty L;
-    private final DoubleProperty Geo;
-    private final DoubleProperty ZdanieEtaj;
-    private final DoubleProperty Hrasp_ist;
-    private final DoubleProperty H1x;
+    private StringProperty NamePartTN;
+    private DoubleProperty L;
+    private DoubleProperty Geo;
+    private DoubleProperty ZdanieEtaj;
+    private DoubleProperty Hrasp_ist;
+    private DoubleProperty H1x;
     // переменные для расчета
-    private final DoubleProperty Hpoln;
-    private final DoubleProperty HraspPod;
-    private final DoubleProperty HraspObrat;
+    private DoubleProperty Hpoln;
+    private DoubleProperty HraspPod;
+    private DoubleProperty HraspObrat;
 
     /**
      * Конструктор по умолчанию.

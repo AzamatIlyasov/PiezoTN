@@ -6,12 +6,16 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import net.sf.jasperreports.engine.JRException;
 import tn.piezo.Main;
 import tn.piezo.model.DerbyDBParser;
 import tn.piezo.model.HydraC;
+import tn.reporter.PrintReport;
+
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -195,12 +199,12 @@ public class UIMainGSController {
     }
 
     /**
-     * Вызывается, когда пользователь кликает по кнопке Расчетная схема
-     * Открывает окно-изображение расчетной схемы
+     * Вызывается, когда пользователь кликает по кнопке Схема
+     * Открывает окно для редактирования граф-схемы
      */
     @FXML
-    private void CurSchemeBtn() {
-
+    private void SchemeBtn() {
+        main.showSchemeGraph();
     }
 
     /**
@@ -305,4 +309,21 @@ public class UIMainGSController {
 
     }
 
+    //отчеты по ПГ
+    @FXML
+    private void ReportBtn() {
+        try {
+            // --- Show Jasper Report on click-----
+            savePiezoPlot();
+            PrintReport jprintReport = new PrintReport();
+            jprintReport.setHydraData(main.getHydraDataArrayList());
+            //вывод основного отчета
+            jprintReport.showReportGeneral();
+
+        } catch (ClassNotFoundException | JRException | SQLException e1) {
+            e1.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

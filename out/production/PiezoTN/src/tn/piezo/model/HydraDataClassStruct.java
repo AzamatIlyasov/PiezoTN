@@ -27,6 +27,19 @@ public class HydraDataClassStruct {
     public double H2x;
     public double dH_fist; //падение напора от источника
     public double Hrasp_endP; // падение напора в конце участка
+
+    public String getBoilerName() {
+        return BoilerName;
+    }
+
+    public String getMainName() {
+        return MainName;
+    }
+
+    public String getBranchName() {
+        return BranchName;
+    }
+
     //дополнительные сведения
     public String BoilerName;
     public String MainName;

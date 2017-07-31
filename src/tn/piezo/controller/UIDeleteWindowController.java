@@ -18,7 +18,6 @@ public class UIDeleteWindowController {
 
     private Stage dialogStage;
     private HydraC selectedHydra;
-    private Boolean AddMode = false;
     /**
      * Инициализирует класс-контроллер. Этот метод вызывается автоматически
      * после того, как fxml-файл будет загружен.
@@ -53,39 +52,27 @@ public class UIDeleteWindowController {
         this.selectedHydra = selectedHydra;
     }
 
-    /**
-     * Задает тип окна - редактирование или добавления данных
-     * @param selectedMode - true (добавления),false (редактирование)
-     */
-    public void setSelectedMode(Boolean selectedMode) {
-        this.AddMode = selectedMode;
-    }
-
     public void BtnTNBoiler() {
-        if (AddMode) {
-            main.showAddBoilerDialog();
-        }
-        else main.showEditBoilerDialog();
+        main.showDeleteBoilerDialog();
     }
 
     public void BtnTNMain() {
-        if (AddMode) {
-            main.showAddMainDialog();
-        }
-        else main.showEditMainDialog();
+        main.showDeleteMainDialog();
     }
 
     public void BtnTNBranch() {
-        if (AddMode) {
-            main.showAddBranchDialog();
-        }
-        else main.showEditBranchDialog();
+        main.showDeleteBranchDialog();
     }
 
     public void BtnTNPart() {
-        if (AddMode) {
-            main.showAddPartDialog();
-        }
-        else main.showEditPartDialog();
+        main.showDeletePartDialog();
+    }
+
+    public void BtnTNKolodets() {
+        main.showDeleteKolodetsDialog();
+    }
+
+    public void BtnTNConsumer() {
+        main.showDeleteConsumerDialog();
     }
 }

@@ -292,6 +292,153 @@ public class DerbyDBParser {
         return hydraData;
     }
 
+    //расчет для ПГ
+    public static ArrayList parsePiezoPlot(ArrayList HydraData) {
+        //считываем данные на входе с использованием временных переменных
+        String[] tempNamePartTN = new String[HydraData.size()];
+        double[] tempL = new double[HydraData.size()];
+        double[] tempGeo = new double[HydraData.size()];
+        double[] tempZdanieEtaj = new double[HydraData.size()];
+        double tempHrasp_ist = 0;
+        double[] tempH1x = new double[HydraData.size()];
+        HydraDataClassStruct objHydraDCS;
+        for (int i = 0; i < HydraData.size(); i++)
+        {
+            objHydraDCS = (HydraDataClassStruct)HydraData.get(i);
+            tempNamePartTN[i] = objHydraDCS.NamePartTN;
+            tempL[i] = objHydraDCS.L;
+            tempGeo[i] = objHydraDCS.Geo;
+            tempZdanieEtaj[i] = objHydraDCS.ZdanieEtaj;
+            tempHrasp_ist = objHydraDCS.Hrasp_ist;
+            tempH1x[i] = objHydraDCS.H1x/1000; // из ММ -> в М
+        }
+        //создаем объект для ПГ
+        PiezoPlotC piezoPlotPartTN = new PiezoPlotC(Hrasp_ist, 5, Hrasp_ist, tempNamePartTN, tempL,  tempGeo,
+                tempZdanieEtaj, tempHrasp_ist, tempH1x);
+        //делаем расчеты для ПГ
+        piezoData = piezoPlotPartTN.PiezoSolver(piezoPlotPartTN);
+
+        return piezoData;
+    }
+
+    /**
+     * считывание списков с файлов для combobox TNBoiler
+     */
+    public static void dbReadForComboboxBoiler() {
+        try {
+            Statement stmt = DerbyDBParser.con.createStatement();
+            // очищаем список источников и заполняем новыми данными в комбобокс
+            listTNBoiler.clear();
+            ResultSet rsQuerySourceBox = stmt.executeQuery("select [NAMEboiler] from [PiezoDerbyDB].[dbo].[BOILER]");
+            while (rsQuerySourceBox.next()) {
+                listTNBoiler.add(rsQuerySourceBox.getString("NAMEboiler"));
+            }
+        }
+        catch (SQLException sqlE) {
+            //логируем исключения
+            Logger.getLogger(DerbyDBParser.class.getName()).log(Level.SEVERE, null, sqlE);
+        }
+
+    }
+    /**
+     * считывание списков с файлов для combobox TNMain
+     */
+    public static void dbReadForComboboxTNMain(String conditionBoiler) {
+        try {
+            Statement stmt = DerbyDBParser.con.createStatement();
+            // очистка от старых данных
+            listTNMain.clear();
+            //считывание списков магистральных тс
+            // из базы данных
+            String myQueryTNMains = "select NAMEtnmain " +
+                    "from [PiezoDerbyDB].[dbo].[TNMAIN] " +
+                    "where [IDboiler] = (select [IDboiler] from [PiezoDerbyDB].[dbo].[BOILER] " +
+                    "where [NAMEboiler] = '" + conditionBoiler + "' )";
+            ResultSet rsQueryCBox = stmt.executeQuery(myQueryTNMains);
+            while (rsQueryCBox.next()) {
+                listTNMain.add(rsQueryCBox.getString("NAMEtnmain"));
+            }
+        }
+        catch (SQLException sqlE) {
+            //логируем исключения
+            Logger.getLogger(DerbyDBParser.class.getName()).log(Level.SEVERE, null, sqlE);
+        }
+
+    }
+
+    /**
+     * считвание списков с файлов для combobox TNBranching
+     */
+    public static void dbReadForComboboxTNBranch(String conditionBoiler, String conditionTNMain) {
+        try {
+            Statement stmt = DerbyDBParser.con.createStatement();
+            // очистка от старых данных
+            listTNBranch.clear();
+            //считывание списков ответвлений для всех combobox
+            // из базы данных
+            String myQueryTNBranches = "select NAMEtnbranch " +
+                    "from [PiezoDerbyDB].[dbo].[TNBRANCH] " +
+                    "where [IDtnmain] = (select [IDtnmain] " +
+                    "from [PiezoDerbyDB].[dbo].[TNMAIN] " +
+                    "where [NAMEtnmain] = '" + conditionTNMain + "' "+
+                    "and [IDboiler] = (select [IDboiler] from [PiezoDerbyDB].[dbo].[BOILER] " +
+                    "where [NAMEboiler] = '" + conditionBoiler + "') )";
+            ResultSet rsQueryCBox = stmt.executeQuery(myQueryTNBranches);
+            while (rsQueryCBox.next()) {
+                listTNBranch.add(rsQueryCBox.getString("NAMEtnbranch"));
+            }
+        }
+        catch (SQLException sqlE) {
+            //логируем исключения
+            Logger.getLogger(DerbyDBParser.class.getName()).log(Level.SEVERE, null, sqlE);
+        }
+
+    }
+
+    /**
+     * считвание списков из БД участков Part
+     */
+    public static void dbReadPart(String conditionBoiler, String conditionTNMain, String conditionBranch) {
+        try {
+            Statement stmt = DerbyDBParser.con.createStatement();
+            // очистка от старых данных
+            listTNPart.clear();
+            //считывание из базы данных
+            String myQueryTNPart = "select [NAMEtnpart] from [dbo].[TNPART] \n" +
+                    "where [IDtnbranch] = (select [IDtnbranch] from [dbo].[TNBRANCH] \n" +
+                    "where [NAMEtnbranch] = '" + conditionBranch + "' \n" +
+                    "and  [IDtnmain] = (select [IDtnmain] from [dbo].[TNMAIN] where [NAMEtnmain] = '" + conditionTNMain + "' \n" +
+                    "and [IDboiler] = (select [IDboiler] from [dbo].[BOILER] where [NAMEboiler] = '" + conditionBoiler + "') ) )";
+            ResultSet rsQueryCBox = stmt.executeQuery(myQueryTNPart);
+            while (rsQueryCBox.next()) {
+                listTNPart.add(rsQueryCBox.getString("NAMEtnpart"));
+            }
+            // очистка от старых данных
+            listTNPart_All_in_TNBoiler.clear();
+            //считывание из базы данных
+            String myQueryTNPredPart = "select [IDtnpart],[NAMEtnpart] " +
+                    "from [dbo].[TNPART] " +
+                    "where [IDtnbranch] IN (select [IDtnbranch] " +
+                    "from [dbo].[TNBRANCH] " +
+                    "where [IDtnmain] IN (select [IDtnmain] " +
+                    "from [dbo].[TNMAIN] " +
+                    "where [IDboiler] = (select [IDboiler] " +
+                    "from [dbo].[BOILER] " +
+                    "where [NAMEboiler] = '" + conditionBoiler + "' ) ) ) ";
+
+            rsQueryCBox = stmt.executeQuery(myQueryTNPredPart);
+            while (rsQueryCBox.next()) {
+                listTNPart_All_in_TNBoiler.add(rsQueryCBox.getString("NAMEtnpart"));
+            }
+        }
+        catch (SQLException sqlE) {
+            //логируем исключения
+            Logger.getLogger(DerbyDBParser.class.getName()).log(Level.SEVERE, null, sqlE);
+        }
+
+    }
+
+    //UPDATE DATA
     //-запись гидравлической таблицы в БД
     public static void writeTableHydra(HydraC HydraEditData) {
         try {
@@ -458,6 +605,7 @@ public class DerbyDBParser {
         }
     }
 
+    //ADD DATA
     //запись-добавить данных о котельной в БД
     public static void writeAddBoilerData(String NameBoiler) {
         try {
@@ -497,7 +645,7 @@ public class DerbyDBParser {
         }
     }
 
-    //запись-добавить данных ответвления в БД
+    //запись-добавить данных участков в БД
     public static void writeAddPartData(String NameTNBoiler, String NameTNMain, String NameTNBranch, String NameTNPart,
                                      String NameTNPartPred,
                                      double DField,
@@ -572,152 +720,193 @@ public class DerbyDBParser {
         }
     }
 
-
-
-
-    //расчет для ПГ
-    public static ArrayList parsePiezoPlot(ArrayList HydraData) {
-        //считываем данные на входе с использованием временных переменных
-        String[] tempNamePartTN = new String[HydraData.size()];
-        double[] tempL = new double[HydraData.size()];
-        double[] tempGeo = new double[HydraData.size()];
-        double[] tempZdanieEtaj = new double[HydraData.size()];
-        double tempHrasp_ist = 0;
-        double[] tempH1x = new double[HydraData.size()];
-        HydraDataClassStruct objHydraDCS;
-        for (int i = 0; i < HydraData.size(); i++)
-        {
-            objHydraDCS = (HydraDataClassStruct)HydraData.get(i);
-            tempNamePartTN[i] = objHydraDCS.NamePartTN;
-            tempL[i] = objHydraDCS.L;
-            tempGeo[i] = objHydraDCS.Geo;
-            tempZdanieEtaj[i] = objHydraDCS.ZdanieEtaj;
-            tempHrasp_ist = objHydraDCS.Hrasp_ist;
-            tempH1x[i] = objHydraDCS.H1x/1000; // из ММ -> в М
-        }
-        //создаем объект для ПГ
-        PiezoPlotC piezoPlotPartTN = new PiezoPlotC(Hrasp_ist, 5, Hrasp_ist, tempNamePartTN, tempL,  tempGeo,
-                tempZdanieEtaj, tempHrasp_ist, tempH1x);
-        //делаем расчеты для ПГ
-        piezoData = piezoPlotPartTN.PiezoSolver(piezoPlotPartTN);
-
-        return piezoData;
-    }
-
-    /**
-     * считывание списков с файлов для combobox TNBoiler
-     */
-    public static void dbReadForComboboxBoiler() {
+    //DELETE DATA
+    //удаление данных tnboiler в БД
+    public static void writeDeleteBoilerData(String NameBoiler) {
         try {
-            Statement stmt = DerbyDBParser.con.createStatement();
-            // очищаем список источников и заполняем новыми данными в комбобокс
-            listTNBoiler.clear();
-            ResultSet rsQuerySourceBox = stmt.executeQuery("select [NAMEboiler] from [PiezoDerbyDB].[dbo].[BOILER]");
-            while (rsQuerySourceBox.next()) {
-                listTNBoiler.add(rsQuerySourceBox.getString("NAMEboiler"));
-            }
-        }
-        catch (SQLException sqlE) {
-            //логируем исключения
+            CallableStatement callProcStmt = con.prepareCall("{ call AddBoiler(?) }");
+            callProcStmt.setString(1, NameBoiler);
+            callProcStmt.execute();
+        } catch (SQLException sqlE) {
             Logger.getLogger(DerbyDBParser.class.getName()).log(Level.SEVERE, null, sqlE);
         }
-
-    }
-    /**
-     * считывание списков с файлов для combobox TNMain
-     */
-    public static void dbReadForComboboxTNMain(String conditionBoiler) {
-        try {
-            Statement stmt = DerbyDBParser.con.createStatement();
-            // очистка от старых данных
-            listTNMain.clear();
-            //считывание списков магистральных тс
-            // из базы данных
-            String myQueryTNMains = "select NAMEtnmain " +
-                    "from [PiezoDerbyDB].[dbo].[TNMAIN] " +
-                    "where [IDboiler] = (select [IDboiler] from [PiezoDerbyDB].[dbo].[BOILER] " +
-                                        "where [NAMEboiler] = '" + conditionBoiler + "' )";
-            ResultSet rsQueryCBox = stmt.executeQuery(myQueryTNMains);
-            while (rsQueryCBox.next()) {
-                listTNMain.add(rsQueryCBox.getString("NAMEtnmain"));
-            }
-        }
-        catch (SQLException sqlE) {
-            //логируем исключения
-            Logger.getLogger(DerbyDBParser.class.getName()).log(Level.SEVERE, null, sqlE);
-        }
-
     }
 
-    /**
-     * считвание списков с файлов для combobox TNBranching
-     */
-    public static void dbReadForComboboxTNBranch(String conditionBoiler, String conditionTNMain) {
+    //удаление данных tnmain в БД
+    public static void writeDeleteMainData(String NameBoiler, String NameMain) {
         try {
-            Statement stmt = DerbyDBParser.con.createStatement();
-            // очистка от старых данных
-            listTNBranch.clear();
-            //считывание списков ответвлений для всех combobox
-            // из базы данных
-            String myQueryTNBranches = "select NAMEtnbranch " +
-                    "from [PiezoDerbyDB].[dbo].[TNBRANCH] " +
-                    "where [IDtnmain] = (select [IDtnmain] " +
-                                        "from [PiezoDerbyDB].[dbo].[TNMAIN] " +
-                                        "where [NAMEtnmain] = '" + conditionTNMain + "' "+
-                                        "and [IDboiler] = (select [IDboiler] from [PiezoDerbyDB].[dbo].[BOILER] " +
-                                                            "where [NAMEboiler] = '" + conditionBoiler + "') )";
-            ResultSet rsQueryCBox = stmt.executeQuery(myQueryTNBranches);
-            while (rsQueryCBox.next()) {
-                listTNBranch.add(rsQueryCBox.getString("NAMEtnbranch"));
-            }
-        }
-        catch (SQLException sqlE) {
-            //логируем исключения
+            CallableStatement callProcStmt = con.prepareCall("{ call AddMain(?,?) }");
+            callProcStmt.setString(1, NameBoiler);
+            callProcStmt.setString(2, NameMain);
+            callProcStmt.execute();
+
+        } catch (SQLException sqlE) {
             Logger.getLogger(DerbyDBParser.class.getName()).log(Level.SEVERE, null, sqlE);
         }
-
     }
 
-    /**
-     * считвание списков из БД участков Part
-     */
-    public static void dbReadPart(String conditionBoiler, String conditionTNMain, String conditionBranch) {
+    //удаление данных tnbranch в БД
+    public static void writeDeleteBranchData( String NameBoiler, String NameMain, String NameBranch,Double hrasp_ist) {
         try {
-            Statement stmt = DerbyDBParser.con.createStatement();
-            // очистка от старых данных
-            listTNPart.clear();
-            //считывание из базы данных
-            String myQueryTNPart = "select [NAMEtnpart] from [dbo].[TNPART] \n" +
-                                   "where [IDtnbranch] = (select [IDtnbranch] from [dbo].[TNBRANCH] \n" +
-                                                         "where [NAMEtnbranch] = '" + conditionBranch + "' \n" +
-                                                         "and  [IDtnmain] = (select [IDtnmain] from [dbo].[TNMAIN] where [NAMEtnmain] = '" + conditionTNMain + "' \n" +
-                                                         "and [IDboiler] = (select [IDboiler] from [dbo].[BOILER] where [NAMEboiler] = '" + conditionBoiler + "') ) )";
-            ResultSet rsQueryCBox = stmt.executeQuery(myQueryTNPart);
-            while (rsQueryCBox.next()) {
-                listTNPart.add(rsQueryCBox.getString("NAMEtnpart"));
-            }
-            // очистка от старых данных
-            listTNPart_All_in_TNBoiler.clear();
-            //считывание из базы данных
-            String myQueryTNPredPart = "select [IDtnpart],[NAMEtnpart] " +
-                    "from [dbo].[TNPART] " +
-                    "where [IDtnbranch] IN (select [IDtnbranch] " +
-                                            "from [dbo].[TNBRANCH] " +
-                                            "where [IDtnmain] IN (select [IDtnmain] " +
-                                                                "from [dbo].[TNMAIN] " +
-                                                                "where [IDboiler] = (select [IDboiler] " +
-                                                                                    "from [dbo].[BOILER] " +
-                                                                                    "where [NAMEboiler] = '" + conditionBoiler + "' ) ) ) ";
+            CallableStatement callProcStmt = con.prepareCall("{ call AddBranch(?,?,?,?) }");
+            callProcStmt.setString(1, NameBoiler);
+            callProcStmt.setString(2, NameMain);
+            callProcStmt.setString(3, NameBranch);
+            callProcStmt.setDouble(4, hrasp_ist);
+            callProcStmt.execute();
 
-            rsQueryCBox = stmt.executeQuery(myQueryTNPredPart);
-            while (rsQueryCBox.next()) {
-                listTNPart_All_in_TNBoiler.add(rsQueryCBox.getString("NAMEtnpart"));
-            }
-        }
-        catch (SQLException sqlE) {
-            //логируем исключения
+        } catch (SQLException sqlE) {
             Logger.getLogger(DerbyDBParser.class.getName()).log(Level.SEVERE, null, sqlE);
         }
+    }
 
+    //удаление данных tnpart в БД
+    public static void writeDeletePartData(String NameTNBoiler, String NameTNMain, String NameTNBranch, String NameTNPart,
+                                        String NameTNPartPred,
+                                        double DField,
+                                        double LField,
+                                        double GField,
+                                        double KekvField,
+                                        double GeoField,
+                                        double ZdanieEtajField) {
+        try {
+            CallableStatement callProcStmt = con.prepareCall("{ call AddPart(?,?,?,?,?,?,?,?,?,?) }");
+            callProcStmt.setString(1,NameTNBoiler);
+            callProcStmt.setString(2,NameTNMain);
+            callProcStmt.setString(3,NameTNBranch);
+            callProcStmt.setString(4,NameTNPart);
+            callProcStmt.setDouble(5,DField);
+            callProcStmt.setDouble(6,LField);
+            callProcStmt.setDouble(7,GField);
+            callProcStmt.setDouble(8,KekvField);
+            callProcStmt.setDouble(9,GeoField);
+            callProcStmt.setDouble(10,ZdanieEtajField);
+            callProcStmt.execute();
+
+            if (!NameTNPartPred.isEmpty()) {
+                int IDTNPartRas = 0;
+                int IDTNPartPred = 0;
+                Statement stmt = con.createStatement();
+                // для текущего участка
+                String myQueryTNPartRas =
+                        "select [IDtnpart] " +
+                                "from [dbo].[TNPART] " +
+                                "where [NAMEtnpart] = '" + NameTNPart + "' " +
+                                "and [IDtnbranch] = (select [IDtnbranch] " +
+                                "from [dbo].[TNBRANCH] " +
+                                "where [NAMEtnbranch] = '" + NameTNBranch + "' " +
+                                "and [IDtnmain] = (select [IDtnmain] " +
+                                "from [dbo].[TNMAIN] " +
+                                "where [NAMEtnmain] = '" + NameTNMain + "' " +
+                                "and [IDboiler] = (select [IDboiler] " +
+                                "from [dbo].[BOILER] " +
+                                "where [NAMEboiler] = '" + NameTNBoiler + "' ) ) ); ";
+                ResultSet rsQuerySourceBox = stmt.executeQuery(myQueryTNPartRas);
+                while (rsQuerySourceBox.next()) {
+                    IDTNPartRas = rsQuerySourceBox.getInt("IDtnpart");
+                }
+                // для предыдущего участка
+                // для текущего участка
+                String myQueryTNPredPart =
+                        "select [IDtnpart] " +
+                                "from [dbo].[TNPART] " +
+                                "where [NAMEtnpart] = '" + NameTNPartPred + "' " +
+                                "and [IDtnbranch] = (select [IDtnbranch] " +
+                                "from [dbo].[TNBRANCH] " +
+                                "where [NAMEtnbranch] = '" + NameTNBranch + "' " +
+                                "and [IDtnmain] = (select [IDtnmain] " +
+                                "from [dbo].[TNMAIN] " +
+                                "where [NAMEtnmain] = '" + NameTNMain + "' " +
+                                "and [IDboiler] = (select [IDboiler] " +
+                                "from [dbo].[BOILER] " +
+                                "where [NAMEboiler] = '" + NameTNBoiler + "' ) ) ); ";
+                rsQuerySourceBox = stmt.executeQuery(myQueryTNPredPart);
+                while (rsQuerySourceBox.next()) {
+                    IDTNPartPred = rsQuerySourceBox.getInt("IDtnpart");
+                }
+                callProcStmt = con.prepareCall("{ call AddHydra(?,?) }");
+                callProcStmt.setInt(1, IDTNPartRas);
+                callProcStmt.setInt(2, IDTNPartPred);
+                callProcStmt.execute();
+            }
+
+        } catch (SQLException sqlE) {
+            Logger.getLogger(DerbyDBParser.class.getName()).log(Level.SEVERE, null, sqlE);
+        }
+    }
+
+    //удаление данных tnhydra в БД
+    public static void writeDeleteHydraData(String NameTNBoiler, String NameTNMain, String NameTNBranch, String NameTNPart,
+                                           String NameTNPartPred,
+                                           double DField,
+                                           double LField,
+                                           double GField,
+                                           double KekvField,
+                                           double GeoField,
+                                           double ZdanieEtajField) {
+        try {
+            CallableStatement callProcStmt = con.prepareCall("{ call AddPart(?,?,?,?,?,?,?,?,?,?) }");
+            callProcStmt.setString(1,NameTNBoiler);
+            callProcStmt.setString(2,NameTNMain);
+            callProcStmt.setString(3,NameTNBranch);
+            callProcStmt.setString(4,NameTNPart);
+            callProcStmt.setDouble(5,DField);
+            callProcStmt.setDouble(6,LField);
+            callProcStmt.setDouble(7,GField);
+            callProcStmt.setDouble(8,KekvField);
+            callProcStmt.setDouble(9,GeoField);
+            callProcStmt.setDouble(10,ZdanieEtajField);
+            callProcStmt.execute();
+
+            if (!NameTNPartPred.isEmpty()) {
+                int IDTNPartRas = 0;
+                int IDTNPartPred = 0;
+                Statement stmt = con.createStatement();
+                // для текущего участка
+                String myQueryTNPartRas =
+                        "select [IDtnpart] " +
+                                "from [dbo].[TNPART] " +
+                                "where [NAMEtnpart] = '" + NameTNPart + "' " +
+                                "and [IDtnbranch] = (select [IDtnbranch] " +
+                                "from [dbo].[TNBRANCH] " +
+                                "where [NAMEtnbranch] = '" + NameTNBranch + "' " +
+                                "and [IDtnmain] = (select [IDtnmain] " +
+                                "from [dbo].[TNMAIN] " +
+                                "where [NAMEtnmain] = '" + NameTNMain + "' " +
+                                "and [IDboiler] = (select [IDboiler] " +
+                                "from [dbo].[BOILER] " +
+                                "where [NAMEboiler] = '" + NameTNBoiler + "' ) ) ); ";
+                ResultSet rsQuerySourceBox = stmt.executeQuery(myQueryTNPartRas);
+                while (rsQuerySourceBox.next()) {
+                    IDTNPartRas = rsQuerySourceBox.getInt("IDtnpart");
+                }
+                // для предыдущего участка
+                // для текущего участка
+                String myQueryTNPredPart =
+                        "select [IDtnpart] " +
+                                "from [dbo].[TNPART] " +
+                                "where [NAMEtnpart] = '" + NameTNPartPred + "' " +
+                                "and [IDtnbranch] = (select [IDtnbranch] " +
+                                "from [dbo].[TNBRANCH] " +
+                                "where [NAMEtnbranch] = '" + NameTNBranch + "' " +
+                                "and [IDtnmain] = (select [IDtnmain] " +
+                                "from [dbo].[TNMAIN] " +
+                                "where [NAMEtnmain] = '" + NameTNMain + "' " +
+                                "and [IDboiler] = (select [IDboiler] " +
+                                "from [dbo].[BOILER] " +
+                                "where [NAMEboiler] = '" + NameTNBoiler + "' ) ) ); ";
+                rsQuerySourceBox = stmt.executeQuery(myQueryTNPredPart);
+                while (rsQuerySourceBox.next()) {
+                    IDTNPartPred = rsQuerySourceBox.getInt("IDtnpart");
+                }
+                callProcStmt = con.prepareCall("{ call AddHydra(?,?) }");
+                callProcStmt.setInt(1, IDTNPartRas);
+                callProcStmt.setInt(2, IDTNPartPred);
+                callProcStmt.execute();
+            }
+
+        } catch (SQLException sqlE) {
+            Logger.getLogger(DerbyDBParser.class.getName()).log(Level.SEVERE, null, sqlE);
+        }
     }
 }

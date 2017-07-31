@@ -149,6 +149,20 @@ public class HydraC {
         this.NameTNBranch = new SimpleStringProperty(NameTNBranch);
     }
 
+    // конструктор не полноценный2 - для инфо панели графа
+    public HydraC(String namePartTN, double d, double l, double g, double Geo, double ZdanieEtaj, double dH_fist, double Hrasp_endP) {
+        //исходные данные
+        this.NameTNPartRas = new SimpleStringProperty(namePartTN);
+        this.D = new SimpleDoubleProperty(d);
+        this.L = new SimpleDoubleProperty(l);
+        this.G = new SimpleDoubleProperty(g);
+        this.Geo = new SimpleDoubleProperty(Geo);
+        this.ZdanieEtaj = new SimpleDoubleProperty(ZdanieEtaj);
+        this.dH_fist = new SimpleDoubleProperty(dH_fist);
+        this.Hrasp_endP = new SimpleDoubleProperty(Hrasp_endP);
+    }
+
+
     //NameTNPartRas гетер, сетер, пропер
     public String getNameTNPartRas() {
         return NameTNPartRas.get();

@@ -88,4 +88,19 @@ public class UIAddEditWindowController {
         }
         else main.showEditPartDialog();
     }
+
+    public void BtnTNKolodets() {
+        if (AddMode) {
+            main.showAddKolodetsDialog();
+        }
+        else main.showEditKolodetsDialog();
+    }
+
+    public void BtnTNConsumer() {
+        if (AddMode) {
+            main.showAddConsumerDialog();
+        }
+        else main.showEditConsumerDialog();
+    }
+
 }

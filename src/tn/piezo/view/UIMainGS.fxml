@@ -56,11 +56,13 @@
                      <children>
                         <HBox prefHeight="90.0" prefWidth="798.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#handleEditDataBaseBtn" prefHeight="25.0" prefWidth="80.0" text="Изменить" textAlignment="CENTER" wrapText="true" />
-                              <Button mnemonicParsing="false" onAction="#handleAddBtn" prefHeight="25.0" prefWidth="80.0" text="Добавить" textAlignment="CENTER" wrapText="true" />
-                              <Button mnemonicParsing="false" onAction="#handleDeleteBtn" prefHeight="25.0" prefWidth="80.0" text="Удалить" textAlignment="CENTER" wrapText="true" />
-                              <Button mnemonicParsing="false" onAction="#GetDataSensorBtn" prefHeight="25.0" prefWidth="80.0" text="Датчики" textAlignment="CENTER" wrapText="true" />
-                              <Button mnemonicParsing="false" onAction="#CurSchemeBtn" prefHeight="25.0" prefWidth="140.0" text="Расчетная схема" textAlignment="CENTER" wrapText="true" />
+                              <Button maxWidth="100.0" minWidth="75.0" mnemonicParsing="false" onAction="#handleEditDataBaseBtn" prefHeight="25.0" prefWidth="80.0" text="Изменить" textAlignment="CENTER" wrapText="true" />
+                              <Button maxWidth="100.0" minWidth="75.0" mnemonicParsing="false" onAction="#handleAddBtn" prefHeight="25.0" prefWidth="80.0" text="Добавить" textAlignment="CENTER" wrapText="true" />
+                              <Button maxWidth="100.0" minWidth="75.0" mnemonicParsing="false" onAction="#handleDeleteBtn" prefHeight="25.0" prefWidth="80.0" text="Удалить" textAlignment="CENTER" wrapText="true" />
+                              <Button maxWidth="100.0" minWidth="75.0" mnemonicParsing="false" onAction="#GetDataSensorBtn" prefHeight="25.0" prefWidth="80.0" text="Датчики" textAlignment="CENTER" wrapText="true" />
+                              <Button maxWidth="100.0" minWidth="75.0" mnemonicParsing="false" onAction="#SchemeBtn" prefHeight="25.0" prefWidth="140.0" text="Схема" textAlignment="CENTER" wrapText="true" />
+                              <Button layoutX="355.0" layoutY="10.0" maxWidth="100.0" minWidth="75.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Потребители" textAlignment="CENTER" wrapText="true" />
+                              <Button maxWidth="100.0" minWidth="75.0" mnemonicParsing="false" onAction="#ReportBtn" prefHeight="25.0" prefWidth="140.0" text="Отчеты" textAlignment="CENTER" wrapText="true" />
                               <HBox>
                                  <children>
                                     <Label alignment="CENTER" contentDisplay="CENTER" text="H = " textAlignment="CENTER">
