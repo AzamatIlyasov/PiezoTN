@@ -64,6 +64,30 @@ public class PiezoPlotC {
             }
 
         }
+
         return piezoData;
+    }
+
+    public String PiezoAnalise() {
+        String resultAnalise = "Рекомендации к пьезометрическому графику \n";
+        String analiseStr = "";
+        int j = 1;
+        for (int i = 0; i < ZdanieEtaj.length; i++) {
+            if (HraspObrat[i]>60) {
+                analiseStr += j + ". Напор в обратном трубопроводе на участке " + NamePartTN[i] +
+                        " превышает допустимые 60м., и составляет " + HraspObrat[i] + "м \n";
+                j++;
+            }
+            if ((HraspObrat[i] - ZdanieEtaj[i] * 3)<5) {
+                analiseStr += j + ". Не обеспечивается избыточность напора на участке " + NamePartTN[i] +
+                        " и составляет " + HraspObrat[i] + "м " +
+                        " Минимальный напор во избежания подсоса воздуха: " + ((ZdanieEtaj[i] * 3)+5) + "м \n";
+                j++;
+            }
+
+        }
+
+        resultAnalise += analiseStr;
+        return resultAnalise;
     }
 }

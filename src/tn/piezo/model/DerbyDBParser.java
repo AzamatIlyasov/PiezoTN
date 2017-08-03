@@ -25,6 +25,7 @@ public class DerbyDBParser {
     private static double[] ZdanieEtaj = null;
     private static double Hrasp_ist;
     //доп сведения
+    public static String TextAnalizePiezoPlot = null;
     public static String NameTNBoiler = null;
     public static String NameTNMain = null;
     public static String NameTNBranch = null;
@@ -317,6 +318,7 @@ public class DerbyDBParser {
                 tempZdanieEtaj, tempHrasp_ist, tempH1x);
         //делаем расчеты для ПГ
         piezoData = piezoPlotPartTN.PiezoSolver(piezoPlotPartTN);
+        TextAnalizePiezoPlot = piezoPlotPartTN.PiezoAnalise();
 
         return piezoData;
     }
