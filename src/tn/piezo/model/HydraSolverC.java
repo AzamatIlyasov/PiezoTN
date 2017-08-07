@@ -1,48 +1,70 @@
 package tn.piezo.model;
 
-import javafx.beans.property.StringProperty;
-
 import java.util.ArrayList;
 
 /**
  * Created by Azamat Ilyasov on 05.02.2017.
+ * класс - решатель для гидравлической таблицы
  */
 public class HydraSolverC {
 
     // переменные - исходные данные для расчета
-    String[] NamePartTN;
-    String[] NamePartTNpred;
-    double[] D;
-    double[] L;
-    double[] G;
-    double[] Kekv;
-    double Hrasp_ist;
-    double[] Geo;
-    double[] ZdanieEtaj;
-    int n; // нумерация участков
+    public String[] NamePartTN;
+    public String[] NamePartTNpred;
+    public double[] D;
+    public double[] L;
+    public double[] G;
+    public double[] Kekv;
+    public double[] Geo;
+    public double[] ZdanieEtaj;
+
+    private double Hrasp_ist;
+    private int n; // нумерация участков
 
     // переменные - результаты расчета
-    double[] W;
-    double[] Rud;
-    double[] b;
-    double[] Rrash;
-    double[] Hl;
-    double[] Hm;
-    double[] H1x;
-    double[] H2x;
-    double[] dH_fist; //падение напора от источника
-    double[] Hrasp_endP; // падение напора в конце участка
-    double dHsum; // суммарные потери напора
+    private double[] W;
+    private double[] Rud;
+    private double[] b;
+    private double[] Rrash;
+    private double[] Hl;
+    private double[] Hm;
+    private double[] H1x;
+    private double[] H2x;
+    private double[] dH_fist; //падение напора от источника
+    private double[] Hrasp_endP; // падение напора в конце участка
+    private double dHsum; // суммарные потери напора
+    //дополнительные сведения
+    public String BoilerName;
+    public String MainName;
+    public String BranchName;
 
     // постоянные величины
     private final double g = 9.81;
     private final double pi = 3.1416;
-    double ro = 97.6554;
-    double gamma = 958; //gamma = ro*g
+    private double ro = 97.6554;
+    private double gamma = 958; //gamma = ro*g
 
+    //1 конструктор
     public HydraSolverC(String[] NamePartTN, String[] NamePartTNpred, double[] D, double[] L, double[] G, double[] Kekv,
-                 double[] Geo, double[] ZdanieEtaj,
-                 double Hrasp_ist) {
+                 double[] Geo, double[] ZdanieEtaj, String BoilerName, String MainName, String BranchName) {
+        this.NamePartTN = NamePartTN;
+        this.NamePartTNpred = NamePartTNpred;
+        this.D = D;
+        this.L = L;
+        this.G = G;
+        this.Kekv = Kekv;
+        this.Hrasp_ist = Hrasp_ist;
+        this.Geo = Geo;
+        this.ZdanieEtaj = ZdanieEtaj;
+
+        this.BoilerName = BoilerName;
+        this.MainName = MainName;
+        this.BranchName = BranchName;
+    }
+    //2 конструктор полный с учетом Hrasp_ist
+    public HydraSolverC(String[] NamePartTN, String[] NamePartTNpred, double[] D, double[] L, double[] G, double[] Kekv,
+                        double[] Geo, double[] ZdanieEtaj,
+                        double Hrasp_ist, String BoilerName, String MainName, String BranchName) {
         this.NamePartTN = NamePartTN;
         this.NamePartTNpred = NamePartTNpred;
         this.D = D;
@@ -65,7 +87,9 @@ public class HydraSolverC {
         this.dH_fist = new double[n];
         this.Hrasp_endP = new double[n];
         this.dHsum = 0;
-
+        this.BoilerName = BoilerName;
+        this.MainName = MainName;
+        this.BranchName = BranchName;
     }
 
     public ArrayList HydraPartTN (HydraSolverC partTN) {
@@ -102,7 +126,10 @@ public class HydraSolverC {
                                                  H1x[i],
                                                  H2x[i],
                                                  dH_fist[i], //падение напора от источника
-                                                 Hrasp_endP[i]
+                                                 Hrasp_endP[i],
+                                                 BoilerName,
+                                                 MainName,
+                                                 BranchName
                                                 ) );
 
         }

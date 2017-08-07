@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="PiezoTN" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/reporter/ItemTables.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/reporter/ItemTables.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/PiezoTN/PiezoTN.jar" afterPath="$PROJECT_DIR$/out/artifacts/PiezoTN/PiezoTN.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/resources/template_HydraTable.jasper" afterPath="$PROJECT_DIR$/out/production/PiezoTN/resources/template_HydraTable.jasper" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/resources/test.png" afterPath="$PROJECT_DIR$/out/production/PiezoTN/resources/test.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/template_HydraTable.jasper" afterPath="$PROJECT_DIR$/out/production/PiezoTN/template_HydraTable.jasper" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/test.png" afterPath="$PROJECT_DIR$/out/production/PiezoTN/test.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/DerbyDBParser.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/DerbyDBParser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/PiezoPlotC.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/PiezoPlotC.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/reporter/Item.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/reporter/Item.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/reporter/PrintReport.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/reporter/PrintReport.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/reporter/TestWindowListener.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/reporter/TestWindowListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/test.png" afterPath="$PROJECT_DIR$/resources/test.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/PiezoTN/PiezoTN.jnlp" afterPath="$PROJECT_DIR$/out/artifacts/PiezoTN/PiezoTN.jnlp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/resources/template_HydraTable.jrxml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/resources/template_HydraTable.jrxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/DerbyDBParser.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/DerbyDBParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/PiezoPlotC.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/PiezoPlotC.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/reporter/Item.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/reporter/Item.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/reporter/PrintReport.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/reporter/PrintReport.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/template_HydraTable.jrxml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/template_HydraTable.jrxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/model/PiezoPlotC.java" afterPath="$PROJECT_DIR$/src/tn/piezo/model/PiezoPlotC.java" />
+=======
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="работает все. &#10;---перед работай на БД SQL PiezoDB---">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/poi_3.xml" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/Main.class" afterPath="" />
@@ -20,6 +51,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/PiezoDataClassStructure.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/PiezoPlotC.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+>>>>>>> master
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -86,7 +118,6 @@
     <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
   </component>
@@ -95,19 +126,87 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tn/piezo/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="26" column="40" lean-forward="false" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+<<<<<<< HEAD
+            <state relative-caret-position="1173">
+              <caret line="104" column="37" lean-forward="false" selection-start-line="104" selection-start-column="37" selection-end-line="104" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PiezoPlotC.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/PiezoPlotC.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="387">
+              <caret line="88" column="29" lean-forward="false" selection-start-line="88" selection-start-column="29" selection-end-line="88" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="PrintReport.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tn/reporter/PrintReport.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="782">
+              <caret line="67" column="37" lean-forward="false" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Item.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tn/reporter/Item.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="629">
+              <caret line="59" column="20" lean-forward="false" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+              <folding>
+                <element signature="e#1093#1094#0" expanded="true" />
+                <element signature="e#1133#1134#0" expanded="true" />
+              </folding>
+=======
+            <state relative-caret-position="136">
+              <caret line="26" column="40" lean-forward="false" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+              <folding />
+>>>>>>> master
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
+      <file leaf-file-name="DerbyDBParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/DerbyDBParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5338">
+              <caret line="320" column="52" lean-forward="false" selection-start-line="320" selection-start-column="52" selection-end-line="320" selection-end-column="52" />
+              <folding>
+                <marker date="1501739124888" expanded="true" signature="6029:6083" ph="select [NAME... " />
+                <marker date="1501739124888" expanded="true" signature="14455:14509" ph="select [NAME... " />
+                <marker date="1501739124888" expanded="true" signature="15250:15499" ph="select NAMEt... " />
+                <marker date="1501739124888" expanded="true" signature="16347:16793" ph="select NAMEt... " />
+                <marker date="1501739124888" expanded="true" signature="17584:18056" ph="select [NAME... " />
+                <marker date="1501739124888" expanded="true" signature="18421:18906" ph="select [IDtn... " />
+                <marker date="1501739124888" expanded="true" signature="23712:24299" ph="select [IDtn... " />
+                <marker date="1501739124888" expanded="true" signature="25208:26012" ph="select [IDtn... " />
+                <marker date="1501739124888" expanded="true" signature="26349:27154" ph="select [IDtn... " />
+                <marker date="1501739124888" expanded="true" signature="30856:31850" ph="select [IDtn... " />
+                <marker date="1501739124888" expanded="true" signature="32227:33205" ph="select [IDtn... " />
+                <marker date="1501739124888" expanded="true" signature="36903:37701" ph="select [IDtn... " />
+                <marker date="1501739124888" expanded="true" signature="38078:38880" ph="select [IDtn... " />
+                <marker date="1501739124888" expanded="true" signature="41001:41799" ph="select [IDtn... " />
+                <marker date="1501739124888" expanded="true" signature="42176:42978" ph="select [IDtn... " />
+              </folding>
+=======
       <file leaf-file-name="ExcelParser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/ExcelParser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
               <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
               <folding />
+>>>>>>> master
             </state>
           </provider>
         </entry>
@@ -118,11 +217,20 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="XSLT Stylesheet" />
-        <option value="JavaFXApplication" />
         <option value="fxml" />
+        <option value="JavaFXApplication" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>DBParser</find>
+      <find>SelectTableDataFromDB</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>DerbyDBParser</replace>
+    </replaceStrings>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -139,6 +247,32 @@
       </map>
     </option>
     <option name="WARN_ABOUT_CRLF" value="false" />
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/features" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -148,32 +282,59 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/sample/GS_ui.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/HydroSolver_class.java" />
-        <option value="$PROJECT_DIR$/src/sample/ClickHydraLaunch.java" />
-        <option value="$PROJECT_DIR$/src/sample/ExcelParser.java" />
-        <option value="$PROJECT_DIR$/src/sample/HydraSolverC.java" />
-        <option value="$PROJECT_DIR$/src/sample/PiezoPlotC.java" />
-        <option value="$PROJECT_DIR$/src/sample/Main.java" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/view/GS_ui.fxml" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/view/GSEdit.fxml" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/view/GSEditController.java" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/view/GSOverview.fxml" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/GSEditDialogController.java" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/view/GSEditDialog.fxml" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/view/GS_uiController.java" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/view/GSOverviewController.java" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/view/GSEditDialogController.java" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/controller/Controller.java" />
-        <option value="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/view/PiezoGraphic.fxml" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/view/PiezoGraphic.fxml" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/controller/GS_uiController.java" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/view/DarkTheme.css" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/view/MainGSUI.fxml" />
+        <option value="$PROJECT_DIR$/src/fxgraph/layout/random/RandomLayout.java" />
+        <option value="$PROJECT_DIR$/src/fxgraph/graph/Graph.java" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/view/UIMainGS.fxml" />
+        <option value="$PROJECT_DIR$/src/tnfxgraph/fxgraph/graph/Graph.java" />
+        <option value="$PROJECT_DIR$/src/fxgraph/cells/NodeCell.java" />
+        <option value="$PROJECT_DIR$/src/tnfxgraph/graph/CellType.java" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/view/UIAddEditWindow.fxml" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/controller/UIAddEditWindowController.java" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/view/UIDeleteWindow.fxml" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/controller/TNKolodets/TNConsumer/UIDeleteTNConsumerController.java" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/controller/TNKolodets/UIAddTNConsumerController.java" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/controller/TNKolodets/UIAddTNKolodetsController.java" />
+        <option value="$PROJECT_DIR$/src/tnfxgraph/cells/ImageCell.java" />
+        <option value="$PROJECT_DIR$/src/tnfxgraph/cells/PipeCell.java" />
+        <option value="$PROJECT_DIR$/src/tnfxgraph/cells/PumpCell.java" />
+        <option value="$PROJECT_DIR$/src/tnfxgraph/cells/SourceWaterCell.java" />
+        <option value="$PROJECT_DIR$/src/tnfxgraph/cells/TankCell.java" />
+        <option value="$PROJECT_DIR$/src/tnfxgraph/cells/ValveCell.java" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/view/UIAddTNKolodets.fxml" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/view/UIDeleteTNKolodets.fxml" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/view/UIEditTNKolodets.fxml" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/controller/UIDeleteWindowController.java" />
+        <option value="$PROJECT_DIR$/src/tnfxgraph/cells/NodeCell.java" />
+        <option value="$PROJECT_DIR$/src/tnfxgraph/graph/Model.java" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/view/UINodeInfoWindow.fxml" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/controller/TNPart/UINodeInfoWindowController.java" />
+        <option value="$PROJECT_DIR$/src/tnfxgraph/graph/view/UISchemeGraphTN.fxml" />
+        <option value="$PROJECT_DIR$/src/tnfxgraph/graph/MouseGesturesContr.java" />
+        <option value="$PROJECT_DIR$/src/tnfxgraph/graph/GraphController.java" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/view/UISchemeGraphTN.fxml" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/view/UITNSchemeGraph.fxml" />
+        <option value="$PROJECT_DIR$/src/tnfxgraph/layout/random/RandomLayout.java" />
+        <option value="$PROJECT_DIR$/src/tnfxgraph/layout/base/Layout.java" />
+        <option value="$PROJECT_DIR$/src/tnfxgraph/layout/random/SortLayout.java" />
+        <option value="$PROJECT_DIR$/src/tnfxgraph/graph/MouseGestures.java" />
+        <option value="$PROJECT_DIR$/src/tnfxgraph/graph/Graph.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/model/HydraC.java" />
-        <option value="$PROJECT_DIR$/src/tn/piezo/controller/GSEditDialogController.java" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/controller/UITNSchemeGraphController.java" />
+        <option value="$PROJECT_DIR$/src/tnfxgraph/graph/Cell.java" />
+        <option value="$PROJECT_DIR$/src/tn/fxgraph/graph/Model.java" />
+        <option value="$PROJECT_DIR$/src/tn/reporter/dynamicreports/examples/Templates.java" />
+        <option value="$PROJECT_DIR$/src/tn/reporter/dynamicreports/examples/complex/sales/SalesDesign.java" />
+        <option value="$PROJECT_DIR$/src/tn/reporter/dynamicreports/examples/complex/sales/SalesData.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/model/HydraDataClassStruct.java" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/src/tn/reporter/ItemTables.java" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/controller/UIMainGSController.java" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/Main.java" />
+        <option value="$PROJECT_DIR$/src/tn/reporter/Item.java" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/model/DerbyDBParser.java" />
+        <option value="$PROJECT_DIR$/src/tn/reporter/PrintReport.java" />
+        <option value="$PROJECT_DIR$/src/tn/piezo/model/PiezoPlotC.java" />
+=======
         <option value="$PROJECT_DIR$/src/tn/piezo/model/PiezoC.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/model/PiezoDataClassStructure.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/model/PiezoPlotC.java" />
@@ -189,6 +350,7 @@
         <option value="$PROJECT_DIR$/src/tn/piezo/controller/notUse_PiezoGraphicController.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/controller/MainGSUIController.java" />
         <option value="$PROJECT_DIR$/src/tn/piezo/model/ExcelParser.java" />
+>>>>>>> master
       </list>
     </option>
   </component>
@@ -198,10 +360,19 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+<<<<<<< HEAD
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:/AZA_DIR/apache-maven-3.5.0" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+=======
+>>>>>>> master
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
-    <option name="y" value="-8" />
     <option name="width" value="1382" />
     <option name="height" value="754" />
   </component>
@@ -224,11 +395,89 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+      <pane id="AndroidView" />
+=======
+>>>>>>> master
       <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
+<<<<<<< HEAD
+          <expand>
+            <path>
+              <item name="PiezoTN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PiezoTN" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PiezoTN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PiezoTN" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PiezoTN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PiezoTN" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tn" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PiezoTN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PiezoTN" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tn" type="462c0819:PsiDirectoryNode" />
+              <item name="piezo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PiezoTN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PiezoTN" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tn" type="462c0819:PsiDirectoryNode" />
+              <item name="piezo" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PiezoTN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PiezoTN" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tn" type="462c0819:PsiDirectoryNode" />
+              <item name="piezo" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PiezoTN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PiezoTN" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tn" type="462c0819:PsiDirectoryNode" />
+              <item name="piezo" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PiezoTN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PiezoTN" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tn" type="462c0819:PsiDirectoryNode" />
+              <item name="reporter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PiezoTN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PiezoTN" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tn" type="462c0819:PsiDirectoryNode" />
+              <item name="reporter" type="462c0819:PsiDirectoryNode" />
+              <item name="PrintReport.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="PiezoTN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+=======
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="PiezoTN" />
@@ -291,6 +540,7 @@
           </PATH>
         </subPane>
       </pane>
+>>>>>>> master
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -304,6 +554,25 @@
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../library/org.apache.commons.collections-3.2.1.jar!/" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.16383617" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="findjar.last.used.dir" value="$PROJECT_DIR$/../library/json" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="piezotn" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/djaza/YandexDisk/Drives/Java and oth pr/IdeaProjects/PiezoTNn/PiezoTN/src/tn/piezo/Main.java" />
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Repository.Attach.JavaDocs" value="true" />
+    <property name="Repository.Attach.Sources" value="true" />
+    <property name="Downloaded.Files.Path" value="C:\Users\djaza\YandexDisk\Drives\Java and oth pr\IdeaProjects\PiezoTNn\library\jasper" />
+=======
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../library/poi-3.15" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -312,24 +581,33 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$/library" />
+>>>>>>> master
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\djaza\YandexDisk\Drives\Java and oth pr\IdeaProjects\PiezoTNn\PiezoTN\src\tn\piezo\view" />
+      <recent name="C:\Users\djaza\YandexDisk\Drives\Java and oth pr\IdeaProjects\PiezoTNn\PiezoTN\src\tnfxgraph\graph\view" />
+      <recent name="C:\Users\djaza\YandexDisk\Drives\Java and oth pr\IdeaProjects\PiezoTNn\PiezoTN\src\tn\piezo\view\TNPart" />
+      <recent name="C:\Users\djaza\YandexDisk\Drives\Java and oth pr\IdeaProjects\PiezoTNn\PiezoTN\src\tn\piezo\view\TNMain" />
+      <recent name="C:\Users\djaza\YandexDisk\Drives\Java and oth pr\IdeaProjects\PiezoTNn\PiezoTN\src\tn\piezo\view\TNBranch" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\djaza\OneDrive\Документы\Java and oth pr\IdeaProjects\PezoTN\src\tn\piezo\view" />
-      <recent name="C:\Users\djaza\IdeaProjects\PezoTN\src\sample" />
+      <recent name="tn.reporter" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="tn.piezo.controller" />
-      <recent name="tn.piezo.model" />
-      <recent name="tn.piezo.view" />
+      <recent name="tnfxgraph.graph" />
+      <recent name="tn.piezo.controller.TNPart" />
+      <recent name="tnfxgraph.layout.random" />
+      <recent name="tnfxgraph.cells" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\djaza\OneDrive\Документы\Java and oth pr\IdeaProjects\PezoTN\src\tn\piezo\view" />
-      <recent name="C:\Users\djaza\OneDrive\Документы\Java and oth pr\IdeaProjects\PezoTN\resources\images" />
-      <recent name="C:\Users\djaza\OneDrive\Документы\Java and oth pr\IdeaProjects\PezoTN\src\tn\piezo" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\djaza\YandexDisk\Drives\Java and oth pr\IdeaProjects\PiezoTNn\PiezoTN\resources" />
+      <recent name="C:\Users\djaza\YandexDisk\Drives\Java and oth pr\IdeaProjects\PiezoTNn\PiezoTN\src\tn\piezo\view" />
+      <recent name="C:\Users\djaza\YandexDisk\Drives\Java and oth pr\IdeaProjects\PiezoTNn\PiezoTN\src\tn\piezo\controller\TNKolodets" />
+      <recent name="C:\Users\djaza\YandexDisk\Drives\Java and oth pr\IdeaProjects\PiezoTNn\PiezoTN\resources\css" />
+      <recent name="C:\Users\djaza\YandexDisk\Drives\Java and oth pr\IdeaProjects\PiezoTNn\PiezoTN\src\tnfxgraph" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -345,10 +623,10 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="tn.piezo.controller.*" />
+          <option name="PATTERN" value="tn.piezo.controller.TNBoiler.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -363,14 +641,171 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="PiezoTN" />
       <envs />
-      <method />
     </configuration>
+<<<<<<< HEAD
+    <configuration name="SalesDesign (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="net.sf.dynamicreports.examples.complex.sales.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="net.sf.dynamicreports.examples.complex.sales.SalesDesign" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration name="SalesDesign" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="tn.reporter.dynamicreports.examples.complex.sales.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="tn.reporter.dynamicreports.examples.complex.sales.SalesDesign" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="PiezoTN" />
+      <envs />
+    </configuration>
+    <configuration name="WwdEmbedded" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="WwdEmbedded" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="PezoTN" />
+      <envs />
+    </configuration>
+=======
+>>>>>>> master
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
-      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
     </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="" />
@@ -425,30 +860,6 @@
         <option name="SUPPORT_LIB_ENABLED" value="true" />
         <option name="INSTRUMENTATION_ENABLED" value="true" />
       </Profilers>
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
@@ -532,6 +943,90 @@
       <envs />
       <method />
     </configuration>
+<<<<<<< HEAD
+=======
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+>>>>>>> master
     <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
       <option name="BCName" value="" />
       <option name="IOSSimulatorSdkPath" value="" />
@@ -597,6 +1092,8 @@
       </ExternalSystemSettings>
       <method />
     </configuration>
+<<<<<<< HEAD
+=======
     <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
       <setting name="vmparams" value="" />
       <setting name="cmdLine" value="run-app" />
@@ -627,6 +1124,7 @@
       <patterns />
       <method />
     </configuration>
+>>>>>>> master
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <envs />
@@ -658,6 +1156,8 @@
     <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
       <config-file value="" />
       <node-interpreter value="project" />
+<<<<<<< HEAD
+=======
       <envs />
       <method />
     </configuration>
@@ -674,7 +1174,11 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="PezoTN" />
+>>>>>>> master
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
@@ -689,6 +1193,9 @@
       <envs />
       <method />
     </configuration>
+<<<<<<< HEAD
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+=======
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -704,32 +1211,15 @@
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
+>>>>>>> master
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
       <envs />
-      <properties />
-      <listeners />
       <method />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
     </configuration>
     <configuration default="true" type="XSLT" factoryName="XSLT">
       <option name="myOutputFile" />
@@ -747,6 +1237,8 @@
       <JdkChoice value="FROM_MODULE" />
       <method />
     </configuration>
+<<<<<<< HEAD
+=======
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -756,6 +1248,7 @@
       <envs />
       <method />
     </configuration>
+>>>>>>> master
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <command value="run" />
       <scripts />
@@ -769,18 +1262,29 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
+<<<<<<< HEAD
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="1" class="java.lang.String" itemvalue="Application.WwdEmbedded" />
+      <item index="2" class="java.lang.String" itemvalue="Application.SalesDesign" />
+      <item index="3" class="java.lang.String" itemvalue="Application.SalesDesign (1)" />
+    </list>
+    <recent_temporary>
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="1" class="java.lang.String" itemvalue="Application.SalesDesign (1)" />
+        <item index="2" class="java.lang.String" itemvalue="Application.SalesDesign" />
+        <item index="3" class="java.lang.String" itemvalue="Application.WwdEmbedded" />
+=======
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list size="1">
         <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+>>>>>>> master
       </list>
     </recent_temporary>
-    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
-      <Host>localhost</Host>
-      <Port>5050</Port>
-    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -796,7 +1300,74 @@
       <workItem from="1492842949081" duration="325000" />
       <workItem from="1493039922594" duration="1337000" />
       <workItem from="1493042569278" duration="1430000" />
+<<<<<<< HEAD
+      <workItem from="1493054802057" duration="406000" />
+      <workItem from="1493108448416" duration="960000" />
+      <workItem from="1493112795053" duration="15360000" />
+      <workItem from="1493182054819" duration="2046000" />
+      <workItem from="1493194495768" duration="25000" />
+      <workItem from="1493194563315" duration="16504000" />
+      <workItem from="1493371436924" duration="17957000" />
+      <workItem from="1493697342877" duration="66000" />
+      <workItem from="1494857513527" duration="1290000" />
+      <workItem from="1494858979286" duration="2433000" />
+      <workItem from="1495173396616" duration="109000" />
+      <workItem from="1495190894955" duration="2585000" />
+      <workItem from="1495432030704" duration="586000" />
+      <workItem from="1495530309356" duration="1094000" />
+      <workItem from="1495531671533" duration="4298000" />
+      <workItem from="1495786718363" duration="5815000" />
+      <workItem from="1495865400139" duration="10815000" />
+      <workItem from="1496026577910" duration="2903000" />
+      <workItem from="1496290621152" duration="2561000" />
+      <workItem from="1496634661528" duration="28193000" />
+      <workItem from="1496733045407" duration="23995000" />
+      <workItem from="1496990346811" duration="1216000" />
+      <workItem from="1497084159844" duration="134000" />
+      <workItem from="1497084384533" duration="686000" />
+      <workItem from="1497262695891" duration="15693000" />
+      <workItem from="1497414663559" duration="13933000" />
+      <workItem from="1497433958523" duration="148000" />
+      <workItem from="1497437157659" duration="4217000" />
+      <workItem from="1497507858310" duration="5808000" />
+      <workItem from="1497708310104" duration="56000" />
+      <workItem from="1498055946337" duration="437000" />
+      <workItem from="1498908180614" duration="608000" />
+      <workItem from="1499669220638" duration="610000" />
+      <workItem from="1500032025961" duration="465000" />
+      <workItem from="1500223746361" duration="1054000" />
+      <workItem from="1500263183399" duration="15000" />
+      <workItem from="1500532943790" duration="621000" />
+      <workItem from="1500607550329" duration="721000" />
+      <workItem from="1500615721890" duration="3861000" />
+      <workItem from="1500870539442" duration="1096000" />
+      <workItem from="1500872936686" duration="8275000" />
+      <workItem from="1500893393462" duration="38000" />
+      <workItem from="1500893503196" duration="201000" />
+      <workItem from="1500893882113" duration="73000" />
+      <workItem from="1500907017124" duration="14619000" />
+      <workItem from="1500982587088" duration="199000" />
+      <workItem from="1500986020765" duration="4550000" />
+      <workItem from="1501045903981" duration="13261000" />
+      <workItem from="1501081795643" duration="3529000" />
+      <workItem from="1501088376521" duration="146000" />
+      <workItem from="1501088982133" duration="2812000" />
+      <workItem from="1501124237930" duration="4319000" />
+      <workItem from="1501130473268" duration="9175000" />
+      <workItem from="1501217855038" duration="13611000" />
+      <workItem from="1501480611204" duration="8258000" />
+      <workItem from="1501492765647" duration="10847000" />
+      <workItem from="1501529368801" duration="4953000" />
+      <workItem from="1501559195551" duration="341000" />
+      <workItem from="1501565675881" duration="2930000" />
+      <workItem from="1501669370664" duration="5610000" />
+      <workItem from="1501820295522" duration="64000" />
+      <workItem from="1501820463168" duration="1663000" />
+      <workItem from="1501835366549" duration="600000" />
+      <workItem from="1502080420597" duration="433000" />
+=======
       <workItem from="1493054802057" duration="78000" />
+>>>>>>> master
     </task>
     <task id="LOCAL-00001" summary="Кооректировка (прокрастинация) исходного кода.">
       <created>1489394858668</created>
@@ -924,11 +1495,131 @@
       <option name="project" value="LOCAL" />
       <updated>1490198749246</updated>
     </task>
+<<<<<<< HEAD
+    <task id="LOCAL-00019" summary="работает все. &#10;---перед работай на БД SQL PiezoDB---">
+      <created>1493054904376</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1493054904376</updated>
+    </task>
+    <task id="LOCAL-00020" summary="работает все. &#10;---перед работай на БД SQL PiezoDB---">
+      <created>1493055039966</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1493055039966</updated>
+    </task>
+    <task id="LOCAL-00021" summary="работает все. &#10;---перед работай на БД SQL PiezoDB---">
+      <created>1493112898756</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1493112898756</updated>
+    </task>
+    <task id="LOCAL-00022" summary="sql-dbPiezo&#10;-- подключение к БД и считывание с таблцицы в БД (inputSampleTable) --">
+      <created>1493118492389</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1493118492389</updated>
+    </task>
+    <task id="LOCAL-00023" summary="sql -&gt; заменяю excelParser на DBParser">
+      <created>1493118918738</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1493118918739</updated>
+    </task>
+    <task id="LOCAL-00024" summary="sql -&gt; работающая программа с первой таблицей из БД">
+      <created>1493121040020</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1493121040020</updated>
+    </task>
+    <task id="LOCAL-00025" summary="sql -&gt; работающая программа1">
+      <created>1493123897464</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1493123897464</updated>
+    </task>
+    <task id="LOCAL-00026" summary="sql -&gt; сделал считывание с базы данных для комбо боксов, исходные данные&#10; из БД тоже считываются и.. &#10; короче работа с базой продолжается">
+      <created>1493129655315</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1493129655315</updated>
+    </task>
+    <task id="LOCAL-00027" summary="sql -&gt; сделал считывание с базы данных для комбо боксов, исходные данные&#10; из БД тоже считываются и.. &#10; короче работа с базой продолжается">
+      <created>1493134675572</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1493134675572</updated>
+    </task>
+    <task id="LOCAL-00028" summary="убрал кусочки кода - убрал warnings">
+      <created>1493271072807</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1493271072807</updated>
+    </task>
+    <task id="LOCAL-00029" summary="разработал БД с диаграммой - подвязал данную прогу с этой базе с соответствующими запросами">
+      <created>1493304846663</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1493304846663</updated>
+    </task>
+    <task id="LOCAL-00030" summary="много чего изменил 8)">
+      <created>1493390334513</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1493390334513</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Добавил возможность редактирование всех существующих данных с внесением их в БД&#10;много чего изменил 8)">
+      <created>1497376091831</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1497376091831</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Добавил возможность добавления информации во все таблицы в БД">
+      <created>1497441345966</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1497441345966</updated>
+    </task>
+    <task id="LOCAL-00033" summary="1- Добавил возможность вывода отчета (с помощью JasperReports)&#10;2- Добавил возможность просматривать граф сети (базовая версия - первая, буду дорабатывать)&#10;3- изменил интерфейс, добавил в базу таблицы -&gt; добавились элементы">
+      <created>1501533561910</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1501533561910</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Добавил вывод рекомендаций для пьезометрического графика в отчете">
+      <created>1501741320463</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1501741320463</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="307369000" />
+=======
     <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="4472000" />
+>>>>>>> master
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -945,12 +1636,26 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32763976" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28617364" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31993568" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18327974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2526475" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4163987" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+=======
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32195845" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24534161" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -965,23 +1670,60 @@
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25519288" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+>>>>>>> master
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26205787" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+=======
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26863354" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+>>>>>>> master
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3264095" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18488745" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
+<<<<<<< HEAD
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+=======
     <option name="processedProjectFiles" value="true" />
+>>>>>>> master
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -999,25 +1741,35 @@
     <MESSAGE value="alfa3 - изменил ПГ (соответствует требованию) &#10; ПГ обновляется при нажатии на кнопку вычеслить" />
     <MESSAGE value="добавил сохранение графика в файл test.png" />
     <MESSAGE value="работает все. &#10;---перед работай на БД SQL PiezoDB---" />
+<<<<<<< HEAD
+    <MESSAGE value="sql-dbPiezo&#10;-- подключение к БД и считывание с таблцицы в БД (inputSampleTable) --" />
+    <MESSAGE value="sql -&gt; заменяю excelParser на DBParser" />
+    <MESSAGE value="sql -&gt; работающая программа с первой таблицей из БД" />
+    <MESSAGE value="sql -&gt; работающая программа1" />
+    <MESSAGE value="sql -&gt; сделал считывание с базы данных для комбо боксов, исходные данные&#10; из БД тоже считываются и.. &#10; короче работа с базой продолжается" />
+    <MESSAGE value="убрал кусочки кода - убрал warnings" />
+    <MESSAGE value="разработал БД с диаграммой - подвязал данную прогу с этой базе с соответствующими запросами" />
+    <MESSAGE value="много чего изменил 8)" />
+    <MESSAGE value="Добавил возможность редактирование всех существующих данных с внесением их в БД&#10;много чего изменил 8)" />
+    <MESSAGE value="Добавил возможность добавления информации во все таблицы в БД" />
+    <MESSAGE value="1- Добавил возможность вывода отчета (с помощью JasperReports)&#10;2- Добавил возможность просматривать граф сети (базовая версия - первая, буду дорабатывать)&#10;3- изменил интерфейс, добавил в базу таблицы -&gt; добавились элементы" />
+    <MESSAGE value="Добавил вывод рекомендаций для пьезометрического графика в отчете" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил вывод рекомендаций для пьезометрического графика в отчете" />
+=======
     <option name="LAST_COMMIT_MESSAGE" value="работает все. &#10;---перед работай на БД SQL PiezoDB---" />
+>>>>>>> master
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/tn/piezo/controller/GSNewTableDialogController.java</url>
-          <line>284</line>
-          <properties />
-          <option name="timeStamp" value="178" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="193" />
+      <option name="time" value="277" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="((TreeMap)((ValueIterator)itRforN).this$0).entrySet().toArray()[29]" custom="java.util.TreeMap,java.util.TreeMap.ValueIterator" />
         <watch expression="((ValueIterator)itRforN).next" custom="java.util.TreeMap.ValueIterator" />
         <watch expression="((double[])((HydraSolverC)this).D)[13]" custom="sample.HydraSolverC,double[]" />
+        <watch expression="((com.microsoft.sqlserver.jdbc.Column[])((SQLServerResultSet)MyQuery).columns)[7]" custom="com.microsoft.sqlserver.jdbc.SQLServerResultSet,com.microsoft.sqlserver.jdbc.Column[]" />
+        <watch expression="((SQLServerResultSet)Query0).stmt" custom="com.microsoft.sqlserver.jdbc.SQLServerResultSet" />
       </configuration>
     </watches-manager>
   </component>
@@ -1038,6 +1790,74 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/UIDataSensorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="40" column="5" lean-forward="true" selection-start-line="32" selection-start-column="4" selection-end-line="40" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tnfxgraph/graph/GraphController.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/javafx/scene/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5372">
+          <caret line="2589" column="16" lean-forward="false" selection-start-line="2589" selection-start-column="16" selection-end-line="2589" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/fxgraph/layout/random/RandomLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/fxgraph/layout/random/SortLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/fxgraph/layout/base/Layout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="35" lean-forward="false" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/fxgraph/graph/CellLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/TNConsumer/UIEditTNConsumerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="97" column="36" lean-forward="false" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/view/UIMainGS.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="84" column="53" lean-forward="false" selection-start-line="84" selection-start-column="35" selection-end-line="84" selection-end-column="53" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/view/UITNSchemeGraph.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="22" column="38" lean-forward="false" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+        </state>
+      </provider>
+=======
     <entry file="file://$PROJECT_DIR$/src/tn/piezo/view/sample.fxml" />
     <entry file="jar://$PROJECT_DIR$/../poi-3.15/poi-3.15.jar!/org/apache/poi/hssf/usermodel/HSSFCell.class" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/javafx/util/Callback.java" />
@@ -1061,102 +1881,189 @@
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/Object.java" />
     <entry file="file://$PROJECT_DIR$/src/tn/piezo/view/PiezoGraphic.fxml" />
     <entry file="file://$PROJECT_DIR$/src/tn/piezo/view/GSOverview.fxml">
+>>>>>>> master
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/fxgraph/graph/Cell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="139" lean-forward="false" selection-start-line="13" selection-start-column="83" selection-end-line="13" selection-end-column="139" />
+        <state relative-caret-position="578">
+          <caret line="65" column="33" lean-forward="false" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tn/piezo/view/GSEditDialog.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/tn/fxgraph/graph/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-476">
-          <caret line="11" column="235" lean-forward="false" selection-start-line="11" selection-start-column="235" selection-end-line="11" selection-end-column="235" />
+        <state relative-caret-position="2040">
+          <caret line="210" column="21" lean-forward="false" selection-start-line="210" selection-start-column="21" selection-end-line="210" selection-end-column="21" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/tn/fxgraph/graph/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="43" lean-forward="false" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/reporter/dynamicreports/examples/Templates.java" />
+    <entry file="file://$PROJECT_DIR$/src/tn/reporter/dynamicreports/examples/column/PercentageColumnWidthReport.java" />
+    <entry file="file://$PROJECT_DIR$/src/tn/reporter/dynamicreports/examples/expression/SimpleExpressionReport.java" />
+    <entry file="file://$PROJECT_DIR$/src/tn/reporter/dynamicreports/examples/chartcustomization/ChartCustomizerReport.java" />
+    <entry file="file://$PROJECT_DIR$/src/tn/reporter/dynamicreports/examples/miscellaneous/ScriptletReport.java" />
+    <entry file="file://$PROJECT_DIR$/src/tn/reporter/dynamicreports/examples/complex/applicationform/ApplicationFormDesign.java" />
+    <entry file="file://$PROJECT_DIR$/src/tn/reporter/dynamicreports/examples/genericelement/openflashchart/PieChart.java" />
+    <entry file="file://$PROJECT_DIR$/src/tn/reporter/dynamicreports/examples/genericelement/openflashchart/OpenFlashChartPdfHandler.java" />
+    <entry file="jar://$PROJECT_DIR$/../library/dynamicreports-5.0.0/dist/dynamicreports-core-5.0.0-sources.jar!/net/sf/dynamicreports/design/base/DRDesignReport.java" />
+    <entry file="jar://$PROJECT_DIR$/../library/dynamicreports-5.0.0/dist/dynamicreports-core-5.0.0-sources.jar!/net/sf/dynamicreports/jasper/builder/JasperReportBuilder.java" />
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/UITNSchemeGraphController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="712">
+          <caret line="69" column="7" lean-forward="false" selection-start-line="69" selection-start-column="7" selection-end-line="69" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/reporter/dynamicreports/examples/complex/sales/SalesData.java" />
+    <entry file="file://$PROJECT_DIR$/src/tn/reporter/dynamicreports/examples/complex/sales/SalesDesign.java" />
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/PiezoC.java">
+=======
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/javafx/stage/Window.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/javafx/stage/Stage.java" />
     <entry file="file://$PROJECT_DIR$/src/tn/piezo/view/DarkTheme.css">
+>>>>>>> master
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1719">
-          <caret line="142" column="1" lean-forward="false" selection-start-line="142" selection-start-column="1" selection-end-line="142" selection-end-column="1" />
+        <state relative-caret-position="136">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tn/piezo/view/MainGSUI.fxml">
+    <entry file="file://$PROJECT_DIR$/../../library/reports/dynamicreports-5.0.0/projects/dynamicreports-examples/src/main/java/net/sf/dynamicreports/examples/Templates.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="117" column="66" lean-forward="false" selection-start-line="117" selection-start-column="66" selection-end-line="117" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../library/reports/dynamicreports-5.0.0/projects/dynamicreports-examples/src/main/java/net/sf/dynamicreports/examples/complex/sales/SalesData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-289">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/../../library/reports/dynamicreports-5.0.0/projects/dynamicreports-examples/src/main/java/net/sf/dynamicreports/examples/complex/sales/SalesDesign.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="698">
+          <caret line="86" column="22" lean-forward="false" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/PiezoDataClassStructure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/Piezo_Blank_A4.jrxml" />
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/HydraC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2380">
+          <caret line="193" column="15" lean-forward="false" selection-start-line="193" selection-start-column="15" selection-end-line="193" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../library/jasper/jasperreports-6.4.1-sources.jar!/net/sf/jasperreports/engine/data/JRAbstractBeanDataSource.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/HydraDataClassStruct.java">
+>>>>>>> master
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="192" column="0" lean-forward="false" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="jar://$PROJECT_DIR$/../library/jasper/commons-beanutils-1.9.3.jar!/org/apache/commons/beanutils/PropertyUtilsBean.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="596" column="0" lean-forward="false" selection-start-line="596" selection-start-column="0" selection-end-line="596" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="1772" column="0" lean-forward="false" selection-start-line="1772" selection-start-column="0" selection-end-line="1772" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/images/dynamicreports.png">
+      <provider selected="true" editor-type-id="images">
+=======
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/javafx/event/Event.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class" />
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/view/GSNewTableDialog.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
+>>>>>>> master
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/fxgraph/graph/MouseGestures.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="51" column="54" lean-forward="false" selection-start-line="51" selection-start-column="54" selection-end-line="51" selection-end-column="54" />
+<<<<<<< HEAD
+        <state relative-caret-position="68">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/resources/test.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+=======
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+>>>>>>> master
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../library/jasper/jasperreports-6.4.1-sources.jar!/net/sf/jasperreports/swing/JRViewer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
+        <state relative-caret-position="1853">
+          <caret line="159" column="16" lean-forward="false" selection-start-line="159" selection-start-column="16" selection-end-line="159" selection-end-column="16" />
+=======
+        <state relative-caret-position="150">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+>>>>>>> master
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/template_HydraTable.jrxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="254" column="8" lean-forward="false" selection-start-line="254" selection-start-column="8" selection-end-line="254" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/HydraDataClassStruct.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+<<<<<<< HEAD
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/javafx-src.zip!/javafx/event/Event.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class" />
-    <entry file="file://$PROJECT_DIR$/src/tn/piezo/view/GSNewTableDialog.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/PiezoChartDrawer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-823">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/GSOverviewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/GSNewTableDialogController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2335">
-          <caret line="310" column="26" lean-forward="false" selection-start-line="310" selection-start-column="26" selection-end-line="310" selection-end-column="26" />
-          <folding>
-            <element signature="method#setDialogStage#0;class#GSNewTableDialogController#0" expanded="false" />
-            <element signature="method#countChanged#0;class#GSNewTableDialogController#0" expanded="false" />
-            <element signature="method#handleNext#0;class#GSNewTableDialogController#0" expanded="false" />
-            <element signature="method#editDataHydra#0;class#GSNewTableDialogController#0" expanded="false" />
-            <element signature="method#handlePrevious#0;class#GSNewTableDialogController#0" expanded="false" />
-            <element signature="method#clearDialogStage#0;class#GSNewTableDialogController#0" expanded="false" />
-            <element signature="method#isInputValid#0;class#GSNewTableDialogController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/GSEditDialogController.java">
-      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-187">
+          <caret line="29" column="35" lean-forward="false" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+          <folding />
+=======
         <state relative-caret-position="187">
           <caret line="47" column="9" lean-forward="false" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
         </state>
@@ -1183,6 +2090,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> master
         </state>
       </provider>
     </entry>
@@ -1191,6 +2099,35 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="221">
+          <caret line="64" column="20" lean-forward="false" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/UIMainGSController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="656">
+          <caret line="316" column="28" lean-forward="false" selection-start-line="316" selection-start-column="28" selection-end-line="316" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#mouseClickComboBox#0;class#UIMainGSController#0" expanded="false" />
+            <element signature="method#connectDB_btn#0;class#UIMainGSController#0" expanded="false" />
+            <element signature="method#closeConDB_btn#0;class#UIMainGSController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/reporter/ItemTables.java" />
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="104" column="37" lean-forward="false" selection-start-line="104" selection-start-column="37" selection-end-line="104" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+=======
         <state relative-caret-position="255">
           <caret line="30" column="28" lean-forward="false" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
         </state>
@@ -1247,11 +2184,61 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-472">
           <caret line="25" column="7" lean-forward="false" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+>>>>>>> master
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tn/piezo/controller/LayeredXyChartsSample.java">
+    <entry file="file://$PROJECT_DIR$/src/tn/reporter/Item.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="629">
+          <caret line="59" column="20" lean-forward="false" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+          <folding>
+            <element signature="e#1093#1094#0" expanded="true" />
+            <element signature="e#1133#1134#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/DerbyDBParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5338">
+          <caret line="320" column="52" lean-forward="false" selection-start-line="320" selection-start-column="52" selection-end-line="320" selection-end-column="52" />
+          <folding>
+            <marker date="1501739124888" expanded="true" signature="6029:6083" ph="select [NAME... " />
+            <marker date="1501739124888" expanded="true" signature="14455:14509" ph="select [NAME... " />
+            <marker date="1501739124888" expanded="true" signature="15250:15499" ph="select NAMEt... " />
+            <marker date="1501739124888" expanded="true" signature="16347:16793" ph="select NAMEt... " />
+            <marker date="1501739124888" expanded="true" signature="17584:18056" ph="select [NAME... " />
+            <marker date="1501739124888" expanded="true" signature="18421:18906" ph="select [IDtn... " />
+            <marker date="1501739124888" expanded="true" signature="23712:24299" ph="select [IDtn... " />
+            <marker date="1501739124888" expanded="true" signature="25208:26012" ph="select [IDtn... " />
+            <marker date="1501739124888" expanded="true" signature="26349:27154" ph="select [IDtn... " />
+            <marker date="1501739124888" expanded="true" signature="30856:31850" ph="select [IDtn... " />
+            <marker date="1501739124888" expanded="true" signature="32227:33205" ph="select [IDtn... " />
+            <marker date="1501739124888" expanded="true" signature="36903:37701" ph="select [IDtn... " />
+            <marker date="1501739124888" expanded="true" signature="38078:38880" ph="select [IDtn... " />
+            <marker date="1501739124888" expanded="true" signature="41001:41799" ph="select [IDtn... " />
+            <marker date="1501739124888" expanded="true" signature="42176:42978" ph="select [IDtn... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/reporter/PrintReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="67" column="37" lean-forward="false" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tn/piezo/model/PiezoPlotC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="88" column="29" lean-forward="false" selection-start-line="88" selection-start-column="29" selection-end-line="88" selection-end-column="29" />
+=======
         <state relative-caret-position="663">
           <caret line="39" column="21" lean-forward="false" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
         </state>
@@ -1277,6 +2264,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
@@ -1286,11 +2274,20 @@
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
-          <artifact-editor />
+          <artifact-editor>
+            <show-content>
+              <type id="jpa-descriptors" />
+              <type id="artifact" />
+              <type id="javaee-facet-resources" />
+              <type id="library" />
+            </show-content>
+          </artifact-editor>
+          <last-edited>PiezoTN</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1358,7 +2355,11 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+<<<<<<< HEAD
+          <last-edited>net.sf.jasperreports:jasperreports:6.4.1</last-edited>
+=======
           <last-edited>poi-3</last-edited>
+>>>>>>> master
           <splitter-proportions>
             <option name="proportions">
               <list>

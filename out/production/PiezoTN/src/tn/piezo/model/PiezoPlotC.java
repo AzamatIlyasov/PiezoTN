@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Created by djaza on 09.02.2017.
+ * класс для подготовки данных для отрисовки ПГ
  */
 public class PiezoPlotC {
 
@@ -17,11 +18,11 @@ public class PiezoPlotC {
     public double[] Geo;
     public double[] ZdanieEtaj;
     public double Hrasp_ist;
-    public double[] H1x;
+    private double[] H1x;
     // переменные для расчета
-    double Hpoln;
-    double[] HraspPod;
-    double[] HraspObrat;
+    private double Hpoln;
+    private double[] HraspPod;
+    private double[] HraspObrat;
 
     PiezoPlotC(double HSN, double HPN, double Hist, String[] NamePartTN, double[] L, double[] Geo, double[] ZdanieEtaj,
             double Hrasp_ist, double[] H1x ) {
@@ -61,8 +62,31 @@ public class PiezoPlotC {
                 piezoData.add(new PiezoDataClassStructure(i, NamePartTN[j], L[j], Geo[j], ZdanieEtaj[j], HraspPod[i], HraspObrat[i]));
                 j++;
             }
-
         }
+
         return piezoData;
     }
+
+    public String PiezoAnalise() {
+        String resultAnalise = "Рекомендации к пьезометрическому графику \n";
+        String analiseStr = "";
+        int j = 1;
+        for (int i = 0; i < ZdanieEtaj.length; i++) {
+            if (HraspObrat[i]>60) {
+                analiseStr += j + ". Напор в обратном трубопроводе на участке " + NamePartTN[i] +
+                        " превышает допустимые 60м., и составляет " + HraspObrat[i] + "м \n";
+                j++;
+            }
+            if ((HraspObrat[i] - ZdanieEtaj[i] * 3)<5) {
+                analiseStr += j + ". Не обеспечивается избыточность напора на участке " + NamePartTN[i] +
+                        " и составляет " + HraspObrat[i] + "м " +
+                        " Минимальный напор во избежания подсоса воздуха: " + ((ZdanieEtaj[i] * 3)+5) + "м \n";
+                j++;
+            }
+        }
+
+        resultAnalise += analiseStr;
+        return resultAnalise;
+    }
+
 }

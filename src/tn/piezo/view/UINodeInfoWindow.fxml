@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane maxHeight="536.0" maxWidth="385.0" minHeight="100.0" minWidth="278.0" prefHeight="286.0" prefWidth="278.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.piezo.controller.TNPart.UINodeInfoWindowController">
+   <children>
+      <GridPane AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.0" minWidth="10.0" prefWidth="68.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
+            <RowConstraints />
+         </rowConstraints>
+         <children>
+            <Label text="Участок" />
+            <ComboBox fx:id="comboTNPart" disable="true" onMouseClicked="#mouseClickComboBox" prefHeight="25.0" prefWidth="216.0" promptText="Участок" GridPane.columnIndex="1" />
+            <Label text="Диаметр участка [мм]" GridPane.rowIndex="1" />
+            <Label text="Длина участка [м]" GridPane.rowIndex="2" />
+            <Label text="Расход участка [т/ч]" GridPane.rowIndex="3" />
+            <Label text="Коэффициент шероховатости [мм]" GridPane.rowIndex="4" />
+            <Label text="Геодезическая отметка [м]" GridPane.rowIndex="5" />
+            <Label text="Макс этажность зданий" GridPane.rowIndex="6" />
+            <Label text="Распологаемый напор (Hрасп), м" GridPane.rowIndex="8" />
+            <TextField fx:id="DField" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="LField" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="GField" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="KekvField" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="GeoField" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="ZdanieEtajField" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="Hrasp_istField" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label text="Потери напора (dH), м" GridPane.rowIndex="7" />
+            <TextField fx:id="dHpart" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
