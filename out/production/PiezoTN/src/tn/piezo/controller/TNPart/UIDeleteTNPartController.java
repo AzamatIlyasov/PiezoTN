@@ -12,7 +12,7 @@ import tn.piezo.model.HydraC;
 import java.util.Optional;
 
 /**
- * Окно для редактированая участка.
+ * Окно для удаления участка.
  *
  * @author Azamat Ilyasov
  */

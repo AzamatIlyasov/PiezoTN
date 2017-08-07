@@ -7,57 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/reporter/ItemTables.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/reporter/ItemTables.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/PiezoTN/PiezoTN.jar" afterPath="$PROJECT_DIR$/out/artifacts/PiezoTN/PiezoTN.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/resources/template_HydraTable.jasper" afterPath="$PROJECT_DIR$/out/production/PiezoTN/resources/template_HydraTable.jasper" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/resources/test.png" afterPath="$PROJECT_DIR$/out/production/PiezoTN/resources/test.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/template_HydraTable.jasper" afterPath="$PROJECT_DIR$/out/production/PiezoTN/template_HydraTable.jasper" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/test.png" afterPath="$PROJECT_DIR$/out/production/PiezoTN/test.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/TNBoiler/UIDeleteTNBoilerController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/TNBoiler/UIDeleteTNBoilerController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/TNBranch/UIDeleteTNBranchController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/TNBranch/UIDeleteTNBranchController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/TNMain/UIDeleteTNMainController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/TNMain/UIDeleteTNMainController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/TNPart/UIAddTNPartController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/TNPart/UIAddTNPartController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/TNPart/UIDeleteTNPartController.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/controller/TNPart/UIDeleteTNPartController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/DerbyDBParser.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/DerbyDBParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/PiezoPlotC.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/model/PiezoPlotC.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/reporter/Item.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/reporter/Item.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/reporter/PrintReport.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/reporter/PrintReport.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/reporter/TestWindowListener.class" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/reporter/TestWindowListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/test.png" afterPath="$PROJECT_DIR$/resources/test.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/PiezoTN/PiezoTN.jnlp" afterPath="$PROJECT_DIR$/out/artifacts/PiezoTN/PiezoTN.jnlp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/resources/template_HydraTable.jrxml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/resources/template_HydraTable.jrxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/TNBoiler/UIDeleteTNBoilerController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/TNBoiler/UIDeleteTNBoilerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/TNBranch/UIDeleteTNBranchController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/TNBranch/UIDeleteTNBranchController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/TNMain/UIDeleteTNMainController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/TNMain/UIDeleteTNMainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/TNPart/UIAddTNPartController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/TNPart/UIAddTNPartController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/TNPart/UIDeleteTNPartController.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/controller/TNPart/UIDeleteTNPartController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/DerbyDBParser.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/DerbyDBParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/PiezoPlotC.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/model/PiezoPlotC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/view/UIDeleteTNBoiler.fxml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/view/UIDeleteTNBoiler.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/view/UIDeleteTNBranch.fxml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/view/UIDeleteTNBranch.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/view/UIDeleteTNMain.fxml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/view/UIDeleteTNMain.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/view/UIDeleteTNPart.fxml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/piezo/view/UIDeleteTNPart.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/reporter/Item.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/reporter/Item.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/reporter/PrintReport.java" afterPath="$PROJECT_DIR$/out/production/PiezoTN/src/tn/reporter/PrintReport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/template_HydraTable.jrxml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/template_HydraTable.jrxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/view/UIDeleteTNBoiler.fxml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/view/UIDeleteTNBoiler.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/view/UIDeleteTNBranch.fxml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/view/UIDeleteTNBranch.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/view/UIDeleteTNMain.fxml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/view/UIDeleteTNMain.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/view/UIDeleteTNPart.fxml" afterPath="$PROJECT_DIR$/out/production/PiezoTN/tn/piezo/view/UIDeleteTNPart.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/controller/TNBoiler/UIDeleteTNBoilerController.java" afterPath="$PROJECT_DIR$/src/tn/piezo/controller/TNBoiler/UIDeleteTNBoilerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/controller/TNBranch/UIDeleteTNBranchController.java" afterPath="$PROJECT_DIR$/src/tn/piezo/controller/TNBranch/UIDeleteTNBranchController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/controller/TNMain/UIDeleteTNMainController.java" afterPath="$PROJECT_DIR$/src/tn/piezo/controller/TNMain/UIDeleteTNMainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/controller/TNPart/UIAddTNPartController.java" afterPath="$PROJECT_DIR$/src/tn/piezo/controller/TNPart/UIAddTNPartController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/controller/TNPart/UIDeleteTNPartController.java" afterPath="$PROJECT_DIR$/src/tn/piezo/controller/TNPart/UIDeleteTNPartController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/model/DerbyDBParser.java" afterPath="$PROJECT_DIR$/src/tn/piezo/model/DerbyDBParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/model/PiezoPlotC.java" afterPath="$PROJECT_DIR$/src/tn/piezo/model/PiezoPlotC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/view/UIDeleteTNBoiler.fxml" afterPath="$PROJECT_DIR$/src/tn/piezo/view/UIDeleteTNBoiler.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/view/UIDeleteTNBranch.fxml" afterPath="$PROJECT_DIR$/src/tn/piezo/view/UIDeleteTNBranch.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/view/UIDeleteTNMain.fxml" afterPath="$PROJECT_DIR$/src/tn/piezo/view/UIDeleteTNMain.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tn/piezo/view/UIDeleteTNPart.fxml" afterPath="$PROJECT_DIR$/src/tn/piezo/view/UIDeleteTNPart.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -303,59 +253,7 @@
             <path>
               <item name="PiezoTN" type="b2602c69:ProjectViewProjectNode" />
               <item name="PiezoTN" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PiezoTN" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PiezoTN" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="tn" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PiezoTN" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PiezoTN" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="tn" type="462c0819:PsiDirectoryNode" />
-              <item name="piezo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PiezoTN" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PiezoTN" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="tn" type="462c0819:PsiDirectoryNode" />
-              <item name="piezo" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PiezoTN" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PiezoTN" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="tn" type="462c0819:PsiDirectoryNode" />
-              <item name="piezo" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PiezoTN" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PiezoTN" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="tn" type="462c0819:PsiDirectoryNode" />
-              <item name="piezo" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PiezoTN" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PiezoTN" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="tn" type="462c0819:PsiDirectoryNode" />
-              <item name="reporter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PiezoTN" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PiezoTN" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="tn" type="462c0819:PsiDirectoryNode" />
-              <item name="reporter" type="462c0819:PsiDirectoryNode" />
-              <item name="PrintReport.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PiezoTN" type="b2602c69:ProjectViewProjectNode" />
@@ -1000,7 +898,7 @@
       <workItem from="1501820295522" duration="64000" />
       <workItem from="1501820463168" duration="1663000" />
       <workItem from="1501835366549" duration="600000" />
-      <workItem from="1502080420597" duration="8757000" />
+      <workItem from="1502080420597" duration="9531000" />
     </task>
     <task id="LOCAL-00001" summary="Кооректировка (прокрастинация) исходного кода.">
       <created>1489394858668</created>
@@ -1240,11 +1138,18 @@
       <option name="project" value="LOCAL" />
       <updated>1501741320463</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Добавил возможность УДАЛЕНИЯ выбранных/определенных данных из базы">
+      <created>1502098457204</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1502098457204</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="315693000" />
+    <option name="totallyTimeSpent" value="316467000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1266,12 +1171,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28617364" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31993568" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18327974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31993568" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18327974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2526475" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2526475" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1352,7 +1257,8 @@
     <MESSAGE value="Добавил возможность добавления информации во все таблицы в БД" />
     <MESSAGE value="1- Добавил возможность вывода отчета (с помощью JasperReports)&#10;2- Добавил возможность просматривать граф сети (базовая версия - первая, буду дорабатывать)&#10;3- изменил интерфейс, добавил в базу таблицы -&gt; добавились элементы" />
     <MESSAGE value="Добавил вывод рекомендаций для пьезометрического графика в отчете" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил вывод рекомендаций для пьезометрического графика в отчете" />
+    <MESSAGE value="Добавил возможность УДАЛЕНИЯ выбранных/определенных данных из базы" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил возможность УДАЛЕНИЯ выбранных/определенных данных из базы" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

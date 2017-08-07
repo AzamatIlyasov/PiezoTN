@@ -11,7 +11,7 @@ import tn.piezo.model.HydraC;
 import java.util.Optional;
 
 /**
- * Окно для добавления новой котельной .
+ * Окно для удаления котельной .
  *
  * @author Azamat Ilyasov
  */
