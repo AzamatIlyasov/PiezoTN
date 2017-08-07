@@ -12,7 +12,7 @@ import tn.piezo.model.HydraC;
 import java.util.Optional;
 
 /**
- * Окно для редактированая участка.
+ * Окно для удаления участка.
  *
  * @author Azamat Ilyasov
  */
@@ -25,22 +25,9 @@ public class UIDeleteTNPartController {
     @FXML
     private ComboBox comboTNBranch;
     @FXML
-    private TextField NameTNPartRas;
+    private ComboBox comboTNPart;
+
     // переменные - исходные данные для расчета
-    @FXML
-    private ComboBox comboNameTNPartPred;
-    @FXML
-    private TextField DField;
-    @FXML
-    private TextField LField;
-    @FXML
-    private TextField GField;
-    @FXML
-    private TextField KekvField;
-    @FXML
-    private TextField GeoField;
-    @FXML
-    private TextField ZdanieEtajField;
     @FXML
     private Button btnOK;
 
@@ -89,16 +76,9 @@ public class UIDeleteTNPartController {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            DerbyDBParser.writeAddPartData(
+            DerbyDBParser.deletePartData(
                     TNBoiler, TNMain, TNBranch,
-                    NameTNPartRas.getText(),
-                    ((comboNameTNPartPred.getItems().isEmpty())?"":comboNameTNPartPred.getValue().toString()),
-                    Double.parseDouble(DField.getText()),
-                    Double.parseDouble(LField.getText()),
-                    Double.parseDouble(GField.getText()),
-                    Double.parseDouble(KekvField.getText()),
-                    Double.parseDouble(GeoField.getText()),
-                    Double.parseDouble(ZdanieEtajField.getText()) );
+                    comboTNPart.getValue().toString() );
             okClicked = true;
             dialogStage.close();
         }
@@ -113,7 +93,7 @@ public class UIDeleteTNPartController {
     }
 
     /**
-     * Проверяет пользовательский ввод в текстовых полях.
+     * Предупреждает пользователя о удаленни данных
      *
      * @return true, если пользовательский ввод корректен
      */
@@ -122,47 +102,16 @@ public class UIDeleteTNPartController {
         Boolean resultFunc = false;
         Alert alertWarning = new Alert(AlertType.CONFIRMATION);
         alertWarning.initOwner(dialogStage);
-        alertWarning.setTitle("Предупреждение");
-        warningMessage = ("хотите использовать название: " + NameTNPartRas.getText() + " ?\n");
+        alertWarning.setTitle("Предупреждение, удаление данных");
+        warningMessage = ("Хотите удалить участок -> " + comboTNPart.getValue().toString() +
+                " в ответвлении: " + comboTNBranch.getValue().toString() +
+                " в магистрали: " + comboTNMain.getValue().toString() +
+                " от источника тепла: " + comboTNBoiler.getValue().toString() +  " ?\n");
         //вывод
         alertWarning.setContentText(warningMessage);
         Optional<ButtonType> result = alertWarning.showAndWait();
         if (result.get() == ButtonType.OK) {
-            //проверка правильности введенных данных
-            String errorMessage = "";
-            //if (comboNameTNPartPred.getValue().toString() == null || comboNameTNPartPred.getValue().toString().length() == 0) {
-            //    errorMessage += "Не выбран предыдущий участок!\n";
-            //}
-            if (DField.getText() == null || DField.getText().length() == 0 || Double.parseDouble(DField.getText()) <1 ) {
-                errorMessage += "Неправильный диаметр участка!\n Диаметр необходимо ввести в мм";
-            }
-            if (LField.getText() == null || LField.getText().length() == 0 || Double.parseDouble(LField.getText()) <=0.5 ) {
-                errorMessage += "Неправильная длина участка!\n Длину необходимо ввести в м";
-            }
-            if (GField.getText() == null || GField.getText().length() == 0 || Double.parseDouble(GField.getText()) <=0 ) {
-                errorMessage += "Неправильный расход участка!\n Расход необходимо ввести в т/ч";
-            }
-            if (KekvField.getText() == null || KekvField.getText().length() == 0 || Double.parseDouble(KekvField.getText()) <=0 ) {
-                errorMessage += "Неправильный коэффициент шероховатости участка!\n К-т шероховатости необходимо ввести в мм";
-            }
-            if (GeoField.getText() == null || GeoField.getText().length() == 0 || Double.parseDouble(KekvField.getText()) <=0 ) {
-                errorMessage += "Неправильная геодезическая отметка участка!\n Геодезическую отметку необходимо ввести в м";
-            }
-            if (ZdanieEtajField.getText() == null || ZdanieEtajField.getText().length() == 0 || Double.parseDouble(ZdanieEtajField.getText()) < 0 ) {
-                errorMessage += "Неправильная этажность здания участка!\n Этажность здания необходимо ввести в штуках ( 1 этаж,2 этажа, 3 этажа и тд";
-            }
-            if (errorMessage.length() == 0) {
-                resultFunc =  true;
-            } else {
-                // Показываем сообщение об ошибке.
-                Alert alertError = new Alert(AlertType.ERROR);
-                alertError.initOwner(dialogStage);
-                alertError.setTitle("Некорректный ввод данных");
-                alertError.setHeaderText("Пожалуйста, проверте введенные данные");
-                alertError.setContentText(errorMessage);
-                alertError.showAndWait();
-                resultFunc = false;
-            }
+            resultFunc =  true;
         }
         else {
             resultFunc = false;
@@ -198,41 +147,17 @@ public class UIDeleteTNPartController {
             TNMain = comboTNMain.getValue().toString();
             DerbyDBParser.dbReadForComboboxTNBranch(TNBoiler, TNMain);
             comboTNBranch.getItems().addAll(DerbyDBParser.listTNBranch);
-            NameTNPartRas.setDisable(false);
+            comboTNPart.setDisable(false);
         }
-
-    }
-
-    /**
-    * вызывается при внесение изменения в название участка
-    */
-    @FXML
-    private void NamePartTxtChange() {
-        //редактирование данных нового участка
-        if (!NameTNPartRas.getText().isEmpty()) {
-            //участки
+        if (comboTNPart.isFocused()) {
+            //ответвления
+            comboTNPart.getItems().clear();
             TNBranch = comboTNBranch.getValue().toString();
             DerbyDBParser.dbReadPart(TNBoiler, TNMain, TNBranch);
-            comboNameTNPartPred.getItems().addAll(DerbyDBParser.listTNPart_All_in_TNBoiler);
-
-            comboNameTNPartPred.setDisable(false);
-            DField.setDisable(false);
-            LField.setDisable(false);
-            GField.setDisable(false);
-            KekvField.setDisable(false);
-            GeoField.setDisable(false);
-            ZdanieEtajField.setDisable(false);
+            comboTNPart.getItems().addAll(DerbyDBParser.listTNPart);
             btnOK.setDisable(false);
         }
-        else {
-            comboNameTNPartPred.setDisable(true);
-            DField.setDisable(true);
-            LField.setDisable(true);
-            GField.setDisable(true);
-            KekvField.setDisable(true);
-            GeoField.setDisable(true);
-            ZdanieEtajField.setDisable(true);
-        }
+
     }
 
 }

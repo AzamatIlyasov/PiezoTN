@@ -200,7 +200,12 @@ public class UIAddTNPartController {
             comboTNBranch.getItems().addAll(DerbyDBParser.listTNBranch);
             NameTNPartRas.setDisable(false);
         }
-
+        /*
+        if (comboNameTNPartPred.isFocused()) {
+            comboNameTNPartPred.getItems().clear();
+            comboNameTNPartPred.getItems().addAll(DerbyDBParser.listTNPart_All_in_TNBoiler);
+        }
+*/
     }
 
     /**
@@ -213,7 +218,8 @@ public class UIAddTNPartController {
             //участки
             TNBranch = comboTNBranch.getValue().toString();
             DerbyDBParser.dbReadPart(TNBoiler, TNMain, TNBranch);
-            comboNameTNPartPred.getItems().addAll(DerbyDBParser.listTNPart_All_in_TNBoiler);
+            comboNameTNPartPred.getItems().clear();
+            comboNameTNPartPred.getItems().addAll(DerbyDBParser.listTNPart);
 
             comboNameTNPartPred.setDisable(false);
             DField.setDisable(false);

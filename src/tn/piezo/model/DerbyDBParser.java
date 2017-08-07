@@ -724,9 +724,9 @@ public class DerbyDBParser {
 
     //DELETE DATA
     //удаление данных tnboiler в БД
-    public static void writeDeleteBoilerData(String NameBoiler) {
+    public static void deleteBoilerData(String NameBoiler) {
         try {
-            CallableStatement callProcStmt = con.prepareCall("{ call AddBoiler(?) }");
+            CallableStatement callProcStmt = con.prepareCall("{ call DeleteBoiler(?) }");
             callProcStmt.setString(1, NameBoiler);
             callProcStmt.execute();
         } catch (SQLException sqlE) {
@@ -735,9 +735,9 @@ public class DerbyDBParser {
     }
 
     //удаление данных tnmain в БД
-    public static void writeDeleteMainData(String NameBoiler, String NameMain) {
+    public static void deleteMainData(String NameBoiler, String NameMain) {
         try {
-            CallableStatement callProcStmt = con.prepareCall("{ call AddMain(?,?) }");
+            CallableStatement callProcStmt = con.prepareCall("{ call DeleteMain(?,?) }");
             callProcStmt.setString(1, NameBoiler);
             callProcStmt.setString(2, NameMain);
             callProcStmt.execute();
@@ -748,13 +748,12 @@ public class DerbyDBParser {
     }
 
     //удаление данных tnbranch в БД
-    public static void writeDeleteBranchData( String NameBoiler, String NameMain, String NameBranch,Double hrasp_ist) {
+    public static void deleteBranchData( String NameBoiler, String NameMain, String NameBranch) {
         try {
-            CallableStatement callProcStmt = con.prepareCall("{ call AddBranch(?,?,?,?) }");
+            CallableStatement callProcStmt = con.prepareCall("{ call DeleteBranch(?,?,?) }");
             callProcStmt.setString(1, NameBoiler);
             callProcStmt.setString(2, NameMain);
             callProcStmt.setString(3, NameBranch);
-            callProcStmt.setDouble(4, hrasp_ist);
             callProcStmt.execute();
 
         } catch (SQLException sqlE) {
@@ -763,152 +762,19 @@ public class DerbyDBParser {
     }
 
     //удаление данных tnpart в БД
-    public static void writeDeletePartData(String NameTNBoiler, String NameTNMain, String NameTNBranch, String NameTNPart,
-                                        String NameTNPartPred,
-                                        double DField,
-                                        double LField,
-                                        double GField,
-                                        double KekvField,
-                                        double GeoField,
-                                        double ZdanieEtajField) {
+    public static void deletePartData(String NameTNBoiler, String NameTNMain, String NameTNBranch, String NameTNPart) {
         try {
-            CallableStatement callProcStmt = con.prepareCall("{ call AddPart(?,?,?,?,?,?,?,?,?,?) }");
+            CallableStatement callProcStmt = con.prepareCall("{ call DeletePart(?,?,?,?) }");
             callProcStmt.setString(1,NameTNBoiler);
             callProcStmt.setString(2,NameTNMain);
             callProcStmt.setString(3,NameTNBranch);
             callProcStmt.setString(4,NameTNPart);
-            callProcStmt.setDouble(5,DField);
-            callProcStmt.setDouble(6,LField);
-            callProcStmt.setDouble(7,GField);
-            callProcStmt.setDouble(8,KekvField);
-            callProcStmt.setDouble(9,GeoField);
-            callProcStmt.setDouble(10,ZdanieEtajField);
             callProcStmt.execute();
-
-            if (!NameTNPartPred.isEmpty()) {
-                int IDTNPartRas = 0;
-                int IDTNPartPred = 0;
-                Statement stmt = con.createStatement();
-                // для текущего участка
-                String myQueryTNPartRas =
-                        "select [IDtnpart] " +
-                                "from [dbo].[TNPART] " +
-                                "where [NAMEtnpart] = '" + NameTNPart + "' " +
-                                "and [IDtnbranch] = (select [IDtnbranch] " +
-                                "from [dbo].[TNBRANCH] " +
-                                "where [NAMEtnbranch] = '" + NameTNBranch + "' " +
-                                "and [IDtnmain] = (select [IDtnmain] " +
-                                "from [dbo].[TNMAIN] " +
-                                "where [NAMEtnmain] = '" + NameTNMain + "' " +
-                                "and [IDboiler] = (select [IDboiler] " +
-                                "from [dbo].[BOILER] " +
-                                "where [NAMEboiler] = '" + NameTNBoiler + "' ) ) ); ";
-                ResultSet rsQuerySourceBox = stmt.executeQuery(myQueryTNPartRas);
-                while (rsQuerySourceBox.next()) {
-                    IDTNPartRas = rsQuerySourceBox.getInt("IDtnpart");
-                }
-                // для предыдущего участка
-                // для текущего участка
-                String myQueryTNPredPart =
-                        "select [IDtnpart] " +
-                                "from [dbo].[TNPART] " +
-                                "where [NAMEtnpart] = '" + NameTNPartPred + "' " +
-                                "and [IDtnbranch] = (select [IDtnbranch] " +
-                                "from [dbo].[TNBRANCH] " +
-                                "where [NAMEtnbranch] = '" + NameTNBranch + "' " +
-                                "and [IDtnmain] = (select [IDtnmain] " +
-                                "from [dbo].[TNMAIN] " +
-                                "where [NAMEtnmain] = '" + NameTNMain + "' " +
-                                "and [IDboiler] = (select [IDboiler] " +
-                                "from [dbo].[BOILER] " +
-                                "where [NAMEboiler] = '" + NameTNBoiler + "' ) ) ); ";
-                rsQuerySourceBox = stmt.executeQuery(myQueryTNPredPart);
-                while (rsQuerySourceBox.next()) {
-                    IDTNPartPred = rsQuerySourceBox.getInt("IDtnpart");
-                }
-                callProcStmt = con.prepareCall("{ call AddHydra(?,?) }");
-                callProcStmt.setInt(1, IDTNPartRas);
-                callProcStmt.setInt(2, IDTNPartPred);
-                callProcStmt.execute();
-            }
 
         } catch (SQLException sqlE) {
             Logger.getLogger(DerbyDBParser.class.getName()).log(Level.SEVERE, null, sqlE);
         }
     }
 
-    //удаление данных tnhydra в БД
-    public static void writeDeleteHydraData(String NameTNBoiler, String NameTNMain, String NameTNBranch, String NameTNPart,
-                                           String NameTNPartPred,
-                                           double DField,
-                                           double LField,
-                                           double GField,
-                                           double KekvField,
-                                           double GeoField,
-                                           double ZdanieEtajField) {
-        try {
-            CallableStatement callProcStmt = con.prepareCall("{ call AddPart(?,?,?,?,?,?,?,?,?,?) }");
-            callProcStmt.setString(1,NameTNBoiler);
-            callProcStmt.setString(2,NameTNMain);
-            callProcStmt.setString(3,NameTNBranch);
-            callProcStmt.setString(4,NameTNPart);
-            callProcStmt.setDouble(5,DField);
-            callProcStmt.setDouble(6,LField);
-            callProcStmt.setDouble(7,GField);
-            callProcStmt.setDouble(8,KekvField);
-            callProcStmt.setDouble(9,GeoField);
-            callProcStmt.setDouble(10,ZdanieEtajField);
-            callProcStmt.execute();
 
-            if (!NameTNPartPred.isEmpty()) {
-                int IDTNPartRas = 0;
-                int IDTNPartPred = 0;
-                Statement stmt = con.createStatement();
-                // для текущего участка
-                String myQueryTNPartRas =
-                        "select [IDtnpart] " +
-                                "from [dbo].[TNPART] " +
-                                "where [NAMEtnpart] = '" + NameTNPart + "' " +
-                                "and [IDtnbranch] = (select [IDtnbranch] " +
-                                "from [dbo].[TNBRANCH] " +
-                                "where [NAMEtnbranch] = '" + NameTNBranch + "' " +
-                                "and [IDtnmain] = (select [IDtnmain] " +
-                                "from [dbo].[TNMAIN] " +
-                                "where [NAMEtnmain] = '" + NameTNMain + "' " +
-                                "and [IDboiler] = (select [IDboiler] " +
-                                "from [dbo].[BOILER] " +
-                                "where [NAMEboiler] = '" + NameTNBoiler + "' ) ) ); ";
-                ResultSet rsQuerySourceBox = stmt.executeQuery(myQueryTNPartRas);
-                while (rsQuerySourceBox.next()) {
-                    IDTNPartRas = rsQuerySourceBox.getInt("IDtnpart");
-                }
-                // для предыдущего участка
-                // для текущего участка
-                String myQueryTNPredPart =
-                        "select [IDtnpart] " +
-                                "from [dbo].[TNPART] " +
-                                "where [NAMEtnpart] = '" + NameTNPartPred + "' " +
-                                "and [IDtnbranch] = (select [IDtnbranch] " +
-                                "from [dbo].[TNBRANCH] " +
-                                "where [NAMEtnbranch] = '" + NameTNBranch + "' " +
-                                "and [IDtnmain] = (select [IDtnmain] " +
-                                "from [dbo].[TNMAIN] " +
-                                "where [NAMEtnmain] = '" + NameTNMain + "' " +
-                                "and [IDboiler] = (select [IDboiler] " +
-                                "from [dbo].[BOILER] " +
-                                "where [NAMEboiler] = '" + NameTNBoiler + "' ) ) ); ";
-                rsQuerySourceBox = stmt.executeQuery(myQueryTNPredPart);
-                while (rsQuerySourceBox.next()) {
-                    IDTNPartPred = rsQuerySourceBox.getInt("IDtnpart");
-                }
-                callProcStmt = con.prepareCall("{ call AddHydra(?,?) }");
-                callProcStmt.setInt(1, IDTNPartRas);
-                callProcStmt.setInt(2, IDTNPartPred);
-                callProcStmt.execute();
-            }
-
-        } catch (SQLException sqlE) {
-            Logger.getLogger(DerbyDBParser.class.getName()).log(Level.SEVERE, null, sqlE);
-        }
-    }
 }

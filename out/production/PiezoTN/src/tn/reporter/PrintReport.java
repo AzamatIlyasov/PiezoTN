@@ -18,6 +18,7 @@ import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.swing.JRViewer;
 import net.sf.jasperreports.view.JasperViewer;
+import tn.piezo.model.DerbyDBParser;
 import tn.piezo.model.HydraDataClassStruct;
 
 import static com.sun.deploy.uitoolkit.ToolkitStore.dispose;
@@ -49,6 +50,8 @@ public class PrintReport extends JFrame {
                 itemsTN[i].setLength(((HydraDataClassStruct) hydraDataArrayList.get(i)).L);
                 itemsTN[i].setFlow(((HydraDataClassStruct) hydraDataArrayList.get(i)).G);
                 itemsTN[i].setDiametr(((HydraDataClassStruct) hydraDataArrayList.get(i)).D);
+                itemsTN[i].setHrasp(((HydraDataClassStruct) hydraDataArrayList.get(i)).Hrasp_endP);
+                itemsTN[i].setdhpoteri(((HydraDataClassStruct) hydraDataArrayList.get(i)).dH_fist);
                 listItems.add(itemsTN[i]);
             }
 
@@ -62,6 +65,7 @@ public class PrintReport extends JFrame {
             parameters.put("BoilerName", ((HydraDataClassStruct) hydraDataArrayList.get(0)).BoilerName);
             parameters.put("MainName", ((HydraDataClassStruct) hydraDataArrayList.get(0)).MainName);
             parameters.put("BranchName", ((HydraDataClassStruct) hydraDataArrayList.get(0)).BranchName);
+            parameters.put("TextAnalisePG", DerbyDBParser.TextAnalizePiezoPlot);
             parameters.put("ItemDataSource", itemsJRBean);
             /* Using compiled version(.jasper) of Jasper report to generate PDF */
 

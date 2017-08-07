@@ -1,15 +1,14 @@
 package tn.piezo.controller.TNBranch;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import tn.piezo.model.DerbyDBParser;
 import tn.piezo.model.HydraC;
+
+import java.util.Optional;
 
 /**
  * Окно для добавления новой котельной .
@@ -23,7 +22,7 @@ public class UIDeleteTNBranchController {
     @FXML
     private ComboBox comboTNMain;
     @FXML
-    private TextField NameTNBranch;
+    private ComboBox comboTNBranch;
     @FXML
     private TextField Hrasp_ist;
     @FXML
@@ -75,9 +74,8 @@ public class UIDeleteTNBranchController {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            DerbyDBParser.writeAddBranchData(comboTNBoiler.getValue().toString(),comboTNMain.getValue().toString(),
-                    NameTNBranch.getText(),Double.parseDouble(Hrasp_ist.getText()) );
-
+            DerbyDBParser.deleteBranchData(comboTNBoiler.getValue().toString(),comboTNMain.getValue().toString(),
+                    comboTNBranch.getValue().toString() );
             okClicked = true;
             dialogStage.close();
         }
@@ -92,30 +90,30 @@ public class UIDeleteTNBranchController {
     }
 
     /**
-     * Проверяет пользовательский ввод в текстовых полях.
+     * Предупреждает пользователя о удаленни данных
      *
      * @return true, если пользовательский ввод корректен
      */
     private boolean isInputValid() {
-        String errorMessage = "";
-        if (NameTNBranch.getText() == null || NameTNBranch.getText().length() == 0) {
-            errorMessage += "Неправильное название ответвления!\n";
+        String warningMessage = "";
+        Boolean resultFunc = false;
+        Alert alertWarning = new Alert(AlertType.CONFIRMATION);
+        alertWarning.initOwner(dialogStage);
+        alertWarning.setTitle("Предупреждение, удаление данных");
+        warningMessage = ("Хотите удалить ответвление -> " + comboTNBranch.getValue().toString() +
+                " в магистрали: " + comboTNMain.getValue().toString() +
+                " от источника тепла: " + comboTNBoiler.getValue().toString() +  " ?\n");
+        //вывод
+        alertWarning.setContentText(warningMessage);
+        Optional<ButtonType> result = alertWarning.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            resultFunc =  true;
         }
-
-        if (errorMessage.length() == 0) {
-            return true;
-        } else {
-            // Показываем сообщение об ошибке.
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.initOwner(dialogStage);
-            alert.setTitle("Invalid Fields");
-            alert.setHeaderText("Please correct invalid fields");
-            alert.setContentText(errorMessage);
-
-            alert.showAndWait();
-
-            return false;
+        else {
+            resultFunc = false;
         }
+        //выход
+        return resultFunc;
     }
 
     @FXML
@@ -133,15 +131,17 @@ public class UIDeleteTNBranchController {
             comboTNMain.getItems().clear();
             DerbyDBParser.dbReadForComboboxTNMain(comboTNBoiler.getValue().toString());
             comboTNMain.getItems().addAll(DerbyDBParser.listTNMain);
-            NameTNBranch.setDisable(false);
-            Hrasp_ist.setDisable(false);
+            comboTNBranch.setDisable(false);
+
+        }
+        if (comboTNBranch.isFocused()) {
+            //ответвления
+            comboTNBranch.getItems().clear();
+            DerbyDBParser.dbReadForComboboxTNBranch(comboTNBranch.getValue().toString(), comboTNMain.getValue().toString());
+            comboTNBranch.getItems().addAll(DerbyDBParser.listTNBranch);
+            btnOK.setDisable(false);
         }
 
-    }
-
-    @FXML
-    private void txtTNBranchChange() {
-        btnOK.setDisable(false);
     }
 
 }

@@ -1,24 +1,24 @@
 package tn.piezo.controller.TNBoiler;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import tn.piezo.model.DerbyDBParser;
 import tn.piezo.model.HydraC;
 
+import java.util.Optional;
+
 /**
- * Окно для добавления новой котельной .
+ * Окно для удаления котельной .
  *
  * @author Azamat Ilyasov
  */
 public class UIDeleteTNBoilerController {
 
     @FXML
-    private TextField NameTNBoiler;
+    private ComboBox comboTNBoiler;
     @FXML
     private Button btnOK;
 
@@ -68,11 +68,11 @@ public class UIDeleteTNBoilerController {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            DerbyDBParser.writeAddBoilerData(NameTNBoiler.getText());
-
+            DerbyDBParser.deleteBoilerData(comboTNBoiler.getValue().toString());
             okClicked = true;
             dialogStage.close();
         }
+
     }
 
     /**
@@ -84,37 +84,42 @@ public class UIDeleteTNBoilerController {
     }
 
     /**
-     * Проверяет пользовательский ввод в текстовых полях.
+     * вызывается при нажатии на combobox
+     */
+    @FXML
+    private void mouseClickComboBox() {
+        // очистка от старых данных и заносим новые данные
+        if (comboTNBoiler.isFocused()) {
+            //котельная
+            comboTNBoiler.getItems().clear();
+            DerbyDBParser.dbReadForComboboxBoiler();
+            comboTNBoiler.getItems().addAll(DerbyDBParser.listTNBoiler);
+            btnOK.setDisable(false);
+        }
+    }
+
+    /**
+     * Предупреждает пользователя о удаленни данных
      *
-     * @return true, если пользовательский ввод корректен
+     * @return true, если пользователь согласился на удаления
      */
     private boolean isInputValid() {
-        String errorMessage = "";
-        if (NameTNBoiler.getText() == null || NameTNBoiler.getText().length() == 0) {
-            errorMessage += "Неправильное название Котельной!\n";
+        String warningMessage = "";
+        Boolean resultFunc = false;
+        Alert alertWarning = new Alert(AlertType.CONFIRMATION);
+        alertWarning.initOwner(dialogStage);
+        alertWarning.setTitle("Предупреждение, удаление данных");
+        warningMessage = ("Хотите удалить источник тепла -> " + comboTNBoiler.getValue().toString() + " ?\n");
+        //вывод
+        alertWarning.setContentText(warningMessage);
+        Optional<ButtonType> result = alertWarning.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            resultFunc =  true;
         }
-
-        if (errorMessage.length() == 0) {
-            return true;
-        } else {
-            // Показываем сообщение об ошибке.
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.initOwner(dialogStage);
-            alert.setTitle("Invalid Fields");
-            alert.setHeaderText("Please correct invalid fields");
-            alert.setContentText(errorMessage);
-
-            alert.showAndWait();
-
-            return false;
+        else {
+            resultFunc = false;
         }
+        //выход
+        return resultFunc;
     }
-
-    //вводя названия, разрешаем нажатие кнопки ОК
-    @FXML
-    private void txtBoilerChange() {
-        btnOK.setDisable(false);
-    }
-
-
 }

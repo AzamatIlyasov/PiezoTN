@@ -1,18 +1,17 @@
 package tn.piezo.controller.TNMain;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import tn.piezo.model.DerbyDBParser;
 import tn.piezo.model.HydraC;
 
+import java.util.Optional;
+
 /**
- * Окно для добавления новой магистральной .
+ * Окно для удаления магистральной .
  *
  * @author Azamat Ilyasov
  */
@@ -21,7 +20,7 @@ public class UIDeleteTNMainController {
     @FXML
     private ComboBox comboTNBoiler;
     @FXML
-    private TextField NameTNMain;
+    private ComboBox comboTNMain;
     @FXML
     private Button btnOK;
 
@@ -71,8 +70,7 @@ public class UIDeleteTNMainController {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            DerbyDBParser.writeAddMainData(comboTNBoiler.getValue().toString(), NameTNMain.getText());
-
+            DerbyDBParser.deleteMainData(comboTNBoiler.getValue().toString(), comboTNMain.getValue().toString());
             okClicked = true;
             dialogStage.close();
         }
@@ -87,30 +85,29 @@ public class UIDeleteTNMainController {
     }
 
     /**
-     * Проверяет пользовательский ввод в текстовых полях.
+     * Предупреждает пользователя о удаленни данных
      *
      * @return true, если пользовательский ввод корректен
      */
     private boolean isInputValid() {
-        String errorMessage = "";
-        if (NameTNMain.getText() == null || NameTNMain.getText().length() == 0) {
-            errorMessage += "Неправильное название магистрали!\n";
+        String warningMessage = "";
+        Boolean resultFunc = false;
+        Alert alertWarning = new Alert(AlertType.CONFIRMATION);
+        alertWarning.initOwner(dialogStage);
+        alertWarning.setTitle("Предупреждение, удаление данных");
+        warningMessage = ("Хотите удалить магистраль -> " + comboTNMain.getValue().toString()
+                + " от источника тепла: " + comboTNBoiler.getValue().toString() +  " ?\n");
+        //вывод
+        alertWarning.setContentText(warningMessage);
+        Optional<ButtonType> result = alertWarning.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            resultFunc =  true;
         }
-
-        if (errorMessage.length() == 0) {
-            return true;
-        } else {
-            // Показываем сообщение об ошибке.
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.initOwner(dialogStage);
-            alert.setTitle("Invalid Fields");
-            alert.setHeaderText("Please correct invalid fields");
-            alert.setContentText(errorMessage);
-
-            alert.showAndWait();
-
-            return false;
+        else {
+            resultFunc = false;
         }
+        //выход
+        return resultFunc;
     }
 
     @FXML
@@ -120,14 +117,16 @@ public class UIDeleteTNMainController {
             comboTNBoiler.getItems().clear();
             DerbyDBParser.dbReadForComboboxBoiler();
             comboTNBoiler.getItems().addAll(DerbyDBParser.listTNBoiler);
-            NameTNMain.setDisable(false);
+            comboTNMain.setDisable(false);
+        }
+        if (comboTNMain.isFocused()) {
+            //магистраль
+            comboTNMain.getItems().clear();
+            DerbyDBParser.dbReadForComboboxTNMain(comboTNBoiler.getValue().toString());
+            comboTNMain.getItems().addAll(DerbyDBParser.listTNMain);
+            btnOK.setDisable(false);
         }
 
     }
 
-    //вводя названия, разрешаем нажатие кнопки ОК
-    @FXML
-    private void txtTNMainChange() {
-        btnOK.setDisable(false);
-    }
 }

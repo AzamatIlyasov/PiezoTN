@@ -9,6 +9,8 @@ public class Item {
     private Double length;
     private Double flow;
     private Double diametr;
+    private Double hrasp;
+    private Double dhpoteri;
 
 
     public Double getFlow() {
@@ -43,6 +45,21 @@ public class Item {
         this.length = length;
     }
 
+    public Double getHrasp() {
+        return hrasp;
+    }
+
+    public void setHrasp(Double hrasp) {
+        this.hrasp = hrasp;
+    }
+
+    public Double getdhpoteri() {
+        return dhpoteri;
+    }
+
+    public void setdhpoteri(Double dhpoteri) {
+        this.dhpoteri = dhpoteri;
+    }
 
     public String getBoilerName() {
         return BoilerName;

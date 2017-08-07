@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="330.0" maxWidth="340.0" minHeight="100.0" minWidth="339.0" prefHeight="100.0" prefWidth="339.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.piezo.controller.TNBoiler.UIDeleteTNBoilerController">
+<AnchorPane maxHeight="330.0" maxWidth="340.0" minHeight="100.0" minWidth="339.0" prefHeight="100.0" prefWidth="339.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.piezo.controller.TNBoiler.UIDeleteTNBoilerController">
    <children>
       <GridPane AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
         <columnConstraints>
@@ -22,7 +22,7 @@
         </rowConstraints>
          <children>
             <Label text="Котельная (источник тепла)" />
-            <ComboBox fx:id="comboTNBoiler" prefWidth="150.0" GridPane.columnIndex="1" />
+            <ComboBox fx:id="comboTNBoiler" onMouseClicked="#mouseClickComboBox" prefWidth="150.0" GridPane.columnIndex="1" />
          </children>
       </GridPane>
       <HBox layoutX="160.0" layoutY="283.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0">

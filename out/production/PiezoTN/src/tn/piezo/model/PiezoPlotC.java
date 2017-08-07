@@ -62,7 +62,6 @@ public class PiezoPlotC {
                 piezoData.add(new PiezoDataClassStructure(i, NamePartTN[j], L[j], Geo[j], ZdanieEtaj[j], HraspPod[i], HraspObrat[i]));
                 j++;
             }
-
         }
 
         return piezoData;
@@ -84,10 +83,10 @@ public class PiezoPlotC {
                         " Минимальный напор во избежания подсоса воздуха: " + ((ZdanieEtaj[i] * 3)+5) + "м \n";
                 j++;
             }
-
         }
 
         resultAnalise += analiseStr;
         return resultAnalise;
     }
+
 }

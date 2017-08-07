@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="330.0" maxWidth="340.0" minHeight="100.0" minWidth="339.0" prefHeight="116.0" prefWidth="339.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.piezo.controller.TNMain.UIDeleteTNMainController">
+<AnchorPane maxHeight="330.0" maxWidth="340.0" minHeight="100.0" minWidth="339.0" prefHeight="116.0" prefWidth="339.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.piezo.controller.TNMain.UIDeleteTNMainController">
    <children>
       <GridPane AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
         <columnConstraints>
@@ -25,7 +25,7 @@
             <Label text="Магистраль" GridPane.rowIndex="1" />
             <Label text="Котельная (источник)" />
             <ComboBox fx:id="comboTNBoiler" onMouseClicked="#comboSourceMClick" prefWidth="150.0" promptText="Источник" GridPane.columnIndex="1" />
-            <ComboBox fx:id="comboTNMain" disable="true" prefWidth="150.0" promptText="Магистраль" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox fx:id="comboTNMain" disable="true" onMouseClicked="#comboSourceMClick" prefWidth="150.0" promptText="Магистраль" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <HBox layoutX="160.0" layoutY="283.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0">
