@@ -63,10 +63,12 @@ public class DerbyDBParser {
         String dbName = "PiezoDerbyDB";
         String userName = "sa";
         String userPassword = "Server510";
-        String connectionUrl = "com.microsoft.sqlserver.jdbc:sqlserver://%1$s;databaseName=%2$s;user=%3$s;password=%4$s;";
+        String connectionUrl = "jdbc:sqlserver://%1$s;databaseName=%2$s;user=%3$s;password=%4$s;";
         String connectionString = String.format(connectionUrl, serverName, dbName, userName, userPassword);
+
         //подключаемся к БД
         try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             con = DriverManager.getConnection(connectionString);
             //соединяемся
             if (con != null) {
@@ -79,7 +81,10 @@ public class DerbyDBParser {
         }
         catch (SQLException sqlE) {
             //логируем исключения
+            sqlE.printStackTrace();
             Logger.getLogger(DerbyDBParser.class.getName()).log(Level.SEVERE, null, sqlE);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 

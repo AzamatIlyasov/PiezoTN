@@ -12,5 +12,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="library" name="net.sf.jasperreports:jasperreports:6.4.1" level="project" />
     <orderEntry type="library" name="org.apache.poi:poi:3.16" level="project" />
+    <orderEntry type="library" name="com.microsoft.sqlserver:mssql-jdbc:6.2.1.jre8" level="project" />
   </component>
 </module>
