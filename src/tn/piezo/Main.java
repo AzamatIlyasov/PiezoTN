@@ -156,27 +156,6 @@ public class Main extends Application {
     }
 
     /**
-     * Задаем новые данные для расчета.
-     */
-    private void setHydraData(ArrayList hydra) {
-        hydraData.clear();
-        //создаем объект для считывания ГР
-        HydraDataClassStruct objHydraDCS;
-        //запоминаем данные
-        for (int i = 0; i < hydra.size(); i++) {
-            // каждый участок (строка) сохраняем как новый объект
-            objHydraDCS = (HydraDataClassStruct) hydra.get(i);
-            hydraData.add(new HydraC(objHydraDCS.NamePartTN, objHydraDCS.NamePartTNpred, objHydraDCS.D,
-                    objHydraDCS.L, objHydraDCS.G, objHydraDCS.Kekv, objHydraDCS.Geo, objHydraDCS.ZdanieEtaj,
-                    objHydraDCS.Hrasp_ist, objHydraDCS.W, objHydraDCS.Rud,
-                    objHydraDCS.b, objHydraDCS.Rrash, objHydraDCS.Hl, objHydraDCS.Hm, objHydraDCS.H1x, objHydraDCS.H2x,
-                    objHydraDCS.dH_fist, objHydraDCS.Hrasp_endP, i,
-                    objHydraDCS.BoilerName, objHydraDCS.MainName, objHydraDCS.BranchName));
-        }
-
-    }
-
-    /**
      * Возвращает данные в виде наблюдаемого списка участков для ПГ.
      * @return piezoData
      */
@@ -214,17 +193,10 @@ public class Main extends Application {
             Stage dialogStage = new Stage();
             PiezoChartDrawer LPchart = new PiezoChartDrawer();
             LPchart.startLayeredXyChart(dialogStage, piezoData);
-            dialogStage.setTitle("PiezoGraphic");
+            dialogStage.setTitle("Пьезометрический график");
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * Возвращает главную сцену.
-     */
-    public Stage getPrimaryStage() {
-        return primaryStage;
     }
 
     /**
@@ -347,8 +319,6 @@ public class Main extends Application {
     /**
      * Открывает диалоговое окно для изменения деталей указанного участка.
      * Если пользователь кликнул OK, то изменения сохраняются и возвращается значение true.
-     *
-     * @return true, если пользователь кликнул OK, в противном случае false.
      */
     public void showEditPartDialog() {
         try {
@@ -372,8 +342,6 @@ public class Main extends Application {
     /**
      * Открывает диалоговое окно для изменения деталей указанного колодца.
      * Если пользователь кликнул OK, то изменения сохраняются и возвращается значение true.
-     *
-     * @return true, если пользователь кликнул OK, в противном случае false.
      */
     public void showEditKolodetsDialog() {
         try {
@@ -395,10 +363,8 @@ public class Main extends Application {
     }
 
     /**
-     * Открывает диалоговое окно для изменения деталей указанного колодца.
+     * Открывает диалоговое окно для изменения деталей указанного потребителя.
      * Если пользователь кликнул OK, то изменения сохраняются и возвращается значение true.
-     *
-     * @return true, если пользователь кликнул OK, в противном случае false.
      */
     public void showEditConsumerDialog() {
         try {
@@ -777,127 +743,5 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
-
-/*
-    //Диалоговое окно для просмотра данных из датчиков (терминалов тесла2)
-    public void showSchemeGraph() {
-        try {
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Граф тепловой сети");
-            Graph graph = new Graph(hydraDataArrayList);
-            dialogStage.setScene(graph.getScene());
-            dialogStage.show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-*/
-
-    //отчеты
-    public void showReportDesign() {
-
-    }
-
-    /*
-    устраевший код (для перемещенных-удаленных) файлов
-
-     //Показывает в корневом макете интрефейс для изменения данных.
-    public void showGSOverview() {
-        try {
-            // Загружаем сведения об участках.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/GSOverview.fxml"));
-            AnchorPane gsOverview = loader.load();
-
-            // Создаём диалоговое окно Stage.
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("HydraEdit");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(primaryStage);
-            Scene scene = new Scene(gsOverview);
-            dialogStage.setScene(scene);
-
-            // Передаём участок в контроллер.
-            GSOverviewController gsOverviewController = loader.getController();
-            gsOverviewController.setDialogStage(dialogStage);
-            gsOverviewController.setMain(this);
-            // Отображаем диалоговое окно и ждём, пока пользователь его не закроет
-            dialogStage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-     //Открывает диалоговое окно для добавления нового участка.
-    public boolean showGSNewTableDialog() {
-        try {
-            // Загружаем fxml-файл и создаём новую сцену
-            // для всплывающего диалогового окна.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/GSNewTableDialog.fxml"));
-            AnchorPane page = loader.load();
-
-            // Создаём диалоговое окно Stage.
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("New Hydra table");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(primaryStage);
-            Scene scene = new Scene(page);
-            dialogStage.setScene(scene);
-
-            // Передаём участок в контроллер.
-            GSNewTableDialogController controller = loader.getController();
-            controller.setDialogStage(dialogStage);
-
-            // Отображаем диалоговое окно и ждём, пока пользователь его не закроет
-            dialogStage.showAndWait();
-            hydraDataArrayList = controller.getNewHydraData();
-            setHydraDataClassStruct(hydraDataArrayList);
-            saveDataTable(hydraDataArrayList,controller.getFileName());
-
-            return controller.isOkClicked();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    // Открывает диалоговое окно для изменения деталей указанного участка.
-    public HydraC showTPartEditDialog(HydraC hydra) {
-        HydraC hydraEditData = new HydraC();
-        try {
-            // Загружаем fxml-файл и создаём новую сцену
-            // для всплывающего диалогового окна.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/GSEditDialog.fxml"));
-            AnchorPane page = loader.load();
-
-            // Создаём диалоговое окно Stage.
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Edit Hydra table");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(primaryStage);
-            Scene scene = new Scene(page);
-            dialogStage.setScene(scene);
-
-            // Передаём участок в контроллер.
-            GSEditDialogController controller = loader.getController();
-            controller.setDialogStage(dialogStage);
-            controller.setHydra(hydra);
-
-            // Отображаем диалоговое окно и ждём, пока пользователь его не закроет
-            dialogStage.showAndWait();
-            //получаем новые измененные данные
-            hydraEditData = controller.getHydra();
-
-            return hydraEditData;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return hydraEditData;
-        }
-    }
-
-    */
 
 }
