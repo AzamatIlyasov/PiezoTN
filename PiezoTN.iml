@@ -10,35 +10,7 @@
     <content url="file://$MODULE_DIR$/out" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="inheritedJdk" />
-    <orderEntry type="library" exported="" name="sqljdbc42" level="project" />
-    <orderEntry type="library" exported="" name="poi-3.16" level="project" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../library/json/json-jena-1.0.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../library/json/org.apache.felix.webconsole-1.0.0.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../library/json/json-rpc-1.0.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
     <orderEntry type="library" name="net.sf.jasperreports:jasperreports:6.4.1" level="project" />
+    <orderEntry type="library" name="org.apache.poi:poi:3.16" level="project" />
   </component>
 </module>

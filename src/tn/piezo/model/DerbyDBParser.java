@@ -63,7 +63,7 @@ public class DerbyDBParser {
         String dbName = "PiezoDerbyDB";
         String userName = "sa";
         String userPassword = "Server510";
-        String connectionUrl = "jdbc:sqlserver://%1$s;databaseName=%2$s;user=%3$s;password=%4$s;";
+        String connectionUrl = "com.microsoft.sqlserver.jdbc:sqlserver://%1$s;databaseName=%2$s;user=%3$s;password=%4$s;";
         String connectionString = String.format(connectionUrl, serverName, dbName, userName, userPassword);
         //подключаемся к БД
         try {
